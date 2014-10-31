@@ -1,0 +1,6 @@
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, '8.0'
+    pod 'RestKit', '~> 0.20.2'
+    pod 'MBProgressHUD', '~> 0.8'
+    pod 'MSDynamicsDrawerViewController'
+    pod 'CWStatusBarNotification'

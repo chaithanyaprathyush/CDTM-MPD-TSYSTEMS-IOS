@@ -1,0 +1,752 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		65392113F816ACA52F8A13E8 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FF6CA8B4389FC3BF193CABB4 /* libPods.a */; };
+		FF5601B919FD446700B79C20 /* SmartLockTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FF5601B819FD446700B79C20 /* SmartLockTests.m */; };
+		FF5601EA19FD45DC00B79C20 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FF5601D919FD45DC00B79C20 /* AppDelegate.m */; };
+		FF5601EE19FD45DC00B79C20 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF5601E419FD45DC00B79C20 /* Images.xcassets */; };
+		FF5601EF19FD45DC00B79C20 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF5601E519FD45DC00B79C20 /* LaunchScreen.xib */; };
+		FF5601F019FD45DC00B79C20 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF5601E619FD45DC00B79C20 /* Main.storyboard */; };
+		FF5601F119FD45DC00B79C20 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FF5601E819FD45DC00B79C20 /* Info.plist */; };
+		FF5601F219FD45DC00B79C20 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FF5601E919FD45DC00B79C20 /* main.m */; };
+		FF5601F819FD496A00B79C20 /* SLRESTManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FF5601F619FD496A00B79C20 /* SLRESTManager.m */; };
+		FF5601FB19FD497A00B79C20 /* SLLock.m in Sources */ = {isa = PBXBuildFile; fileRef = FF5601FA19FD497A00B79C20 /* SLLock.m */; };
+		FF5601FE19FD498800B79C20 /* SLUser.m in Sources */ = {isa = PBXBuildFile; fileRef = FF5601FD19FD498800B79C20 /* SLUser.m */; };
+		FF56020119FD498F00B79C20 /* SLUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FF56020019FD498F00B79C20 /* SLUserManager.m */; };
+		FF56020419FD499800B79C20 /* SLLockManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FF56020319FD499800B79C20 /* SLLockManager.m */; };
+		FF56020F19FD5D3E00B79C20 /* SLLockVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FF56020E19FD5D3E00B79C20 /* SLLockVC.m */; };
+		FF56021319FD6BC100B79C20 /* UIButton+SLRound.m in Sources */ = {isa = PBXBuildFile; fileRef = FF56021219FD6BC100B79C20 /* UIButton+SLRound.m */; };
+		FFD8620719FE9D350012DD60 /* SLLockTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FFD8620619FE9D350012DD60 /* SLLockTVC.m */; };
+		FFD8620B19FEA3920012DD60 /* SLLoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FFD8620A19FEA3920012DD60 /* SLLoginVC.m */; };
+		FFE5119A1A03F0F300A993AF /* SLUser.m in Sources */ = {isa = PBXBuildFile; fileRef = FFE511991A03F0F300A993AF /* SLUser.m */; };
+		FFE5119D1A03F15900A993AF /* SmartLock.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FFE5119B1A03F15900A993AF /* SmartLock.xcdatamodeld */; };
+		FFED156A1A026F7400038990 /* BaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FFED15651A026F7400038990 /* BaseVC.m */; };
+		FFED156B1A026F7400038990 /* DrawerMenuVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FFED15671A026F7400038990 /* DrawerMenuVC.m */; };
+		FFED156C1A026F7400038990 /* DrawerRootVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FFED15691A026F7400038990 /* DrawerRootVC.m */; };
+		FFED15701A02722100038990 /* MenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FFED156F1A02722100038990 /* MenuTableViewCell.m */; };
+		FFFFAFCD1A027DFB0083F502 /* SLAccessLogEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = FFFFAFCC1A027DFB0083F502 /* SLAccessLogEntry.m */; };
+		FFFFAFD01A027F250083F502 /* SLAccessLogEntryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FFFFAFCF1A027F250083F502 /* SLAccessLogEntryManager.m */; };
+		FFFFAFD41A02816A0083F502 /* SLAccessLogEntryTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FFFFAFD31A02816A0083F502 /* SLAccessLogEntryTVC.m */; };
+		FFFFAFD71A0284380083F502 /* SLUserProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = FFFFAFD61A0284380083F502 /* SLUserProfile.m */; };
+		FFFFAFDA1A0284CC0083F502 /* SLUserProfileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FFFFAFD91A0284CC0083F502 /* SLUserProfileManager.m */; };
+		FFFFAFDE1A0287DA0083F502 /* SLAccessLogEntryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FFFFAFDD1A0287DA0083F502 /* SLAccessLogEntryTableViewCell.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FF5601B319FD446700B79C20 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FF56019119FD446700B79C20 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FF56019819FD446700B79C20;
+			remoteInfo = SmartLock;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		72CC365D4F36129B68119C1C /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		8FC91149F80BF0CE9BEC9A9F /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		FF56019919FD446700B79C20 /* SmartLock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmartLock.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF5601B219FD446700B79C20 /* SmartLockTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SmartLockTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF5601B719FD446700B79C20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FF5601B819FD446700B79C20 /* SmartLockTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SmartLockTests.m; sourceTree = "<group>"; };
+		FF5601D819FD45DC00B79C20 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		FF5601D919FD45DC00B79C20 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		FF5601E419FD45DC00B79C20 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		FF5601E519FD45DC00B79C20 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
+		FF5601E619FD45DC00B79C20 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		FF5601E819FD45DC00B79C20 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FF5601E919FD45DC00B79C20 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		FF5601F519FD496A00B79C20 /* SLRESTManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLRESTManager.h; sourceTree = "<group>"; };
+		FF5601F619FD496A00B79C20 /* SLRESTManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLRESTManager.m; sourceTree = "<group>"; };
+		FF5601F919FD497A00B79C20 /* SLLock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLLock.h; sourceTree = "<group>"; };
+		FF5601FA19FD497A00B79C20 /* SLLock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLLock.m; sourceTree = "<group>"; };
+		FF5601FC19FD498800B79C20 /* SLUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLUser.h; sourceTree = "<group>"; };
+		FF5601FD19FD498800B79C20 /* SLUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLUser.m; sourceTree = "<group>"; };
+		FF5601FF19FD498F00B79C20 /* SLUserManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLUserManager.h; sourceTree = "<group>"; };
+		FF56020019FD498F00B79C20 /* SLUserManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLUserManager.m; sourceTree = "<group>"; };
+		FF56020219FD499800B79C20 /* SLLockManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLLockManager.h; sourceTree = "<group>"; };
+		FF56020319FD499800B79C20 /* SLLockManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLLockManager.m; sourceTree = "<group>"; };
+		FF56020D19FD5D3E00B79C20 /* SLLockVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLLockVC.h; sourceTree = "<group>"; };
+		FF56020E19FD5D3E00B79C20 /* SLLockVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLLockVC.m; sourceTree = "<group>"; };
+		FF56021119FD6BC100B79C20 /* UIButton+SLRound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+SLRound.h"; sourceTree = "<group>"; };
+		FF56021219FD6BC100B79C20 /* UIButton+SLRound.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+SLRound.m"; sourceTree = "<group>"; };
+		FF6CA8B4389FC3BF193CABB4 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		FFD8620519FE9D350012DD60 /* SLLockTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLLockTVC.h; sourceTree = "<group>"; };
+		FFD8620619FE9D350012DD60 /* SLLockTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLLockTVC.m; sourceTree = "<group>"; };
+		FFD8620919FEA3920012DD60 /* SLLoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLLoginVC.h; sourceTree = "<group>"; };
+		FFD8620A19FEA3920012DD60 /* SLLoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLLoginVC.m; sourceTree = "<group>"; };
+		FFE511981A03F0F300A993AF /* SLUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLUser.h; sourceTree = "<group>"; };
+		FFE511991A03F0F300A993AF /* SLUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLUser.m; sourceTree = "<group>"; };
+		FFE5119C1A03F15900A993AF /* SmartLock.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SmartLock.xcdatamodel; sourceTree = "<group>"; };
+		FFED15641A026F7400038990 /* BaseVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseVC.h; sourceTree = "<group>"; };
+		FFED15651A026F7400038990 /* BaseVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseVC.m; sourceTree = "<group>"; };
+		FFED15661A026F7400038990 /* DrawerMenuVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawerMenuVC.h; sourceTree = "<group>"; };
+		FFED15671A026F7400038990 /* DrawerMenuVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawerMenuVC.m; sourceTree = "<group>"; };
+		FFED15681A026F7400038990 /* DrawerRootVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DrawerRootVC.h; sourceTree = "<group>"; };
+		FFED15691A026F7400038990 /* DrawerRootVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawerRootVC.m; sourceTree = "<group>"; };
+		FFED156E1A02722100038990 /* MenuTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuTableViewCell.h; sourceTree = "<group>"; };
+		FFED156F1A02722100038990 /* MenuTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuTableViewCell.m; sourceTree = "<group>"; };
+		FFFFAFCB1A027DFB0083F502 /* SLAccessLogEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLAccessLogEntry.h; sourceTree = "<group>"; };
+		FFFFAFCC1A027DFB0083F502 /* SLAccessLogEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLAccessLogEntry.m; sourceTree = "<group>"; };
+		FFFFAFCE1A027F250083F502 /* SLAccessLogEntryManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLAccessLogEntryManager.h; sourceTree = "<group>"; };
+		FFFFAFCF1A027F250083F502 /* SLAccessLogEntryManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLAccessLogEntryManager.m; sourceTree = "<group>"; };
+		FFFFAFD21A02816A0083F502 /* SLAccessLogEntryTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLAccessLogEntryTVC.h; sourceTree = "<group>"; };
+		FFFFAFD31A02816A0083F502 /* SLAccessLogEntryTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLAccessLogEntryTVC.m; sourceTree = "<group>"; };
+		FFFFAFD51A0284380083F502 /* SLUserProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLUserProfile.h; sourceTree = "<group>"; };
+		FFFFAFD61A0284380083F502 /* SLUserProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLUserProfile.m; sourceTree = "<group>"; };
+		FFFFAFD81A0284CC0083F502 /* SLUserProfileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLUserProfileManager.h; sourceTree = "<group>"; };
+		FFFFAFD91A0284CC0083F502 /* SLUserProfileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLUserProfileManager.m; sourceTree = "<group>"; };
+		FFFFAFDC1A0287DA0083F502 /* SLAccessLogEntryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLAccessLogEntryTableViewCell.h; sourceTree = "<group>"; };
+		FFFFAFDD1A0287DA0083F502 /* SLAccessLogEntryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLAccessLogEntryTableViewCell.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FF56019619FD446700B79C20 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				65392113F816ACA52F8A13E8 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FF5601AF19FD446700B79C20 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		93268EA60A814D685BA0E977 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FF6CA8B4389FC3BF193CABB4 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BA556E63503A6D096BF59AE7 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				72CC365D4F36129B68119C1C /* Pods.debug.xcconfig */,
+				8FC91149F80BF0CE9BEC9A9F /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		FF56019019FD446700B79C20 = {
+			isa = PBXGroup;
+			children = (
+				FF56019B19FD446700B79C20 /* SmartLock */,
+				FF5601B519FD446700B79C20 /* SmartLockTests */,
+				FF56019A19FD446700B79C20 /* Products */,
+				BA556E63503A6D096BF59AE7 /* Pods */,
+				93268EA60A814D685BA0E977 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		FF56019A19FD446700B79C20 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FF56019919FD446700B79C20 /* SmartLock.app */,
+				FF5601B219FD446700B79C20 /* SmartLockTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FF56019B19FD446700B79C20 /* SmartLock */ = {
+			isa = PBXGroup;
+			children = (
+				FF5601D519FD45DC00B79C20 /* Classes */,
+				FF5601E419FD45DC00B79C20 /* Images.xcassets */,
+				FF5601E519FD45DC00B79C20 /* LaunchScreen.xib */,
+				FF5601E619FD45DC00B79C20 /* Main.storyboard */,
+				FF5601E719FD45DC00B79C20 /* Supporting Files */,
+			);
+			path = SmartLock;
+			sourceTree = "<group>";
+		};
+		FF5601B519FD446700B79C20 /* SmartLockTests */ = {
+			isa = PBXGroup;
+			children = (
+				FF5601B819FD446700B79C20 /* SmartLockTests.m */,
+				FF5601B619FD446700B79C20 /* Supporting Files */,
+			);
+			path = SmartLockTests;
+			sourceTree = "<group>";
+		};
+		FF5601B619FD446700B79C20 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FF5601B719FD446700B79C20 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FF5601D519FD45DC00B79C20 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				FF5601DD19FD45DC00B79C20 /* Models */,
+				FF5601D619FD45DC00B79C20 /* Controllers */,
+				FF5601E319FD45DC00B79C20 /* Views */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		FF5601D619FD45DC00B79C20 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				FF5601D719FD45DC00B79C20 /* _AppDelegate */,
+				FF56020C19FD5D3E00B79C20 /* LockVC */,
+				FFD8620419FE9D250012DD60 /* LockTVC */,
+				FFD8620819FEA3850012DD60 /* LoginVC */,
+				FFED15631A026F7400038990 /* Menu */,
+				FFFFAFD11A0280490083F502 /* AccessLogEntryTVC */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		FF5601D719FD45DC00B79C20 /* _AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				FF5601D819FD45DC00B79C20 /* AppDelegate.h */,
+				FF5601D919FD45DC00B79C20 /* AppDelegate.m */,
+			);
+			path = _AppDelegate;
+			sourceTree = "<group>";
+		};
+		FF5601DD19FD45DC00B79C20 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FFE511971A03F0F300A993AF /* GeneratedModels */,
+				FFFFAFCA1A027DED0083F502 /* SLAccessLogEntry */,
+				FF5601F319FD496A00B79C20 /* SLLock */,
+				FF5601F419FD496A00B79C20 /* SLRESTManager */,
+				FF5601F719FD496A00B79C20 /* SLUser */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		FF5601E319FD45DC00B79C20 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FFFFAFDB1A0287BC0083F502 /* AccessLogEntry */,
+				FFED156D1A02722100038990 /* Menu */,
+				FF56021019FD6BAF00B79C20 /* Button */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		FF5601E719FD45DC00B79C20 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FF5601E819FD45DC00B79C20 /* Info.plist */,
+				FF5601E919FD45DC00B79C20 /* main.m */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FF5601F319FD496A00B79C20 /* SLLock */ = {
+			isa = PBXGroup;
+			children = (
+				FF5601F919FD497A00B79C20 /* SLLock.h */,
+				FF5601FA19FD497A00B79C20 /* SLLock.m */,
+				FF56020219FD499800B79C20 /* SLLockManager.h */,
+				FF56020319FD499800B79C20 /* SLLockManager.m */,
+			);
+			path = SLLock;
+			sourceTree = "<group>";
+		};
+		FF5601F419FD496A00B79C20 /* SLRESTManager */ = {
+			isa = PBXGroup;
+			children = (
+				FF5601F519FD496A00B79C20 /* SLRESTManager.h */,
+				FF5601F619FD496A00B79C20 /* SLRESTManager.m */,
+			);
+			path = SLRESTManager;
+			sourceTree = "<group>";
+		};
+		FF5601F719FD496A00B79C20 /* SLUser */ = {
+			isa = PBXGroup;
+			children = (
+				FF5601FC19FD498800B79C20 /* SLUser.h */,
+				FF5601FD19FD498800B79C20 /* SLUser.m */,
+				FF5601FF19FD498F00B79C20 /* SLUserManager.h */,
+				FF56020019FD498F00B79C20 /* SLUserManager.m */,
+				FFFFAFD51A0284380083F502 /* SLUserProfile.h */,
+				FFFFAFD61A0284380083F502 /* SLUserProfile.m */,
+				FFFFAFD81A0284CC0083F502 /* SLUserProfileManager.h */,
+				FFFFAFD91A0284CC0083F502 /* SLUserProfileManager.m */,
+			);
+			path = SLUser;
+			sourceTree = "<group>";
+		};
+		FF56020C19FD5D3E00B79C20 /* LockVC */ = {
+			isa = PBXGroup;
+			children = (
+				FF56020D19FD5D3E00B79C20 /* SLLockVC.h */,
+				FF56020E19FD5D3E00B79C20 /* SLLockVC.m */,
+			);
+			path = LockVC;
+			sourceTree = "<group>";
+		};
+		FF56021019FD6BAF00B79C20 /* Button */ = {
+			isa = PBXGroup;
+			children = (
+				FF56021119FD6BC100B79C20 /* UIButton+SLRound.h */,
+				FF56021219FD6BC100B79C20 /* UIButton+SLRound.m */,
+			);
+			path = Button;
+			sourceTree = "<group>";
+		};
+		FFD8620419FE9D250012DD60 /* LockTVC */ = {
+			isa = PBXGroup;
+			children = (
+				FFD8620519FE9D350012DD60 /* SLLockTVC.h */,
+				FFD8620619FE9D350012DD60 /* SLLockTVC.m */,
+			);
+			path = LockTVC;
+			sourceTree = "<group>";
+		};
+		FFD8620819FEA3850012DD60 /* LoginVC */ = {
+			isa = PBXGroup;
+			children = (
+				FFD8620919FEA3920012DD60 /* SLLoginVC.h */,
+				FFD8620A19FEA3920012DD60 /* SLLoginVC.m */,
+			);
+			path = LoginVC;
+			sourceTree = "<group>";
+		};
+		FFE511971A03F0F300A993AF /* GeneratedModels */ = {
+			isa = PBXGroup;
+			children = (
+				FFE5119B1A03F15900A993AF /* SmartLock.xcdatamodeld */,
+				FFE511981A03F0F300A993AF /* SLUser.h */,
+				FFE511991A03F0F300A993AF /* SLUser.m */,
+			);
+			path = GeneratedModels;
+			sourceTree = "<group>";
+		};
+		FFED15631A026F7400038990 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				FFED15641A026F7400038990 /* BaseVC.h */,
+				FFED15651A026F7400038990 /* BaseVC.m */,
+				FFED15661A026F7400038990 /* DrawerMenuVC.h */,
+				FFED15671A026F7400038990 /* DrawerMenuVC.m */,
+				FFED15681A026F7400038990 /* DrawerRootVC.h */,
+				FFED15691A026F7400038990 /* DrawerRootVC.m */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
+		FFED156D1A02722100038990 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				FFED156E1A02722100038990 /* MenuTableViewCell.h */,
+				FFED156F1A02722100038990 /* MenuTableViewCell.m */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
+		FFFFAFCA1A027DED0083F502 /* SLAccessLogEntry */ = {
+			isa = PBXGroup;
+			children = (
+				FFFFAFCB1A027DFB0083F502 /* SLAccessLogEntry.h */,
+				FFFFAFCC1A027DFB0083F502 /* SLAccessLogEntry.m */,
+				FFFFAFCE1A027F250083F502 /* SLAccessLogEntryManager.h */,
+				FFFFAFCF1A027F250083F502 /* SLAccessLogEntryManager.m */,
+			);
+			path = SLAccessLogEntry;
+			sourceTree = "<group>";
+		};
+		FFFFAFD11A0280490083F502 /* AccessLogEntryTVC */ = {
+			isa = PBXGroup;
+			children = (
+				FFFFAFD21A02816A0083F502 /* SLAccessLogEntryTVC.h */,
+				FFFFAFD31A02816A0083F502 /* SLAccessLogEntryTVC.m */,
+			);
+			path = AccessLogEntryTVC;
+			sourceTree = "<group>";
+		};
+		FFFFAFDB1A0287BC0083F502 /* AccessLogEntry */ = {
+			isa = PBXGroup;
+			children = (
+				FFFFAFDC1A0287DA0083F502 /* SLAccessLogEntryTableViewCell.h */,
+				FFFFAFDD1A0287DA0083F502 /* SLAccessLogEntryTableViewCell.m */,
+			);
+			path = AccessLogEntry;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FF56019819FD446700B79C20 /* SmartLock */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FF5601BC19FD446700B79C20 /* Build configuration list for PBXNativeTarget "SmartLock" */;
+			buildPhases = (
+				C80AA5D2A0B3AE99F73BC0C3 /* Check Pods Manifest.lock */,
+				FF56019519FD446700B79C20 /* Sources */,
+				FF56019619FD446700B79C20 /* Frameworks */,
+				FF56019719FD446700B79C20 /* Resources */,
+				A82CB4C8A0DA89B629E5CA73 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SmartLock;
+			productName = SmartLock;
+			productReference = FF56019919FD446700B79C20 /* SmartLock.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FF5601B119FD446700B79C20 /* SmartLockTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FF5601BF19FD446700B79C20 /* Build configuration list for PBXNativeTarget "SmartLockTests" */;
+			buildPhases = (
+				FF5601AE19FD446700B79C20 /* Sources */,
+				FF5601AF19FD446700B79C20 /* Frameworks */,
+				FF5601B019FD446700B79C20 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FF5601B419FD446700B79C20 /* PBXTargetDependency */,
+			);
+			name = SmartLockTests;
+			productName = SmartLockTests;
+			productReference = FF5601B219FD446700B79C20 /* SmartLockTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FF56019119FD446700B79C20 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = SL;
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = "Center for Digital Management";
+				TargetAttributes = {
+					FF56019819FD446700B79C20 = {
+						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = 2CNB573JD7;
+					};
+					FF5601B119FD446700B79C20 = {
+						CreatedOnToolsVersion = 6.1;
+						TestTargetID = FF56019819FD446700B79C20;
+					};
+				};
+			};
+			buildConfigurationList = FF56019419FD446700B79C20 /* Build configuration list for PBXProject "SmartLock" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FF56019019FD446700B79C20;
+			productRefGroup = FF56019A19FD446700B79C20 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FF56019819FD446700B79C20 /* SmartLock */,
+				FF5601B119FD446700B79C20 /* SmartLockTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FF56019719FD446700B79C20 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FF5601F119FD45DC00B79C20 /* Info.plist in Resources */,
+				FF5601F019FD45DC00B79C20 /* Main.storyboard in Resources */,
+				FF5601EF19FD45DC00B79C20 /* LaunchScreen.xib in Resources */,
+				FF5601EE19FD45DC00B79C20 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FF5601B019FD446700B79C20 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A82CB4C8A0DA89B629E5CA73 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C80AA5D2A0B3AE99F73BC0C3 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FF56019519FD446700B79C20 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FF56020119FD498F00B79C20 /* SLUserManager.m in Sources */,
+				FFED156A1A026F7400038990 /* BaseVC.m in Sources */,
+				FFFFAFCD1A027DFB0083F502 /* SLAccessLogEntry.m in Sources */,
+				FFED156B1A026F7400038990 /* DrawerMenuVC.m in Sources */,
+				FF5601F219FD45DC00B79C20 /* main.m in Sources */,
+				FF5601FE19FD498800B79C20 /* SLUser.m in Sources */,
+				FF56021319FD6BC100B79C20 /* UIButton+SLRound.m in Sources */,
+				FFFFAFDA1A0284CC0083F502 /* SLUserProfileManager.m in Sources */,
+				FFD8620B19FEA3920012DD60 /* SLLoginVC.m in Sources */,
+				FFED15701A02722100038990 /* MenuTableViewCell.m in Sources */,
+				FF5601FB19FD497A00B79C20 /* SLLock.m in Sources */,
+				FF56020F19FD5D3E00B79C20 /* SLLockVC.m in Sources */,
+				FFFFAFD71A0284380083F502 /* SLUserProfile.m in Sources */,
+				FF56020419FD499800B79C20 /* SLLockManager.m in Sources */,
+				FF5601F819FD496A00B79C20 /* SLRESTManager.m in Sources */,
+				FFFFAFD01A027F250083F502 /* SLAccessLogEntryManager.m in Sources */,
+				FFFFAFD41A02816A0083F502 /* SLAccessLogEntryTVC.m in Sources */,
+				FF5601EA19FD45DC00B79C20 /* AppDelegate.m in Sources */,
+				FFE5119D1A03F15900A993AF /* SmartLock.xcdatamodeld in Sources */,
+				FFD8620719FE9D350012DD60 /* SLLockTVC.m in Sources */,
+				FFE5119A1A03F0F300A993AF /* SLUser.m in Sources */,
+				FFFFAFDE1A0287DA0083F502 /* SLAccessLogEntryTableViewCell.m in Sources */,
+				FFED156C1A026F7400038990 /* DrawerRootVC.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FF5601AE19FD446700B79C20 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FF5601B919FD446700B79C20 /* SmartLockTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FF5601B419FD446700B79C20 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FF56019819FD446700B79C20 /* SmartLock */;
+			targetProxy = FF5601B319FD446700B79C20 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		FF5601BA19FD446700B79C20 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		FF5601BB19FD446700B79C20 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FF5601BD19FD446700B79C20 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 72CC365D4F36129B68119C1C /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = "$(SRCROOT)/SmartLock/Supporting Files/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		FF5601BE19FD446700B79C20 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8FC91149F80BF0CE9BEC9A9F /* Pods.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				INFOPLIST_FILE = "$(SRCROOT)/SmartLock/Supporting Files/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		FF5601C019FD446700B79C20 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SmartLockTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SmartLock.app/SmartLock";
+			};
+			name = Debug;
+		};
+		FF5601C119FD446700B79C20 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = SmartLockTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SmartLock.app/SmartLock";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FF56019419FD446700B79C20 /* Build configuration list for PBXProject "SmartLock" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FF5601BA19FD446700B79C20 /* Debug */,
+				FF5601BB19FD446700B79C20 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FF5601BC19FD446700B79C20 /* Build configuration list for PBXNativeTarget "SmartLock" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FF5601BD19FD446700B79C20 /* Debug */,
+				FF5601BE19FD446700B79C20 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FF5601BF19FD446700B79C20 /* Build configuration list for PBXNativeTarget "SmartLockTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FF5601C019FD446700B79C20 /* Debug */,
+				FF5601C119FD446700B79C20 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		FFE5119B1A03F15900A993AF /* SmartLock.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				FFE5119C1A03F15900A993AF /* SmartLock.xcdatamodel */,
+			);
+			currentVersion = FFE5119C1A03F15900A993AF /* SmartLock.xcdatamodel */;
+			path = SmartLock.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = FF56019119FD446700B79C20 /* Project object */;
+}
