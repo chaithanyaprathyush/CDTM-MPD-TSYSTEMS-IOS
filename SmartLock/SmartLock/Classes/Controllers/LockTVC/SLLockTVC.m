@@ -13,9 +13,9 @@
 #import "SLLoginVC.h"
 #import "DrawerRootVC.h"
 
-@interface SLLockTVC ()
+@interface SLLockTVC () <NSFetchedResultsControllerDelegate>
 
-@property (nonatomic, retain) NSArray *locks;
+@property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
 
 @end
 
@@ -24,6 +24,27 @@
 - (void)viewDidLoad
 {
 	[super viewDidLoad];
+    
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:NSStringFromClass([SLLock class])];
+    NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:NO];
+    fetchRequest.sortDescriptors = @[descriptor];
+    
+    // Setup fetched results
+    NSError *error = nil;
+    self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest
+                                                                        managedObjectContext:[RKManagedObjectStore defaultStore].mainQueueManagedObjectContext
+                                                                          sectionNameKeyPath:nil
+                                                                                   cacheName:nil];
+    
+    [self.fetchedResultsController setDelegate:self];
+    self.fetchedResultsController.delegate = self;
+    
+    BOOL fetchSuccessful = [self.fetchedResultsController performFetch:&error];
+    if (!fetchSuccessful) {
+        NSLog(@"Error: %@", error);
+    } else {
+        NSLog(@"SUCCESS: Locks in db: %@", [self.fetchedResultsController fetchedObjects]);
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -40,7 +61,6 @@
 			 if (error) {
 				 NSLog(@"Error: %@", error);
 			 } else {
-				 self.locks = locks;
 				 [self.tableView reloadData];
 			 }
 		 }];
@@ -55,12 +75,14 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-	return 1;
+//    NSLog(@"#sections: %lu", (unsigned long)[self.fetchedResultsController.sections count]);
+	return [self.fetchedResultsController.sections count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-	return [self.locks count];
+//    NSLog(@"#objects for section %lu: %lu", section, [self.fetchedResultsController.sections[section] numberOfObjects]);
+	return [self.fetchedResultsController.sections[section] numberOfObjects];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -68,7 +90,7 @@
 	static NSString *cellIdentifier = @"lockCellID";
 	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
 
-	SLLock *lock = self.locks[indexPath.row];
+	SLLock *lock = [self.fetchedResultsController objectAtIndexPath:indexPath];
 
 	cell.textLabel.text = lock.name;
 	cell.detailTextLabel.text = lock.status;
@@ -80,7 +102,7 @@
 {
 	if ([segue.identifier isEqual:@"showLock"]) {
 		SLLockVC *lockVC = segue.destinationViewController;
-		lockVC.lock = self.locks[[self.tableView indexPathForSelectedRow].row];
+		lockVC.lock = [self.fetchedResultsController objectAtIndexPath:[self.tableView indexPathForSelectedRow]];
 	}
 }
 
@@ -91,7 +113,19 @@
 
 - (IBAction)didTouchMenuButton:(id)sender
 {
-    [[DrawerRootVC sharedInstance] showMenu];
+	[[DrawerRootVC sharedInstance] showMenu];
+}
+
+#pragma mark <NSFetchedResultsControllerDelegate>
+
+- (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath
+{
+
+}
+
+- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
+{
+    [self.tableView reloadData];
 }
 
 @end

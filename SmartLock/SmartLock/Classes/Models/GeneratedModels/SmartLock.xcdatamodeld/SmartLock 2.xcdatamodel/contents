@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6252" systemVersion="14A389" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="SLAccessLogEntry" representedClassName="SLAccessLogEntry" syncable="YES">
+        <attribute name="accessLogEntryID" attributeType="Integer 64" defaultValueString="0" indexed="YES" syncable="YES"/>
+        <attribute name="action" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="createdAt" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="keyID" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <relationship name="lock" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SLLock" inverseName="accessLogEntries" inverseEntity="SLLock" syncable="YES"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SLUser" inverseName="accessLogEntries" inverseEntity="SLUser" syncable="YES"/>
+    </entity>
+    <entity name="SLLock" representedClassName="SLLock" syncable="YES">
+        <attribute name="createdAt" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="lastModifiedAt" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="locationLat" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="locationLon" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="lockID" attributeType="Integer 64" defaultValueString="0" indexed="YES" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="status" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="accessLogEntries" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SLAccessLogEntry" inverseName="lock" inverseEntity="SLAccessLogEntry" syncable="YES"/>
+    </entity>
+    <entity name="SLUser" representedClassName="SLUser" syncable="YES">
+        <attribute name="email" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
+        <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="joinedAt" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="password" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userID" attributeType="Integer 64" defaultValueString="0" indexed="YES" syncable="YES"/>
+        <attribute name="username" attributeType="String" indexed="YES" syncable="YES"/>
+        <relationship name="accessLogEntries" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SLAccessLogEntry" inverseName="user" inverseEntity="SLAccessLogEntry" syncable="YES"/>
+        <relationship name="userProfile" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SLUserProfile" inverseName="user" inverseEntity="SLUserProfile" syncable="YES"/>
+    </entity>
+    <entity name="SLUserProfile" representedClassName="SLUserProfile" syncable="YES">
+        <attribute name="avatarImage" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="avatarURL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userProfileID" attributeType="Integer 64" defaultValueString="0" indexed="YES" syncable="YES"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="SLUser" inverseName="userProfile" inverseEntity="SLUser" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="SLUser" positionX="34" positionY="-72" width="128" height="178"/>
+        <element name="SLLock" positionX="36" positionY="203" width="128" height="163"/>
+        <element name="SLUserProfile" positionX="-270" positionY="-76" width="128" height="103"/>
+        <element name="SLAccessLogEntry" positionX="313" positionY="45" width="128" height="133"/>
+    </elements>
+</model>

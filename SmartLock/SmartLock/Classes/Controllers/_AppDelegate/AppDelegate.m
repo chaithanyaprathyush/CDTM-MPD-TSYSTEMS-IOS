@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "SLRESTManager.h"
 
 @interface AppDelegate ()
 
@@ -16,7 +17,10 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+
+    // Call this to init + setup SLRESTManager
+    [SLRESTManager sharedManager];
+    
     return YES;
 }
 

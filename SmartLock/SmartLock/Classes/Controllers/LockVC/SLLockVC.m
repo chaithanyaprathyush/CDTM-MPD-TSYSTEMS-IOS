@@ -10,6 +10,7 @@
 #import "SLUserManager.h"
 #import "SLLockManager.h"
 #import "UIButton+SLRound.h"
+#import "SLLock+SLUtils.h"
 
 @interface SLLockVC ()
 
@@ -36,7 +37,7 @@
 
 - (void)refreshLockInformation
 {
-    [[SLLockManager sharedManager] fetchLockWithIdentifier:self.lock.identifier completionHandler:^(NSError *error, SLLock *lock) {
+    [[SLLockManager sharedManager] fetchLockWithIdentifier:self.lock.lockID completionHandler:^(NSError *error, SLLock *lock) {
         self.lock = lock;
         [self updateView];
     }];

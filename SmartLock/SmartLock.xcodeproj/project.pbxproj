@@ -15,26 +15,32 @@
 		FF5601F019FD45DC00B79C20 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF5601E619FD45DC00B79C20 /* Main.storyboard */; };
 		FF5601F119FD45DC00B79C20 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FF5601E819FD45DC00B79C20 /* Info.plist */; };
 		FF5601F219FD45DC00B79C20 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FF5601E919FD45DC00B79C20 /* main.m */; };
-		FF5601F819FD496A00B79C20 /* SLRESTManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FF5601F619FD496A00B79C20 /* SLRESTManager.m */; };
-		FF5601FB19FD497A00B79C20 /* SLLock.m in Sources */ = {isa = PBXBuildFile; fileRef = FF5601FA19FD497A00B79C20 /* SLLock.m */; };
-		FF5601FE19FD498800B79C20 /* SLUser.m in Sources */ = {isa = PBXBuildFile; fileRef = FF5601FD19FD498800B79C20 /* SLUser.m */; };
-		FF56020119FD498F00B79C20 /* SLUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FF56020019FD498F00B79C20 /* SLUserManager.m */; };
-		FF56020419FD499800B79C20 /* SLLockManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FF56020319FD499800B79C20 /* SLLockManager.m */; };
 		FF56020F19FD5D3E00B79C20 /* SLLockVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FF56020E19FD5D3E00B79C20 /* SLLockVC.m */; };
 		FF56021319FD6BC100B79C20 /* UIButton+SLRound.m in Sources */ = {isa = PBXBuildFile; fileRef = FF56021219FD6BC100B79C20 /* UIButton+SLRound.m */; };
+		FF97A1D61A03F310004B7E98 /* SLAccessLogEntryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FF97A1CC1A03F310004B7E98 /* SLAccessLogEntryManager.m */; };
+		FF97A1D71A03F310004B7E98 /* SLLockManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FF97A1CE1A03F310004B7E98 /* SLLockManager.m */; };
+		FF97A1D81A03F310004B7E98 /* SLUserManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FF97A1D01A03F310004B7E98 /* SLUserManager.m */; };
+		FF97A1D91A03F310004B7E98 /* SLUserProfileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FF97A1D21A03F310004B7E98 /* SLUserProfileManager.m */; };
+		FF97A1DA1A03F310004B7E98 /* SLRESTManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FF97A1D51A03F310004B7E98 /* SLRESTManager.m */; };
+		FF97A1DD1A0403A7004B7E98 /* SLUser+SLRESTAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = FF97A1DC1A0403A7004B7E98 /* SLUser+SLRESTAPI.m */; };
+		FF97A1DF1A040529004B7E98 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF97A1DE1A040529004B7E98 /* CoreData.framework */; };
 		FFD8620719FE9D350012DD60 /* SLLockTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FFD8620619FE9D350012DD60 /* SLLockTVC.m */; };
 		FFD8620B19FEA3920012DD60 /* SLLoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FFD8620A19FEA3920012DD60 /* SLLoginVC.m */; };
-		FFE5119A1A03F0F300A993AF /* SLUser.m in Sources */ = {isa = PBXBuildFile; fileRef = FFE511991A03F0F300A993AF /* SLUser.m */; };
 		FFE5119D1A03F15900A993AF /* SmartLock.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FFE5119B1A03F15900A993AF /* SmartLock.xcdatamodeld */; };
 		FFED156A1A026F7400038990 /* BaseVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FFED15651A026F7400038990 /* BaseVC.m */; };
 		FFED156B1A026F7400038990 /* DrawerMenuVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FFED15671A026F7400038990 /* DrawerMenuVC.m */; };
 		FFED156C1A026F7400038990 /* DrawerRootVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FFED15691A026F7400038990 /* DrawerRootVC.m */; };
 		FFED15701A02722100038990 /* MenuTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FFED156F1A02722100038990 /* MenuTableViewCell.m */; };
-		FFFFAFCD1A027DFB0083F502 /* SLAccessLogEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = FFFFAFCC1A027DFB0083F502 /* SLAccessLogEntry.m */; };
-		FFFFAFD01A027F250083F502 /* SLAccessLogEntryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FFFFAFCF1A027F250083F502 /* SLAccessLogEntryManager.m */; };
+		FFF47EEE1A051F6700AE259B /* SLLock+SLRESTAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF47EED1A051F6700AE259B /* SLLock+SLRESTAPI.m */; };
+		FFF47EF11A051F8000AE259B /* SLUserProfile+SLRESTAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF47EF01A051F8000AE259B /* SLUserProfile+SLRESTAPI.m */; };
+		FFF47EF41A051F8B00AE259B /* SLAccessLogEntry+SLRESTAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF47EF31A051F8B00AE259B /* SLAccessLogEntry+SLRESTAPI.m */; };
+		FFF47F051A05271900AE259B /* SLAccessLogEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF47F041A05271900AE259B /* SLAccessLogEntry.m */; };
+		FFF47F081A05271A00AE259B /* SLLock.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF47F071A05271A00AE259B /* SLLock.m */; };
+		FFF47F0B1A05271A00AE259B /* SLUser.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF47F0A1A05271A00AE259B /* SLUser.m */; };
+		FFF47F0E1A05271A00AE259B /* SLUserProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF47F0D1A05271A00AE259B /* SLUserProfile.m */; };
+		FFF47F111A052D1F00AE259B /* SLLock+SLUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF47F101A052D1F00AE259B /* SLLock+SLUtils.m */; };
+		FFF47F1A1A06754600AE259B /* KHCoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FFF47F191A06754600AE259B /* KHCoreDataManager.m */; };
 		FFFFAFD41A02816A0083F502 /* SLAccessLogEntryTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FFFFAFD31A02816A0083F502 /* SLAccessLogEntryTVC.m */; };
-		FFFFAFD71A0284380083F502 /* SLUserProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = FFFFAFD61A0284380083F502 /* SLUserProfile.m */; };
-		FFFFAFDA1A0284CC0083F502 /* SLUserProfileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FFFFAFD91A0284CC0083F502 /* SLUserProfileManager.m */; };
 		FFFFAFDE1A0287DA0083F502 /* SLAccessLogEntryTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FFFFAFDD1A0287DA0083F502 /* SLAccessLogEntryTableViewCell.m */; };
 /* End PBXBuildFile section */
 
@@ -62,27 +68,28 @@
 		FF5601E619FD45DC00B79C20 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		FF5601E819FD45DC00B79C20 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FF5601E919FD45DC00B79C20 /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		FF5601F519FD496A00B79C20 /* SLRESTManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLRESTManager.h; sourceTree = "<group>"; };
-		FF5601F619FD496A00B79C20 /* SLRESTManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLRESTManager.m; sourceTree = "<group>"; };
-		FF5601F919FD497A00B79C20 /* SLLock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLLock.h; sourceTree = "<group>"; };
-		FF5601FA19FD497A00B79C20 /* SLLock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLLock.m; sourceTree = "<group>"; };
-		FF5601FC19FD498800B79C20 /* SLUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLUser.h; sourceTree = "<group>"; };
-		FF5601FD19FD498800B79C20 /* SLUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLUser.m; sourceTree = "<group>"; };
-		FF5601FF19FD498F00B79C20 /* SLUserManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLUserManager.h; sourceTree = "<group>"; };
-		FF56020019FD498F00B79C20 /* SLUserManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLUserManager.m; sourceTree = "<group>"; };
-		FF56020219FD499800B79C20 /* SLLockManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLLockManager.h; sourceTree = "<group>"; };
-		FF56020319FD499800B79C20 /* SLLockManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLLockManager.m; sourceTree = "<group>"; };
 		FF56020D19FD5D3E00B79C20 /* SLLockVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLLockVC.h; sourceTree = "<group>"; };
 		FF56020E19FD5D3E00B79C20 /* SLLockVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLLockVC.m; sourceTree = "<group>"; };
 		FF56021119FD6BC100B79C20 /* UIButton+SLRound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+SLRound.h"; sourceTree = "<group>"; };
 		FF56021219FD6BC100B79C20 /* UIButton+SLRound.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+SLRound.m"; sourceTree = "<group>"; };
 		FF6CA8B4389FC3BF193CABB4 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF97A1CB1A03F310004B7E98 /* SLAccessLogEntryManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLAccessLogEntryManager.h; sourceTree = "<group>"; };
+		FF97A1CC1A03F310004B7E98 /* SLAccessLogEntryManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLAccessLogEntryManager.m; sourceTree = "<group>"; };
+		FF97A1CD1A03F310004B7E98 /* SLLockManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLLockManager.h; sourceTree = "<group>"; };
+		FF97A1CE1A03F310004B7E98 /* SLLockManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLLockManager.m; sourceTree = "<group>"; };
+		FF97A1CF1A03F310004B7E98 /* SLUserManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLUserManager.h; sourceTree = "<group>"; };
+		FF97A1D01A03F310004B7E98 /* SLUserManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLUserManager.m; sourceTree = "<group>"; };
+		FF97A1D11A03F310004B7E98 /* SLUserProfileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLUserProfileManager.h; sourceTree = "<group>"; };
+		FF97A1D21A03F310004B7E98 /* SLUserProfileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLUserProfileManager.m; sourceTree = "<group>"; };
+		FF97A1D41A03F310004B7E98 /* SLRESTManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLRESTManager.h; sourceTree = "<group>"; };
+		FF97A1D51A03F310004B7E98 /* SLRESTManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLRESTManager.m; sourceTree = "<group>"; };
+		FF97A1DB1A0403A7004B7E98 /* SLUser+SLRESTAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SLUser+SLRESTAPI.h"; sourceTree = "<group>"; };
+		FF97A1DC1A0403A7004B7E98 /* SLUser+SLRESTAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SLUser+SLRESTAPI.m"; sourceTree = "<group>"; };
+		FF97A1DE1A040529004B7E98 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		FFD8620519FE9D350012DD60 /* SLLockTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLLockTVC.h; sourceTree = "<group>"; };
 		FFD8620619FE9D350012DD60 /* SLLockTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLLockTVC.m; sourceTree = "<group>"; };
 		FFD8620919FEA3920012DD60 /* SLLoginVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLLoginVC.h; sourceTree = "<group>"; };
 		FFD8620A19FEA3920012DD60 /* SLLoginVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLLoginVC.m; sourceTree = "<group>"; };
-		FFE511981A03F0F300A993AF /* SLUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLUser.h; sourceTree = "<group>"; };
-		FFE511991A03F0F300A993AF /* SLUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLUser.m; sourceTree = "<group>"; };
 		FFE5119C1A03F15900A993AF /* SmartLock.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SmartLock.xcdatamodel; sourceTree = "<group>"; };
 		FFED15641A026F7400038990 /* BaseVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseVC.h; sourceTree = "<group>"; };
 		FFED15651A026F7400038990 /* BaseVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseVC.m; sourceTree = "<group>"; };
@@ -92,16 +99,33 @@
 		FFED15691A026F7400038990 /* DrawerRootVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DrawerRootVC.m; sourceTree = "<group>"; };
 		FFED156E1A02722100038990 /* MenuTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MenuTableViewCell.h; sourceTree = "<group>"; };
 		FFED156F1A02722100038990 /* MenuTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MenuTableViewCell.m; sourceTree = "<group>"; };
-		FFFFAFCB1A027DFB0083F502 /* SLAccessLogEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLAccessLogEntry.h; sourceTree = "<group>"; };
-		FFFFAFCC1A027DFB0083F502 /* SLAccessLogEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLAccessLogEntry.m; sourceTree = "<group>"; };
-		FFFFAFCE1A027F250083F502 /* SLAccessLogEntryManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLAccessLogEntryManager.h; sourceTree = "<group>"; };
-		FFFFAFCF1A027F250083F502 /* SLAccessLogEntryManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLAccessLogEntryManager.m; sourceTree = "<group>"; };
+		FFF47EE11A05168300AE259B /* SmartLock 2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "SmartLock 2.xcdatamodel"; sourceTree = "<group>"; };
+		FFF47EE21A051BAE00AE259B /* SmartLock 3.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "SmartLock 3.xcdatamodel"; sourceTree = "<group>"; };
+		FFF47EEC1A051F6700AE259B /* SLLock+SLRESTAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SLLock+SLRESTAPI.h"; sourceTree = "<group>"; };
+		FFF47EED1A051F6700AE259B /* SLLock+SLRESTAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SLLock+SLRESTAPI.m"; sourceTree = "<group>"; };
+		FFF47EEF1A051F8000AE259B /* SLUserProfile+SLRESTAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SLUserProfile+SLRESTAPI.h"; sourceTree = "<group>"; };
+		FFF47EF01A051F8000AE259B /* SLUserProfile+SLRESTAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SLUserProfile+SLRESTAPI.m"; sourceTree = "<group>"; };
+		FFF47EF21A051F8B00AE259B /* SLAccessLogEntry+SLRESTAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SLAccessLogEntry+SLRESTAPI.h"; sourceTree = "<group>"; };
+		FFF47EF31A051F8B00AE259B /* SLAccessLogEntry+SLRESTAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SLAccessLogEntry+SLRESTAPI.m"; sourceTree = "<group>"; };
+		FFF47EF51A05231800AE259B /* SmartLock 4.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "SmartLock 4.xcdatamodel"; sourceTree = "<group>"; };
+		FFF47F021A0526F000AE259B /* SmartLock 5.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "SmartLock 5.xcdatamodel"; sourceTree = "<group>"; };
+		FFF47F031A05271900AE259B /* SLAccessLogEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLAccessLogEntry.h; sourceTree = "<group>"; };
+		FFF47F041A05271900AE259B /* SLAccessLogEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLAccessLogEntry.m; sourceTree = "<group>"; };
+		FFF47F061A05271A00AE259B /* SLLock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLLock.h; sourceTree = "<group>"; };
+		FFF47F071A05271A00AE259B /* SLLock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLLock.m; sourceTree = "<group>"; };
+		FFF47F091A05271A00AE259B /* SLUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLUser.h; sourceTree = "<group>"; };
+		FFF47F0A1A05271A00AE259B /* SLUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLUser.m; sourceTree = "<group>"; };
+		FFF47F0C1A05271A00AE259B /* SLUserProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLUserProfile.h; sourceTree = "<group>"; };
+		FFF47F0D1A05271A00AE259B /* SLUserProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLUserProfile.m; sourceTree = "<group>"; };
+		FFF47F0F1A052D1F00AE259B /* SLLock+SLUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SLLock+SLUtils.h"; sourceTree = "<group>"; };
+		FFF47F101A052D1F00AE259B /* SLLock+SLUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "SLLock+SLUtils.m"; sourceTree = "<group>"; };
+		FFF47F121A0533D300AE259B /* SmartLock 6.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "SmartLock 6.xcdatamodel"; sourceTree = "<group>"; };
+		FFF47F131A05D84100AE259B /* SmartLock 7.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "SmartLock 7.xcdatamodel"; sourceTree = "<group>"; };
+		FFF47F141A05DF9D00AE259B /* SmartLock 8.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "SmartLock 8.xcdatamodel"; sourceTree = "<group>"; };
+		FFF47F181A06754600AE259B /* KHCoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = KHCoreDataManager.h; path = "REST-API/KHCoreDataManager.h"; sourceTree = "<group>"; };
+		FFF47F191A06754600AE259B /* KHCoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = KHCoreDataManager.m; path = "REST-API/KHCoreDataManager.m"; sourceTree = "<group>"; };
 		FFFFAFD21A02816A0083F502 /* SLAccessLogEntryTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLAccessLogEntryTVC.h; sourceTree = "<group>"; };
 		FFFFAFD31A02816A0083F502 /* SLAccessLogEntryTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLAccessLogEntryTVC.m; sourceTree = "<group>"; };
-		FFFFAFD51A0284380083F502 /* SLUserProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLUserProfile.h; sourceTree = "<group>"; };
-		FFFFAFD61A0284380083F502 /* SLUserProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLUserProfile.m; sourceTree = "<group>"; };
-		FFFFAFD81A0284CC0083F502 /* SLUserProfileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLUserProfileManager.h; sourceTree = "<group>"; };
-		FFFFAFD91A0284CC0083F502 /* SLUserProfileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLUserProfileManager.m; sourceTree = "<group>"; };
 		FFFFAFDC1A0287DA0083F502 /* SLAccessLogEntryTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SLAccessLogEntryTableViewCell.h; sourceTree = "<group>"; };
 		FFFFAFDD1A0287DA0083F502 /* SLAccessLogEntryTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SLAccessLogEntryTableViewCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -111,6 +135,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF97A1DF1A040529004B7E98 /* CoreData.framework in Frameworks */,
 				65392113F816ACA52F8A13E8 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -128,6 +153,7 @@
 		93268EA60A814D685BA0E977 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FF97A1DE1A040529004B7E98 /* CoreData.framework */,
 				FF6CA8B4389FC3BF193CABB4 /* libPods.a */,
 			);
 			name = Frameworks;
@@ -226,11 +252,10 @@
 		FF5601DD19FD45DC00B79C20 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				FFF47F181A06754600AE259B /* KHCoreDataManager.h */,
+				FFF47F191A06754600AE259B /* KHCoreDataManager.m */,
+				FF97A1C91A03F310004B7E98 /* REST-API */,
 				FFE511971A03F0F300A993AF /* GeneratedModels */,
-				FFFFAFCA1A027DED0083F502 /* SLAccessLogEntry */,
-				FF5601F319FD496A00B79C20 /* SLLock */,
-				FF5601F419FD496A00B79C20 /* SLRESTManager */,
-				FF5601F719FD496A00B79C20 /* SLUser */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -254,41 +279,6 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		FF5601F319FD496A00B79C20 /* SLLock */ = {
-			isa = PBXGroup;
-			children = (
-				FF5601F919FD497A00B79C20 /* SLLock.h */,
-				FF5601FA19FD497A00B79C20 /* SLLock.m */,
-				FF56020219FD499800B79C20 /* SLLockManager.h */,
-				FF56020319FD499800B79C20 /* SLLockManager.m */,
-			);
-			path = SLLock;
-			sourceTree = "<group>";
-		};
-		FF5601F419FD496A00B79C20 /* SLRESTManager */ = {
-			isa = PBXGroup;
-			children = (
-				FF5601F519FD496A00B79C20 /* SLRESTManager.h */,
-				FF5601F619FD496A00B79C20 /* SLRESTManager.m */,
-			);
-			path = SLRESTManager;
-			sourceTree = "<group>";
-		};
-		FF5601F719FD496A00B79C20 /* SLUser */ = {
-			isa = PBXGroup;
-			children = (
-				FF5601FC19FD498800B79C20 /* SLUser.h */,
-				FF5601FD19FD498800B79C20 /* SLUser.m */,
-				FF5601FF19FD498F00B79C20 /* SLUserManager.h */,
-				FF56020019FD498F00B79C20 /* SLUserManager.m */,
-				FFFFAFD51A0284380083F502 /* SLUserProfile.h */,
-				FFFFAFD61A0284380083F502 /* SLUserProfile.m */,
-				FFFFAFD81A0284CC0083F502 /* SLUserProfileManager.h */,
-				FFFFAFD91A0284CC0083F502 /* SLUserProfileManager.m */,
-			);
-			path = SLUser;
-			sourceTree = "<group>";
-		};
 		FF56020C19FD5D3E00B79C20 /* LockVC */ = {
 			isa = PBXGroup;
 			children = (
@@ -305,6 +295,49 @@
 				FF56021219FD6BC100B79C20 /* UIButton+SLRound.m */,
 			);
 			path = Button;
+			sourceTree = "<group>";
+		};
+		FF97A1C91A03F310004B7E98 /* REST-API */ = {
+			isa = PBXGroup;
+			children = (
+				FF97A1D41A03F310004B7E98 /* SLRESTManager.h */,
+				FF97A1D51A03F310004B7E98 /* SLRESTManager.m */,
+				FF97A1CA1A03F310004B7E98 /* Managers */,
+				FF97A1D31A03F310004B7E98 /* ModelCategories */,
+			);
+			path = "REST-API";
+			sourceTree = "<group>";
+		};
+		FF97A1CA1A03F310004B7E98 /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				FF97A1CB1A03F310004B7E98 /* SLAccessLogEntryManager.h */,
+				FF97A1CC1A03F310004B7E98 /* SLAccessLogEntryManager.m */,
+				FF97A1CD1A03F310004B7E98 /* SLLockManager.h */,
+				FF97A1CE1A03F310004B7E98 /* SLLockManager.m */,
+				FF97A1CF1A03F310004B7E98 /* SLUserManager.h */,
+				FF97A1D01A03F310004B7E98 /* SLUserManager.m */,
+				FF97A1D11A03F310004B7E98 /* SLUserProfileManager.h */,
+				FF97A1D21A03F310004B7E98 /* SLUserProfileManager.m */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		FF97A1D31A03F310004B7E98 /* ModelCategories */ = {
+			isa = PBXGroup;
+			children = (
+				FF97A1DB1A0403A7004B7E98 /* SLUser+SLRESTAPI.h */,
+				FF97A1DC1A0403A7004B7E98 /* SLUser+SLRESTAPI.m */,
+				FFF47EEC1A051F6700AE259B /* SLLock+SLRESTAPI.h */,
+				FFF47EED1A051F6700AE259B /* SLLock+SLRESTAPI.m */,
+				FFF47EEF1A051F8000AE259B /* SLUserProfile+SLRESTAPI.h */,
+				FFF47EF01A051F8000AE259B /* SLUserProfile+SLRESTAPI.m */,
+				FFF47EF21A051F8B00AE259B /* SLAccessLogEntry+SLRESTAPI.h */,
+				FFF47EF31A051F8B00AE259B /* SLAccessLogEntry+SLRESTAPI.m */,
+				FFF47F0F1A052D1F00AE259B /* SLLock+SLUtils.h */,
+				FFF47F101A052D1F00AE259B /* SLLock+SLUtils.m */,
+			);
+			path = ModelCategories;
 			sourceTree = "<group>";
 		};
 		FFD8620419FE9D250012DD60 /* LockTVC */ = {
@@ -329,8 +362,14 @@
 			isa = PBXGroup;
 			children = (
 				FFE5119B1A03F15900A993AF /* SmartLock.xcdatamodeld */,
-				FFE511981A03F0F300A993AF /* SLUser.h */,
-				FFE511991A03F0F300A993AF /* SLUser.m */,
+				FFF47F0C1A05271A00AE259B /* SLUserProfile.h */,
+				FFF47F0D1A05271A00AE259B /* SLUserProfile.m */,
+				FFF47F091A05271A00AE259B /* SLUser.h */,
+				FFF47F0A1A05271A00AE259B /* SLUser.m */,
+				FFF47F061A05271A00AE259B /* SLLock.h */,
+				FFF47F071A05271A00AE259B /* SLLock.m */,
+				FFF47F031A05271900AE259B /* SLAccessLogEntry.h */,
+				FFF47F041A05271900AE259B /* SLAccessLogEntry.m */,
 			);
 			path = GeneratedModels;
 			sourceTree = "<group>";
@@ -355,17 +394,6 @@
 				FFED156F1A02722100038990 /* MenuTableViewCell.m */,
 			);
 			path = Menu;
-			sourceTree = "<group>";
-		};
-		FFFFAFCA1A027DED0083F502 /* SLAccessLogEntry */ = {
-			isa = PBXGroup;
-			children = (
-				FFFFAFCB1A027DFB0083F502 /* SLAccessLogEntry.h */,
-				FFFFAFCC1A027DFB0083F502 /* SLAccessLogEntry.m */,
-				FFFFAFCE1A027F250083F502 /* SLAccessLogEntryManager.h */,
-				FFFFAFCF1A027F250083F502 /* SLAccessLogEntryManager.m */,
-			);
-			path = SLAccessLogEntry;
 			sourceTree = "<group>";
 		};
 		FFFFAFD11A0280490083F502 /* AccessLogEntryTVC */ = {
@@ -524,27 +552,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FF56020119FD498F00B79C20 /* SLUserManager.m in Sources */,
+				FFF47EEE1A051F6700AE259B /* SLLock+SLRESTAPI.m in Sources */,
+				FF97A1D61A03F310004B7E98 /* SLAccessLogEntryManager.m in Sources */,
+				FF97A1D91A03F310004B7E98 /* SLUserProfileManager.m in Sources */,
+				FFF47F081A05271A00AE259B /* SLLock.m in Sources */,
 				FFED156A1A026F7400038990 /* BaseVC.m in Sources */,
-				FFFFAFCD1A027DFB0083F502 /* SLAccessLogEntry.m in Sources */,
+				FFF47EF41A051F8B00AE259B /* SLAccessLogEntry+SLRESTAPI.m in Sources */,
+				FF97A1DD1A0403A7004B7E98 /* SLUser+SLRESTAPI.m in Sources */,
+				FFF47F1A1A06754600AE259B /* KHCoreDataManager.m in Sources */,
 				FFED156B1A026F7400038990 /* DrawerMenuVC.m in Sources */,
 				FF5601F219FD45DC00B79C20 /* main.m in Sources */,
-				FF5601FE19FD498800B79C20 /* SLUser.m in Sources */,
+				FFF47F0B1A05271A00AE259B /* SLUser.m in Sources */,
+				FF97A1DA1A03F310004B7E98 /* SLRESTManager.m in Sources */,
+				FF97A1D71A03F310004B7E98 /* SLLockManager.m in Sources */,
 				FF56021319FD6BC100B79C20 /* UIButton+SLRound.m in Sources */,
-				FFFFAFDA1A0284CC0083F502 /* SLUserProfileManager.m in Sources */,
 				FFD8620B19FEA3920012DD60 /* SLLoginVC.m in Sources */,
 				FFED15701A02722100038990 /* MenuTableViewCell.m in Sources */,
-				FF5601FB19FD497A00B79C20 /* SLLock.m in Sources */,
 				FF56020F19FD5D3E00B79C20 /* SLLockVC.m in Sources */,
-				FFFFAFD71A0284380083F502 /* SLUserProfile.m in Sources */,
-				FF56020419FD499800B79C20 /* SLLockManager.m in Sources */,
-				FF5601F819FD496A00B79C20 /* SLRESTManager.m in Sources */,
-				FFFFAFD01A027F250083F502 /* SLAccessLogEntryManager.m in Sources */,
+				FFF47EF11A051F8000AE259B /* SLUserProfile+SLRESTAPI.m in Sources */,
+				FFF47F0E1A05271A00AE259B /* SLUserProfile.m in Sources */,
+				FFF47F051A05271900AE259B /* SLAccessLogEntry.m in Sources */,
 				FFFFAFD41A02816A0083F502 /* SLAccessLogEntryTVC.m in Sources */,
+				FF97A1D81A03F310004B7E98 /* SLUserManager.m in Sources */,
 				FF5601EA19FD45DC00B79C20 /* AppDelegate.m in Sources */,
 				FFE5119D1A03F15900A993AF /* SmartLock.xcdatamodeld in Sources */,
 				FFD8620719FE9D350012DD60 /* SLLockTVC.m in Sources */,
-				FFE5119A1A03F0F300A993AF /* SLUser.m in Sources */,
+				FFF47F111A052D1F00AE259B /* SLLock+SLUtils.m in Sources */,
 				FFFFAFDE1A0287DA0083F502 /* SLAccessLogEntryTableViewCell.m in Sources */,
 				FFED156C1A026F7400038990 /* DrawerRootVC.m in Sources */,
 			);
@@ -739,9 +772,16 @@
 		FFE5119B1A03F15900A993AF /* SmartLock.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				FFF47EE11A05168300AE259B /* SmartLock 2.xcdatamodel */,
+				FFF47EE21A051BAE00AE259B /* SmartLock 3.xcdatamodel */,
+				FFF47EF51A05231800AE259B /* SmartLock 4.xcdatamodel */,
+				FFF47F021A0526F000AE259B /* SmartLock 5.xcdatamodel */,
+				FFF47F121A0533D300AE259B /* SmartLock 6.xcdatamodel */,
+				FFF47F131A05D84100AE259B /* SmartLock 7.xcdatamodel */,
+				FFF47F141A05DF9D00AE259B /* SmartLock 8.xcdatamodel */,
 				FFE5119C1A03F15900A993AF /* SmartLock.xcdatamodel */,
 			);
-			currentVersion = FFE5119C1A03F15900A993AF /* SmartLock.xcdatamodel */;
+			currentVersion = FFF47F141A05DF9D00AE259B /* SmartLock 8.xcdatamodel */;
 			path = SmartLock.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
