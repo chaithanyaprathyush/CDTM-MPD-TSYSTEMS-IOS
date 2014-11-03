@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "SLUser+SLRESTAPI.h"
+#import "SLUser.h"
 
 @interface SLUserManager : NSObject
 
@@ -26,8 +26,6 @@
 - (void)logOutCurrentUser;
 
 #pragma mark - REST API
-
-- (void)initRequestAndResponseDescriptorsForManagedObjectStore:(RKManagedObjectStore *)managedObjectStore;
 
 //- (void)registerUserWithEmail:(NSString *)email password:(NSString *)password completionHandler:(void (^)(NSError *error, SLUser *user))completionHandler;
 - (void)logInWithStoredCredentialsWithCompletionHandler:(void(^)(NSError *error, SLUser *user))completionHandler;

@@ -26,14 +26,16 @@
 	return sharedManager;
 }
 
-- (void)fetchUserProfileForUser:(SLUser *)user completionHandler:(void (^)(NSError *, SLUserProfile *))completionHandler
+- (void)fetchUserProfileWithUserProfileID:(NSNumber *)userProfileID completionHandler:(void (^)(NSError *, SLUserProfile *))completionHandler
 {
-	NSString *endpoint = [SLAPIEndpointUserProfile stringByReplacingOccurrencesOfString:@":ID" withString:[user.userID stringValue]];
+	NSString *endpoint = [SLAPIEndpointUserProfile stringByReplacingOccurrencesOfString:@":userProfileID" withString:[userProfileID stringValue]];
 
 	[[SLRESTManager sharedManager].objectManager getObjectsAtPath:endpoint
 													   parameters:nil
 														  success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
-		 completionHandler(nil, mappingResult.firstObject);
+		 SLUserProfile *userProfile = mappingResult.firstObject;
+		 userProfile.user.userProfile = userProfile;
+		 completionHandler(nil, userProfile);
 	 } failure:^(RKObjectRequestOperation *operation, NSError *error) {
 		 completionHandler(error, nil);
 	 }];

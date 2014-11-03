@@ -44,7 +44,7 @@ static DrawerRootVC *sharedInstance = nil;
                        @{@"Logout":         [BaseViewController instantiateViewControllerInNavigationControllerWithIdentifier:@"LogoutVC"]}*/
 									];
 
-	[self selectMenuIndex:0];
+	[self selectMenuIndex:1];
 }
 
 - (void)selectMenuIndex:(int)index

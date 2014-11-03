@@ -40,9 +40,8 @@
 
 - (void)fetchMyLocksWithCompletionHandler:(void (^)(NSError *error, NSArray *locks))completionHandler
 {
-    NSLog(@"fetch my locks");
-    
-	[[SLRESTManager sharedManager].objectManager getObjectsAtPath:SLAPIEndpointLocksMy
+	// TODO: CHANGE BACKEND FOR THIS
+	[[SLRESTManager sharedManager].objectManager getObjectsAtPath:SLAPIEndpointLocks
 													   parameters:nil
 														  success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
 		 completionHandler(nil, mappingResult.array);
@@ -51,15 +50,16 @@
 	 }];
 }
 
-- (void)fetchLockWithIdentifier:(NSNumber *)identifier completionHandler:(void (^)(NSError *, SLLock *))completionHandler
+- (void)fetchLockWithLockID:(NSNumber *)lockID completionHandler:(void (^)(NSError *, SLLock *))completionHandler
 {
-	NSString *endpoint = [SLAPIEndpointLock stringByReplacingOccurrencesOfString:@":lockID" withString:[identifier stringValue]];
+	NSString *endpoint = [SLAPIEndpointLock stringByReplacingOccurrencesOfString:@":lockID" withString:[lockID stringValue]];
 
 	[[SLRESTManager sharedManager].objectManager getObject:nil
 													  path:endpoint
 												parameters:nil
 												   success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
 		 completionHandler(nil, mappingResult.firstObject);
+
 	 } failure:^(RKObjectRequestOperation *operation, NSError *error) {
 		 completionHandler(error, nil);
 	 }];

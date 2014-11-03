@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SLFetchedResultsControllerTVC.h"
 
-@interface SLAccessLogEntryTVC : UITableViewController
+@interface SLAccessLogEntryTVC : SLFetchedResultsControllerTVC
 
 - (IBAction)didTouchMenuButton:(id)sender;
 

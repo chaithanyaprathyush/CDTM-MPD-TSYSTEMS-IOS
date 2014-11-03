@@ -1,5 +1,5 @@
 //
-//  UIButton+SLRound.h
+//  UIView+SLRound.h
 //  SmartLock
 //
 //  Created by Pascal Fritzen on 26.10.14.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UIButton (SLRound)
+@interface UIView (SLRound)
 
 - (void)makeRound;
 - (void)makeRoundWithBorderWidth:(CGFloat)borderWidth;

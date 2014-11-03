@@ -12,10 +12,9 @@
 #import "SLLockVC.h"
 #import "SLLoginVC.h"
 #import "DrawerRootVC.h"
+#import <RestKit/RestKit.h>
 
-@interface SLLockTVC () <NSFetchedResultsControllerDelegate>
-
-@property (nonatomic, retain) NSFetchedResultsController *fetchedResultsController;
+@interface SLLockTVC ()
 
 @end
 
@@ -24,27 +23,17 @@
 - (void)viewDidLoad
 {
 	[super viewDidLoad];
-    
-    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:NSStringFromClass([SLLock class])];
-    NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:NO];
-    fetchRequest.sortDescriptors = @[descriptor];
-    
-    // Setup fetched results
-    NSError *error = nil;
-    self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest
-                                                                        managedObjectContext:[RKManagedObjectStore defaultStore].mainQueueManagedObjectContext
-                                                                          sectionNameKeyPath:nil
-                                                                                   cacheName:nil];
-    
-    [self.fetchedResultsController setDelegate:self];
-    self.fetchedResultsController.delegate = self;
-    
-    BOOL fetchSuccessful = [self.fetchedResultsController performFetch:&error];
-    if (!fetchSuccessful) {
-        NSLog(@"Error: %@", error);
-    } else {
-        NSLog(@"SUCCESS: Locks in db: %@", [self.fetchedResultsController fetchedObjects]);
-    }
+
+	NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:NSStringFromClass([SLLock class])];
+	NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:NO];
+	fetchRequest.sortDescriptors = @[descriptor];
+
+	// Setup fetched results
+	NSError *error = nil;
+	self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest
+																		managedObjectContext:[RKManagedObjectStore defaultStore].mainQueueManagedObjectContext
+																		  sectionNameKeyPath:nil
+																				   cacheName:nil];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -72,18 +61,6 @@
 }
 
 #pragma mark - <UITableViewDataSource>
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-//    NSLog(@"#sections: %lu", (unsigned long)[self.fetchedResultsController.sections count]);
-	return [self.fetchedResultsController.sections count];
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-//    NSLog(@"#objects for section %lu: %lu", section, [self.fetchedResultsController.sections[section] numberOfObjects]);
-	return [self.fetchedResultsController.sections[section] numberOfObjects];
-}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -114,18 +91,6 @@
 - (IBAction)didTouchMenuButton:(id)sender
 {
 	[[DrawerRootVC sharedInstance] showMenu];
-}
-
-#pragma mark <NSFetchedResultsControllerDelegate>
-
-- (void)controller:(NSFetchedResultsController *)controller didChangeObject:(id)anObject atIndexPath:(NSIndexPath *)indexPath forChangeType:(NSFetchedResultsChangeType)type newIndexPath:(NSIndexPath *)newIndexPath
-{
-
-}
-
-- (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
-{
-    [self.tableView reloadData];
 }
 
 @end

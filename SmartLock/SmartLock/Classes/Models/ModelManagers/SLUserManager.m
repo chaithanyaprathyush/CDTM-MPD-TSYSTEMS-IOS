@@ -32,19 +32,28 @@ static NSString *SLUserDefaultsLoginCredentialsPassword = @"LOGIN_CREDENTIALS_PA
 
 #pragma mark - Utils
 
-- (void)updateStoredLoginCredentialsForUser:(SLUser *)user
+- (void)updateStoredUsername:(NSString *)username password:(NSString *)password
 {
-	NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+	if (username && ![username isEqualToString:@""] && password && ![password isEqualToString:@""]) {
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
 
-	if (user) {
-		[defaults setObject:user.username forKey:SLUserDefaultsLoginCredentialsUsername];
-		[defaults setObject:user.password forKey:SLUserDefaultsLoginCredentialsPassword];
+        [defaults setObject:username forKey:SLUserDefaultsLoginCredentialsUsername];
+		[defaults setObject:password forKey:SLUserDefaultsLoginCredentialsPassword];
+
+        [defaults synchronize];
 	} else {
-		[defaults removeObjectForKey:SLUserDefaultsLoginCredentialsUsername];
-		[defaults removeObjectForKey:SLUserDefaultsLoginCredentialsPassword];
+        [self resetStoredUsernameAndPassword];
 	}
+}
 
-	[defaults synchronize];
+- (void)resetStoredUsernameAndPassword
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    
+    [defaults removeObjectForKey:SLUserDefaultsLoginCredentialsUsername];
+    [defaults removeObjectForKey:SLUserDefaultsLoginCredentialsPassword];
+    
+    [defaults synchronize];
 }
 
 - (BOOL)isCurrentUserLoggedIn
@@ -56,7 +65,7 @@ static NSString *SLUserDefaultsLoginCredentialsPassword = @"LOGIN_CREDENTIALS_PA
 {
 	self.currentUser = nil;
 
-	[self updateStoredLoginCredentialsForUser:nil];
+	[self resetStoredUsernameAndPassword];
 
 	[[SLRESTManager sharedManager] clearAuthorizationHeader];
 }
@@ -105,7 +114,7 @@ static NSString *SLUserDefaultsLoginCredentialsPassword = @"LOGIN_CREDENTIALS_PA
 			 completionHandler(error, user);
 		 }];
 	} else {
-		NSError *error = [NSError errorWithDomain:@"com.donoapp.ios.usermanager" code:010 userInfo:@{@"info":@"Username/Password were not provided."}];
+		NSError *error = [NSError errorWithDomain:@"de.cdtm.smartlock.ios.usermanager" code:010 userInfo:@{@"info":@"Username/Password were not provided."}];
 		completionHandler(error, nil);
 	}
 }
@@ -118,9 +127,8 @@ static NSString *SLUserDefaultsLoginCredentialsPassword = @"LOGIN_CREDENTIALS_PA
 													   parameters:nil
 														  success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
 		 self.currentUser = mappingResult.firstObject;
-		 self.currentUser.password = password;
                                                               
-		 [self updateStoredLoginCredentialsForUser:self.currentUser];
+                                                              [self updateStoredUsername:username password:password];
 
 		 completionHandler(nil, self.currentUser);
 	 } failure:^(RKObjectRequestOperation *operation, NSError *error) {

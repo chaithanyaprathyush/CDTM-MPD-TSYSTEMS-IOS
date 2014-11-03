@@ -16,7 +16,7 @@
 - (void)fetchAllLocksWithCompletionHandler:(void(^)(NSError *error, NSArray *locks))completionHandler;
 - (void)fetchMyLocksWithCompletionHandler:(void(^)(NSError *error, NSArray *locks))completionHandler;
 
-- (void)fetchLockWithIdentifier:(NSNumber *)identifier completionHandler:(void(^)(NSError *error, SLLock *lock))completionHandler;
+- (void)fetchLockWithLockID:(NSNumber *)lockID completionHandler:(void(^)(NSError *error, SLLock *lock))completionHandler;
 
 - (void)openLock:(SLLock *)lock withCompletionHandler:(void(^)(NSError *error, SLLock *lock))completionHandler;
 - (void)closeLock:(SLLock *)lock withCompletionHandler:(void(^)(NSError *error, SLLock *lock))completionHandler;

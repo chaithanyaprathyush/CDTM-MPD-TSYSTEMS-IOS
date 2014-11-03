@@ -48,10 +48,10 @@
 
 		// set log levels
 		RKLogConfigureByName("RestKit", RKLogLevelWarning);
-		RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelTrace);
+		RKLogConfigureByName("RestKit/ObjectMapping", RKLogLevelWarning);
 		RKLogConfigureByName("RestKit/Network", RKLogLevelWarning);
-		RKLogConfigureByName("RestKit/CoreData", RKLogLevelTrace);
-		RKLogConfigureByName("RestKit/CoreData/Cache", RKLogLevelTrace);
+		RKLogConfigureByName("RestKit/CoreData", RKLogLevelWarning);
+		RKLogConfigureByName("RestKit/CoreData/Cache", RKLogLevelWarning);
 
 		[self.objectManager.managedObjectStore createPersistentStoreCoordinator];
 		NSString *storePath = [RKApplicationDataDirectory() stringByAppendingPathComponent:@"SLDatabase.sqlite"];
@@ -100,13 +100,11 @@
 		 @"first_name" : @"firstName",
 		 @"last_name" : @"lastName",
 		 @"date_joined" : @"joinedAt",
-		 @"password" : @"password"
+         @"user_profile" : @"userProfileID"
 	 }];
 
 	// Properties (Relationships)
-	/*[userMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"user_profile"
-																				toKeyPath:@"userProfile"
-																			  withMapping:userProfileMapping]];*/
+    [userMapping addConnectionForRelationship:@"userProfile" connectedBy:@{@"userProfileID" : @"userProfileID"}];
 
 	/*[userMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"access_log_entries"
 	                                                                            toKeyPath:@"accessLogEntries"
@@ -130,12 +128,11 @@
 	[userProfileMapping addAttributeMappingsFromDictionary:@{
 		 @"avatar" : @"avatarURL",
 		 @"id" : @"userProfileID",
+         @"user" : @"userID"
 	 }];
 
 	// Properties (Relationships)
-	/*[userProfileMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"user"
-																					   toKeyPath:@"user"
-																					 withMapping:userMapping]];*/
+    [userProfileMapping addConnectionForRelationship:@"user" connectedBy:@{@"userID" : @"userID"}];
 
 	// ID attribute
 	userProfileMapping.identificationAttributes = @[@"userProfileID"];
@@ -183,19 +180,20 @@
 																			   keyPath:@"results"
 																		   statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)]];
 
+    /*
 	[responseDescriptors addObject:[RKResponseDescriptor responseDescriptorWithMapping:lockMapping
 																				method:RKRequestMethodGET
 																		   pathPattern:SLAPIEndpointLocksMy
 																			   keyPath:@"results"
-																		   statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)]];
+																		   statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)]];*/
 
     [responseDescriptors addObject:[RKResponseDescriptor responseDescriptorWithMapping:lockMapping
 																				method:RKRequestMethodGET
 																		   pathPattern:SLAPIEndpointLock
 																			   keyPath:nil
 																		   statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)]];
-    /*
-	[responseDescriptors addObject:[RKResponseDescriptor responseDescriptorWithMapping:lockMapping
+
+    [responseDescriptors addObject:[RKResponseDescriptor responseDescriptorWithMapping:lockMapping
 																				method:RKRequestMethodPOST
 																		   pathPattern:SLAPIEndpointLockOpen
 																			   keyPath:@"results"
@@ -205,7 +203,7 @@
 																				method:RKRequestMethodPOST
 																		   pathPattern:SLAPIEndpointLockClose
 																			   keyPath:@"results"
-																		   statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)]];*/
+																		   statusCodes:RKStatusCodeIndexSetForClass(RKStatusCodeClassSuccessful)]];
 
 	// ************************
 	// *** ACCESS LOG ENTRY ***
@@ -214,17 +212,14 @@
 	[accessLogEntryMapping addAttributeMappingsFromDictionary:@{
 		 @"id" : @"accessLogEntryID",
 		 @"action" : @"action",
-		 @"date_created" : @"createdAt"
+		 @"date_created" : @"createdAt",
+         @"user" : @"userID",
+         @"lock" : @"lockID"
 	 }];
 
 	// Properties (Relationships)
-	/*[accessLogEntryMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"user"
-																						  toKeyPath:@"user"
-																						withMapping:userMapping]];
-
-	[accessLogEntryMapping addPropertyMapping:[RKRelationshipMapping relationshipMappingFromKeyPath:@"lock"
-																						  toKeyPath:@"lock"
-																						withMapping:lockMapping]];*/
+    [accessLogEntryMapping addConnectionForRelationship:@"user" connectedBy:@{@"userID" : @"userID"}];
+    [accessLogEntryMapping addConnectionForRelationship:@"lock" connectedBy:@{@"lockID" : @"lockID"}];
 
 	// ID attribute
 	accessLogEntryMapping.identificationAttributes = @[@"accessLogEntryID"];

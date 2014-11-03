@@ -15,16 +15,16 @@ static NSString *BASE_URL_STRING = YES ? @"http://127.0.0.1:8000/api/" : @"http:
 static NSString *SLAPIEndpointUsers = @"users/";
 
 static NSString *SLAPIEndpointUserProfiles  = @"user-profiles/";
-static NSString *SLAPIEndpointUserProfile   = @"user-profiles/:ID/";
+static NSString *SLAPIEndpointUserProfile   = @"user-profiles/:userProfileID/";
 
 static NSString *SLAPIEndpointLocks     = @"locks/";
-static NSString *SLAPIEndpointLocksMy   = @"locks/my/";
+//static NSString *SLAPIEndpointLocksMy   = @"locks/my/";
 static NSString *SLAPIEndpointLock      = @"locks/:lockID/";
 static NSString *SLAPIEndpointLockOpen  = @"locks/:lockID/open/";
 static NSString *SLAPIEndpointLockClose = @"locks/:lockID/close/";
 
 static NSString *SLAPIEndpointAccessLogEntries  = @"access-log-entries/";
-static NSString *SLAPIEndpointAccessLogEntry    = @"access-log-entries/:ID/";
+static NSString *SLAPIEndpointAccessLogEntry    = @"access-log-entries/:accessLogEntryID/";
 
 @interface SLRESTManager : NSObject
 

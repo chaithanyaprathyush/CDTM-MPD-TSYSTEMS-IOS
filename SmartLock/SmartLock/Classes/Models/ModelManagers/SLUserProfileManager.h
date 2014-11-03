@@ -14,6 +14,6 @@
 
 + (SLUserProfileManager *)sharedManager;
 
-- (void)fetchUserProfileForUser:(SLUser *)user completionHandler:(void(^)(NSError *error, SLUserProfile *userProfile))completionHandler;
+- (void)fetchUserProfileWithUserProfileID:(NSNumber *)userProfileID completionHandler:(void(^)(NSError *error, SLUserProfile *userProfile))completionHandler;
 
 @end

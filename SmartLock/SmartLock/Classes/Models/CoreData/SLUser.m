@@ -2,7 +2,7 @@
 //  SLUser.m
 //  SmartLock
 //
-//  Created by Pascal Fritzen on 01.11.14.
+//  Created by Pascal Fritzen on 02.11.14.
 //  Copyright (c) 2014 Center for Digital Management. All rights reserved.
 //
 
@@ -17,9 +17,9 @@
 @dynamic firstName;
 @dynamic joinedAt;
 @dynamic lastName;
-@dynamic password;
 @dynamic userID;
 @dynamic username;
+@dynamic userProfileID;
 @dynamic accessLogEntries;
 @dynamic userProfile;
 
