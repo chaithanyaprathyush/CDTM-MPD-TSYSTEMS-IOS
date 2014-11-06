@@ -9,7 +9,7 @@
 #import "SLLockVC.h"
 #import "SLUserManager.h"
 #import "SLLockManager.h"
-#import "UIButton+SLRound.h"
+#import "UIView+SLRound.h"
 #import "SLLock+SLUtils.h"
 
 @interface SLLockVC ()

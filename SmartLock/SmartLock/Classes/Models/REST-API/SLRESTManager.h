@@ -10,7 +10,12 @@
 #import <RestKit/RestKit.h>
 #import "SLUser.h"
 
-static NSString *BASE_URL_STRING = YES ? @"http://127.0.0.1:8000/api/" : @"http://213.165.86.29:8000/api/";
+
+#if TARGET_IPHONE_SIMULATOR
+    static NSString *BASE_URL_STRING = YES ? @"http://127.0.0.1:8000/api/" : @"http://213.165.86.29:8000/api/";
+#else
+    static NSString *BASE_URL_STRING = YES ? @"http://MacBook-Air.local:8000/api/" : @"http://213.165.86.29:8000/api/";
+#endif
 
 static NSString *SLAPIEndpointUsers = @"users/";
 
