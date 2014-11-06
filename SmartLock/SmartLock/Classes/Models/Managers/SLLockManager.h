@@ -8,17 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import "SLLock.h"
+#import "SLEntityManager.h"
 
-@interface SLLockManager : NSObject
+@interface SLLockManager : SLEntityManager
 
-+ (SLLockManager *)sharedManager;
++ (void)synchronizeLockWithLockID:(NSNumber *)lockID completionHandler:(void (^)(NSError *error, SLLock *lock))completionHandler;
++ (void)synchronizeAllLocksWithCompletionHandler:(void (^)(NSError *error, NSArray *locks))completionHandler;
 
-- (void)fetchAllLocksWithCompletionHandler:(void(^)(NSError *error, NSArray *locks))completionHandler;
-- (void)fetchMyLocksWithCompletionHandler:(void(^)(NSError *error, NSArray *locks))completionHandler;
-
-- (void)fetchLockWithLockID:(NSNumber *)lockID completionHandler:(void(^)(NSError *error, SLLock *lock))completionHandler;
-
-- (void)openLock:(SLLock *)lock withCompletionHandler:(void(^)(NSError *error, SLLock *lock))completionHandler;
-- (void)closeLock:(SLLock *)lock withCompletionHandler:(void(^)(NSError *error, SLLock *lock))completionHandler;
++ (void)openLock:(SLLock *)lock withCompletionHandler:(void(^)(NSError *error, SLLock *lock))completionHandler;
++ (void)closeLock:(SLLock *)lock withCompletionHandler:(void(^)(NSError *error, SLLock *lock))completionHandler;
 
 @end

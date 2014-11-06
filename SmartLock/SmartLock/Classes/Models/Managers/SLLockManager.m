@@ -7,88 +7,97 @@
 //
 
 #import "SLLockManager.h"
-#import <RestKit/RestKit.h>
 #import "SLRESTManager.h"
+#import "NSDictionary+SLUtils.h"
 
 @implementation SLLockManager
 
-#pragma mark - Singleton
+#pragma mark - CoreData
 
-+ (SLLockManager *)sharedManager
++ (Class)entityClass
 {
-	static SLLockManager *sharedManager = nil;
-
-	static dispatch_once_t onceToken;
-
-	dispatch_once(&onceToken, ^{
-					  sharedManager = [SLLockManager new];
-				  });
-
-	return sharedManager;
+	return [SLLock class];
 }
 
-- (void)fetchAllLocksWithCompletionHandler:(void (^)(NSError *error, NSArray *locks))completionHandler
++ (NSString *)entityIDKey
 {
-	[[SLRESTManager sharedManager].objectManager getObjectsAtPath:SLAPIEndpointLocks
-													   parameters:nil
-														  success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
-		 completionHandler(nil, mappingResult.array);
-	 } failure:^(RKObjectRequestOperation *operation, NSError *error) {
-		 completionHandler(error, nil);
-	 }];
+	return @"lockID";
 }
 
-- (void)fetchMyLocksWithCompletionHandler:(void (^)(NSError *error, NSArray *locks))completionHandler
++ (SLLock *)updateOrCreateEntityWithJSON:(NSDictionary *)JSON
 {
-	// TODO: CHANGE BACKEND FOR THIS
-	[[SLRESTManager sharedManager].objectManager getObjectsAtPath:SLAPIEndpointLocks
-													   parameters:nil
-														  success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
-		 completionHandler(nil, mappingResult.array);
-	 } failure:^(RKObjectRequestOperation *operation, NSError *error) {
-		 completionHandler(error, nil);
-	 }];
+	NSNumber *lockID = JSON[@"id"];
+
+	SLLock *lock = [self fetchOrCreateEntityWithEntityID:lockID];
+
+	lock.name = JSON[@"name"];
+	lock.status = JSON[@"status"];
+	lock.locationLat = JSON[@"location_lat"];
+	lock.locationLon = JSON[@"location_lon"];
+	lock.createdAt = [JSON dateForKey:@"date_created"];
+	lock.lastModifiedAt = [JSON dateForKey:@"last_modified"];
+
+//    lock.keys = TODO
+	// TODO: FETCH KEYS FOR LOG!
+
+	[[SLCoreDataManager sharedManager] save];
+
+	return lock;
 }
 
-- (void)fetchLockWithLockID:(NSNumber *)lockID completionHandler:(void (^)(NSError *, SLLock *))completionHandler
+#pragma mark - REST-API
+
++ (void)synchronizeLockWithLockID:(NSNumber *)lockID completionHandler:(void (^)(NSError *, SLLock *))completionHandler
 {
 	NSString *endpoint = [SLAPIEndpointLock stringByReplacingOccurrencesOfString:@":lockID" withString:[lockID stringValue]];
 
-	[[SLRESTManager sharedManager].objectManager getObject:nil
-													  path:endpoint
-												parameters:nil
-												   success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
-		 completionHandler(nil, mappingResult.firstObject);
-
-	 } failure:^(RKObjectRequestOperation *operation, NSError *error) {
+	[[SLRESTManager sharedManager].operationManager GET:endpoint
+											 parameters:nil
+												success:^(AFHTTPRequestOperation *operation, id responseObject) {
+		 SLLock *lock = [self updateOrCreateEntityWithJSON:responseObject];
+		 completionHandler(nil, lock);
+	 } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+		 NSLog(@"error: %@", error);
 		 completionHandler(error, nil);
 	 }];
 }
 
-- (void)openLock:(SLLock *)lock withCompletionHandler:(void (^)(NSError *, SLLock *))completionHandler
++ (void)synchronizeAllLocksWithCompletionHandler:(void (^)(NSError *, NSArray *))completionHandler
+{
+	[[SLRESTManager sharedManager].operationManager GET:SLAPIEndpointLocks
+											 parameters:nil
+												success:^(AFHTTPRequestOperation *operation, id responseObject) {
+		 NSArray *locks = [self updateOrCreateEntitiesWithJSON:responseObject[@"results"]];
+		 completionHandler(nil, locks);
+	 } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+		 completionHandler(error, nil);
+	 }];
+}
+
++ (void)openLock:(SLLock *)lock withCompletionHandler:(void (^)(NSError *, SLLock *))completionHandler
 {
 	NSString *endpoint = [SLAPIEndpointLockOpen stringByReplacingOccurrencesOfString:@":lockID" withString:[lock.lockID stringValue]];
 
-	[[SLRESTManager sharedManager].objectManager postObject:nil
-													   path:endpoint
-												 parameters:nil
-													success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
-		 completionHandler(nil, mappingResult.firstObject);
-	 } failure:^(RKObjectRequestOperation *operation, NSError *error) {
+	[[SLRESTManager sharedManager].operationManager POST:endpoint
+											  parameters:nil
+												 success:^(AFHTTPRequestOperation *operation, id responseObject) {
+		 SLLock *lock = [self updateOrCreateEntityWithJSON:responseObject];
+		 completionHandler(nil, lock);
+	 } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
 		 completionHandler(error, nil);
 	 }];
 }
 
-- (void)closeLock:(SLLock *)lock withCompletionHandler:(void (^)(NSError *, SLLock *))completionHandler
++ (void)closeLock:(SLLock *)lock withCompletionHandler:(void (^)(NSError *, SLLock *))completionHandler
 {
 	NSString *endpoint = [SLAPIEndpointLockClose stringByReplacingOccurrencesOfString:@":lockID" withString:[lock.lockID stringValue]];
 
-	[[SLRESTManager sharedManager].objectManager postObject:nil
-													   path:endpoint
-												 parameters:nil
-													success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
-		 completionHandler(nil, mappingResult.firstObject);
-	 } failure:^(RKObjectRequestOperation *operation, NSError *error) {
+	[[SLRESTManager sharedManager].operationManager POST:endpoint
+											  parameters:nil
+												 success:^(AFHTTPRequestOperation *operation, id responseObject) {
+		 SLLock *lock = [self updateOrCreateEntityWithJSON:responseObject];
+		 completionHandler(nil, lock);
+	 } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
 		 completionHandler(error, nil);
 	 }];
 }

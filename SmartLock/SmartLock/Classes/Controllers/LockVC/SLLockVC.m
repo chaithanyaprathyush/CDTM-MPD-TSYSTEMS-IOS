@@ -37,7 +37,7 @@
 
 - (void)refreshLockInformation
 {
-    [[SLLockManager sharedManager] fetchLockWithIdentifier:self.lock.lockID completionHandler:^(NSError *error, SLLock *lock) {
+    [SLLockManager synchronizeLockWithLockID:self.lock.lockID completionHandler:^(NSError *error, SLLock *lock) {
         self.lock = lock;
         [self updateView];
     }];
@@ -58,7 +58,7 @@
 
 - (void)openLock
 {
-	[[SLLockManager sharedManager] openLock:self.lock withCompletionHandler:^(NSError *error, SLLock *lock) {
+	[SLLockManager openLock:self.lock withCompletionHandler:^(NSError *error, SLLock *lock) {
 		 if (error) {
 			 NSLog(@"error: %@", error);
 		 } else {
@@ -73,7 +73,7 @@
 
 - (void)closeLock
 {
-	[[SLLockManager sharedManager] closeLock:self.lock withCompletionHandler:^(NSError *error, SLLock *lock) {
+	[SLLockManager closeLock:self.lock withCompletionHandler:^(NSError *error, SLLock *lock) {
 		 if (error) {
 			 NSLog(@"error: %@", error);
 		 } else {
@@ -85,6 +85,8 @@
 		 }
 	 }];
 }
+
+#pragma mark - IBAction
 
 - (IBAction)didTouchOpenButton:(UIButton *)sender
 {

@@ -11,8 +11,7 @@
 #import "SLLockManager.h"
 #import "SLLockVC.h"
 #import "SLLoginVC.h"
-#import "DrawerRootVC.h"
-#import <RestKit/RestKit.h>
+#import "SLDrawerRootVC.h"
 
 @interface SLLockTVC ()
 
@@ -22,75 +21,56 @@
 
 - (void)viewDidLoad
 {
-	[super viewDidLoad];
-
-	NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:NSStringFromClass([SLLock class])];
-	NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:NO];
-	fetchRequest.sortDescriptors = @[descriptor];
-
-	// Setup fetched results
-	NSError *error = nil;
-	self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest
-																		managedObjectContext:[RKManagedObjectStore defaultStore].mainQueueManagedObjectContext
-																		  sectionNameKeyPath:nil
-																				   cacheName:nil];
+    [super viewDidLoad];
+    
+    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:NSStringFromClass([SLLock class])];
+    NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"name" ascending:NO];
+    fetchRequest.sortDescriptors = @[descriptor];
+    
+    // Setup fetched results
+    self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest
+                                                                        managedObjectContext:[SLCoreDataManager sharedManager].managedObjectContext
+                                                                          sectionNameKeyPath:nil
+                                                                                   cacheName:nil];
 }
-
-- (void)viewWillAppear:(BOOL)animated
-{
-	[super viewWillAppear:animated];
-
-	[self reloadLocks];
-}
-
-- (void)reloadLocks
-{
-	if ([[SLUserManager sharedManager] isCurrentUserLoggedIn]) {
-		[[SLLockManager sharedManager] fetchMyLocksWithCompletionHandler:^(NSError *error, NSArray *locks) {
-			 if (error) {
-				 NSLog(@"Error: %@", error);
-			 } else {
-				 [self.tableView reloadData];
-			 }
-		 }];
-	} else {
-		[SLLoginVC showWithViewController:self completionHandler:^{
-			 [self reloadLocks];
-		 }];
-	}
-}
-
-#pragma mark - <UITableViewDataSource>
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	static NSString *cellIdentifier = @"lockCellID";
-	UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"SLLockTableViewCellID"];
+    
+    SLLock *lock = [self.fetchedResultsController objectAtIndexPath:indexPath];
 
-	SLLock *lock = [self.fetchedResultsController objectAtIndexPath:indexPath];
-
-	cell.textLabel.text = lock.name;
-	cell.detailTextLabel.text = lock.status;
-
-	return cell;
+    cell.textLabel.text = lock.name;
+    cell.detailTextLabel.text = [lock.lockID stringValue];
+    
+    return cell;
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+#pragma mark - Utils
+
+- (void)reloadLocks
 {
-	if ([segue.identifier isEqual:@"showLock"]) {
-		SLLockVC *lockVC = segue.destinationViewController;
-		lockVC.lock = [self.fetchedResultsController objectAtIndexPath:[self.tableView indexPathForSelectedRow]];
-	}
+    if ([SLUserManager isCurrentUserLoggedIn]) {
+        [SLLockManager synchronizeAllLocksWithCompletionHandler:^(NSError *error, NSArray *locks) {
+            [self.tableView reloadData];
+        }];
+    } else {
+        [SLLoginVC showWithViewController:self completionHandler:^{
+            [self reloadLocks];
+        }];
+    }
 }
+
+#pragma mark - IBActions
 
 - (IBAction)didTouchRefreshButton:(id)sender
 {
-	[self reloadLocks];
+    [self reloadLocks];
 }
 
 - (IBAction)didTouchMenuButton:(id)sender
 {
-	[[DrawerRootVC sharedInstance] showMenu];
+    [[SLDrawerRootVC sharedInstance] showMenu];
 }
 
 @end

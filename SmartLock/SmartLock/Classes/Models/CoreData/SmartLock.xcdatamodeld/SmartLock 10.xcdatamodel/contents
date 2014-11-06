@@ -25,7 +25,7 @@
         <attribute name="joinedAt" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="userID" attributeType="Integer 64" defaultValueString="0" indexed="YES" syncable="YES"/>
-        <attribute name="username" attributeType="String" indexed="YES" syncable="YES"/>
+        <attribute name="username" optional="YES" attributeType="String" indexed="YES" syncable="YES"/>
         <attribute name="userProfileID" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <relationship name="accessLogEntries" optional="YES" toMany="YES" deletionRule="No Action" destinationEntity="SLAccessLogEntry" syncable="YES"/>
         <relationship name="userProfile" optional="YES" maxCount="1" deletionRule="No Action" destinationEntity="SLUserProfile" syncable="YES"/>

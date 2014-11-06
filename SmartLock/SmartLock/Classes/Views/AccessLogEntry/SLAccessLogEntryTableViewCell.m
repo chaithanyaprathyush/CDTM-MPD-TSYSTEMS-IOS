@@ -11,6 +11,7 @@
 #import "SLRESTManager.h"
 #import "UIView+SLRound.h"
 #import "SLLock+SLUtils.h"
+#import "SLUser.h"
 
 @implementation SLAccessLogEntryTableViewCell
 
@@ -23,40 +24,14 @@
 
 - (void)updateInformation
 {
-    [self.avatarImageView makeRoundWithColor:[UIColor blackColor] borderWidth:1.0f];
-    
-	if (self.accessLogEntry.user) {
-		if (self.accessLogEntry.user.userProfile) {
-            NSLog(@"found a user profile ...");
+	[self.avatarImageView makeRoundWithColor:[UIColor blackColor] borderWidth:1.0f];
 
-			if (self.accessLogEntry.user.userProfile.avatarURL) {
-				if (self.accessLogEntry.user.userProfile.avatarImageData) {
-					self.avatarImageView.image = [UIImage imageWithData:self.accessLogEntry.user.userProfile.avatarImageData];
-				} else {
-//					[self downloadAvatarForUserProfile:self.accessLogEntry.user.userProfile withCompletionHandler:^(NSData *imageData) {
-//						 self.avatarImageView.image = [UIImage imageWithData:self.accessLogEntry.user.userProfile.avatarImageData];
-//					 }];
-                    NSLog(@"Would download avatar...");
-				}
-			} else {
-				NSLog(@"User has no avatar!");
-			}
-		} else {
-			/*[[SLUserProfileManager sharedManager] fetchUserProfileWithUserProfileID:self.accessLogEntry.user.userProfileID completionHandler:^(NSError *error, SLUserProfile *userProfile) {
-				 if (error) {
-					 NSLog(@"Error: %@", error);
-				 } else {
-					 [self updateInformation];
-				 }
-			 }];*/
-            NSLog(@"Would Fetch now ...");
-		}
-	} else {
-		NSLog(@"No user found?!?");
-	}
-    
+    if (self.accessLogEntry.user.userProfile.avatarImageData) {
+        self.avatarImageView.image = [UIImage imageWithData:self.accessLogEntry.user.userProfile.avatarImageData];
+    }
+
 	self.nameLabel.text = [NSString stringWithFormat:@"%@, %@", self.accessLogEntry.user.lastName, self.accessLogEntry.user.firstName];
-	self.actionLabel.text = [NSString stringWithFormat:@"%@ %@", self.accessLogEntry.action, self.accessLogEntry.lock.name];
+	self.actionLabel.text = [NSString stringWithFormat:@"%@ %@", [self.accessLogEntry.action lowercaseString], self.accessLogEntry.lock.name];
 }
 
 @end

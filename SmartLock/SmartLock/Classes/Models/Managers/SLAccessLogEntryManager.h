@@ -8,11 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import "SLAccessLogEntry.h"
+#import "SLEntityManager.h"
 
-@interface SLAccessLogEntryManager : NSObject
+@interface SLAccessLogEntryManager : SLEntityManager
 
-+ (SLAccessLogEntryManager *)sharedManager;
-
-- (void)fetchAllAccessLogEntriesWithCompletionHandler:(void (^)(NSError *error, NSArray *accessLogEntries))completionHandler;
++ (void)synchronizeAccessLogEntryWithAccessLogEntryID:(NSNumber *)accessLogEntryID completionHandler:(void (^)(NSError *error, SLAccessLogEntry *accessLogEntry))completionHandler;
++ (void)synchronizeAllAccessLogEntriesWithCompletionHandler:(void (^)(NSError *error, NSArray *accessLogEntries))completionHandler;
 
 @end

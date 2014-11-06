@@ -13,39 +13,46 @@
 
 + (void)showWithViewController:(UIViewController *)viewController completionHandler:(void (^)(void))completionHandler
 {
-    [[SLUserManager sharedManager] logInWithStoredCredentialsWithCompletionHandler:^(NSError *error, SLUser *user) {
-        if (error) {
-            SLLoginVC *loginVC = [[UIStoryboard storyboardWithName:@"Main"
-                                                            bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"SLLoginVCID"];
-            loginVC.completionHandler = completionHandler;
-            
-            [viewController presentViewController:loginVC animated:YES completion:nil];
-        } else {
-            completionHandler();
-        }
-    }];
+	BOOL isAutoLoginEnabled = YES;
+
+	if (isAutoLoginEnabled) {
+		[SLUserManager logInWithStoredCredentialsWithCompletionHandler:^(NSError *error, SLUser *user) {
+			 if (error) {
+				 SLLoginVC *loginVC = [[UIStoryboard storyboardWithName:@"Main"
+																 bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"SLLoginVCID"];
+				 loginVC.completionHandler = completionHandler;
+
+				 [viewController presentViewController:loginVC animated:YES completion:nil];
+			 } else {
+				 completionHandler();
+			 }
+		 }];
+	} else {
+		SLLoginVC *loginVC = [[UIStoryboard storyboardWithName:@"Main"
+														bundle:[NSBundle mainBundle]] instantiateViewControllerWithIdentifier:@"SLLoginVCID"];
+		loginVC.completionHandler = completionHandler;
+
+		[viewController presentViewController:loginVC animated:YES completion:nil];
+	}
 }
 
 - (void)viewDidLoad
 {
-    [super viewDidLoad];
-    
-    self.usernameTextField.text = [SLUserManager sharedManager].storedUsername;
-    self.passwordTextField.text = [SLUserManager sharedManager].storedPassword;
+	[super viewDidLoad];
+
+	self.usernameTextField.text = [SLUserManager storedUsername];
+	self.passwordTextField.text = [SLUserManager storedPassword];
 }
 
 - (void)login
 {
-    [SLUserManager sharedManager].storedUsername = self.usernameTextField.text;
-    [SLUserManager sharedManager].storedPassword = self.passwordTextField.text;
-    
-	[[SLUserManager sharedManager] logInWithUsername:self.usernameTextField.text
-											password:self.passwordTextField.text
-								   completionHandler:^(NSError *error, SLUser *user) {
+	[SLUserManager logInWithUsername:self.usernameTextField.text
+							password:self.passwordTextField.text
+		   storeCredentialsOnSuccess:YES
+				   completionHandler:^(NSError *error, SLUser *user) {
 		 if (error) {
 			 NSLog(@"error: %@", error);
 		 } else {
-			 NSLog(@"No error: %@", user);
 			 [self.presentingViewController dismissViewControllerAnimated:YES completion:self.completionHandler];
 		 }
 	 }];
@@ -62,9 +69,11 @@
 	} else {
 		[self login];
 	}
-    
-    return YES;
+
+	return YES;
 }
+
+#pragma mark - IBActions
 
 - (IBAction)didTouchLoginButton
 {

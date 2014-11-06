@@ -7,9 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <RestKit/RestKit.h>
-#import "SLUser.h"
-
+#import <AFNetworking/AFNetworking.h>
 
 #if TARGET_IPHONE_SIMULATOR
     static NSString *BASE_URL_STRING = YES ? @"http://127.0.0.1:8000/api/" : @"http://213.165.86.29:8000/api/";
@@ -23,7 +21,6 @@ static NSString *SLAPIEndpointUserProfiles  = @"user-profiles/";
 static NSString *SLAPIEndpointUserProfile   = @"user-profiles/:userProfileID/";
 
 static NSString *SLAPIEndpointLocks     = @"locks/";
-//static NSString *SLAPIEndpointLocksMy   = @"locks/my/";
 static NSString *SLAPIEndpointLock      = @"locks/:lockID/";
 static NSString *SLAPIEndpointLockOpen  = @"locks/:lockID/open/";
 static NSString *SLAPIEndpointLockClose = @"locks/:lockID/close/";
@@ -35,9 +32,9 @@ static NSString *SLAPIEndpointAccessLogEntry    = @"access-log-entries/:accessLo
 
 + (SLRESTManager *)sharedManager;
 
-@property (nonatomic, retain) RKObjectManager *objectManager;
+@property (nonatomic, retain) AFHTTPRequestOperationManager *operationManager;
 
-- (void)clearAuthorizationHeader;
 - (BOOL)setAuthorizationHeaderWithUsername:(NSString *)username password:(NSString *)password;
+- (void)clearAuthorizationHeader;
 
 @end

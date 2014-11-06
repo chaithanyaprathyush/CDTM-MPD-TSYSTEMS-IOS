@@ -8,27 +8,28 @@
 
 #import <Foundation/Foundation.h>
 #import "SLUser.h"
+#import "SLEntityManager.h"
 
-@interface SLUserManager : NSObject
+@interface SLUserManager : SLEntityManager
 
 + (SLUserManager *)sharedManager;
 
 @property(strong, nonatomic) SLUser *currentUser;
 
-#pragma mark - Utils
+#pragma mark - Login / Logout
 
-- (BOOL)isCurrentUserLoggedIn;
++ (NSString *)storedUsername;
++ (NSString *)storedPassword;
 
-- (BOOL)hasStoredCredentials;
-@property (nonatomic, retain) NSString *storedUsername;
-@property (nonatomic, retain) NSString *storedPassword;
+//- (void)registerUserWithEmail:(NSString *)email password:(NSString *)password completionHandler:(void (^)(NSError *error, LMUser *user))completionHandler;
++ (void)logInWithStoredCredentialsWithCompletionHandler:(void(^)(NSError *error, SLUser *user))completionHandler;
++ (void)logInWithUsername:(NSString *)username password:(NSString *)password storeCredentialsOnSuccess:(BOOL)storeCredentialsOnSuccess completionHandler:(void (^)(NSError *error, SLUser *user))completionHandler;
 
-- (void)logOutCurrentUser;
++ (BOOL)isCurrentUserLoggedIn;
 
-#pragma mark - REST API
++ (void)logOutCurrentUser;
 
-//- (void)registerUserWithEmail:(NSString *)email password:(NSString *)password completionHandler:(void (^)(NSError *error, SLUser *user))completionHandler;
-- (void)logInWithStoredCredentialsWithCompletionHandler:(void(^)(NSError *error, SLUser *user))completionHandler;
-- (void)logInWithUsername:(NSString *)username password:(NSString *)password completionHandler:(void (^)(NSError *error, SLUser *user))completionHandler;
+#pragma mark - CoreData & REST-API
+
 
 @end

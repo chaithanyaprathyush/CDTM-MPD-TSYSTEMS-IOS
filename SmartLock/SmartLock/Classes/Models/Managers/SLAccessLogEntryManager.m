@@ -7,33 +7,64 @@
 //
 
 #import "SLAccessLogEntryManager.h"
-#import <RestKit/RestKit.h>
 #import "SLRESTManager.h"
+#import "SLUserManager.h"
+#import "SLLockManager.h"
 
 @implementation SLAccessLogEntryManager
 
-#pragma mark - Singleton
+#pragma mark - CoreData
 
-+ (SLAccessLogEntryManager *)sharedManager
++ (Class)entityClass
 {
-	static SLAccessLogEntryManager *sharedManager = nil;
-
-	static dispatch_once_t onceToken;
-
-	dispatch_once(&onceToken, ^{
-					  sharedManager = [SLAccessLogEntryManager new];
-				  });
-
-	return sharedManager;
+	return [SLAccessLogEntry class];
 }
 
-- (void)fetchAllAccessLogEntriesWithCompletionHandler:(void (^)(NSError *, NSArray *))completionHandler
++ (NSString *)entityIDKey
 {
-	[[SLRESTManager sharedManager].objectManager getObjectsAtPath:SLAPIEndpointAccessLogEntries
-													   parameters:nil
-														  success:^(RKObjectRequestOperation *operation, RKMappingResult *mappingResult) {
-		 completionHandler(nil, mappingResult.array);
-	 } failure:^(RKObjectRequestOperation *operation, NSError *error) {
+	return @"accessLogEntryID";
+}
+
++ (SLAccessLogEntry *)updateOrCreateEntityWithJSON:(NSDictionary *)JSON
+{
+	NSNumber *accessLogEntryID = JSON[@"id"];
+
+	SLAccessLogEntry *accessLogEntry = [self fetchOrCreateEntityWithEntityID:accessLogEntryID];
+
+	accessLogEntry.user = [SLUserManager fetchOrCreateEntityWithEntityID:JSON[@"user"]];
+	accessLogEntry.lock = [SLLockManager fetchOrCreateEntityWithEntityID:JSON[@"key"]];
+    accessLogEntry.action = JSON[@"action"];
+
+	[[SLCoreDataManager sharedManager] save];
+
+	return accessLogEntry;
+}
+
+#pragma mark - REST-API
+
++ (void)synchronizeAccessLogEntryWithAccessLogEntryID:(NSNumber *)accessLogEntryID completionHandler:(void (^)(NSError *, SLAccessLogEntry *))completionHandler
+{
+	NSString *endpoint = [SLAPIEndpointAccessLogEntry stringByReplacingOccurrencesOfString:@":accessLogEntryID" withString:[accessLogEntryID stringValue]];
+
+	[[SLRESTManager sharedManager].operationManager GET:endpoint
+											 parameters:nil
+												success:^(AFHTTPRequestOperation *operation, id responseObject) {
+		 SLAccessLogEntry *accessLogEntryID = [self updateOrCreateEntityWithJSON:responseObject];
+		 completionHandler(nil, accessLogEntryID);
+	 } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+		 NSLog(@"error: %@", error);
+		 completionHandler(error, nil);
+	 }];
+}
+
++ (void)synchronizeAllAccessLogEntriesWithCompletionHandler:(void (^)(NSError *, NSArray *))completionHandler
+{
+	[[SLRESTManager sharedManager].operationManager GET:SLAPIEndpointAccessLogEntries
+											 parameters:nil
+												success:^(AFHTTPRequestOperation *operation, id responseObject) {
+		 NSArray *accessLogEntries = [self updateOrCreateEntitiesWithJSON:responseObject[@"results"]];
+		 completionHandler(nil, accessLogEntries);
+	 } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
 		 completionHandler(error, nil);
 	 }];
 }

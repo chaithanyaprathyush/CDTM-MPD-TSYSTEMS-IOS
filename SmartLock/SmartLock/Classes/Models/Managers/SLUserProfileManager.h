@@ -8,12 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import "SLUserProfile.h"
-#import "SLUser.h"
+#import "SLEntityManager.h"
 
-@interface SLUserProfileManager : NSObject
+@interface SLUserProfileManager : SLEntityManager
 
-+ (SLUserProfileManager *)sharedManager;
-
-- (void)fetchUserProfileWithUserProfileID:(NSNumber *)userProfileID completionHandler:(void(^)(NSError *error, SLUserProfile *userProfile))completionHandler;
++ (void)synchronizeUserProfileWithUserProfileID:(NSNumber *)userProfileID completionHandler:(void (^)(NSError *, SLUserProfile *))completionHandler;
++ (void)synchronizeAllUserProfilesWithCompletionHandler:(void (^)(NSError *, NSArray *userProfiles))completionHandler;
 
 @end
