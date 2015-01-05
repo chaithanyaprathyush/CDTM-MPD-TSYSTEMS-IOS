@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6254" systemVersion="14B17" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6247"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z1C-S2-dNA">
+                                <rect key="frame" x="333" y="589" width="102" height="30"/>
+                                <state key="normal" title="Start Scanning">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTouchStartStopScanningButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="svU-di-J8V"/>
+                                </connections>
+                            </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Rcg-l9-DGJ">
+                                <rect key="frame" x="366" y="494" width="37" height="37"/>
+                                <color key="color" red="0.0" green="0.50196081400000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </activityIndicatorView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="No peripherals detected yet..." selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Uv-1i-mdf">
+                                <rect key="frame" x="20" y="28" width="728" height="458"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mUp-mt-9jO">
+                                <rect key="frame" x="364" y="627" width="40" height="30"/>
+                                <state key="normal" title="Reset">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="didTouchResetButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Kp4-b3-z20"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="Z1C-S2-dNA" secondAttribute="centerX" id="Dl0-oJ-JFb"/>
+                            <constraint firstAttribute="centerY" secondItem="Rcg-l9-DGJ" secondAttribute="centerY" id="JEJ-MY-vjy"/>
+                            <constraint firstItem="2Uv-1i-mdf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="TcX-38-BlL"/>
+                            <constraint firstItem="Rcg-l9-DGJ" firstAttribute="top" secondItem="2Uv-1i-mdf" secondAttribute="bottom" constant="8" id="Yrp-cP-ri0"/>
+                            <constraint firstItem="mUp-mt-9jO" firstAttribute="top" secondItem="Z1C-S2-dNA" secondAttribute="bottom" constant="8" id="bIk-lO-nOK"/>
+                            <constraint firstAttribute="centerX" secondItem="Rcg-l9-DGJ" secondAttribute="centerX" id="gJD-nG-SeM"/>
+                            <constraint firstItem="Z1C-S2-dNA" firstAttribute="top" secondItem="Rcg-l9-DGJ" secondAttribute="bottom" constant="58" id="hca-vh-JbQ"/>
+                            <constraint firstItem="2Uv-1i-mdf" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="te7-PH-rP3"/>
+                            <constraint firstAttribute="centerX" secondItem="mUp-mt-9jO" secondAttribute="centerX" id="ueh-k3-Guc"/>
+                            <constraint firstItem="2Uv-1i-mdf" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="zLb-ig-jdt"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="peripheralInformationTextView" destination="2Uv-1i-mdf" id="zK8-FE-E8G"/>
+                        <outlet property="scanningActivityIndicator" destination="Rcg-l9-DGJ" id="x0a-NJ-YGP"/>
+                        <outlet property="startStopScanningButton" destination="Z1C-S2-dNA" id="Kk3-Sa-jrK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="413.44" y="663.89333333333343"/>
+        </scene>
+        <!--Open Lock View Controller-->
+        <scene sceneID="aNp-CH-dcp">
+            <objects>
+                <viewController id="rse-pE-Mt5" customClass="OpenLockViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="sRn-Of-THk"/>
+                        <viewControllerLayoutGuide type="bottom" id="82z-3q-KCP"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="akm-Pz-eYa">
+                        <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Quanto" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gr9-XU-PCK">
+                                <rect key="frame" x="351" y="334" width="323" height="120"/>
+                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="100"/>
+                                <color key="textColor" red="0.85490196080000003" green="0.64705882349999999" blue="0.12549019610000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="door_left_middle" translatesAutoresizingMaskIntoConstraints="NO" id="nxy-Y9-ucZ">
+                                <rect key="frame" x="256" y="0.0" width="256" height="768"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="door_right_middle" translatesAutoresizingMaskIntoConstraints="NO" id="5oG-Zd-kOv">
+                                <rect key="frame" x="512" y="0.0" width="256" height="768"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="door_left_side" translatesAutoresizingMaskIntoConstraints="NO" id="5uc-gA-O8K">
+                                <rect key="frame" x="0.0" y="0.0" width="256" height="768"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="door_right_side" translatesAutoresizingMaskIntoConstraints="NO" id="HVE-Dv-vA6">
+                                <rect key="frame" x="768" y="0.0" width="256" height="768"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.1333333333" green="0.13725490200000001" blue="0.1450980392" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="centerY" secondItem="Gr9-XU-PCK" secondAttribute="centerY" constant="-9.5" id="NJI-U9-N7F"/>
+                            <constraint firstAttribute="centerX" secondItem="Gr9-XU-PCK" secondAttribute="centerX" id="Yhg-2w-XEL"/>
+                        </constraints>
+                    </view>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <connections>
+                        <outlet property="leftMiddleDoorImageView" destination="nxy-Y9-ucZ" id="bfo-Ih-KuI"/>
+                        <outlet property="rightMiddleDoorImageView" destination="5oG-Zd-kOv" id="AST-DO-yBf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KtL-ni-erK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1670" y="464"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="door_left_middle" width="234" height="663"/>
+        <image name="door_left_side" width="225" height="663"/>
+        <image name="door_right_middle" width="238" height="663"/>
+        <image name="door_right_side" width="218" height="663"/>
+    </resources>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination"/>
+    </simulatedMetricsContainer>
+</document>

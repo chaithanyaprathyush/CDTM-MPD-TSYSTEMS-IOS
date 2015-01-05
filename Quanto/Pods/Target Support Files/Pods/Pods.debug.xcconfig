@@ -1,0 +1,6 @@
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
+HEADER_SEARCH_PATHS = "${PODS_ROOT}/Headers/Public" "${PODS_ROOT}/Headers/Public/AFNetworking" "${PODS_ROOT}/Headers/Public/CWStatusBarNotification" "${PODS_ROOT}/Headers/Public/Fingertips" "${PODS_ROOT}/Headers/Public/MBProgressHUD" "${PODS_ROOT}/Headers/Public/MSDynamicsDrawerViewController" "${PODS_ROOT}/Headers/Public/MZAppearance" "${PODS_ROOT}/Headers/Public/MZFormSheetController"
+OTHER_CFLAGS = $(inherited) -isystem "${PODS_ROOT}/Headers/Public" -isystem "${PODS_ROOT}/Headers/Public/AFNetworking" -isystem "${PODS_ROOT}/Headers/Public/CWStatusBarNotification" -isystem "${PODS_ROOT}/Headers/Public/Fingertips" -isystem "${PODS_ROOT}/Headers/Public/MBProgressHUD" -isystem "${PODS_ROOT}/Headers/Public/MSDynamicsDrawerViewController" -isystem "${PODS_ROOT}/Headers/Public/MZAppearance" -isystem "${PODS_ROOT}/Headers/Public/MZFormSheetController"
+OTHER_LDFLAGS = -ObjC -l"Pods-AFNetworking" -l"Pods-CWStatusBarNotification" -l"Pods-Fingertips" -l"Pods-MBProgressHUD" -l"Pods-MSDynamicsDrawerViewController" -l"Pods-MZAppearance" -l"Pods-MZFormSheetController" -framework "Accelerate" -framework "CoreGraphics" -framework "MobileCoreServices" -framework "QuartzCore" -framework "Security" -framework "SystemConfiguration" -framework "UIKit"
+OTHER_LIBTOOLFLAGS = $(OTHER_LDFLAGS)
+PODS_ROOT = ${SRCROOT}/Pods

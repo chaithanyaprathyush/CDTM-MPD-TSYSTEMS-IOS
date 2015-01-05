@@ -1,0 +1,946 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		25EBBA21DFFF917FF1705C62 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E0651DD78BBC685CC987F13 /* libPods.a */; };
+		FF3959081A51C46400972A1E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FF3959071A51C46400972A1E /* main.m */; };
+		FF3959111A51C46400972A1E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF39590F1A51C46400972A1E /* Main.storyboard */; };
+		FF3959161A51C46400972A1E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF3959141A51C46400972A1E /* LaunchScreen.xib */; };
+		FF3959221A51C46400972A1E /* QuantoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FF3959211A51C46400972A1E /* QuantoTests.m */; };
+		FF3959511A51C74600972A1E /* QUAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FF39592F1A51C74600972A1E /* QUAppDelegate.m */; };
+		FF3959521A51C74600972A1E /* PFEntityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FF3959331A51C74600972A1E /* PFEntityManager.m */; };
+		FF3959551A51C74600972A1E /* NSDictionary+PFUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = FF39593A1A51C74600972A1E /* NSDictionary+PFUtils.m */; };
+		FF3959561A51C74600972A1E /* PFAuthenticationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FF39593D1A51C74600972A1E /* PFAuthenticationManager.m */; };
+		FF3959571A51C74600972A1E /* PFRESTManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FF39593F1A51C74600972A1E /* PFRESTManager.m */; };
+		FF3959581A51C74600972A1E /* QULoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF3959431A51C74600972A1E /* QULoginViewController.m */; };
+		FF3959591A51C74600972A1E /* QURegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF3959451A51C74600972A1E /* QURegisterViewController.m */; };
+		FF39595A1A51C74600972A1E /* PFCoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FF39594A1A51C74600972A1E /* PFCoreDataManager.m */; };
+		FF39595B1A51C74600972A1E /* NSDate+QUPrettify.m in Sources */ = {isa = PBXBuildFile; fileRef = FF39594E1A51C74600972A1E /* NSDate+QUPrettify.m */; };
+		FF39595C1A51C74600972A1E /* UIView+QURound.m in Sources */ = {isa = PBXBuildFile; fileRef = FF3959501A51C74600972A1E /* UIView+QURound.m */; };
+		FF4EA84B1A5745210074B4E8 /* QUBluetoothManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4EA84A1A5745210074B4E8 /* QUBluetoothManager.m */; };
+		FF4EA84E1A57777C0074B4E8 /* QUGuest+QUUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4EA84D1A57777C0074B4E8 /* QUGuest+QUUtils.m */; };
+		FF4EA8511A584E3F0074B4E8 /* QURoomControlViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4EA8501A584E3F0074B4E8 /* QURoomControlViewController.m */; };
+		FF4EA8531A58521F0074B4E8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF4EA8521A58521F0074B4E8 /* Images.xcassets */; };
+		FF4EA8561A58F8630074B4E8 /* QUHotelServicesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4EA8551A58F8630074B4E8 /* QUHotelServicesTableViewController.m */; };
+		FF4EA8591A5900650074B4E8 /* QUKey.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4EA8581A5900650074B4E8 /* QUKey.m */; };
+		FF4EA85C1A5900660074B4E8 /* QURoom.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4EA85B1A5900660074B4E8 /* QURoom.m */; };
+		FF4EA85F1A5900660074B4E8 /* QUGuest.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4EA85E1A5900660074B4E8 /* QUGuest.m */; };
+		FF4EA8621A5900660074B4E8 /* QUStay.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4EA8611A5900660074B4E8 /* QUStay.m */; };
+		FF4EA8651A5900660074B4E8 /* QUService.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4EA8641A5900660074B4E8 /* QUService.m */; };
+		FF4EA8681A5900660074B4E8 /* QULock.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4EA8671A5900660074B4E8 /* QULock.m */; };
+		FF4EA86B1A5900670074B4E8 /* QUServiceType.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4EA86A1A5900670074B4E8 /* QUServiceType.m */; };
+		FF4EA8711A5906C20074B4E8 /* QUServiceTypeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4EA8701A5906C20074B4E8 /* QUServiceTypeManager.m */; };
+		FF4EA8741A59239A0074B4E8 /* QUServiceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4EA8731A59239A0074B4E8 /* QUServiceManager.m */; };
+		FF4EA8761A5925100074B4E8 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF4EA8751A5925100074B4E8 /* CoreData.framework */; };
+		FF4EA8791A596CDE0074B4E8 /* QUOrderManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4EA8781A596CDE0074B4E8 /* QUOrderManager.m */; };
+		FF4EA87C1A59C98F0074B4E8 /* QUHotelServiceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4EA87B1A59C98F0074B4E8 /* QUHotelServiceTableViewCell.m */; };
+		FF4EA87F1A59CC810074B4E8 /* QUService+QUUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4EA87E1A59CC810074B4E8 /* QUService+QUUtils.m */; };
+		FF4EA8841A59F87F0074B4E8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF4EA8831A59F87F0074B4E8 /* QuartzCore.framework */; };
+		FF4EA8871A5A11D60074B4E8 /* QUHotelServiceDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4EA8861A5A11D60074B4E8 /* QUHotelServiceDetailsViewController.m */; };
+		FF4EA88D1A5AC5CE0074B4E8 /* MBProgressHUD+QUUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4EA88C1A5AC5CE0074B4E8 /* MBProgressHUD+QUUtils.m */; };
+		FF4EA8901A5AC7B90074B4E8 /* QUOrdersTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4EA88F1A5AC7B90074B4E8 /* QUOrdersTableViewController.m */; };
+		FF4EA8961A5AC8C90074B4E8 /* PFFetchedResultsControllerCVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4EA8931A5AC8C90074B4E8 /* PFFetchedResultsControllerCVC.m */; };
+		FF4EA8971A5AC8C90074B4E8 /* PFFetchedResultsControllerTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4EA8951A5AC8C90074B4E8 /* PFFetchedResultsControllerTVC.m */; };
+		FF4EA89A1A5ACAF60074B4E8 /* QUOrderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4EA8991A5ACAF60074B4E8 /* QUOrderTableViewCell.m */; };
+		FF4EA89D1A5ADAEA0074B4E8 /* QUOrder+QUUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4EA89C1A5ADAEA0074B4E8 /* QUOrder+QUUtils.m */; };
+		FF4EA8A01A5AE2DB0074B4E8 /* QUOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4EA89F1A5AE2DB0074B4E8 /* QUOrder.m */; };
+		FF4EA8A61A5AED770074B4E8 /* QULocksTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4EA8A51A5AED770074B4E8 /* QULocksTableViewController.m */; };
+		FF4EA8A91A5AEE110074B4E8 /* QULockTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4EA8A81A5AEE110074B4E8 /* QULockTableViewCell.m */; };
+		FFB3557C1A55B074007A29D1 /* UIColor+QUCorporateDesign.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB3557B1A55B074007A29D1 /* UIColor+QUCorporateDesign.m */; };
+		FFB355831A55C095007A29D1 /* QUKeyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB355821A55C095007A29D1 /* QUKeyManager.m */; };
+		FFB355981A55F591007A29D1 /* QURoomManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB355971A55F591007A29D1 /* QURoomManager.m */; };
+		FFB355A41A55FC24007A29D1 /* QUKeysViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB355A21A55FC24007A29D1 /* QUKeysViewController.m */; };
+		FFB355A61A56514C007A29D1 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFB355A51A56514C007A29D1 /* CoreBluetooth.framework */; };
+		FFB355DD1A5704E7007A29D1 /* QUAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB355DC1A5704E7007A29D1 /* QUAccountViewController.m */; };
+		FFEF77581A51CAA600D2405B /* Quanto.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FFEF77561A51CAA600D2405B /* Quanto.xcdatamodeld */; };
+		FFEF77C51A5229FB00D2405B /* QULockManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FFEF77C41A5229FB00D2405B /* QULockManager.m */; };
+		FFEF77DD1A5237A800D2405B /* QUGuestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FFEF77DC1A5237A800D2405B /* QUGuestManager.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FF39591C1A51C46400972A1E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FF3958FA1A51C46400972A1E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FF3959011A51C46400972A1E;
+			remoteInfo = Quanto;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		9E0651DD78BBC685CC987F13 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF04A1243563F212EB63632B /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		ECE3866CA808167C666B1627 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		FF3959021A51C46400972A1E /* Quanto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quanto.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF3959061A51C46400972A1E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FF3959071A51C46400972A1E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		FF3959101A51C46400972A1E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FF3959151A51C46400972A1E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		FF39591B1A51C46400972A1E /* QuantoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = QuantoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FF3959201A51C46400972A1E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FF3959211A51C46400972A1E /* QuantoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QuantoTests.m; sourceTree = "<group>"; };
+		FF39592E1A51C74600972A1E /* QUAppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUAppDelegate.h; sourceTree = "<group>"; };
+		FF39592F1A51C74600972A1E /* QUAppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUAppDelegate.m; sourceTree = "<group>"; };
+		FF3959321A51C74600972A1E /* PFEntityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFEntityManager.h; sourceTree = "<group>"; };
+		FF3959331A51C74600972A1E /* PFEntityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFEntityManager.m; sourceTree = "<group>"; };
+		FF3959391A51C74600972A1E /* NSDictionary+PFUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+PFUtils.h"; sourceTree = "<group>"; };
+		FF39593A1A51C74600972A1E /* NSDictionary+PFUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+PFUtils.m"; sourceTree = "<group>"; };
+		FF39593C1A51C74600972A1E /* PFAuthenticationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFAuthenticationManager.h; sourceTree = "<group>"; };
+		FF39593D1A51C74600972A1E /* PFAuthenticationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFAuthenticationManager.m; sourceTree = "<group>"; };
+		FF39593E1A51C74600972A1E /* PFRESTManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFRESTManager.h; sourceTree = "<group>"; };
+		FF39593F1A51C74600972A1E /* PFRESTManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFRESTManager.m; sourceTree = "<group>"; };
+		FF3959421A51C74600972A1E /* QULoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QULoginViewController.h; sourceTree = "<group>"; };
+		FF3959431A51C74600972A1E /* QULoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QULoginViewController.m; sourceTree = "<group>"; };
+		FF3959441A51C74600972A1E /* QURegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QURegisterViewController.h; sourceTree = "<group>"; };
+		FF3959451A51C74600972A1E /* QURegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QURegisterViewController.m; sourceTree = "<group>"; };
+		FF3959491A51C74600972A1E /* PFCoreDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFCoreDataManager.h; sourceTree = "<group>"; };
+		FF39594A1A51C74600972A1E /* PFCoreDataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFCoreDataManager.m; sourceTree = "<group>"; };
+		FF39594D1A51C74600972A1E /* NSDate+QUPrettify.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+QUPrettify.h"; sourceTree = "<group>"; };
+		FF39594E1A51C74600972A1E /* NSDate+QUPrettify.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+QUPrettify.m"; sourceTree = "<group>"; };
+		FF39594F1A51C74600972A1E /* UIView+QURound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+QURound.h"; sourceTree = "<group>"; };
+		FF3959501A51C74600972A1E /* UIView+QURound.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+QURound.m"; sourceTree = "<group>"; };
+		FF4EA8491A5745210074B4E8 /* QUBluetoothManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUBluetoothManager.h; sourceTree = "<group>"; };
+		FF4EA84A1A5745210074B4E8 /* QUBluetoothManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUBluetoothManager.m; sourceTree = "<group>"; };
+		FF4EA84C1A57777C0074B4E8 /* QUGuest+QUUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "QUGuest+QUUtils.h"; sourceTree = "<group>"; };
+		FF4EA84D1A57777C0074B4E8 /* QUGuest+QUUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "QUGuest+QUUtils.m"; sourceTree = "<group>"; };
+		FF4EA84F1A584E3F0074B4E8 /* QURoomControlViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QURoomControlViewController.h; sourceTree = "<group>"; };
+		FF4EA8501A584E3F0074B4E8 /* QURoomControlViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QURoomControlViewController.m; sourceTree = "<group>"; };
+		FF4EA8521A58521F0074B4E8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		FF4EA8541A58F8630074B4E8 /* QUHotelServicesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUHotelServicesTableViewController.h; sourceTree = "<group>"; };
+		FF4EA8551A58F8630074B4E8 /* QUHotelServicesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUHotelServicesTableViewController.m; sourceTree = "<group>"; };
+		FF4EA8571A5900650074B4E8 /* QUKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUKey.h; sourceTree = "<group>"; };
+		FF4EA8581A5900650074B4E8 /* QUKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUKey.m; sourceTree = "<group>"; };
+		FF4EA85A1A5900660074B4E8 /* QURoom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QURoom.h; sourceTree = "<group>"; };
+		FF4EA85B1A5900660074B4E8 /* QURoom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QURoom.m; sourceTree = "<group>"; };
+		FF4EA85D1A5900660074B4E8 /* QUGuest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUGuest.h; sourceTree = "<group>"; };
+		FF4EA85E1A5900660074B4E8 /* QUGuest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUGuest.m; sourceTree = "<group>"; };
+		FF4EA8601A5900660074B4E8 /* QUStay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUStay.h; sourceTree = "<group>"; };
+		FF4EA8611A5900660074B4E8 /* QUStay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUStay.m; sourceTree = "<group>"; };
+		FF4EA8631A5900660074B4E8 /* QUService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUService.h; sourceTree = "<group>"; };
+		FF4EA8641A5900660074B4E8 /* QUService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUService.m; sourceTree = "<group>"; };
+		FF4EA8661A5900660074B4E8 /* QULock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QULock.h; sourceTree = "<group>"; };
+		FF4EA8671A5900660074B4E8 /* QULock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QULock.m; sourceTree = "<group>"; };
+		FF4EA8691A5900670074B4E8 /* QUServiceType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUServiceType.h; sourceTree = "<group>"; };
+		FF4EA86A1A5900670074B4E8 /* QUServiceType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUServiceType.m; sourceTree = "<group>"; };
+		FF4EA86F1A5906C20074B4E8 /* QUServiceTypeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUServiceTypeManager.h; sourceTree = "<group>"; };
+		FF4EA8701A5906C20074B4E8 /* QUServiceTypeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUServiceTypeManager.m; sourceTree = "<group>"; };
+		FF4EA8721A59239A0074B4E8 /* QUServiceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUServiceManager.h; sourceTree = "<group>"; };
+		FF4EA8731A59239A0074B4E8 /* QUServiceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUServiceManager.m; sourceTree = "<group>"; };
+		FF4EA8751A5925100074B4E8 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		FF4EA8771A596CDE0074B4E8 /* QUOrderManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUOrderManager.h; sourceTree = "<group>"; };
+		FF4EA8781A596CDE0074B4E8 /* QUOrderManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUOrderManager.m; sourceTree = "<group>"; };
+		FF4EA87A1A59C98F0074B4E8 /* QUHotelServiceTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUHotelServiceTableViewCell.h; sourceTree = "<group>"; };
+		FF4EA87B1A59C98F0074B4E8 /* QUHotelServiceTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUHotelServiceTableViewCell.m; sourceTree = "<group>"; };
+		FF4EA87D1A59CC810074B4E8 /* QUService+QUUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "QUService+QUUtils.h"; sourceTree = "<group>"; };
+		FF4EA87E1A59CC810074B4E8 /* QUService+QUUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "QUService+QUUtils.m"; sourceTree = "<group>"; };
+		FF4EA8831A59F87F0074B4E8 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		FF4EA8851A5A11D60074B4E8 /* QUHotelServiceDetailsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUHotelServiceDetailsViewController.h; sourceTree = "<group>"; };
+		FF4EA8861A5A11D60074B4E8 /* QUHotelServiceDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUHotelServiceDetailsViewController.m; sourceTree = "<group>"; };
+		FF4EA88B1A5AC5CE0074B4E8 /* MBProgressHUD+QUUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+QUUtils.h"; sourceTree = "<group>"; };
+		FF4EA88C1A5AC5CE0074B4E8 /* MBProgressHUD+QUUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+QUUtils.m"; sourceTree = "<group>"; };
+		FF4EA88E1A5AC7B90074B4E8 /* QUOrdersTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUOrdersTableViewController.h; sourceTree = "<group>"; };
+		FF4EA88F1A5AC7B90074B4E8 /* QUOrdersTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUOrdersTableViewController.m; sourceTree = "<group>"; };
+		FF4EA8921A5AC8C90074B4E8 /* PFFetchedResultsControllerCVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFFetchedResultsControllerCVC.h; sourceTree = "<group>"; };
+		FF4EA8931A5AC8C90074B4E8 /* PFFetchedResultsControllerCVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFFetchedResultsControllerCVC.m; sourceTree = "<group>"; };
+		FF4EA8941A5AC8C90074B4E8 /* PFFetchedResultsControllerTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFFetchedResultsControllerTVC.h; sourceTree = "<group>"; };
+		FF4EA8951A5AC8C90074B4E8 /* PFFetchedResultsControllerTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFFetchedResultsControllerTVC.m; sourceTree = "<group>"; };
+		FF4EA8981A5ACAF60074B4E8 /* QUOrderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUOrderTableViewCell.h; sourceTree = "<group>"; };
+		FF4EA8991A5ACAF60074B4E8 /* QUOrderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUOrderTableViewCell.m; sourceTree = "<group>"; };
+		FF4EA89B1A5ADAEA0074B4E8 /* QUOrder+QUUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "QUOrder+QUUtils.h"; sourceTree = "<group>"; };
+		FF4EA89C1A5ADAEA0074B4E8 /* QUOrder+QUUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "QUOrder+QUUtils.m"; sourceTree = "<group>"; };
+		FF4EA89E1A5AE2DB0074B4E8 /* QUOrder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUOrder.h; sourceTree = "<group>"; };
+		FF4EA89F1A5AE2DB0074B4E8 /* QUOrder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUOrder.m; sourceTree = "<group>"; };
+		FF4EA8A41A5AED770074B4E8 /* QULocksTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QULocksTableViewController.h; sourceTree = "<group>"; };
+		FF4EA8A51A5AED770074B4E8 /* QULocksTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QULocksTableViewController.m; sourceTree = "<group>"; };
+		FF4EA8A71A5AEE110074B4E8 /* QULockTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QULockTableViewCell.h; sourceTree = "<group>"; };
+		FF4EA8A81A5AEE110074B4E8 /* QULockTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QULockTableViewCell.m; sourceTree = "<group>"; };
+		FFB3557A1A55B074007A29D1 /* UIColor+QUCorporateDesign.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+QUCorporateDesign.h"; sourceTree = "<group>"; };
+		FFB3557B1A55B074007A29D1 /* UIColor+QUCorporateDesign.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+QUCorporateDesign.m"; sourceTree = "<group>"; };
+		FFB355811A55C095007A29D1 /* QUKeyManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUKeyManager.h; sourceTree = "<group>"; };
+		FFB355821A55C095007A29D1 /* QUKeyManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUKeyManager.m; sourceTree = "<group>"; };
+		FFB355961A55F591007A29D1 /* QURoomManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QURoomManager.h; sourceTree = "<group>"; };
+		FFB355971A55F591007A29D1 /* QURoomManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QURoomManager.m; sourceTree = "<group>"; };
+		FFB355A11A55FC24007A29D1 /* QUKeysViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUKeysViewController.h; sourceTree = "<group>"; };
+		FFB355A21A55FC24007A29D1 /* QUKeysViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUKeysViewController.m; sourceTree = "<group>"; };
+		FFB355A51A56514C007A29D1 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		FFB355DB1A5704E6007A29D1 /* QUAccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUAccountViewController.h; sourceTree = "<group>"; };
+		FFB355DC1A5704E7007A29D1 /* QUAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUAccountViewController.m; sourceTree = "<group>"; };
+		FFEF77571A51CAA600D2405B /* Quanto.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Quanto.xcdatamodel; sourceTree = "<group>"; };
+		FFEF77C21A52266000D2405B /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		FFEF77C31A5229FB00D2405B /* QULockManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QULockManager.h; sourceTree = "<group>"; };
+		FFEF77C41A5229FB00D2405B /* QULockManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QULockManager.m; sourceTree = "<group>"; };
+		FFEF77DB1A5237A800D2405B /* QUGuestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUGuestManager.h; sourceTree = "<group>"; };
+		FFEF77DC1A5237A800D2405B /* QUGuestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUGuestManager.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FF3958FF1A51C46400972A1E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FF4EA8841A59F87F0074B4E8 /* QuartzCore.framework in Frameworks */,
+				FF4EA8761A5925100074B4E8 /* CoreData.framework in Frameworks */,
+				FFB355A61A56514C007A29D1 /* CoreBluetooth.framework in Frameworks */,
+				25EBBA21DFFF917FF1705C62 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FF3959181A51C46400972A1E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7814440B10CDCB602F009D4B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FF4EA8831A59F87F0074B4E8 /* QuartzCore.framework */,
+				FF4EA8751A5925100074B4E8 /* CoreData.framework */,
+				FFB355A51A56514C007A29D1 /* CoreBluetooth.framework */,
+				9E0651DD78BBC685CC987F13 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		E86F351382F47C43E197EB6E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				ECE3866CA808167C666B1627 /* Pods.debug.xcconfig */,
+				BF04A1243563F212EB63632B /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		FF228EB61A550A2A005BF0A5 /* TabBar */ = {
+			isa = PBXGroup;
+			children = (
+				FFB3559D1A55FC24007A29D1 /* Tabs */,
+			);
+			path = TabBar;
+			sourceTree = "<group>";
+		};
+		FF3958F91A51C46400972A1E = {
+			isa = PBXGroup;
+			children = (
+				FF3959041A51C46400972A1E /* Quanto */,
+				FF39591E1A51C46400972A1E /* QuantoTests */,
+				FF3959031A51C46400972A1E /* Products */,
+				E86F351382F47C43E197EB6E /* Pods */,
+				7814440B10CDCB602F009D4B /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		FF3959031A51C46400972A1E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FF3959021A51C46400972A1E /* Quanto.app */,
+				FF39591B1A51C46400972A1E /* QuantoTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FF3959041A51C46400972A1E /* Quanto */ = {
+			isa = PBXGroup;
+			children = (
+				FF39592B1A51C74600972A1E /* Classes */,
+				FF39590F1A51C46400972A1E /* Main.storyboard */,
+				FF4EA8521A58521F0074B4E8 /* Images.xcassets */,
+				FF3959141A51C46400972A1E /* LaunchScreen.xib */,
+				FF3959051A51C46400972A1E /* Supporting Files */,
+			);
+			path = Quanto;
+			sourceTree = "<group>";
+		};
+		FF3959051A51C46400972A1E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FFEF77C21A52266000D2405B /* PrefixHeader.pch */,
+				FF3959061A51C46400972A1E /* Info.plist */,
+				FF3959071A51C46400972A1E /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FF39591E1A51C46400972A1E /* QuantoTests */ = {
+			isa = PBXGroup;
+			children = (
+				FF3959211A51C46400972A1E /* QuantoTests.m */,
+				FF39591F1A51C46400972A1E /* Supporting Files */,
+			);
+			path = QuantoTests;
+			sourceTree = "<group>";
+		};
+		FF39591F1A51C46400972A1E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FF3959201A51C46400972A1E /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FF39592B1A51C74600972A1E /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				FF39592C1A51C74600972A1E /* Controllers */,
+				FF3959461A51C74600972A1E /* Models */,
+				FF39594B1A51C74600972A1E /* Views */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		FF39592C1A51C74600972A1E /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				FF39592D1A51C74600972A1E /* _AppDelegate */,
+				FF3959301A51C74600972A1E /* Managers */,
+				FF3959401A51C74600972A1E /* ViewControllers */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		FF39592D1A51C74600972A1E /* _AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				FF39592E1A51C74600972A1E /* QUAppDelegate.h */,
+				FF39592F1A51C74600972A1E /* QUAppDelegate.m */,
+			);
+			path = _AppDelegate;
+			sourceTree = "<group>";
+		};
+		FF3959301A51C74600972A1E /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				FF4EA8481A5745120074B4E8 /* BlueTooth */,
+				FF3959311A51C74600972A1E /* CoreData */,
+				FF39593B1A51C74600972A1E /* REST-API */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		FF3959311A51C74600972A1E /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				FF3959381A51C74600972A1E /* Utils */,
+				FF3959321A51C74600972A1E /* PFEntityManager.h */,
+				FF3959331A51C74600972A1E /* PFEntityManager.m */,
+				FFEF77C31A5229FB00D2405B /* QULockManager.h */,
+				FFEF77C41A5229FB00D2405B /* QULockManager.m */,
+				FFEF77DB1A5237A800D2405B /* QUGuestManager.h */,
+				FFEF77DC1A5237A800D2405B /* QUGuestManager.m */,
+				FFB355811A55C095007A29D1 /* QUKeyManager.h */,
+				FFB355821A55C095007A29D1 /* QUKeyManager.m */,
+				FFB355961A55F591007A29D1 /* QURoomManager.h */,
+				FFB355971A55F591007A29D1 /* QURoomManager.m */,
+				FF4EA86F1A5906C20074B4E8 /* QUServiceTypeManager.h */,
+				FF4EA8701A5906C20074B4E8 /* QUServiceTypeManager.m */,
+				FF4EA8721A59239A0074B4E8 /* QUServiceManager.h */,
+				FF4EA8731A59239A0074B4E8 /* QUServiceManager.m */,
+				FF4EA8771A596CDE0074B4E8 /* QUOrderManager.h */,
+				FF4EA8781A596CDE0074B4E8 /* QUOrderManager.m */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
+		FF3959381A51C74600972A1E /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				FF3959391A51C74600972A1E /* NSDictionary+PFUtils.h */,
+				FF39593A1A51C74600972A1E /* NSDictionary+PFUtils.m */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		FF39593B1A51C74600972A1E /* REST-API */ = {
+			isa = PBXGroup;
+			children = (
+				FF39593C1A51C74600972A1E /* PFAuthenticationManager.h */,
+				FF39593D1A51C74600972A1E /* PFAuthenticationManager.m */,
+				FF39593E1A51C74600972A1E /* PFRESTManager.h */,
+				FF39593F1A51C74600972A1E /* PFRESTManager.m */,
+			);
+			path = "REST-API";
+			sourceTree = "<group>";
+		};
+		FF3959401A51C74600972A1E /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				FF4EA8911A5AC8C90074B4E8 /* FetchedResultsController */,
+				FF228EB61A550A2A005BF0A5 /* TabBar */,
+				FF3959411A51C74600972A1E /* Login */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		FF3959411A51C74600972A1E /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				FF3959421A51C74600972A1E /* QULoginViewController.h */,
+				FF3959431A51C74600972A1E /* QULoginViewController.m */,
+				FF3959441A51C74600972A1E /* QURegisterViewController.h */,
+				FF3959451A51C74600972A1E /* QURegisterViewController.m */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		FF3959461A51C74600972A1E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				FF3959471A51C74600972A1E /* Categories */,
+				FF3959481A51C74600972A1E /* Entities */,
+				FF3959491A51C74600972A1E /* PFCoreDataManager.h */,
+				FF39594A1A51C74600972A1E /* PFCoreDataManager.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		FF3959471A51C74600972A1E /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				FF4EA84C1A57777C0074B4E8 /* QUGuest+QUUtils.h */,
+				FF4EA84D1A57777C0074B4E8 /* QUGuest+QUUtils.m */,
+				FF4EA87D1A59CC810074B4E8 /* QUService+QUUtils.h */,
+				FF4EA87E1A59CC810074B4E8 /* QUService+QUUtils.m */,
+				FF4EA89B1A5ADAEA0074B4E8 /* QUOrder+QUUtils.h */,
+				FF4EA89C1A5ADAEA0074B4E8 /* QUOrder+QUUtils.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		FF3959481A51C74600972A1E /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+				FF4EA89E1A5AE2DB0074B4E8 /* QUOrder.h */,
+				FF4EA89F1A5AE2DB0074B4E8 /* QUOrder.m */,
+				FF4EA8691A5900670074B4E8 /* QUServiceType.h */,
+				FF4EA86A1A5900670074B4E8 /* QUServiceType.m */,
+				FF4EA8661A5900660074B4E8 /* QULock.h */,
+				FF4EA8671A5900660074B4E8 /* QULock.m */,
+				FF4EA8631A5900660074B4E8 /* QUService.h */,
+				FF4EA8641A5900660074B4E8 /* QUService.m */,
+				FF4EA8601A5900660074B4E8 /* QUStay.h */,
+				FF4EA8611A5900660074B4E8 /* QUStay.m */,
+				FF4EA85D1A5900660074B4E8 /* QUGuest.h */,
+				FF4EA85E1A5900660074B4E8 /* QUGuest.m */,
+				FF4EA85A1A5900660074B4E8 /* QURoom.h */,
+				FF4EA85B1A5900660074B4E8 /* QURoom.m */,
+				FF4EA8571A5900650074B4E8 /* QUKey.h */,
+				FF4EA8581A5900650074B4E8 /* QUKey.m */,
+				FFEF77561A51CAA600D2405B /* Quanto.xcdatamodeld */,
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		FF39594B1A51C74600972A1E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				FF39594C1A51C74600972A1E /* Categories */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		FF39594C1A51C74600972A1E /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				FF39594D1A51C74600972A1E /* NSDate+QUPrettify.h */,
+				FF39594E1A51C74600972A1E /* NSDate+QUPrettify.m */,
+				FF39594F1A51C74600972A1E /* UIView+QURound.h */,
+				FF3959501A51C74600972A1E /* UIView+QURound.m */,
+				FFB3557A1A55B074007A29D1 /* UIColor+QUCorporateDesign.h */,
+				FFB3557B1A55B074007A29D1 /* UIColor+QUCorporateDesign.m */,
+				FF4EA88B1A5AC5CE0074B4E8 /* MBProgressHUD+QUUtils.h */,
+				FF4EA88C1A5AC5CE0074B4E8 /* MBProgressHUD+QUUtils.m */,
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		FF4EA8481A5745120074B4E8 /* BlueTooth */ = {
+			isa = PBXGroup;
+			children = (
+				FF4EA8491A5745210074B4E8 /* QUBluetoothManager.h */,
+				FF4EA84A1A5745210074B4E8 /* QUBluetoothManager.m */,
+			);
+			path = BlueTooth;
+			sourceTree = "<group>";
+		};
+		FF4EA8911A5AC8C90074B4E8 /* FetchedResultsController */ = {
+			isa = PBXGroup;
+			children = (
+				FF4EA8921A5AC8C90074B4E8 /* PFFetchedResultsControllerCVC.h */,
+				FF4EA8931A5AC8C90074B4E8 /* PFFetchedResultsControllerCVC.m */,
+				FF4EA8941A5AC8C90074B4E8 /* PFFetchedResultsControllerTVC.h */,
+				FF4EA8951A5AC8C90074B4E8 /* PFFetchedResultsControllerTVC.m */,
+			);
+			path = FetchedResultsController;
+			sourceTree = "<group>";
+		};
+		FFB3559D1A55FC24007A29D1 /* Tabs */ = {
+			isa = PBXGroup;
+			children = (
+				FFB355A01A55FC24007A29D1 /* Keys */,
+				FFB3559F1A55FC24007A29D1 /* HotelServices */,
+				FFB355A31A55FC24007A29D1 /* RoomControl */,
+				FFB3559E1A55FC24007A29D1 /* Account */,
+			);
+			path = Tabs;
+			sourceTree = "<group>";
+		};
+		FFB3559E1A55FC24007A29D1 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				FFB355DB1A5704E6007A29D1 /* QUAccountViewController.h */,
+				FFB355DC1A5704E7007A29D1 /* QUAccountViewController.m */,
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
+		FFB3559F1A55FC24007A29D1 /* HotelServices */ = {
+			isa = PBXGroup;
+			children = (
+				FF4EA8541A58F8630074B4E8 /* QUHotelServicesTableViewController.h */,
+				FF4EA8551A58F8630074B4E8 /* QUHotelServicesTableViewController.m */,
+				FF4EA87A1A59C98F0074B4E8 /* QUHotelServiceTableViewCell.h */,
+				FF4EA87B1A59C98F0074B4E8 /* QUHotelServiceTableViewCell.m */,
+				FF4EA8851A5A11D60074B4E8 /* QUHotelServiceDetailsViewController.h */,
+				FF4EA8861A5A11D60074B4E8 /* QUHotelServiceDetailsViewController.m */,
+				FF4EA88E1A5AC7B90074B4E8 /* QUOrdersTableViewController.h */,
+				FF4EA88F1A5AC7B90074B4E8 /* QUOrdersTableViewController.m */,
+				FF4EA8981A5ACAF60074B4E8 /* QUOrderTableViewCell.h */,
+				FF4EA8991A5ACAF60074B4E8 /* QUOrderTableViewCell.m */,
+			);
+			path = HotelServices;
+			sourceTree = "<group>";
+		};
+		FFB355A01A55FC24007A29D1 /* Keys */ = {
+			isa = PBXGroup;
+			children = (
+				FFB355A11A55FC24007A29D1 /* QUKeysViewController.h */,
+				FFB355A21A55FC24007A29D1 /* QUKeysViewController.m */,
+				FF4EA8A41A5AED770074B4E8 /* QULocksTableViewController.h */,
+				FF4EA8A51A5AED770074B4E8 /* QULocksTableViewController.m */,
+				FF4EA8A71A5AEE110074B4E8 /* QULockTableViewCell.h */,
+				FF4EA8A81A5AEE110074B4E8 /* QULockTableViewCell.m */,
+			);
+			path = Keys;
+			sourceTree = "<group>";
+		};
+		FFB355A31A55FC24007A29D1 /* RoomControl */ = {
+			isa = PBXGroup;
+			children = (
+				FF4EA84F1A584E3F0074B4E8 /* QURoomControlViewController.h */,
+				FF4EA8501A584E3F0074B4E8 /* QURoomControlViewController.m */,
+			);
+			path = RoomControl;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FF3959011A51C46400972A1E /* Quanto */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FF3959251A51C46400972A1E /* Build configuration list for PBXNativeTarget "Quanto" */;
+			buildPhases = (
+				8E1EFD35D542A957F97CE006 /* Check Pods Manifest.lock */,
+				FF3958FE1A51C46400972A1E /* Sources */,
+				FF3958FF1A51C46400972A1E /* Frameworks */,
+				FF3959001A51C46400972A1E /* Resources */,
+				1A0E9FFE5CD3FDE00BA79285 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Quanto;
+			productName = Quanto;
+			productReference = FF3959021A51C46400972A1E /* Quanto.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FF39591A1A51C46400972A1E /* QuantoTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FF3959281A51C46400972A1E /* Build configuration list for PBXNativeTarget "QuantoTests" */;
+			buildPhases = (
+				FF3959171A51C46400972A1E /* Sources */,
+				FF3959181A51C46400972A1E /* Frameworks */,
+				FF3959191A51C46400972A1E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FF39591D1A51C46400972A1E /* PBXTargetDependency */,
+			);
+			name = QuantoTests;
+			productName = QuantoTests;
+			productReference = FF39591B1A51C46400972A1E /* QuantoTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FF3958FA1A51C46400972A1E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = QU;
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = "Pascal Fritzen";
+				TargetAttributes = {
+					FF3959011A51C46400972A1E = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+					FF39591A1A51C46400972A1E = {
+						CreatedOnToolsVersion = 6.1.1;
+						TestTargetID = FF3959011A51C46400972A1E;
+					};
+				};
+			};
+			buildConfigurationList = FF3958FD1A51C46400972A1E /* Build configuration list for PBXProject "Quanto" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FF3958F91A51C46400972A1E;
+			productRefGroup = FF3959031A51C46400972A1E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FF3959011A51C46400972A1E /* Quanto */,
+				FF39591A1A51C46400972A1E /* QuantoTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FF3959001A51C46400972A1E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FF4EA8531A58521F0074B4E8 /* Images.xcassets in Resources */,
+				FF3959111A51C46400972A1E /* Main.storyboard in Resources */,
+				FF3959161A51C46400972A1E /* LaunchScreen.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FF3959191A51C46400972A1E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1A0E9FFE5CD3FDE00BA79285 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 8;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8E1EFD35D542A957F97CE006 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FF3958FE1A51C46400972A1E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FF4EA84B1A5745210074B4E8 /* QUBluetoothManager.m in Sources */,
+				FF3959511A51C74600972A1E /* QUAppDelegate.m in Sources */,
+				FFEF77DD1A5237A800D2405B /* QUGuestManager.m in Sources */,
+				FF39595C1A51C74600972A1E /* UIView+QURound.m in Sources */,
+				FF4EA8A61A5AED770074B4E8 /* QULocksTableViewController.m in Sources */,
+				FF4EA85C1A5900660074B4E8 /* QURoom.m in Sources */,
+				FF4EA8711A5906C20074B4E8 /* QUServiceTypeManager.m in Sources */,
+				FFB355981A55F591007A29D1 /* QURoomManager.m in Sources */,
+				FF4EA87F1A59CC810074B4E8 /* QUService+QUUtils.m in Sources */,
+				FF4EA8961A5AC8C90074B4E8 /* PFFetchedResultsControllerCVC.m in Sources */,
+				FF3959561A51C74600972A1E /* PFAuthenticationManager.m in Sources */,
+				FF4EA8681A5900660074B4E8 /* QULock.m in Sources */,
+				FFB355DD1A5704E7007A29D1 /* QUAccountViewController.m in Sources */,
+				FF4EA8511A584E3F0074B4E8 /* QURoomControlViewController.m in Sources */,
+				FF39595B1A51C74600972A1E /* NSDate+QUPrettify.m in Sources */,
+				FF4EA87C1A59C98F0074B4E8 /* QUHotelServiceTableViewCell.m in Sources */,
+				FF4EA86B1A5900670074B4E8 /* QUServiceType.m in Sources */,
+				FF4EA8591A5900650074B4E8 /* QUKey.m in Sources */,
+				FF4EA88D1A5AC5CE0074B4E8 /* MBProgressHUD+QUUtils.m in Sources */,
+				FF4EA8901A5AC7B90074B4E8 /* QUOrdersTableViewController.m in Sources */,
+				FFB355A41A55FC24007A29D1 /* QUKeysViewController.m in Sources */,
+				FF3959571A51C74600972A1E /* PFRESTManager.m in Sources */,
+				FF3959521A51C74600972A1E /* PFEntityManager.m in Sources */,
+				FF4EA8791A596CDE0074B4E8 /* QUOrderManager.m in Sources */,
+				FF4EA8A91A5AEE110074B4E8 /* QULockTableViewCell.m in Sources */,
+				FF3959581A51C74600972A1E /* QULoginViewController.m in Sources */,
+				FF3959591A51C74600972A1E /* QURegisterViewController.m in Sources */,
+				FF4EA85F1A5900660074B4E8 /* QUGuest.m in Sources */,
+				FF4EA8651A5900660074B4E8 /* QUService.m in Sources */,
+				FF4EA8871A5A11D60074B4E8 /* QUHotelServiceDetailsViewController.m in Sources */,
+				FF4EA8971A5AC8C90074B4E8 /* PFFetchedResultsControllerTVC.m in Sources */,
+				FF4EA84E1A57777C0074B4E8 /* QUGuest+QUUtils.m in Sources */,
+				FFEF77C51A5229FB00D2405B /* QULockManager.m in Sources */,
+				FF4EA8561A58F8630074B4E8 /* QUHotelServicesTableViewController.m in Sources */,
+				FF4EA8621A5900660074B4E8 /* QUStay.m in Sources */,
+				FFB355831A55C095007A29D1 /* QUKeyManager.m in Sources */,
+				FF4EA8A01A5AE2DB0074B4E8 /* QUOrder.m in Sources */,
+				FFB3557C1A55B074007A29D1 /* UIColor+QUCorporateDesign.m in Sources */,
+				FF4EA89D1A5ADAEA0074B4E8 /* QUOrder+QUUtils.m in Sources */,
+				FF39595A1A51C74600972A1E /* PFCoreDataManager.m in Sources */,
+				FF3959551A51C74600972A1E /* NSDictionary+PFUtils.m in Sources */,
+				FF4EA89A1A5ACAF60074B4E8 /* QUOrderTableViewCell.m in Sources */,
+				FF4EA8741A59239A0074B4E8 /* QUServiceManager.m in Sources */,
+				FF3959081A51C46400972A1E /* main.m in Sources */,
+				FFEF77581A51CAA600D2405B /* Quanto.xcdatamodeld in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FF3959171A51C46400972A1E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FF3959221A51C46400972A1E /* QuantoTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FF39591D1A51C46400972A1E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FF3959011A51C46400972A1E /* Quanto */;
+			targetProxy = FF39591C1A51C46400972A1E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		FF39590F1A51C46400972A1E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FF3959101A51C46400972A1E /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		FF3959141A51C46400972A1E /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FF3959151A51C46400972A1E /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FF3959231A51C46400972A1E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		FF3959241A51C46400972A1E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FF3959261A51C46400972A1E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = ECE3866CA808167C666B1627 /* Pods.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = Quanto/PrefixHeader.pch;
+				INFOPLIST_FILE = Quanto/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		FF3959271A51C46400972A1E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BF04A1243563F212EB63632B /* Pods.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = Quanto/PrefixHeader.pch;
+				INFOPLIST_FILE = Quanto/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		FF3959291A51C46400972A1E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = QuantoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Quanto.app/Quanto";
+			};
+			name = Debug;
+		};
+		FF39592A1A51C46400972A1E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = QuantoTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Quanto.app/Quanto";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FF3958FD1A51C46400972A1E /* Build configuration list for PBXProject "Quanto" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FF3959231A51C46400972A1E /* Debug */,
+				FF3959241A51C46400972A1E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FF3959251A51C46400972A1E /* Build configuration list for PBXNativeTarget "Quanto" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FF3959261A51C46400972A1E /* Debug */,
+				FF3959271A51C46400972A1E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FF3959281A51C46400972A1E /* Build configuration list for PBXNativeTarget "QuantoTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FF3959291A51C46400972A1E /* Debug */,
+				FF39592A1A51C46400972A1E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		FFEF77561A51CAA600D2405B /* Quanto.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				FFEF77571A51CAA600D2405B /* Quanto.xcdatamodel */,
+			);
+			currentVersion = FFEF77571A51CAA600D2405B /* Quanto.xcdatamodel */;
+			path = Quanto.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = FF3958FA1A51C46400972A1E /* Project object */;
+}

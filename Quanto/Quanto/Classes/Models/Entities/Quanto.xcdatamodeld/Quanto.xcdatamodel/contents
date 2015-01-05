@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6254" systemVersion="14B17" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="QUGuest" representedClassName="QUGuest" syncable="YES">
+        <attribute name="avatarData" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="avatarURL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="email" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="fax" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="firstName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="guestID" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="level" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="mobile" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="phone" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="salutation" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="keys" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="QUKey" inverseName="guests" inverseEntity="QUKey" syncable="YES"/>
+        <relationship name="stays" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="QUStay" inverseName="guests" inverseEntity="QUStay" syncable="YES"/>
+    </entity>
+    <entity name="QUKey" representedClassName="QUKey" syncable="YES">
+        <attribute name="details" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="keyID" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="validFrom" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="validUntil" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="guests" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="QUGuest" inverseName="keys" inverseEntity="QUGuest" syncable="YES"/>
+        <relationship name="locks" optional="YES" toMany="YES" deletionRule="Cascade" destinationEntity="QULock" inverseName="keys" inverseEntity="QULock" syncable="YES"/>
+    </entity>
+    <entity name="QULock" representedClassName="QULock" syncable="YES">
+        <attribute name="locationLat" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="locationLon" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="lockID" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="status" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="keys" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="QUKey" inverseName="locks" inverseEntity="QUKey" syncable="YES"/>
+        <relationship name="room" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="QURoom" inverseName="locks" inverseEntity="QURoom" syncable="YES"/>
+    </entity>
+    <entity name="QUOrder" representedClassName="QUOrder" syncable="YES">
+        <attribute name="createdAt" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="lastModifiedAt" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="orderID" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="status" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="room" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="QURoom" inverseName="orders" inverseEntity="QURoom" syncable="YES"/>
+        <relationship name="service" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="QUService" inverseName="orders" inverseEntity="QUService" syncable="YES"/>
+    </entity>
+    <entity name="QURoom" representedClassName="QURoom" syncable="YES">
+        <attribute name="number" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="price" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="roomID" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <relationship name="locks" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="QULock" inverseName="room" inverseEntity="QULock" syncable="YES"/>
+        <relationship name="orders" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="QUOrder" inverseName="room" inverseEntity="QUOrder" syncable="YES"/>
+        <relationship name="stays" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="QUStay" inverseName="rooms" inverseEntity="QUStay" syncable="YES"/>
+    </entity>
+    <entity name="QUService" representedClassName="QUService" syncable="YES">
+        <attribute name="descriptionText" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="enabled" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="pictureData" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="pictureURL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="price" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="serviceID" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <relationship name="orders" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="QUOrder" inverseName="service" inverseEntity="QUOrder" syncable="YES"/>
+        <relationship name="serviceType" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="QUServiceType" inverseName="services" inverseEntity="QUServiceType" syncable="YES"/>
+    </entity>
+    <entity name="QUServiceType" representedClassName="QUServiceType" syncable="YES">
+        <attribute name="descriptionText" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="enabled" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="pictureData" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="pictureURL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="serviceTypeID" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <relationship name="services" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="QUService" inverseName="serviceType" inverseEntity="QUService" syncable="YES"/>
+    </entity>
+    <entity name="QUStay" representedClassName="QUStay" syncable="YES">
+        <attribute name="fromDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="stayID" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="toDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <relationship name="guests" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="QUGuest" inverseName="stays" inverseEntity="QUGuest" syncable="YES"/>
+        <relationship name="rooms" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="QURoom" inverseName="stays" inverseEntity="QURoom" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="QUGuest" positionX="-9" positionY="108" width="128" height="253"/>
+        <element name="QUKey" positionX="0" positionY="117" width="128" height="148"/>
+        <element name="QULock" positionX="18" positionY="153" width="128" height="148"/>
+        <element name="QURoom" positionX="-36" positionY="99" width="128" height="133"/>
+        <element name="QUStay" positionX="-45" positionY="90" width="128" height="118"/>
+        <element name="QUService" positionX="-18" positionY="216" width="128" height="178"/>
+        <element name="QUServiceType" positionX="-9" positionY="225" width="128" height="148"/>
+        <element name="QUOrder" positionX="0" positionY="234" width="128" height="133"/>
+    </elements>
+</model>
