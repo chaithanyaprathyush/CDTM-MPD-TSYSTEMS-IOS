@@ -11,6 +11,7 @@
 #import "PFAuthenticationManager.h"
 #import "QURegisterViewController.h"
 #import "MBProgressHUD+QUUtils.h"
+#import "QUBluetoothManager.h"
 
 @implementation QULoginViewController
 
@@ -24,6 +25,7 @@
 	if (useStoredCredentials) {
 		[PFAuthenticationManager authenticateWithStoredCredentialsWithSuccessHandler:^{
 			 [QUGuestManager synchronizeGuestWithSuccessHandler:^(QUGuest *guest) {
+                 //[QUBluetoothManager didChangeAuthenticationToken:[PFAuthenticationManager storedAuthenticationToken]];
 				  successHandler(guest);
 			  } failureHandler:^(NSError *error) {
 				  [self showWithPresentingViewController:presentingViewController successHandler:successHandler failureHandler:failureHandler useStoredCredentials:NO];
@@ -85,10 +87,13 @@
                  [progressHUD hide:YES];
                  
                  [self dismissWithCompletionHandler:^{
+                     //[QUBluetoothManager didChangeAuthenticationToken:[PFAuthenticationManager storedAuthenticationToken]];
                      self.successHandler(guest);
                  }];
              });
 		  } failureHandler:^(NSError *error) {
+              [progressHUD hide:YES];
+
 			  [[[UIAlertView alloc] initWithTitle:@"Error"
 										  message:@"We're sorry but we couldn't log you in. Please try again later :)"
 										 delegate:self
@@ -97,6 +102,8 @@
 			   show];
 		  }];
 	 } failureHandler:^(NSError *error) {
+         [progressHUD hide:YES];
+
 		 [[[UIAlertView alloc] initWithTitle:@"Error"
 									 message:@"We're sorry but we couldn't log you in. Please try again later :)"
 									delegate:self

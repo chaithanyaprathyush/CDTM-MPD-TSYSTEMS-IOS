@@ -23,4 +23,6 @@ typedef enum {
 
 - (NSString *)statusAsString;
 
+- (NSString *)lastModifiedAsString;
+
 @end

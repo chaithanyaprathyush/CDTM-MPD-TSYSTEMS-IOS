@@ -8,17 +8,17 @@
 
 #import "QUOrder+QUUtils.h"
 
-const NSString *kQUOrderStatusOrderedString = @"ORDERED";
-const NSString *kQUOrderStatusOrderConfirmedString = @"ORDER CONFIRMED";
-const NSString *QUOrderStatusPaymentPendingString = @"PAYMENT PENDING";
-const NSString *QUOrderStatusTransactionClosedString = @"TRANSACTION CLOSED";
-const NSString *QUOrderStatusUnknownString = @"UNKNOWN";
+const NSString *kQUOrderStatusOrderedString = @"Ordered";
+const NSString *kQUOrderStatusOrderConfirmedString = @"Order confirmed";
+const NSString *QUOrderStatusPaymentPendingString = @"Payment pending";
+const NSString *QUOrderStatusTransactionClosedString = @"Transaction closed";
+const NSString *QUOrderStatusUnknownString = @"Unknown";
 
 @implementation QUOrder (QUUtils)
 
 + (QUOrderStatus)statusAsInt:(NSString *)statusAsString
 {
-	NSArray *statusStrings = [self statusStrings];
+    NSArray *statusStrings = @[@"ORDERED", @"ORDER CONFIRMED", @"PAYMENT PENDING", @"TRANSACTION CLOSED", @"UNKNOWN"];
 
 	for (int i = 0; i < statusStrings.count; i++) {
 		if ([statusStrings[i] isEqualToString:statusAsString]) {
@@ -42,6 +42,11 @@ const NSString *QUOrderStatusUnknownString = @"UNKNOWN";
 - (NSString *)statusAsString
 {
 	return [QUOrder statusAsString:[self.status intValue]];
+}
+
+- (NSString *)lastModifiedAsString
+{
+    return [self.lastModifiedAt asEEEddMMMYYYY];
 }
 
 @end

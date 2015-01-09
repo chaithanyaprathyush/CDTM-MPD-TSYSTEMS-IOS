@@ -35,15 +35,15 @@
 	// Style app
 
 	// Navigation Controller
-	[[UINavigationBar appearance] setTintColor:[UIColor goldColor]];
-	[[UINavigationBar appearance] setBarTintColor:[UIColor darkerDarkGrayColor]];
+	[[UINavigationBar appearance] setTintColor:[UIColor darkerDarkGrayColor]];
+	[[UINavigationBar appearance] setBarTintColor:[UIColor whiteColor]];
 	[[UINavigationBar appearance] setTitleTextAttributes:@{NSFontAttributeName:[UIFont fontWithName:@"AppleSDGothicNeo-Regular" size:25.0f],
-														   NSForegroundColorAttributeName:[UIColor goldColor]}];
+														   NSForegroundColorAttributeName:[UIColor darkerDarkGrayColor]}];
 
 	// Tab Bar
-	[[UITabBar appearance] setTintColor:[UIColor goldColor]];
-	[[UITabBar appearance] setBarTintColor:[UIColor darkerDarkGrayColor]];
-	[[UITabBarItem appearance] setTitleTextAttributes:@{NSFontAttributeName:[UIFont fontWithName:@"AppleSDGothicNeo-Light" size:15.0f]}
+	[[UITabBar appearance] setTintColor:[UIColor darkerDarkGrayColor]];
+	[[UITabBar appearance] setBarTintColor:[UIColor whiteColor]];
+	[[UITabBarItem appearance] setTitleTextAttributes:@{NSFontAttributeName:[UIFont fontWithName:@"AppleSDGothicNeo-Light" size:10.0f]}
 											 forState:UIControlStateNormal];
 
 	// FormSheets

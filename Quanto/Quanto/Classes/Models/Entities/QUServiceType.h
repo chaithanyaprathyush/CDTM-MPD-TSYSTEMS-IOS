@@ -2,7 +2,7 @@
 //  QUServiceType.h
 //  Quanto
 //
-//  Created by Pascal Fritzen on 04.01.15.
+//  Created by Pascal Fritzen on 09.01.15.
 //  Copyright (c) 2015 Pascal Fritzen. All rights reserved.
 //
 
@@ -13,11 +13,11 @@
 
 @interface QUServiceType : NSManagedObject
 
+@property (nonatomic, retain) NSString * descriptionText;
+@property (nonatomic, retain) NSNumber * enabled;
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSData * pictureData;
-@property (nonatomic, retain) NSString * descriptionText;
 @property (nonatomic, retain) NSString * pictureURL;
-@property (nonatomic, retain) NSNumber * enabled;
 @property (nonatomic, retain) NSNumber * serviceTypeID;
 @property (nonatomic, retain) NSSet *services;
 @end

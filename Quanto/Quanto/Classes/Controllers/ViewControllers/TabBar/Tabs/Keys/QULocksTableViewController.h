@@ -6,9 +6,9 @@
 //  Copyright (c) 2015 Pascal Fritzen. All rights reserved.
 //
 
-#import "PFFetchedResultsControllerTVC.h"
+#import "PFFetchedResultsControllerTViewController.h"
 
-@interface QULocksTableViewController : PFFetchedResultsControllerTVC
+@interface QULocksTableViewController : PFFetchedResultsControllerTViewController
 
 @property (weak, nonatomic) IBOutlet UILabel *noKeysMessageLabel;
 

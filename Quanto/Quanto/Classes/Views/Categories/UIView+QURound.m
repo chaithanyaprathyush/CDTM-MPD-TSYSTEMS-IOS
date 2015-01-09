@@ -12,12 +12,12 @@
 
 - (void)makeRound
 {
-	[self makeRoundWithColor:[UIColor goldColor] borderWidth:2.0f];
+	[self makeRoundWithColor:[UIColor peterRiverColor] borderWidth:2.0f];
 }
 
 - (void)makeRoundWithBorderWidth:(CGFloat)borderWidth
 {
-	[self makeRoundWithColor:[UIColor goldColor] borderWidth:borderWidth];
+	[self makeRoundWithColor:[UIColor peterRiverColor] borderWidth:borderWidth];
 }
 
 - (void)makeRoundWithColor:(UIColor *)color
@@ -40,7 +40,7 @@
 
 - (void)makeAlmostSquared
 {
-    [self showBorderWithCornerRadius:5.0f color:[UIColor goldColor] borderWidth:2.0f];
+    [self showBorderWithCornerRadius:5.0f color:[UIColor peterRiverColor] borderWidth:2.0f];
 }
 
 @end

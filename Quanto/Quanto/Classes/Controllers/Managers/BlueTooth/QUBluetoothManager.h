@@ -12,10 +12,6 @@
 
 + (QUBluetoothManager *)sharedManager;
 
-+ (void)setAuthenticationToken:(NSString *)authenticationToken;
-
-+ (BOOL)isAdvertisingServices;
-+ (void)startAdvertisingServices;
-+ (void)stopAdvertisingServices;
+//+ (void)didChangeAuthenticationToken:(NSString *)authenticationToken;
 
 @end

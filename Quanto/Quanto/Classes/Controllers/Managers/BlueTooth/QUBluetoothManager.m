@@ -9,6 +9,7 @@
 #import "QUBluetoothManager.h"
 #import <CoreBluetooth/CoreBluetooth.h>
 #import "CWStatusBarNotification.h"
+#import "PFAuthenticationManager.h"
 
 static NSString *QUAuthenticationTokenServiceUUID = @"E5712DC1-F1C7-40AF-9A77-DC496386F4F7";
 static NSString *QUAuthenticationTokenServiceAuthenticationTokenCharacteristicUUID = @"7D695379-3ADC-49E8-A395-B1736B309C00";
@@ -19,9 +20,8 @@ static NSString *QUAuthenticationTokenServiceAuthenticationTokenCharacteristicUU
 
 @property (nonatomic, retain) CBMutableService *authenticationTokenService;
 @property (nonatomic, retain) CBMutableCharacteristic *authenticationTokenCharacteristic;
-@property (nonatomic, retain) NSData *authenticationTokenData;
 
-@property (nonatomic) BOOL isAdvertisingServices;
+@property (nonatomic) BOOL isAuthenticationServiceEnabled;
 
 @end
 
@@ -42,24 +42,18 @@ static NSString *QUAuthenticationTokenServiceAuthenticationTokenCharacteristicUU
 	return sharedManager;
 }
 
-+ (void)setAuthenticationToken:(NSString *)authenticationToken
-{
-	[self sharedManager].authenticationTokenData = [authenticationToken dataUsingEncoding:NSUTF8StringEncoding];
-}
-
 - (instancetype)init
 {
 	self = [super init];
 	if (self) {
-		// Setup peripheral manager
-		self.peripheralManager = [[CBPeripheralManager alloc] initWithDelegate:self queue:nil];
+		self.peripheralManager = [[CBPeripheralManager alloc] initWithDelegate:self queue:nil options:nil];
 
 		// Setup characteristic
 		CBUUID *tokenCharacteristicUUID = [CBUUID UUIDWithString:QUAuthenticationTokenServiceAuthenticationTokenCharacteristicUUID];
 		self.authenticationTokenCharacteristic = [[CBMutableCharacteristic alloc] initWithType:tokenCharacteristicUUID
-																	  properties:CBCharacteristicPropertyRead
-																		   value:nil
-																	 permissions:CBAttributePermissionsReadable];
+																					properties:CBCharacteristicPropertyRead
+																						 value:nil
+																				   permissions:CBAttributePermissionsReadable];
 
 		// Setup service
 		CBUUID *authenticationServiceUUID = [CBUUID UUIDWithString:QUAuthenticationTokenServiceUUID];
@@ -87,17 +81,18 @@ static NSString *QUAuthenticationTokenServiceAuthenticationTokenCharacteristicUU
 		DLOG(@"Error adding service: %@", [error localizedDescription]);
 	} else {
 		DLOG(@"Successfully added service: %@", service.UUID.UUIDString);
-    }
+		[self.peripheralManager startAdvertising:@{CBAdvertisementDataServiceUUIDsKey:@[self.authenticationTokenService.UUID]}];
+	}
 }
 
 - (void)peripheralManagerDidStartAdvertising:(CBPeripheralManager *)peripheral error:(NSError *)error
 {
 	if (error) {
 		DLOG(@"Error advertising: %@", [error localizedDescription]);
-        self.isAdvertisingServices = NO;
+		self.isAuthenticationServiceEnabled = NO;
 	} else {
 		DLOG(@"Successfully started advertising...");
-        self.isAdvertisingServices = YES;
+		self.isAuthenticationServiceEnabled = YES;
 	}
 }
 
@@ -106,15 +101,18 @@ static NSString *QUAuthenticationTokenServiceAuthenticationTokenCharacteristicUU
 	if ([request.characteristic.UUID isEqual:self.authenticationTokenCharacteristic.UUID]) {
 		DLOG(@"Token requested!");
 
-		if (request.offset > self.authenticationTokenData.length) {
+		NSString *authenticationToken = [PFAuthenticationManager storedAuthenticationToken];
+		NSData *authenticationTokenData = [authenticationToken dataUsingEncoding:NSUTF8StringEncoding];
+
+		if (request.offset > authenticationTokenData.length) {
 			DLOG(@"Offset!");
 			[self.peripheralManager respondToRequest:request withResult:CBATTErrorInvalidOffset];
 			return;
 		} else {
 			CWStatusBarNotification *notifiaction = [CWStatusBarNotification new];
 			[notifiaction displayNotificationWithMessage:@"Token sent" forDuration:1.0f];
-            
-			request.value = [self.authenticationTokenData subdataWithRange:NSMakeRange(request.offset, self.authenticationTokenData.length - request.offset)];
+
+			request.value = [authenticationTokenData subdataWithRange:NSMakeRange(request.offset, authenticationTokenData.length - request.offset)];
 			[self.peripheralManager respondToRequest:request withResult:CBATTErrorSuccess];
 		}
 	}
@@ -131,40 +129,54 @@ static NSString *QUAuthenticationTokenServiceAuthenticationTokenCharacteristicUU
 }
 
 #pragma mark - Advertizing Utils
+/*
+ + (void)didChangeAuthenticationToken:(NSString *)authenticationToken
+   {
+    [[self sharedManager].peripheralManager updateValue:[authenticationToken?:@"" dataUsingEncoding:NSUTF8StringEncoding]
+                                      forCharacteristic:[self sharedManager].authenticationTokenCharacteristic
+                                   onSubscribedCentrals:nil];
+   }
 
-+ (BOOL)isAdvertisingServices
-{
-    return [self sharedManager].isAdvertisingServices;
-}
+ + (BOOL)isAuthenticationServiceEnabled
+   {
+    return [self sharedManager].isAuthenticationServiceEnabled;
+   }
 
-+ (void)startAdvertisingServices
-{
-    [[self sharedManager] startAdvertisingServices];
-}
+ + (void)enableAuthenticationService
+   {
+    [[self sharedManager] enableAuthenticationService];
+   }
 
-- (void)startAdvertisingServices
-{
-    if (self.isAdvertisingServices) {
+   - (void)enableAuthenticationService
+   {
+    if (self.isAuthenticationServiceEnabled) {
         return;
     }
-    
-    // Publish services
-    [self.peripheralManager startAdvertising:@{CBAdvertisementDataServiceUUIDsKey:@[self.authenticationTokenService.UUID]}];
-}
 
-+ (void)stopAdvertisingServices
-{
-    [[self sharedManager] stopAdvertisingServices];
-}
+    if (self.peripheralManager.state == CBPeripheralManagerStatePoweredOn) {
+        // Add service
+        [self.peripheralManager addService:self.authenticationTokenService];
+    } else {
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self enableAuthenticationService];
+        });
+    }
+   }
 
-- (void)stopAdvertisingServices
-{
-    if (!self.isAdvertisingServices) {
+ + (void)disableAuthenticationService
+   {
+    [[self sharedManager] disableAuthenticationService];
+   }
+
+   - (void)disableAuthenticationService
+   {
+    if (!self.isAuthenticationServiceEnabled) {
         return;
     }
-    
-    // Publish services
+
     [self.peripheralManager stopAdvertising];
-}
+    [self.peripheralManager removeService:self.authenticationTokenService];
+    self.isAuthenticationServiceEnabled = NO;
+   }*/
 
 @end

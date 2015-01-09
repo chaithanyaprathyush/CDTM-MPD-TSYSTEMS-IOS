@@ -6,8 +6,8 @@
 //  Copyright (c) 2015 Pascal Fritzen. All rights reserved.
 //
 
-#import "PFFetchedResultsControllerTVC.h"
+#import "PFFetchedResultsControllerTViewController.h"
 
-@interface QUOrdersTableViewController : PFFetchedResultsControllerTVC
+@interface QUOrdersTableViewController : PFFetchedResultsControllerTViewController
 
 @end

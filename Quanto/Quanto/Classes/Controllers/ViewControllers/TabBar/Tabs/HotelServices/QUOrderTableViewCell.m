@@ -17,8 +17,13 @@
 {
     _order = order;
     
-    self.textLabel.text = order.service.name;
+    self.textLabel.text = [NSString stringWithFormat:@"%@ (%@)", order.service.name, order.statusAsString];
     self.detailTextLabel.text = [[order lastModifiedAt] asHHMM];
+}
+
+- (UIEdgeInsets)layoutMargins
+{
+    return UIEdgeInsetsZero;
 }
 
 @end

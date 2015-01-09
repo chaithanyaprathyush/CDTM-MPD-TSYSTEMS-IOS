@@ -1,14 +1,14 @@
 //
-//  PFFetchedResultsControllerTVC.m
+//  PFFetchedResultsControllerCViewController.m
 //  Quanto
 //
 //  Created by Pascal Fritzen on 03.11.14.
 //  Copyright (c) 2014 Pascal Fritzen. All rights reserved.
 //
 
-#import "PFFetchedResultsControllerTVC.h"
+#import "PFFetchedResultsControllerCViewController.h"
 
-@implementation PFFetchedResultsControllerTVC
+@implementation PFFetchedResultsControllerCViewController
 
 #pragma mark - Fetching
 
@@ -35,7 +35,7 @@
 		NSLog(@"[%@ %@] no NSFetchedResultsController (yet?)", NSStringFromClass([self class]), NSStringFromSelector(_cmd));
 	}
 
-	[self.tableView reloadData];
+	[self.collectionView reloadData];
 }
 
 - (void)setFetchedResultsController:(NSFetchedResultsController *)fetchedResultsController
@@ -47,58 +47,50 @@
 		if (fetchedResultsController) {
 			[self performFetch];
 		} else {
-			[self.tableView reloadData];
+			[self.collectionView reloadData];
 		}
 	}
 }
 
-#pragma mark - <UITableViewDataSource>
+#pragma mark - <UICollectionViewDataSource>
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+- (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
 	return self.fetchedResultsController.sections.count;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-	return ((id <NSFetchedResultsSectionInfo>)self.fetchedResultsController.sections[section]).numberOfObjects;
+	NSInteger numberOfItemsInSection = ((id <NSFetchedResultsSectionInfo>)self.fetchedResultsController.sections[section]).numberOfObjects;
+    return numberOfItemsInSection;
 }
 
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-{
-	return ((id <NSFetchedResultsSectionInfo>)self.fetchedResultsController.sections[section]).name;
-}
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
 	[self doesNotRecognizeSelector:_cmd];
 	return nil;
 }
 
 #pragma mark - <NSFetchedResultsControllerDelegate>
-
-- (void)controllerWillChangeContent:(NSFetchedResultsController *)controller
-{
-	[self.tableView beginUpdates];
-}
-
+/*
 - (void)controller:(NSFetchedResultsController *)controller didChangeSection:(id <NSFetchedResultsSectionInfo>)sectionInfo atIndex:(NSUInteger)sectionIndex forChangeType:(NSFetchedResultsChangeType)type
 {
 	switch (type) {
 	case NSFetchedResultsChangeInsert:
-		[self.tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex]      withRowAnimation:UITableViewRowAnimationFade];
+		[self.collectionView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex]];
 		break;
 
 	case NSFetchedResultsChangeUpdate:
-		[self.tableView reloadSections:[NSIndexSet indexSetWithIndex:sectionIndex]      withRowAnimation:UITableViewRowAnimationFade];
+		[self.collectionView reloadSections:[NSIndexSet indexSetWithIndex:sectionIndex]];
 		break;
 
 	case NSFetchedResultsChangeDelete:
-		[self.tableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex]      withRowAnimation:UITableViewRowAnimationFade];
+		[self.collectionView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex]];
 		break;
+
 	case NSFetchedResultsChangeMove:
-		[self.tableView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex]      withRowAnimation:UITableViewRowAnimationFade];
-		[self.tableView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex]      withRowAnimation:UITableViewRowAnimationFade];
+		[self.collectionView deleteSections:[NSIndexSet indexSetWithIndex:sectionIndex]];
+		[self.collectionView insertSections:[NSIndexSet indexSetWithIndex:sectionIndex]];
 		break;
 	}
 }
@@ -107,27 +99,27 @@
 {
 	switch (type) {
 	case NSFetchedResultsChangeInsert:
-		[self.tableView insertRowsAtIndexPaths:@[newIndexPath]  withRowAnimation:UITableViewRowAnimationFade];
+		[self.collectionView insertItemsAtIndexPaths:@[newIndexPath]];
 		break;
 
 	case NSFetchedResultsChangeDelete:
-		[self.tableView deleteRowsAtIndexPaths:@[indexPath]     withRowAnimation:UITableViewRowAnimationFade];
+		[self.collectionView deleteItemsAtIndexPaths:@[indexPath]];
 		break;
 
 	case NSFetchedResultsChangeUpdate:
-		[self.tableView reloadRowsAtIndexPaths:@[indexPath]     withRowAnimation:UITableViewRowAnimationNone];
+		[self.collectionView reloadItemsAtIndexPaths:@[indexPath]];
 		break;
 
 	case NSFetchedResultsChangeMove:
-		[self.tableView deleteRowsAtIndexPaths:@[indexPath]     withRowAnimation:UITableViewRowAnimationFade];
-		[self.tableView insertRowsAtIndexPaths:@[newIndexPath]  withRowAnimation:UITableViewRowAnimationFade];
+		[self.collectionView deleteItemsAtIndexPaths:@[indexPath]];
+		[self.collectionView insertItemsAtIndexPaths:@[newIndexPath]];
 		break;
 	}
-}
+}*/
 
 - (void)controllerDidChangeContent:(NSFetchedResultsController *)controller
 {
-	[self.tableView endUpdates];
+    [self.collectionView reloadData];
 }
 
 @end

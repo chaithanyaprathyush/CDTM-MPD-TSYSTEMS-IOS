@@ -10,8 +10,8 @@
 
 @interface UIColor (QUCorporateDesign)
 
-+ (UIColor *)goldColor;
-+ (UIColor *)lighterDarkGrayColor;
++ (UIColor *)emeraldColor;
++ (UIColor *)peterRiverColor;
 + (UIColor *)darkerDarkGrayColor;
 
 @end

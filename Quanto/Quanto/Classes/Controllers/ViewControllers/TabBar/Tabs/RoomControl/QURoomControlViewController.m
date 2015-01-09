@@ -35,6 +35,8 @@ typedef enum {
     self.turnOffAllButton.enabled = self.bedroomLightButton.selected || self.bathroomLightButton.selected;
 }
 
+#pragma mark - IBActions
+
 - (IBAction)didTouchBedroomLightButton:(id)sender
 {
     self.bedroomLightButton.selected = !self.bedroomLightButton.selected;

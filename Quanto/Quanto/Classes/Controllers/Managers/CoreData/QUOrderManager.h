@@ -16,4 +16,6 @@
 + (void)synchronizeOrderWithOrderID:(NSNumber *)orderID successHandler:(void (^)(QUOrder *order))successHandler failureHandler:(void (^)(NSError *error))failureHandler;
 + (void)synchronizeAllMyOrdersWithSuccessHandler:(void (^)(NSSet *orders))successHandler failureHandler:(void (^)(NSError *error))failureHandler;
 
++ (void)deleteOrderWithOrderID:(NSNumber *)orderID successHandler:(void (^)(void))successHandler failureHandler:(void (^)(NSError *error))failureHandler;
+
 @end

@@ -29,7 +29,7 @@ static NSString *QUAuthenticationServiceTokenCharacteristicUUID = @"7D695379-3AD
 	[super viewDidLoad];
 
 	self.discoveredPeripherals = [NSMutableArray array];
-    self.lastMeasuredPeripheralRSSIs = [NSMutableDictionary dictionary];
+	self.lastMeasuredPeripheralRSSIs = [NSMutableDictionary dictionary];
 
 	self.centralManager = [[CBCentralManager alloc] initWithDelegate:self queue:nil];
 }
@@ -48,26 +48,26 @@ static NSString *QUAuthenticationServiceTokenCharacteristicUUID = @"7D695379-3AD
 
 	for (CBPeripheral *discoveredPeripheral in self.discoveredPeripherals) {
 		peripheralInformation = [peripheralInformation stringByAppendingString:[NSString stringWithFormat:@"\t• %@", discoveredPeripheral.name]];
-        
-        // State
-        peripheralInformation = [peripheralInformation stringByAppendingString:[NSString stringWithFormat:@"\n\t\tState:%@", [self peripheralStateAsString:discoveredPeripheral.state]]];
-        
-        // RSSI
-        peripheralInformation = [peripheralInformation stringByAppendingString:[NSString stringWithFormat:@"\n\t\tRSSI:%@", [self lastMeasuredRSSIForPeripheral:discoveredPeripheral]]];
-        
-        // Services
-        peripheralInformation = [peripheralInformation stringByAppendingString:[NSString stringWithFormat:@"\n\t\tServices:"]];
-        
-        for (CBService *service in discoveredPeripheral.services) {
-            peripheralInformation = [peripheralInformation stringByAppendingString:[NSString stringWithFormat:@"\n\t\t\t• %@ (%@)", [self serviceUUIDStringAsHumanReadableString:service.UUID.UUIDString], service.UUID.UUIDString]];
-            peripheralInformation = [peripheralInformation stringByAppendingString:[NSString stringWithFormat:@"\n\t\t\t\tCharacteristics:"]];
 
-            for (CBCharacteristic *characteristic in service.characteristics) {
-                NSString *value = [[NSString alloc] initWithData:characteristic.value encoding:NSUTF8StringEncoding];
+		// State
+		peripheralInformation = [peripheralInformation stringByAppendingString:[NSString stringWithFormat:@"\n\t\tState:%@", [self peripheralStateAsString:discoveredPeripheral.state]]];
 
-                peripheralInformation = [peripheralInformation stringByAppendingString:[NSString stringWithFormat:@"\n\t\t\t\t\t• %@", value]];
-            }
-        }
+		// RSSI
+		peripheralInformation = [peripheralInformation stringByAppendingString:[NSString stringWithFormat:@"\n\t\tRSSI:%@", [self lastMeasuredRSSIForPeripheral:discoveredPeripheral]]];
+
+		// Services
+		peripheralInformation = [peripheralInformation stringByAppendingString:[NSString stringWithFormat:@"\n\t\tServices:"]];
+
+		for (CBService *service in discoveredPeripheral.services) {
+			peripheralInformation = [peripheralInformation stringByAppendingString:[NSString stringWithFormat:@"\n\t\t\t• %@ (%@)", [self serviceUUIDStringAsHumanReadableString:service.UUID.UUIDString], service.UUID.UUIDString]];
+			peripheralInformation = [peripheralInformation stringByAppendingString:[NSString stringWithFormat:@"\n\t\t\t\tCharacteristics:"]];
+
+			for (CBCharacteristic *characteristic in service.characteristics) {
+				NSString *value = [[NSString alloc] initWithData:characteristic.value encoding:NSUTF8StringEncoding];
+
+				peripheralInformation = [peripheralInformation stringByAppendingString:[NSString stringWithFormat:@"\n\t\t\t\t\t• %@", value]];
+			}
+		}
 	}
 
 	self.peripheralInformationTextView.text = peripheralInformation;
@@ -75,7 +75,7 @@ static NSString *QUAuthenticationServiceTokenCharacteristicUUID = @"7D695379-3AD
 
 - (NSString *)lastMeasuredRSSIForPeripheral:(CBPeripheral *)peripheral
 {
-    return [self.lastMeasuredPeripheralRSSIs[peripheral] stringValue];
+	return [self.lastMeasuredPeripheralRSSIs[peripheral] stringValue];
 }
 
 - (NSString *)centralManagerStateAsString:(CBCentralManagerState)state
@@ -97,17 +97,17 @@ static NSString *QUAuthenticationServiceTokenCharacteristicUUID = @"7D695379-3AD
 
 - (NSString *)serviceUUIDStringAsHumanReadableString:(NSString *)UUIDString
 {
-    if ([UUIDString isEqual:@"180F"]) {
-        return @"Battery [Bluetooth Standard]";
-    } else if ([UUIDString isEqual:@"1805"]) {
-        return @"Current Time [Bluetooth Standard]";
-    } else if ([UUIDString isEqual:@"D0611E78-BBB4-4591-A5F8-487910AE4366"]) {
-        return @"Continuity [Apple Proprietary]";
-    } else if ([UUIDString isEqual:@"E5712DC1-F1C7-40AF-9A77-DC496386F4F7"]) {
-        return @"Quanto-Lock [Quanto Proprietary]";
-    } else {
-        return UUIDString;
-    }
+	if ([UUIDString isEqual:@"180F"]) {
+		return @"Battery [Bluetooth Standard]";
+	} else if ([UUIDString isEqual:@"1805"]) {
+		return @"Current Time [Bluetooth Standard]";
+	} else if ([UUIDString isEqual:@"D0611E78-BBB4-4591-A5F8-487910AE4366"]) {
+		return @"Continuity [Apple Proprietary]";
+	} else if ([UUIDString isEqual:@"E5712DC1-F1C7-40AF-9A77-DC496386F4F7"]) {
+		return @"Quanto-Lock [Quanto Proprietary]";
+	} else {
+		return UUIDString;
+	}
 }
 
 #pragma mark - <CBCentralManagerDelegate>
@@ -130,9 +130,9 @@ static NSString *QUAuthenticationServiceTokenCharacteristicUUID = @"7D695379-3AD
 	NSLog(@"State: %d", peripheral.state);
 	if (peripheral.state == CBPeripheralStateDisconnected) {
 		[self.centralManager connectPeripheral:peripheral options:nil];
-    } else {
-        [peripheral readRSSI];
-    }
+	} else {
+		[peripheral readRSSI];
+	}
 
 	[self updatePeripheralInformation];
 }
@@ -141,10 +141,20 @@ static NSString *QUAuthenticationServiceTokenCharacteristicUUID = @"7D695379-3AD
 {
 	peripheral.delegate = self;
 	[peripheral discoverServices:nil];
-    
-    [NSTimer scheduledTimerWithTimeInterval:3.0f target:peripheral selector:@selector(readRSSI) userInfo:nil repeats:YES];
-    
-    [self updatePeripheralInformation];
+
+	[NSTimer scheduledTimerWithTimeInterval:3.0f target:peripheral selector:@selector(readRSSI) userInfo:nil repeats:YES];
+
+	[self updatePeripheralInformation];
+}
+
+- (void)centralManager:(CBCentralManager *)central didDisconnectPeripheral:(CBPeripheral *)peripheral error:(NSError *)error
+{
+	[self updatePeripheralInformation];
+
+	[self.centralManager cancelPeripheralConnection:peripheral];
+	[self.discoveredPeripherals removeObject:peripheral];
+
+	NSLog(@"disconnected: %@", error);
 }
 
 #pragma mark - <CBPeripheralDelegate>
@@ -156,12 +166,12 @@ static NSString *QUAuthenticationServiceTokenCharacteristicUUID = @"7D695379-3AD
 	for (CBService *service in peripheral.services) {
 		NSLog(@"Service (%@) %@", service.UUID.UUIDString, service);
 
-		//if ([service.UUID isEqual:[CBUUID UUIDWithString:QUAuthenticationServiceUUID]]) {
-			[peripheral discoverCharacteristics:nil forService:service];
-		//}
+		// if ([service.UUID isEqual:[CBUUID UUIDWithString:QUAuthenticationServiceUUID]]) {
+		[peripheral discoverCharacteristics:nil forService:service];
+		// }
 	}
-    
-    [self updatePeripheralInformation];
+
+	[self updatePeripheralInformation];
 }
 
 - (void)peripheral:(CBPeripheral *)peripheral didDiscoverCharacteristicsForService:(CBService *)service error:(NSError *)error
@@ -170,11 +180,26 @@ static NSString *QUAuthenticationServiceTokenCharacteristicUUID = @"7D695379-3AD
 
 	for (CBCharacteristic *characteristic in service.characteristics) {
 		NSLog(@"\tCharacteristic: %@", characteristic);
-		[peripheral readValueForCharacteristic:characteristic];
+        
+        [NSTimer scheduledTimerWithTimeInterval:5.0f
+                                         target:self
+                                       selector:@selector(updateValue:)
+                                       userInfo:@{@"peripheral":peripheral, @"characteristic":characteristic}
+                                        repeats:YES];
 	}
-    
-    [self updatePeripheralInformation];
+
+	[self updatePeripheralInformation];
 }
+
+- (void)updateValue:(NSTimer *)timer
+{
+    CBPeripheral *peripheral = timer.userInfo[@"peripheral"];
+    CBCharacteristic *characteristic = timer.userInfo[@"characteristic"];
+    
+    [peripheral readValueForCharacteristic:characteristic];
+}
+
+
 
 - (void)peripheral:(CBPeripheral *)peripheral didUpdateValueForCharacteristic:(CBCharacteristic *)characteristic error:(NSError *)error
 {
@@ -185,36 +210,36 @@ static NSString *QUAuthenticationServiceTokenCharacteristicUUID = @"7D695379-3AD
 
 		NSLog(@"Did update value for characteristic %@: %@", characteristic, value);
 	}
-    
-    [self updatePeripheralInformation];
+
+	[self updatePeripheralInformation];
 }
 
 - (void)peripheral:(CBPeripheral *)peripheral didReadRSSI:(NSNumber *)RSSI error:(NSError *)error
 {
-    NSLog(@"RSSI: %@", [RSSI stringValue]);
+	NSLog(@"RSSI: %@", [RSSI stringValue]);
 
-    [self.lastMeasuredPeripheralRSSIs setObject:RSSI forKey:peripheral];
-    
-    [self updatePeripheralInformation];
+	[self.lastMeasuredPeripheralRSSIs setObject:RSSI forKey:peripheral];
+
+	[self updatePeripheralInformation];
 }
 
 - (void)reset
 {
-    [self.centralManager stopScan];
-    [self.scanningActivityIndicator stopAnimating];
-    [self.startStopScanningButton setTitle:@"Start Scanning" forState:UIControlStateNormal];
-    
-    for (CBPeripheral *peripheral in self.discoveredPeripherals) {
-        if (peripheral.state != CBPeripheralStateDisconnected) {
-            [self.centralManager cancelPeripheralConnection:peripheral];
-        }
-    }
-    
-    [self.discoveredPeripherals removeAllObjects];
-    
-    [self updatePeripheralInformation];
-    
-    [self didTouchStartStopScanningButton:nil];
+	[self.centralManager stopScan];
+	[self.scanningActivityIndicator stopAnimating];
+	[self.startStopScanningButton setTitle:@"Start Scanning" forState:UIControlStateNormal];
+
+	for (CBPeripheral *peripheral in self.discoveredPeripherals) {
+		if (peripheral.state != CBPeripheralStateDisconnected) {
+			[self.centralManager cancelPeripheralConnection:peripheral];
+		}
+	}
+
+	[self.discoveredPeripherals removeAllObjects];
+
+	[self updatePeripheralInformation];
+
+	[self didTouchStartStopScanningButton:nil];
 }
 
 #pragma mark - IBActions
@@ -226,7 +251,7 @@ static NSString *QUAuthenticationServiceTokenCharacteristicUUID = @"7D695379-3AD
 		[self.startStopScanningButton setTitle:@"Start Scanning" forState:UIControlStateNormal];
 		[self.scanningActivityIndicator stopAnimating];
 	} else {
-		[self.centralManager scanForPeripheralsWithServices:nil options:nil];
+		[self.centralManager scanForPeripheralsWithServices:nil options:nil/*@{CBCentralManagerScanOptionAllowDuplicatesKey:@YES}*/];
 		[self.startStopScanningButton setTitle:@"Stop Scanning" forState:UIControlStateNormal];
 		[self.scanningActivityIndicator startAnimating];
 	}
@@ -234,8 +259,7 @@ static NSString *QUAuthenticationServiceTokenCharacteristicUUID = @"7D695379-3AD
 
 - (IBAction)didTouchResetButton:(id)sender
 {
-    [self reset];
+	[self reset];
 }
-
 
 @end

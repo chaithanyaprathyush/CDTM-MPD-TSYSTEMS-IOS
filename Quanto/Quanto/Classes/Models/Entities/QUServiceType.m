@@ -2,7 +2,7 @@
 //  QUServiceType.m
 //  Quanto
 //
-//  Created by Pascal Fritzen on 04.01.15.
+//  Created by Pascal Fritzen on 09.01.15.
 //  Copyright (c) 2015 Pascal Fritzen. All rights reserved.
 //
 
@@ -12,11 +12,11 @@
 
 @implementation QUServiceType
 
+@dynamic descriptionText;
+@dynamic enabled;
 @dynamic name;
 @dynamic pictureData;
-@dynamic descriptionText;
 @dynamic pictureURL;
-@dynamic enabled;
 @dynamic serviceTypeID;
 @dynamic services;
 

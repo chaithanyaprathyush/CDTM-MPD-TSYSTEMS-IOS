@@ -2,7 +2,7 @@
 //  QUOrder.m
 //  Quanto
 //
-//  Created by Pascal Fritzen on 05.01.15.
+//  Created by Pascal Fritzen on 09.01.15.
 //  Copyright (c) 2015 Pascal Fritzen. All rights reserved.
 //
 
@@ -13,10 +13,10 @@
 
 @implementation QUOrder
 
+@dynamic createdAt;
+@dynamic lastModifiedAt;
 @dynamic orderID;
 @dynamic status;
-@dynamic lastModifiedAt;
-@dynamic createdAt;
 @dynamic room;
 @dynamic service;
 

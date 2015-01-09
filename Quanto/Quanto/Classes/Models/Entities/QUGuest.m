@@ -2,11 +2,12 @@
 //  QUGuest.m
 //  Quanto
 //
-//  Created by Pascal Fritzen on 04.01.15.
+//  Created by Pascal Fritzen on 09.01.15.
 //  Copyright (c) 2015 Pascal Fritzen. All rights reserved.
 //
 
 #import "QUGuest.h"
+#import "QUComplaint.h"
 #import "QUKey.h"
 #import "QUStay.h"
 
@@ -27,5 +28,6 @@
 @dynamic username;
 @dynamic keys;
 @dynamic stays;
+@dynamic complaints;
 
 @end

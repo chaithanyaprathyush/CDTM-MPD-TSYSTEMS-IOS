@@ -15,6 +15,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *roomTemperatureButton;
 @property (weak, nonatomic) IBOutlet UIButton *turnOffAllButton;
 
+- (IBAction)didTouchShowMenuButton:(id)sender;
+
 - (IBAction)didTouchBedroomLightButton:(id)sender;
 - (IBAction)didTouchBathroomLightButton:(id)sender;
 - (IBAction)didTouchRoomTemperatureButton:(id)sender;

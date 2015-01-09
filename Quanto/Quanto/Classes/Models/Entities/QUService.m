@@ -2,23 +2,25 @@
 //  QUService.m
 //  Quanto
 //
-//  Created by Pascal Fritzen on 04.01.15.
+//  Created by Pascal Fritzen on 09.01.15.
 //  Copyright (c) 2015 Pascal Fritzen. All rights reserved.
 //
 
 #import "QUService.h"
+#import "QUOrder.h"
+#import "QUServiceType.h"
 
 
 @implementation QUService
 
-@dynamic name;
 @dynamic descriptionText;
-@dynamic price;
+@dynamic enabled;
+@dynamic name;
 @dynamic pictureData;
 @dynamic pictureURL;
-@dynamic enabled;
+@dynamic price;
 @dynamic serviceID;
-@dynamic serviceType;
 @dynamic orders;
+@dynamic serviceType;
 
 @end

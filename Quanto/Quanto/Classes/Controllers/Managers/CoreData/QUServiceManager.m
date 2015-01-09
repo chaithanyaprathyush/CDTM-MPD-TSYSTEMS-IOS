@@ -32,7 +32,11 @@ static NSString *QUAPIEndpointService   = @"services/:serviceID/";
     
     service.name = JSON[@"name"];
     service.descriptionText = JSON[@"description"];
-    service.pictureURL = JSON[@"picture"];
+    
+    if ([JSON hasNonNullStringForKey:@"picture"]) {
+        service.pictureURL = JSON[@"picture"];
+    }
+
     service.enabled = JSON[@"enabled"];
     service.price = JSON[@"price"];
     

@@ -12,7 +12,7 @@
 #import "QUOrder+QUUtils.h"
 
 // REST API Endpoints
-static NSString *QUAPIEndpointOrders  = @"orders/";
+static NSString *QUAPIEndpointOrders    = @"orders/";
 static NSString *QUAPIEndpointMyOrders  = @"orders/my/";
 static NSString *QUAPIEndpointOrder     = @"orders/:orderID/";
 
@@ -32,47 +32,47 @@ static NSString *QUAPIEndpointOrder     = @"orders/:orderID/";
 
 + (BOOL)shouldInvokeSimpleUpdate
 {
-    return NO;
+	return NO;
 }
 
 + (BOOL)checkToUpdateEntity:(id)entity withJSON:(NSDictionary *)JSON
 {
 	QUOrder *order = entity;
-    BOOL didUpdate = NO;
-    
-    if (![[order statusAsString] isEqualToString:JSON[@"status"]]) {
-        order.status = [NSNumber numberWithInt:[QUOrder statusAsInt:JSON[@"status"]]];
-        didUpdate = YES;
-    }
-    
-    if (![order.createdAt isEqualToDate:[JSON dateForKey:@"date_created"]]) {
-        order.createdAt = [JSON dateForKey:@"date_created"];
-        didUpdate = YES;
-    }
-    
-    if (![order.lastModifiedAt isEqualToDate:[JSON dateForKey:@"last_modified"]]) {
-        order.lastModifiedAt = [JSON dateForKey:@"last_modified"];
-        didUpdate = YES;
-    }
-    
-    QURoom *room = [QURoomManager fetchOrCreateEntityWithEntityID:JSON[@"room"]];
-    if (order.room != room) {
-        order.room = room;
-        didUpdate = YES;
-    }
-    
+	BOOL didUpdate = NO;
+
+	if (![[[order statusAsString] uppercaseString] isEqualToString:JSON[@"status"]]) {
+		order.status = [NSNumber numberWithInt:[QUOrder statusAsInt:JSON[@"status"]]];
+		didUpdate = YES;
+	}
+
+	if (![order.createdAt isEqualToDate:[JSON dateForKey:@"date_created"]]) {
+		order.createdAt = [JSON dateForKey:@"date_created"];
+		didUpdate = YES;
+	}
+
+	if (![order.lastModifiedAt isEqualToDate:[JSON dateForKey:@"last_modified"]]) {
+		order.lastModifiedAt = [JSON dateForKey:@"last_modified"];
+		didUpdate = YES;
+	}
+
+	QURoom *room = [QURoomManager fetchOrCreateEntityWithEntityID:JSON[@"room"]];
+	if (order.room != room) {
+		order.room = room;
+		didUpdate = YES;
+	}
+
 	QUService *service = [QUServiceManager fetchOrCreateEntityWithEntityID:JSON[@"service"]];
-    if (order.service != service) {
-        order.service = service;
-        didUpdate = YES;
-    }
+	if (order.service != service) {
+		order.service = service;
+		didUpdate = YES;
+	}
 
 	// DLOG(@"Updated User Profile with JSON:%@\n%@", JSON, userProfile);
-    if (didUpdate) {
-        DLOG(@"Did Update QUOrder %@", order.orderID);
-    }
-    
-    return didUpdate;
+	if (didUpdate) {
+		DLOG(@"Did Update QUOrder %@", order.orderID);
+	}
+
+	return didUpdate;
 }
 
 #pragma mark - REST-API
@@ -88,8 +88,7 @@ static NSString *QUAPIEndpointOrder     = @"orders/:orderID/";
 												 success:^(AFHTTPRequestOperation *operation, id responseObject) {
 		 QUOrder *order = [self updateOrCreateEntityWithJSON:responseObject];
 
-		 DLOG(@"Successfully created new order: %@", order);
-
+		 DLOG(@"Success!");
 		 successHandler(order);
 	 } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
 		 DLOG(@"Failure: %@", error);
@@ -106,6 +105,26 @@ static NSString *QUAPIEndpointOrder     = @"orders/:orderID/";
 + (void)synchronizeAllMyOrdersWithSuccessHandler:(void (^)(NSSet *))successHandler failureHandler:(void (^)(NSError *))failureHandler
 {
 	[super fetchAllRemoteEntitiesAtEndpoint:QUAPIEndpointMyOrders successHandler:successHandler failureHandler:failureHandler];
+}
+
++ (void)deleteOrderWithOrderID:(NSNumber *)orderID successHandler:(void (^)(void))successHandler failureHandler:(void (^)(NSError *))failureHandler
+{
+	DLOG(@"Delete Order %@", [orderID stringValue]);
+
+	NSString *endpoint = [QUAPIEndpointOrder stringByReplacingOccurrencesOfString:@":orderID" withString:[orderID stringValue]];
+
+	[[PFRESTManager sharedManager].operationManager DELETE:endpoint
+												parameters:nil
+												   success:^(AFHTTPRequestOperation *operation, id responseObject) {
+		 [[PFCoreDataManager sharedManager].managedObjectContext deleteObject:[self fetchOrCreateEntityWithEntityID:orderID]];
+		 [[PFCoreDataManager sharedManager] save];
+
+		 DLOG(@"Success!");
+		 successHandler();
+	 } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+		 DLOG(@"Failure: %@", error);
+		 failureHandler(error);
+	 }];
 }
 
 @end

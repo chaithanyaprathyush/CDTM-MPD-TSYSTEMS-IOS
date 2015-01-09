@@ -11,6 +11,7 @@
 #import "QULoginViewController.h"
 #import "QUGuestManager.h"
 #import "PFAuthenticationManager.h"
+#import "QUBluetoothManager.h"
 
 @interface QURegisterViewController () <UIAlertViewDelegate>
 
@@ -28,6 +29,8 @@
 	if (useStoredCredentials) {
 		[PFAuthenticationManager authenticateWithStoredCredentialsWithSuccessHandler:^{
 			 [QUGuestManager synchronizeGuestWithSuccessHandler:^(QUGuest *guest) {
+                 //[QUBluetoothManager didChangeAuthenticationToken:[PFAuthenticationManager storedAuthenticationToken]];
+
 				  successHandler(guest);
 			  } failureHandler:^(NSError *error) {
 				  [self showWithPresentingViewController:presentingViewController successHandler:successHandler failureHandler:failureHandler useStoredCredentials:NO];
@@ -41,8 +44,8 @@
 		registerViewController.successHandler = successHandler;
 		registerViewController.failureHandler = failureHandler;
 
-        
-        
+
+
 		[presentingViewController presentViewController:[[UINavigationController alloc] initWithRootViewController:registerViewController]
 											   animated:YES
 											 completion:nil];
@@ -89,6 +92,7 @@
 				  [QUGuestManager synchronizeGuestWithSuccessHandler:^(QUGuest *guest) {
 					   [self dismissWithCompletionHandler:^{
 							self.successHandler(guest);
+                           //[QUBluetoothManager didChangeAuthenticationToken:[PFAuthenticationManager storedAuthenticationToken]];
 						}];
 				   } failureHandler:^(NSError *error) {
 					   [self dismissWithCompletionHandler:^{
@@ -161,7 +165,7 @@
 
 - (void)dismissAndShowLoginViewController
 {
-    UIViewController *presentingViewController = self.presentingViewController;
+	UIViewController *presentingViewController = self.presentingViewController;
 
 	[self.presentingViewController dismissViewControllerAnimated:YES completion:^{
 		 [QULoginViewController showWithPresentingViewController:presentingViewController

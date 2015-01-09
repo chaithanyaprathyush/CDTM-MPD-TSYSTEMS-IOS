@@ -11,5 +11,10 @@
 @interface MBProgressHUD (QUUtils)
 
 - (void)showCheckmark;
+- (void)showCross;
+
+- (void)hide:(BOOL)animated afterDelay:(NSTimeInterval)delay completionHandler:(void(^)(void))completionHandler;
+- (void)showCheckmarkAndHide:(BOOL)animated afterDelay:(NSTimeInterval)delay completionHandler:(void(^)(void))completionHandler;
+- (void)showCrossAndHide:(BOOL)animated afterDelay:(NSTimeInterval)delay completionHandler:(void (^)(void))completionHandler;
 
 @end

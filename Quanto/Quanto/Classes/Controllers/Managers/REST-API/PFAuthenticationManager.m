@@ -9,7 +9,6 @@
 #import "PFAuthenticationManager.h"
 #import "PFRESTManager.h"
 #import "QUGuestManager.h"
-#import "QUBluetoothManager.h"
 
 static NSString *PFAuthenticationManagerDefaultsLoginCredentialsUsername    = @"AUTH_CREDENTIALS_USERNAME";
 static NSString *PFAuthenticationManagerDefaultsLoginCredentialsPassword    = @"AUTH_CREDENTIALS_PASSWORD";
@@ -54,11 +53,6 @@ static PFAuthenticationType authenticationType = PFAuthenticationTypeToken;
 
 			[self setAuthenticationHeaderWithAuthentictationToken:[self storedAuthenticationToken]];
 
-			[QUBluetoothManager setAuthenticationToken:[self storedAuthenticationToken]];
-			dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5.0f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-				[QUBluetoothManager startAdvertisingServices];
-			});
-
 			successHandler();
 		} else {
 			// 1. Make POST Request to Authentication endpoint to obtain Token
@@ -70,11 +64,6 @@ static PFAuthenticationType authenticationType = PFAuthenticationTypeToken;
 				 DLOG(@"Success: obtained authenticationToken: %@", authenticationToken);
 
 				 [self setAuthenticationHeaderWithAuthentictationToken:authenticationToken];
-				 [QUBluetoothManager setAuthenticationToken:authenticationToken];
-
-				 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.0f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-					[QUBluetoothManager startAdvertisingServices];
-                 });
 
 				 if (storeCredentialsOnSuccess) {
 					 [self setStoredUsername:username];
@@ -98,8 +87,6 @@ static PFAuthenticationType authenticationType = PFAuthenticationTypeToken;
 + (void)clearAuthenticationHeader
 {
 	[[PFRESTManager sharedManager].operationManager.requestSerializer clearAuthorizationHeader];
-	[QUBluetoothManager setAuthenticationToken:nil];
-	[QUBluetoothManager stopAdvertisingServices];
 }
 
 #pragma mark Basic Authentication

@@ -6,8 +6,12 @@
 //  Copyright (c) 2015 Pascal Fritzen. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "PFFetchedResultsControllerTViewController.h"
 
-@interface QUHotelServicesTableViewController : UITableViewController
+@interface QUHotelServicesTableViewController : PFFetchedResultsControllerTViewController
+
+@property (weak, nonatomic) IBOutlet UISegmentedControl *servicesOrdersSegmentedControl;
+
+- (IBAction)didTouchServicesOrdersSegmentedControl:(id)sender;
 
 @end

@@ -40,7 +40,7 @@
 	// Pull to refresh
 	self.refreshControl = [UIRefreshControl new];
 	self.refreshControl.backgroundColor = [UIColor clearColor];
-	self.refreshControl.tintColor = [UIColor goldColor];
+	self.refreshControl.tintColor = [UIColor darkerDarkGrayColor];
 	[self.refreshControl addTarget:self
 							action:@selector(reloadOrders)
 				  forControlEvents:UIControlEventValueChanged];
@@ -99,7 +99,7 @@
 	UITableViewHeaderFooterView *header = (UITableViewHeaderFooterView *)view;
 
 	header.textLabel.font = [UIFont fontWithName:@"AppleSDGothicNeo-Regular" size:20.0f];
-	header.textLabel.textColor = [UIColor goldColor];
+	header.textLabel.textColor = [UIColor darkerDarkGrayColor];
 	header.textLabel.frame = header.frame;
 	header.textLabel.textAlignment = NSTextAlignmentCenter;
 }
@@ -137,5 +137,8 @@
 	[formSheet presentAnimated:YES completionHandler:^(UIViewController *presentedFSViewController) {
 	 }];
 }*/
+
+#pragma mark - IBActions
+
 
 @end

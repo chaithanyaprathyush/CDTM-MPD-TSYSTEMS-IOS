@@ -11,7 +11,7 @@
 #if TARGET_IPHONE_SIMULATOR
 static NSString *HOST_AND_PORT = YES ? @"http://127.0.0.1:8000" : @"http://cdtmmpd.de";
 #else
-static NSString *HOST_AND_PORT = YES ? @"http://192.168.0.100:8000" : @"http://cdtmmpd.de";
+static NSString *HOST_AND_PORT = YES ? @"http://10.183.19.24:8000" : @"http://cdtmmpd.de";
 #endif
 
 @implementation PFRESTManager

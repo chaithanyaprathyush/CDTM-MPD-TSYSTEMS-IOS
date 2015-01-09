@@ -54,10 +54,6 @@ static NSString *QUAPIEndpointGuestMe   = @"guests/my/";
 + (void)logOutCurrentGuest
 {
 	[QUGuestManager sharedManager].currentGuest = nil;
-
-	[PFAuthenticationManager resetStoredCredentials];
-
-	[[PFCoreDataManager sharedManager] resetDatabase];
 }
 
 #pragma mark - CoreData
@@ -75,8 +71,11 @@ static NSString *QUAPIEndpointGuestMe   = @"guests/my/";
 + (void)updateEntity:(id)entity withJSON:(NSDictionary *)JSON
 {
 	QUGuest *guest = entity;
-
-	guest.avatarURL = JSON[@"avatar"];
+    
+    if ([JSON hasNonNullStringForKey:@"avatar"]) {
+        guest.avatarURL = JSON[@"avatar"];
+    }
+    
 	guest.email = JSON[@"email"];
 	guest.fax = JSON[@"fax"];
 	guest.firstName = JSON[@"first_name"];

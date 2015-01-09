@@ -1,5 +1,5 @@
 //
-//  PFFetchedResultsControllerTVC.h
+//  PFFetchedResultsControllerCViewController.h
 //  Quanto
 //
 //  Created by Pascal Fritzen on 03.11.14.
@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <CoreData/CoreData.h>
 
-@interface PFFetchedResultsControllerTVC : UITableViewController <NSFetchedResultsControllerDelegate>
+@interface PFFetchedResultsControllerCViewController : UICollectionViewController <NSFetchedResultsControllerDelegate>
 
 // The controller (this class fetches nothing if this is not set).
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
@@ -23,6 +23,6 @@
 - (void)performFetch;
 
 // YOU NEED TO IMPLEMENT THIS METHOD OR OTHERWISE AN EXCEPTION WILL BE RAISED!
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath;
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath;
 
 @end

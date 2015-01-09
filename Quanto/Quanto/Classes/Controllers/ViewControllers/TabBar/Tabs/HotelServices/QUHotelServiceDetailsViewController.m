@@ -22,10 +22,10 @@
 {
 	[super viewDidLoad];
 
-    self.descriptionTextTextView.editable = YES;
-	self.descriptionTextTextView.textColor = [UIColor goldColor];
+	self.descriptionTextTextView.editable = YES;
+	self.descriptionTextTextView.textColor = [UIColor darkerDarkGrayColor];
 	self.descriptionTextTextView.font = [UIFont fontWithName:@"AppleSDGothicNeo-Regular" size:18.0f];
-    self.descriptionTextTextView.editable = NO;
+	self.descriptionTextTextView.editable = NO;
 }
 
 - (void)didReceiveMemoryWarning
@@ -53,35 +53,27 @@
 
 - (void)didTouchCancelButton:(id)sender
 {
-    [self dismissWithDelay:0.0f];
+    [self mz_dismissFormSheetControllerAnimated:YES completionHandler:^(MZFormSheetController *formSheetController) {
+    }];
 }
 
 - (IBAction)didTouchOrderButton:(id)sender
 {
-    MBProgressHUD *progressHUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    progressHUD.labelText = @"Ordering Service ...";
-    
-    [QUOrderManager createOrderForService:self.service successHandler:^(QUOrder *order) {
-        DLOG(@"Success!!");
-        progressHUD.labelText = @"Success!";
-        [progressHUD showCheckmark];
-        [progressHUD hide:YES afterDelay:3.0f];
-        [self dismissWithDelay:3.0f];
-        
-    } failureHandler:^(NSError *error) {
-        DLOG(@"ERROR!!");
-        progressHUD.labelText = @"Error";
-        [progressHUD hide:YES afterDelay:3.0f];
-    }];
-}
+	MBProgressHUD *progressHUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+	progressHUD.labelText = @"Ordering Service ...";
 
-- (void)dismissWithDelay:(float)delay
-{
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delay * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self mz_dismissFormSheetControllerAnimated:YES completionHandler:^(MZFormSheetController *formSheetController) {
-            DLOG(@"Dimsissed!");
-        }];
-    });
+	[QUOrderManager createOrderForService:self.service successHandler:^(QUOrder *order) {
+		 progressHUD.labelText = @"Success!";
+		 [progressHUD showCheckmarkAndHide:YES afterDelay:2.0f completionHandler:^{
+			  [self mz_dismissFormSheetControllerAnimated:YES completionHandler:^(MZFormSheetController *formSheetController) {
+			   }];
+		  }];
+	 } failureHandler:^(NSError *error) {
+		 progressHUD.labelText = @"Error";
+         [progressHUD showCrossAndHide:YES afterDelay:2.0f completionHandler:^{
+             
+         }];
+	 }];
 }
 
 @end

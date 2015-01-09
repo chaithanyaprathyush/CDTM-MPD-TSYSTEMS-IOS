@@ -2,14 +2,14 @@
 //  QUGuest.h
 //  Quanto
 //
-//  Created by Pascal Fritzen on 04.01.15.
+//  Created by Pascal Fritzen on 09.01.15.
 //  Copyright (c) 2015 Pascal Fritzen. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 #import <CoreData/CoreData.h>
 
-@class QUKey, QUStay;
+@class QUComplaint, QUKey, QUStay;
 
 @interface QUGuest : NSManagedObject
 
@@ -27,6 +27,7 @@
 @property (nonatomic, retain) NSString * username;
 @property (nonatomic, retain) NSSet *keys;
 @property (nonatomic, retain) NSSet *stays;
+@property (nonatomic, retain) NSSet *complaints;
 @end
 
 @interface QUGuest (CoreDataGeneratedAccessors)
@@ -40,5 +41,10 @@
 - (void)removeStaysObject:(QUStay *)value;
 - (void)addStays:(NSSet *)values;
 - (void)removeStays:(NSSet *)values;
+
+- (void)addComplaintsObject:(QUComplaint *)value;
+- (void)removeComplaintsObject:(QUComplaint *)value;
+- (void)addComplaints:(NSSet *)values;
+- (void)removeComplaints:(NSSet *)values;
 
 @end

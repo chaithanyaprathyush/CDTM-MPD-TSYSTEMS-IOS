@@ -8,20 +8,21 @@
 
 #import "UIColor+QUCorporateDesign.h"
 
-static NSString *goldColorHexCode = @"daa520";
-static NSString *lighterDarkGrayColorHexCode = @"222325";
-static NSString *darkerDarkGrayColorHexCode = @"202123";
+//static NSString *lighterDarkGrayColorHexCode = @"222325";
+static NSString *darkerDarkGrayColorHexCode = @"252B2F";//@"202123";
+static NSString *emeraldColorHexCode = @"55B95E";
+static NSString *peterRiverColorHexCode = @"3A86CF";
 
 @implementation UIColor (QUCorporateDesign)
 
-+ (UIColor *)goldColor
++ (UIColor *)emeraldColor
 {
-	return [self colorWithHexString:goldColorHexCode];
+	return [self colorWithHexString:emeraldColorHexCode];
 }
 
-+ (UIColor *)lighterDarkGrayColor
++ (UIColor *)peterRiverColor
 {
-	return [self colorWithHexString:lighterDarkGrayColorHexCode];
+    return [self colorWithHexString:peterRiverColorHexCode];
 }
 
 + (UIColor *)darkerDarkGrayColor

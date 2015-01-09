@@ -22,18 +22,23 @@
 		FF39595A1A51C74600972A1E /* PFCoreDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FF39594A1A51C74600972A1E /* PFCoreDataManager.m */; };
 		FF39595B1A51C74600972A1E /* NSDate+QUPrettify.m in Sources */ = {isa = PBXBuildFile; fileRef = FF39594E1A51C74600972A1E /* NSDate+QUPrettify.m */; };
 		FF39595C1A51C74600972A1E /* UIView+QURound.m in Sources */ = {isa = PBXBuildFile; fileRef = FF3959501A51C74600972A1E /* UIView+QURound.m */; };
+		FF48105E1A5FE8C800DFCA77 /* QUComplaintManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FF48105D1A5FE8C800DFCA77 /* QUComplaintManager.m */; };
+		FF4810611A5FE93900DFCA77 /* QUKey.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4810601A5FE93900DFCA77 /* QUKey.m */; };
+		FF4810641A5FE93A00DFCA77 /* QULock.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4810631A5FE93A00DFCA77 /* QULock.m */; };
+		FF4810671A5FE93A00DFCA77 /* QUGuest.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4810661A5FE93A00DFCA77 /* QUGuest.m */; };
+		FF48106A1A5FE93A00DFCA77 /* QURoom.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4810691A5FE93A00DFCA77 /* QURoom.m */; };
+		FF48106D1A5FE93A00DFCA77 /* QUService.m in Sources */ = {isa = PBXBuildFile; fileRef = FF48106C1A5FE93A00DFCA77 /* QUService.m */; };
+		FF4810701A5FE93A00DFCA77 /* QUOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = FF48106F1A5FE93A00DFCA77 /* QUOrder.m */; };
+		FF4810731A5FE93A00DFCA77 /* QUServiceType.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4810721A5FE93A00DFCA77 /* QUServiceType.m */; };
+		FF4810761A5FE93A00DFCA77 /* QUStay.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4810751A5FE93A00DFCA77 /* QUStay.m */; };
+		FF48107C1A5FE9E300DFCA77 /* QUComplaint.m in Sources */ = {isa = PBXBuildFile; fileRef = FF48107B1A5FE9E300DFCA77 /* QUComplaint.m */; };
+		FF4810811A5FECAB00DFCA77 /* QUComplaint+QUUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4810801A5FECAB00DFCA77 /* QUComplaint+QUUtils.m */; };
+		FF4810841A5FFF7500DFCA77 /* QUCreateComplaintViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4810831A5FFF7500DFCA77 /* QUCreateComplaintViewController.m */; };
 		FF4EA84B1A5745210074B4E8 /* QUBluetoothManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4EA84A1A5745210074B4E8 /* QUBluetoothManager.m */; };
 		FF4EA84E1A57777C0074B4E8 /* QUGuest+QUUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4EA84D1A57777C0074B4E8 /* QUGuest+QUUtils.m */; };
 		FF4EA8511A584E3F0074B4E8 /* QURoomControlViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4EA8501A584E3F0074B4E8 /* QURoomControlViewController.m */; };
 		FF4EA8531A58521F0074B4E8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF4EA8521A58521F0074B4E8 /* Images.xcassets */; };
 		FF4EA8561A58F8630074B4E8 /* QUHotelServicesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4EA8551A58F8630074B4E8 /* QUHotelServicesTableViewController.m */; };
-		FF4EA8591A5900650074B4E8 /* QUKey.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4EA8581A5900650074B4E8 /* QUKey.m */; };
-		FF4EA85C1A5900660074B4E8 /* QURoom.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4EA85B1A5900660074B4E8 /* QURoom.m */; };
-		FF4EA85F1A5900660074B4E8 /* QUGuest.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4EA85E1A5900660074B4E8 /* QUGuest.m */; };
-		FF4EA8621A5900660074B4E8 /* QUStay.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4EA8611A5900660074B4E8 /* QUStay.m */; };
-		FF4EA8651A5900660074B4E8 /* QUService.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4EA8641A5900660074B4E8 /* QUService.m */; };
-		FF4EA8681A5900660074B4E8 /* QULock.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4EA8671A5900660074B4E8 /* QULock.m */; };
-		FF4EA86B1A5900670074B4E8 /* QUServiceType.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4EA86A1A5900670074B4E8 /* QUServiceType.m */; };
 		FF4EA8711A5906C20074B4E8 /* QUServiceTypeManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4EA8701A5906C20074B4E8 /* QUServiceTypeManager.m */; };
 		FF4EA8741A59239A0074B4E8 /* QUServiceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4EA8731A59239A0074B4E8 /* QUServiceManager.m */; };
 		FF4EA8761A5925100074B4E8 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF4EA8751A5925100074B4E8 /* CoreData.framework */; };
@@ -44,11 +49,10 @@
 		FF4EA8871A5A11D60074B4E8 /* QUHotelServiceDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4EA8861A5A11D60074B4E8 /* QUHotelServiceDetailsViewController.m */; };
 		FF4EA88D1A5AC5CE0074B4E8 /* MBProgressHUD+QUUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4EA88C1A5AC5CE0074B4E8 /* MBProgressHUD+QUUtils.m */; };
 		FF4EA8901A5AC7B90074B4E8 /* QUOrdersTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4EA88F1A5AC7B90074B4E8 /* QUOrdersTableViewController.m */; };
-		FF4EA8961A5AC8C90074B4E8 /* PFFetchedResultsControllerCVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4EA8931A5AC8C90074B4E8 /* PFFetchedResultsControllerCVC.m */; };
-		FF4EA8971A5AC8C90074B4E8 /* PFFetchedResultsControllerTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4EA8951A5AC8C90074B4E8 /* PFFetchedResultsControllerTVC.m */; };
+		FF4EA8961A5AC8C90074B4E8 /* PFFetchedResultsControllerCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4EA8931A5AC8C90074B4E8 /* PFFetchedResultsControllerCViewController.m */; };
+		FF4EA8971A5AC8C90074B4E8 /* PFFetchedResultsControllerTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4EA8951A5AC8C90074B4E8 /* PFFetchedResultsControllerTViewController.m */; };
 		FF4EA89A1A5ACAF60074B4E8 /* QUOrderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4EA8991A5ACAF60074B4E8 /* QUOrderTableViewCell.m */; };
 		FF4EA89D1A5ADAEA0074B4E8 /* QUOrder+QUUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4EA89C1A5ADAEA0074B4E8 /* QUOrder+QUUtils.m */; };
-		FF4EA8A01A5AE2DB0074B4E8 /* QUOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4EA89F1A5AE2DB0074B4E8 /* QUOrder.m */; };
 		FF4EA8A61A5AED770074B4E8 /* QULocksTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4EA8A51A5AED770074B4E8 /* QULocksTableViewController.m */; };
 		FF4EA8A91A5AEE110074B4E8 /* QULockTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4EA8A81A5AEE110074B4E8 /* QULockTableViewCell.m */; };
 		FFB3557C1A55B074007A29D1 /* UIColor+QUCorporateDesign.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB3557B1A55B074007A29D1 /* UIColor+QUCorporateDesign.m */; };
@@ -60,6 +64,7 @@
 		FFEF77581A51CAA600D2405B /* Quanto.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FFEF77561A51CAA600D2405B /* Quanto.xcdatamodeld */; };
 		FFEF77C51A5229FB00D2405B /* QULockManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FFEF77C41A5229FB00D2405B /* QULockManager.m */; };
 		FFEF77DD1A5237A800D2405B /* QUGuestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FFEF77DC1A5237A800D2405B /* QUGuestManager.m */; };
+		FFFEB5B51A5F2FE0002B53D0 /* QUComplaintsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFFEB5B41A5F2FE0002B53D0 /* QUComplaintsTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +109,30 @@
 		FF39594E1A51C74600972A1E /* NSDate+QUPrettify.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+QUPrettify.m"; sourceTree = "<group>"; };
 		FF39594F1A51C74600972A1E /* UIView+QURound.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+QURound.h"; sourceTree = "<group>"; };
 		FF3959501A51C74600972A1E /* UIView+QURound.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+QURound.m"; sourceTree = "<group>"; };
+		FF48105C1A5FE8C800DFCA77 /* QUComplaintManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUComplaintManager.h; sourceTree = "<group>"; };
+		FF48105D1A5FE8C800DFCA77 /* QUComplaintManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUComplaintManager.m; sourceTree = "<group>"; };
+		FF48105F1A5FE93900DFCA77 /* QUKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUKey.h; sourceTree = "<group>"; };
+		FF4810601A5FE93900DFCA77 /* QUKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUKey.m; sourceTree = "<group>"; };
+		FF4810621A5FE93A00DFCA77 /* QULock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QULock.h; sourceTree = "<group>"; };
+		FF4810631A5FE93A00DFCA77 /* QULock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QULock.m; sourceTree = "<group>"; };
+		FF4810651A5FE93A00DFCA77 /* QUGuest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUGuest.h; sourceTree = "<group>"; };
+		FF4810661A5FE93A00DFCA77 /* QUGuest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUGuest.m; sourceTree = "<group>"; };
+		FF4810681A5FE93A00DFCA77 /* QURoom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QURoom.h; sourceTree = "<group>"; };
+		FF4810691A5FE93A00DFCA77 /* QURoom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QURoom.m; sourceTree = "<group>"; };
+		FF48106B1A5FE93A00DFCA77 /* QUService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUService.h; sourceTree = "<group>"; };
+		FF48106C1A5FE93A00DFCA77 /* QUService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUService.m; sourceTree = "<group>"; };
+		FF48106E1A5FE93A00DFCA77 /* QUOrder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUOrder.h; sourceTree = "<group>"; };
+		FF48106F1A5FE93A00DFCA77 /* QUOrder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUOrder.m; sourceTree = "<group>"; };
+		FF4810711A5FE93A00DFCA77 /* QUServiceType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUServiceType.h; sourceTree = "<group>"; };
+		FF4810721A5FE93A00DFCA77 /* QUServiceType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUServiceType.m; sourceTree = "<group>"; };
+		FF4810741A5FE93A00DFCA77 /* QUStay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUStay.h; sourceTree = "<group>"; };
+		FF4810751A5FE93A00DFCA77 /* QUStay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUStay.m; sourceTree = "<group>"; };
+		FF48107A1A5FE9E300DFCA77 /* QUComplaint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUComplaint.h; sourceTree = "<group>"; };
+		FF48107B1A5FE9E300DFCA77 /* QUComplaint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUComplaint.m; sourceTree = "<group>"; };
+		FF48107F1A5FECAB00DFCA77 /* QUComplaint+QUUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "QUComplaint+QUUtils.h"; sourceTree = "<group>"; };
+		FF4810801A5FECAB00DFCA77 /* QUComplaint+QUUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "QUComplaint+QUUtils.m"; sourceTree = "<group>"; };
+		FF4810821A5FFF7500DFCA77 /* QUCreateComplaintViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUCreateComplaintViewController.h; sourceTree = "<group>"; };
+		FF4810831A5FFF7500DFCA77 /* QUCreateComplaintViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUCreateComplaintViewController.m; sourceTree = "<group>"; };
 		FF4EA8491A5745210074B4E8 /* QUBluetoothManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUBluetoothManager.h; sourceTree = "<group>"; };
 		FF4EA84A1A5745210074B4E8 /* QUBluetoothManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUBluetoothManager.m; sourceTree = "<group>"; };
 		FF4EA84C1A57777C0074B4E8 /* QUGuest+QUUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "QUGuest+QUUtils.h"; sourceTree = "<group>"; };
@@ -113,20 +142,6 @@
 		FF4EA8521A58521F0074B4E8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		FF4EA8541A58F8630074B4E8 /* QUHotelServicesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUHotelServicesTableViewController.h; sourceTree = "<group>"; };
 		FF4EA8551A58F8630074B4E8 /* QUHotelServicesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUHotelServicesTableViewController.m; sourceTree = "<group>"; };
-		FF4EA8571A5900650074B4E8 /* QUKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUKey.h; sourceTree = "<group>"; };
-		FF4EA8581A5900650074B4E8 /* QUKey.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUKey.m; sourceTree = "<group>"; };
-		FF4EA85A1A5900660074B4E8 /* QURoom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QURoom.h; sourceTree = "<group>"; };
-		FF4EA85B1A5900660074B4E8 /* QURoom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QURoom.m; sourceTree = "<group>"; };
-		FF4EA85D1A5900660074B4E8 /* QUGuest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUGuest.h; sourceTree = "<group>"; };
-		FF4EA85E1A5900660074B4E8 /* QUGuest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUGuest.m; sourceTree = "<group>"; };
-		FF4EA8601A5900660074B4E8 /* QUStay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUStay.h; sourceTree = "<group>"; };
-		FF4EA8611A5900660074B4E8 /* QUStay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUStay.m; sourceTree = "<group>"; };
-		FF4EA8631A5900660074B4E8 /* QUService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUService.h; sourceTree = "<group>"; };
-		FF4EA8641A5900660074B4E8 /* QUService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUService.m; sourceTree = "<group>"; };
-		FF4EA8661A5900660074B4E8 /* QULock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QULock.h; sourceTree = "<group>"; };
-		FF4EA8671A5900660074B4E8 /* QULock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QULock.m; sourceTree = "<group>"; };
-		FF4EA8691A5900670074B4E8 /* QUServiceType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUServiceType.h; sourceTree = "<group>"; };
-		FF4EA86A1A5900670074B4E8 /* QUServiceType.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUServiceType.m; sourceTree = "<group>"; };
 		FF4EA86F1A5906C20074B4E8 /* QUServiceTypeManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUServiceTypeManager.h; sourceTree = "<group>"; };
 		FF4EA8701A5906C20074B4E8 /* QUServiceTypeManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUServiceTypeManager.m; sourceTree = "<group>"; };
 		FF4EA8721A59239A0074B4E8 /* QUServiceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUServiceManager.h; sourceTree = "<group>"; };
@@ -145,16 +160,14 @@
 		FF4EA88C1A5AC5CE0074B4E8 /* MBProgressHUD+QUUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+QUUtils.m"; sourceTree = "<group>"; };
 		FF4EA88E1A5AC7B90074B4E8 /* QUOrdersTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUOrdersTableViewController.h; sourceTree = "<group>"; };
 		FF4EA88F1A5AC7B90074B4E8 /* QUOrdersTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUOrdersTableViewController.m; sourceTree = "<group>"; };
-		FF4EA8921A5AC8C90074B4E8 /* PFFetchedResultsControllerCVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFFetchedResultsControllerCVC.h; sourceTree = "<group>"; };
-		FF4EA8931A5AC8C90074B4E8 /* PFFetchedResultsControllerCVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFFetchedResultsControllerCVC.m; sourceTree = "<group>"; };
-		FF4EA8941A5AC8C90074B4E8 /* PFFetchedResultsControllerTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFFetchedResultsControllerTVC.h; sourceTree = "<group>"; };
-		FF4EA8951A5AC8C90074B4E8 /* PFFetchedResultsControllerTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFFetchedResultsControllerTVC.m; sourceTree = "<group>"; };
+		FF4EA8921A5AC8C90074B4E8 /* PFFetchedResultsControllerCViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFFetchedResultsControllerCViewController.h; sourceTree = "<group>"; };
+		FF4EA8931A5AC8C90074B4E8 /* PFFetchedResultsControllerCViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFFetchedResultsControllerCViewController.m; sourceTree = "<group>"; };
+		FF4EA8941A5AC8C90074B4E8 /* PFFetchedResultsControllerTViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFFetchedResultsControllerTViewController.h; sourceTree = "<group>"; };
+		FF4EA8951A5AC8C90074B4E8 /* PFFetchedResultsControllerTViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFFetchedResultsControllerTViewController.m; sourceTree = "<group>"; };
 		FF4EA8981A5ACAF60074B4E8 /* QUOrderTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUOrderTableViewCell.h; sourceTree = "<group>"; };
 		FF4EA8991A5ACAF60074B4E8 /* QUOrderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUOrderTableViewCell.m; sourceTree = "<group>"; };
 		FF4EA89B1A5ADAEA0074B4E8 /* QUOrder+QUUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "QUOrder+QUUtils.h"; sourceTree = "<group>"; };
 		FF4EA89C1A5ADAEA0074B4E8 /* QUOrder+QUUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "QUOrder+QUUtils.m"; sourceTree = "<group>"; };
-		FF4EA89E1A5AE2DB0074B4E8 /* QUOrder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUOrder.h; sourceTree = "<group>"; };
-		FF4EA89F1A5AE2DB0074B4E8 /* QUOrder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUOrder.m; sourceTree = "<group>"; };
 		FF4EA8A41A5AED770074B4E8 /* QULocksTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QULocksTableViewController.h; sourceTree = "<group>"; };
 		FF4EA8A51A5AED770074B4E8 /* QULocksTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QULocksTableViewController.m; sourceTree = "<group>"; };
 		FF4EA8A71A5AEE110074B4E8 /* QULockTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QULockTableViewCell.h; sourceTree = "<group>"; };
@@ -176,6 +189,8 @@
 		FFEF77C41A5229FB00D2405B /* QULockManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QULockManager.m; sourceTree = "<group>"; };
 		FFEF77DB1A5237A800D2405B /* QUGuestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUGuestManager.h; sourceTree = "<group>"; };
 		FFEF77DC1A5237A800D2405B /* QUGuestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUGuestManager.m; sourceTree = "<group>"; };
+		FFFEB5B31A5F2FE0002B53D0 /* QUComplaintsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUComplaintsTableViewController.h; sourceTree = "<group>"; };
+		FFFEB5B41A5F2FE0002B53D0 /* QUComplaintsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUComplaintsTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -346,6 +361,8 @@
 				FF4EA8731A59239A0074B4E8 /* QUServiceManager.m */,
 				FF4EA8771A596CDE0074B4E8 /* QUOrderManager.h */,
 				FF4EA8781A596CDE0074B4E8 /* QUOrderManager.m */,
+				FF48105C1A5FE8C800DFCA77 /* QUComplaintManager.h */,
+				FF48105D1A5FE8C800DFCA77 /* QUComplaintManager.m */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -411,6 +428,8 @@
 				FF4EA87E1A59CC810074B4E8 /* QUService+QUUtils.m */,
 				FF4EA89B1A5ADAEA0074B4E8 /* QUOrder+QUUtils.h */,
 				FF4EA89C1A5ADAEA0074B4E8 /* QUOrder+QUUtils.m */,
+				FF48107F1A5FECAB00DFCA77 /* QUComplaint+QUUtils.h */,
+				FF4810801A5FECAB00DFCA77 /* QUComplaint+QUUtils.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -418,22 +437,24 @@
 		FF3959481A51C74600972A1E /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				FF4EA89E1A5AE2DB0074B4E8 /* QUOrder.h */,
-				FF4EA89F1A5AE2DB0074B4E8 /* QUOrder.m */,
-				FF4EA8691A5900670074B4E8 /* QUServiceType.h */,
-				FF4EA86A1A5900670074B4E8 /* QUServiceType.m */,
-				FF4EA8661A5900660074B4E8 /* QULock.h */,
-				FF4EA8671A5900660074B4E8 /* QULock.m */,
-				FF4EA8631A5900660074B4E8 /* QUService.h */,
-				FF4EA8641A5900660074B4E8 /* QUService.m */,
-				FF4EA8601A5900660074B4E8 /* QUStay.h */,
-				FF4EA8611A5900660074B4E8 /* QUStay.m */,
-				FF4EA85D1A5900660074B4E8 /* QUGuest.h */,
-				FF4EA85E1A5900660074B4E8 /* QUGuest.m */,
-				FF4EA85A1A5900660074B4E8 /* QURoom.h */,
-				FF4EA85B1A5900660074B4E8 /* QURoom.m */,
-				FF4EA8571A5900650074B4E8 /* QUKey.h */,
-				FF4EA8581A5900650074B4E8 /* QUKey.m */,
+				FF48107A1A5FE9E300DFCA77 /* QUComplaint.h */,
+				FF48107B1A5FE9E300DFCA77 /* QUComplaint.m */,
+				FF4810741A5FE93A00DFCA77 /* QUStay.h */,
+				FF4810751A5FE93A00DFCA77 /* QUStay.m */,
+				FF4810711A5FE93A00DFCA77 /* QUServiceType.h */,
+				FF4810721A5FE93A00DFCA77 /* QUServiceType.m */,
+				FF48106E1A5FE93A00DFCA77 /* QUOrder.h */,
+				FF48106F1A5FE93A00DFCA77 /* QUOrder.m */,
+				FF48106B1A5FE93A00DFCA77 /* QUService.h */,
+				FF48106C1A5FE93A00DFCA77 /* QUService.m */,
+				FF4810681A5FE93A00DFCA77 /* QURoom.h */,
+				FF4810691A5FE93A00DFCA77 /* QURoom.m */,
+				FF4810651A5FE93A00DFCA77 /* QUGuest.h */,
+				FF4810661A5FE93A00DFCA77 /* QUGuest.m */,
+				FF4810621A5FE93A00DFCA77 /* QULock.h */,
+				FF4810631A5FE93A00DFCA77 /* QULock.m */,
+				FF48105F1A5FE93900DFCA77 /* QUKey.h */,
+				FF4810601A5FE93900DFCA77 /* QUKey.m */,
 				FFEF77561A51CAA600D2405B /* Quanto.xcdatamodeld */,
 			);
 			path = Entities;
@@ -462,6 +483,24 @@
 			path = Categories;
 			sourceTree = "<group>";
 		};
+		FF48107D1A5FEB2F00DFCA77 /* _deprecated */ = {
+			isa = PBXGroup;
+			children = (
+				FFB355A11A55FC24007A29D1 /* QUKeysViewController.h */,
+				FFB355A21A55FC24007A29D1 /* QUKeysViewController.m */,
+			);
+			name = _deprecated;
+			sourceTree = "<group>";
+		};
+		FF48107E1A5FEB4600DFCA77 /* _deprecated */ = {
+			isa = PBXGroup;
+			children = (
+				FF4EA88E1A5AC7B90074B4E8 /* QUOrdersTableViewController.h */,
+				FF4EA88F1A5AC7B90074B4E8 /* QUOrdersTableViewController.m */,
+			);
+			name = _deprecated;
+			sourceTree = "<group>";
+		};
 		FF4EA8481A5745120074B4E8 /* BlueTooth */ = {
 			isa = PBXGroup;
 			children = (
@@ -474,10 +513,10 @@
 		FF4EA8911A5AC8C90074B4E8 /* FetchedResultsController */ = {
 			isa = PBXGroup;
 			children = (
-				FF4EA8921A5AC8C90074B4E8 /* PFFetchedResultsControllerCVC.h */,
-				FF4EA8931A5AC8C90074B4E8 /* PFFetchedResultsControllerCVC.m */,
-				FF4EA8941A5AC8C90074B4E8 /* PFFetchedResultsControllerTVC.h */,
-				FF4EA8951A5AC8C90074B4E8 /* PFFetchedResultsControllerTVC.m */,
+				FF4EA8921A5AC8C90074B4E8 /* PFFetchedResultsControllerCViewController.h */,
+				FF4EA8931A5AC8C90074B4E8 /* PFFetchedResultsControllerCViewController.m */,
+				FF4EA8941A5AC8C90074B4E8 /* PFFetchedResultsControllerTViewController.h */,
+				FF4EA8951A5AC8C90074B4E8 /* PFFetchedResultsControllerTViewController.m */,
 			);
 			path = FetchedResultsController;
 			sourceTree = "<group>";
@@ -485,6 +524,7 @@
 		FFB3559D1A55FC24007A29D1 /* Tabs */ = {
 			isa = PBXGroup;
 			children = (
+				FFFEB5B21A5F2FBF002B53D0 /* Complaints */,
 				FFB355A01A55FC24007A29D1 /* Keys */,
 				FFB3559F1A55FC24007A29D1 /* HotelServices */,
 				FFB355A31A55FC24007A29D1 /* RoomControl */,
@@ -505,14 +545,13 @@
 		FFB3559F1A55FC24007A29D1 /* HotelServices */ = {
 			isa = PBXGroup;
 			children = (
+				FF48107E1A5FEB4600DFCA77 /* _deprecated */,
 				FF4EA8541A58F8630074B4E8 /* QUHotelServicesTableViewController.h */,
 				FF4EA8551A58F8630074B4E8 /* QUHotelServicesTableViewController.m */,
 				FF4EA87A1A59C98F0074B4E8 /* QUHotelServiceTableViewCell.h */,
 				FF4EA87B1A59C98F0074B4E8 /* QUHotelServiceTableViewCell.m */,
 				FF4EA8851A5A11D60074B4E8 /* QUHotelServiceDetailsViewController.h */,
 				FF4EA8861A5A11D60074B4E8 /* QUHotelServiceDetailsViewController.m */,
-				FF4EA88E1A5AC7B90074B4E8 /* QUOrdersTableViewController.h */,
-				FF4EA88F1A5AC7B90074B4E8 /* QUOrdersTableViewController.m */,
 				FF4EA8981A5ACAF60074B4E8 /* QUOrderTableViewCell.h */,
 				FF4EA8991A5ACAF60074B4E8 /* QUOrderTableViewCell.m */,
 			);
@@ -522,8 +561,7 @@
 		FFB355A01A55FC24007A29D1 /* Keys */ = {
 			isa = PBXGroup;
 			children = (
-				FFB355A11A55FC24007A29D1 /* QUKeysViewController.h */,
-				FFB355A21A55FC24007A29D1 /* QUKeysViewController.m */,
+				FF48107D1A5FEB2F00DFCA77 /* _deprecated */,
 				FF4EA8A41A5AED770074B4E8 /* QULocksTableViewController.h */,
 				FF4EA8A51A5AED770074B4E8 /* QULocksTableViewController.m */,
 				FF4EA8A71A5AEE110074B4E8 /* QULockTableViewCell.h */,
@@ -539,6 +577,17 @@
 				FF4EA8501A584E3F0074B4E8 /* QURoomControlViewController.m */,
 			);
 			path = RoomControl;
+			sourceTree = "<group>";
+		};
+		FFFEB5B21A5F2FBF002B53D0 /* Complaints */ = {
+			isa = PBXGroup;
+			children = (
+				FFFEB5B31A5F2FE0002B53D0 /* QUComplaintsTableViewController.h */,
+				FFFEB5B41A5F2FE0002B53D0 /* QUComplaintsTableViewController.m */,
+				FF4810821A5FFF7500DFCA77 /* QUCreateComplaintViewController.h */,
+				FF4810831A5FFF7500DFCA77 /* QUCreateComplaintViewController.m */,
+			);
+			path = Complaints;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -677,43 +726,46 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF4810611A5FE93900DFCA77 /* QUKey.m in Sources */,
 				FF4EA84B1A5745210074B4E8 /* QUBluetoothManager.m in Sources */,
 				FF3959511A51C74600972A1E /* QUAppDelegate.m in Sources */,
 				FFEF77DD1A5237A800D2405B /* QUGuestManager.m in Sources */,
 				FF39595C1A51C74600972A1E /* UIView+QURound.m in Sources */,
+				FF48106A1A5FE93A00DFCA77 /* QURoom.m in Sources */,
 				FF4EA8A61A5AED770074B4E8 /* QULocksTableViewController.m in Sources */,
-				FF4EA85C1A5900660074B4E8 /* QURoom.m in Sources */,
 				FF4EA8711A5906C20074B4E8 /* QUServiceTypeManager.m in Sources */,
 				FFB355981A55F591007A29D1 /* QURoomManager.m in Sources */,
 				FF4EA87F1A59CC810074B4E8 /* QUService+QUUtils.m in Sources */,
-				FF4EA8961A5AC8C90074B4E8 /* PFFetchedResultsControllerCVC.m in Sources */,
+				FF4EA8961A5AC8C90074B4E8 /* PFFetchedResultsControllerCViewController.m in Sources */,
 				FF3959561A51C74600972A1E /* PFAuthenticationManager.m in Sources */,
-				FF4EA8681A5900660074B4E8 /* QULock.m in Sources */,
 				FFB355DD1A5704E7007A29D1 /* QUAccountViewController.m in Sources */,
 				FF4EA8511A584E3F0074B4E8 /* QURoomControlViewController.m in Sources */,
+				FF4810811A5FECAB00DFCA77 /* QUComplaint+QUUtils.m in Sources */,
 				FF39595B1A51C74600972A1E /* NSDate+QUPrettify.m in Sources */,
 				FF4EA87C1A59C98F0074B4E8 /* QUHotelServiceTableViewCell.m in Sources */,
-				FF4EA86B1A5900670074B4E8 /* QUServiceType.m in Sources */,
-				FF4EA8591A5900650074B4E8 /* QUKey.m in Sources */,
 				FF4EA88D1A5AC5CE0074B4E8 /* MBProgressHUD+QUUtils.m in Sources */,
 				FF4EA8901A5AC7B90074B4E8 /* QUOrdersTableViewController.m in Sources */,
 				FFB355A41A55FC24007A29D1 /* QUKeysViewController.m in Sources */,
+				FF4810671A5FE93A00DFCA77 /* QUGuest.m in Sources */,
 				FF3959571A51C74600972A1E /* PFRESTManager.m in Sources */,
+				FF4810701A5FE93A00DFCA77 /* QUOrder.m in Sources */,
 				FF3959521A51C74600972A1E /* PFEntityManager.m in Sources */,
 				FF4EA8791A596CDE0074B4E8 /* QUOrderManager.m in Sources */,
+				FF4810641A5FE93A00DFCA77 /* QULock.m in Sources */,
+				FF4810761A5FE93A00DFCA77 /* QUStay.m in Sources */,
 				FF4EA8A91A5AEE110074B4E8 /* QULockTableViewCell.m in Sources */,
+				FF4810841A5FFF7500DFCA77 /* QUCreateComplaintViewController.m in Sources */,
 				FF3959581A51C74600972A1E /* QULoginViewController.m in Sources */,
+				FF48107C1A5FE9E300DFCA77 /* QUComplaint.m in Sources */,
 				FF3959591A51C74600972A1E /* QURegisterViewController.m in Sources */,
-				FF4EA85F1A5900660074B4E8 /* QUGuest.m in Sources */,
-				FF4EA8651A5900660074B4E8 /* QUService.m in Sources */,
 				FF4EA8871A5A11D60074B4E8 /* QUHotelServiceDetailsViewController.m in Sources */,
-				FF4EA8971A5AC8C90074B4E8 /* PFFetchedResultsControllerTVC.m in Sources */,
+				FF4EA8971A5AC8C90074B4E8 /* PFFetchedResultsControllerTViewController.m in Sources */,
 				FF4EA84E1A57777C0074B4E8 /* QUGuest+QUUtils.m in Sources */,
 				FFEF77C51A5229FB00D2405B /* QULockManager.m in Sources */,
 				FF4EA8561A58F8630074B4E8 /* QUHotelServicesTableViewController.m in Sources */,
-				FF4EA8621A5900660074B4E8 /* QUStay.m in Sources */,
+				FFFEB5B51A5F2FE0002B53D0 /* QUComplaintsTableViewController.m in Sources */,
 				FFB355831A55C095007A29D1 /* QUKeyManager.m in Sources */,
-				FF4EA8A01A5AE2DB0074B4E8 /* QUOrder.m in Sources */,
+				FF48106D1A5FE93A00DFCA77 /* QUService.m in Sources */,
 				FFB3557C1A55B074007A29D1 /* UIColor+QUCorporateDesign.m in Sources */,
 				FF4EA89D1A5ADAEA0074B4E8 /* QUOrder+QUUtils.m in Sources */,
 				FF39595A1A51C74600972A1E /* PFCoreDataManager.m in Sources */,
@@ -721,7 +773,9 @@
 				FF4EA89A1A5ACAF60074B4E8 /* QUOrderTableViewCell.m in Sources */,
 				FF4EA8741A59239A0074B4E8 /* QUServiceManager.m in Sources */,
 				FF3959081A51C46400972A1E /* main.m in Sources */,
+				FF48105E1A5FE8C800DFCA77 /* QUComplaintManager.m in Sources */,
 				FFEF77581A51CAA600D2405B /* Quanto.xcdatamodeld in Sources */,
+				FF4810731A5FE93A00DFCA77 /* QUServiceType.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
