@@ -5,90 +5,130 @@
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Montserrat-Light.otf">
+            <string>Montserrat-Light</string>
+            <string>Montserrat-Light</string>
+            <string>Montserrat-Light</string>
+            <string>Montserrat-Light</string>
+            <string>Montserrat-Light</string>
+            <string>Montserrat-Light</string>
+            <string>Montserrat-Light</string>
+            <string>Montserrat-Light</string>
+            <string>Montserrat-Light</string>
+            <string>Montserrat-Light</string>
+            <string>Montserrat-Light</string>
+            <string>Montserrat-Light</string>
+            <string>Montserrat-Light</string>
+            <string>Montserrat-Light</string>
+            <string>Montserrat-Light</string>
+            <string>Montserrat-Light</string>
+            <string>Montserrat-Light</string>
+            <string>Montserrat-Light</string>
+            <string>Montserrat-Light</string>
+            <string>Montserrat-Light</string>
+            <string>Montserrat-Light</string>
+            <string>Montserrat-Light</string>
+            <string>Montserrat-Light</string>
+            <string>Montserrat-Light</string>
+        </mutableArray>
+        <mutableArray key="Montserrat-Regular.otf">
+            <string>Montserrat-Regular</string>
+            <string>Montserrat-Regular</string>
+            <string>Montserrat-Regular</string>
+            <string>Montserrat-Regular</string>
+            <string>Montserrat-Regular</string>
+            <string>Montserrat-Regular</string>
+            <string>Montserrat-Regular</string>
+            <string>Montserrat-Regular</string>
+            <string>Montserrat-Regular</string>
+            <string>Montserrat-Regular</string>
+            <string>Montserrat-Regular</string>
+            <string>Montserrat-Regular</string>
+            <string>Montserrat-Regular</string>
+            <string>Montserrat-Regular</string>
+            <string>Montserrat-Regular</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--Your Digital Keys-->
         <scene sceneID="JFS-RE-yIT">
             <objects>
-                <viewController id="DfB-Qd-1f8" customClass="QUKeysViewController" sceneMemberID="viewController">
+                <viewController id="DfB-Qd-1f8" customClass="QURoomViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Rpe-s7-Faw"/>
                         <viewControllerLayoutGuide type="bottom" id="rti-zz-7hd"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="9Yd-fv-I7N">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Drd-m9-0bU">
+                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
+                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Room No. ..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0IV-N0-hBy">
-                                <rect key="frame" x="16" y="28" width="288" height="46"/>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="38"/>
+                                <rect key="frame" x="16" y="459" width="343" height="46"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="38"/>
                                 <color key="textColor" red="0.10940888524055481" green="0.12628661096096039" blue="0.13827742636203766" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You don't have any digital keys yet. Please ask the reception to get one." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mIW-f5-HMl">
-                                <rect key="frame" x="16" y="212" width="288" height="144"/>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Light" family="Apple SD Gothic Neo" pointSize="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mIW-f5-HMl">
+                                <rect key="frame" x="16" y="266" width="343" height="135"/>
+                                <string key="text">You don't have 
+a key yet. 
+Please ask the reception to get one.</string>
+                                <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="28"/>
                                 <color key="textColor" red="0.10940888524055481" green="0.12628661096096039" blue="0.13827742636203766" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tJI-7d-R1b">
-                                <rect key="frame" x="96" y="220" width="129" height="129"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="tJI-7d-R1b" secondAttribute="height" multiplier="1:1" id="miM-l7-175"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="28"/>
+                                <rect key="frame" x="111" y="564" width="152" height="46"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="28"/>
                                 <state key="normal" title="Open Door">
-                                    <color key="titleColor" red="0.1094088852" green="0.12628661099999999" blue="0.13827742639999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleColor" red="0.2274509817" green="0.52549022440000004" blue="0.81176471709999998" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="didTouchOpenDoorButton:" destination="DfB-Qd-1f8" eventType="touchUpInside" id="UZo-if-fgy"/>
+                                    <action selector="didTouchOpenDoorButton:" destination="DfB-Qd-1f8" eventType="touchUpInside" id="BEH-YW-2HZ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tyz-aF-5GH">
-                                <rect key="frame" x="115" y="470" width="90" height="90"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Room Details" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ad2-Uy-84m">
+                                <rect key="frame" x="16" y="513" width="343" height="43"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="tyz-aF-5GH" secondAttribute="height" multiplier="1:1" id="LRl-kj-93B"/>
+                                    <constraint firstAttribute="height" constant="43" id="yw4-Cs-TSw"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="28"/>
-                                <state key="normal" title="Refresh">
-                                    <color key="titleColor" red="0.1094088852" green="0.12628661099999999" blue="0.13827742639999999" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="didTouchRefreshButton:" destination="DfB-Qd-1f8" eventType="touchUpInside" id="N2f-02-K9Y"/>
-                                </connections>
-                            </button>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="8v0-72-KSk">
-                                <rect key="frame" x="0.0" y="0.0" width="37" height="37"/>
-                                <color key="color" red="0.85490196080000003" green="0.64705882349999999" blue="0.12549019610000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </activityIndicatorView>
+                                <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="0IV-N0-hBy" firstAttribute="leading" secondItem="9Yd-fv-I7N" secondAttribute="leadingMargin" id="ElF-aJ-Wv3"/>
-                            <constraint firstItem="0IV-N0-hBy" firstAttribute="top" secondItem="Rpe-s7-Faw" secondAttribute="bottom" constant="8" id="Ens-pJ-jfb"/>
+                            <constraint firstItem="0IV-N0-hBy" firstAttribute="leading" secondItem="9Yd-fv-I7N" secondAttribute="leadingMargin" id="7ai-I6-FXb"/>
                             <constraint firstItem="mIW-f5-HMl" firstAttribute="trailing" secondItem="9Yd-fv-I7N" secondAttribute="trailingMargin" id="Esp-X5-sBo"/>
                             <constraint firstAttribute="centerY" secondItem="mIW-f5-HMl" secondAttribute="centerY" id="LYE-Ev-CNn"/>
-                            <constraint firstAttribute="centerY" secondItem="tJI-7d-R1b" secondAttribute="centerY" id="Tk8-bd-qKp"/>
-                            <constraint firstItem="rti-zz-7hd" firstAttribute="top" secondItem="tyz-aF-5GH" secondAttribute="bottom" constant="8" id="VxQ-Gm-4h5"/>
-                            <constraint firstAttribute="centerX" secondItem="tyz-aF-5GH" secondAttribute="centerX" id="Ywh-8c-4v3"/>
+                            <constraint firstItem="tJI-7d-R1b" firstAttribute="top" secondItem="ad2-Uy-84m" secondAttribute="bottom" constant="8" id="W11-dm-F2e"/>
+                            <constraint firstItem="ad2-Uy-84m" firstAttribute="leading" secondItem="9Yd-fv-I7N" secondAttribute="leadingMargin" id="bpI-c9-pv6"/>
                             <constraint firstItem="mIW-f5-HMl" firstAttribute="leading" secondItem="9Yd-fv-I7N" secondAttribute="leadingMargin" id="dxO-S9-C96"/>
+                            <constraint firstItem="rti-zz-7hd" firstAttribute="top" secondItem="tJI-7d-R1b" secondAttribute="bottom" constant="8" id="fKA-e4-ql6"/>
                             <constraint firstAttribute="centerX" secondItem="tJI-7d-R1b" secondAttribute="centerX" id="flU-eF-Ss3"/>
+                            <constraint firstItem="ad2-Uy-84m" firstAttribute="trailing" secondItem="9Yd-fv-I7N" secondAttribute="trailingMargin" id="mi0-Qv-rKZ"/>
+                            <constraint firstItem="ad2-Uy-84m" firstAttribute="top" secondItem="0IV-N0-hBy" secondAttribute="bottom" constant="8" id="pXD-ME-xqO"/>
                             <constraint firstItem="0IV-N0-hBy" firstAttribute="trailing" secondItem="9Yd-fv-I7N" secondAttribute="trailingMargin" id="tbJ-IR-d1v"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Your Digital Keys" id="3z9-P0-Uga"/>
                     <connections>
-                        <outlet property="noKeysMessageLabel" destination="mIW-f5-HMl" id="SoS-ot-UcM"/>
-                        <outlet property="openDoorButton" destination="tJI-7d-R1b" id="Xob-Hr-wbB"/>
-                        <outlet property="refreshActivityIndicator" destination="8v0-72-KSk" id="U9c-e6-v83"/>
-                        <outlet property="refreshButton" destination="tyz-aF-5GH" id="1yY-tz-ABa"/>
-                        <outlet property="roomNumberLabel" destination="0IV-N0-hBy" id="ZGq-O1-Krf"/>
+                        <outlet property="noRoomMessageLabel" destination="mIW-f5-HMl" id="z6a-lj-y8n"/>
+                        <outlet property="openDoorButton" destination="tJI-7d-R1b" id="H65-qf-3mk"/>
+                        <outlet property="roomDetailsLabel" destination="ad2-Uy-84m" id="O6c-gM-n2B"/>
+                        <outlet property="roomNumberLabel" destination="0IV-N0-hBy" id="T1s-hp-yS7"/>
+                        <outlet property="roomPictureImageView" destination="Drd-m9-0bU" id="DCh-af-blj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d8A-86-qOV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="718" y="-604"/>
+            <point key="canvasLocation" x="264.5" y="-560.5"/>
         </scene>
         <!--Login-->
         <scene sceneID="cRu-37-GQT">
@@ -105,12 +145,12 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ds9-L0-8yv">
                                 <rect key="frame" x="16" y="66" width="343" height="30"/>
                                 <color key="textColor" red="0.1450980392" green="0.16862745100000001" blue="0.1843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Light" family="Apple SD Gothic Neo" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="go" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WCf-e4-rln">
-                                <rect key="frame" x="153" y="310" width="70" height="48"/>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="30"/>
+                                <rect key="frame" x="146" y="310" width="83" height="48"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="30"/>
                                 <state key="normal" title="Login">
                                     <color key="titleColor" red="0.1450980392" green="0.16862745100000001" blue="0.1843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -120,11 +160,11 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J6C-Zj-JDI">
-                                <rect key="frame" x="145" y="495" width="85" height="85"/>
+                                <rect key="frame" x="141" y="486" width="94" height="94"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="J6C-Zj-JDI" secondAttribute="height" multiplier="1:1" id="wKk-n8-2Yg"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="18"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="18"/>
                                 <state key="normal" title="-&gt; Register">
                                     <color key="titleColor" red="0.1450980392" green="0.16862745100000001" blue="0.1843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -136,7 +176,7 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="obB-Qg-6zl">
                                 <rect key="frame" x="16" y="28" width="343" height="30"/>
                                 <color key="textColor" red="0.1450980392" green="0.16862745100000001" blue="0.1843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Light" family="Apple SD Gothic Neo" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="next"/>
                             </textField>
                         </subviews>
@@ -180,18 +220,18 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="QLj-aK-DSE">
                                 <rect key="frame" x="16" y="66" width="343" height="30"/>
                                 <color key="textColor" red="0.1450980392" green="0.16862745100000001" blue="0.1843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Light" family="Apple SD Gothic Neo" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="next" secureTextEntry="YES"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7bt-Y7-7QO">
                                 <rect key="frame" x="16" y="28" width="343" height="30"/>
                                 <color key="textColor" red="0.1450980392" green="0.16862745100000001" blue="0.1843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Light" family="Apple SD Gothic Neo" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="next"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8dQ-7i-hNs">
-                                <rect key="frame" x="136" y="310" width="103" height="48"/>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="30"/>
+                                <rect key="frame" x="126" y="310" width="123" height="48"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="30"/>
                                 <state key="normal" title="Register">
                                     <color key="titleColor" red="0.1450980392" green="0.16862745100000001" blue="0.1843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -203,18 +243,18 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="First Name" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2ad-sE-lEW">
                                 <rect key="frame" x="16" y="142" width="343" height="30"/>
                                 <color key="textColor" red="0.1450980392" green="0.16862745100000001" blue="0.1843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Light" family="Apple SD Gothic Neo" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="next"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="E-Mail" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KQ1-dH-qlX">
                                 <rect key="frame" x="16" y="104" width="343" height="30"/>
                                 <color key="textColor" red="0.1450980392" green="0.16862745100000001" blue="0.1843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Light" family="Apple SD Gothic Neo" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" keyboardType="emailAddress" returnKeyType="next"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rWv-XH-Cbt">
-                                <rect key="frame" x="155" y="527" width="65" height="34"/>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="18"/>
+                                <rect key="frame" x="153" y="527" width="70" height="34"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="18"/>
                                 <state key="normal" title="-&gt; Login">
                                     <color key="titleColor" red="0.1450980392" green="0.16862745100000001" blue="0.1843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -226,7 +266,7 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Last Name" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="nxy-uw-5De">
                                 <rect key="frame" x="16" y="180" width="343" height="30"/>
                                 <color key="textColor" red="0.1450980392" green="0.16862745100000001" blue="0.1843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Light" family="Apple SD Gothic Neo" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="go"/>
                             </textField>
                         </subviews>
@@ -322,8 +362,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NjY-uB-EVV">
-                                <rect key="frame" x="153" y="382" width="70" height="48"/>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="30"/>
+                                <rect key="frame" x="146" y="382" width="83" height="48"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="30"/>
                                 <state key="normal" title="Login">
                                     <color key="titleColor" red="0.22745098173618317" green="0.52549022436141968" blue="0.81176471710205078" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -334,7 +374,7 @@
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mr. Fritzen" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D0t-aE-fgs">
                                 <rect key="frame" x="16" y="316" width="343" height="36"/>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Light" family="Apple SD Gothic Neo" pointSize="30"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="30"/>
                                 <color key="textColor" red="0.14509803921568629" green="0.16862745098039217" blue="0.18431372549019609" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -392,7 +432,7 @@
                                     <constraint firstAttribute="height" constant="160" id="MLh-Wp-HpY"/>
                                     <constraint firstAttribute="width" constant="160" id="rsQ-dB-mib"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Light" family="Apple SD Gothic Neo" pointSize="18"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="18"/>
                                 <inset key="titleEdgeInsets" minX="-72" minY="125" maxX="0.0" maxY="0.0"/>
                                 <inset key="imageEdgeInsets" minX="42" minY="-20" maxX="8" maxY="0.0"/>
                                 <state key="normal" title="Bedroom Light" image="light_off">
@@ -415,7 +455,7 @@
                                     <constraint firstAttribute="width" constant="160" id="Tu2-oe-Wi7"/>
                                     <constraint firstAttribute="height" constant="160" id="yB0-bt-psl"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Light" family="Apple SD Gothic Neo" pointSize="18"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="18"/>
                                 <inset key="titleEdgeInsets" minX="-72" minY="125" maxX="0.0" maxY="0.0"/>
                                 <inset key="imageEdgeInsets" minX="42" minY="-20" maxX="8" maxY="0.0"/>
                                 <state key="normal" title="Bathroom Light" image="light_off">
@@ -438,7 +478,7 @@
                                     <constraint firstAttribute="width" constant="160" id="Q54-Oa-u5Q"/>
                                     <constraint firstAttribute="height" constant="160" id="xAL-wB-nVt"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Light" family="Apple SD Gothic Neo" pointSize="18"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="18"/>
                                 <inset key="titleEdgeInsets" minX="-72" minY="125" maxX="0.0" maxY="0.0"/>
                                 <inset key="imageEdgeInsets" minX="42" minY="-20" maxX="8" maxY="0.0"/>
                                 <state key="normal" title="Room Temperature" image="heating_on">
@@ -458,7 +498,7 @@
                                     <constraint firstAttribute="width" constant="160" id="2f6-WV-Qln"/>
                                     <constraint firstAttribute="height" constant="160" id="omJ-Cr-HBC"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Light" family="Apple SD Gothic Neo" pointSize="18"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="18"/>
                                 <inset key="titleEdgeInsets" minX="-72" minY="125" maxX="0.0" maxY="0.0"/>
                                 <inset key="imageEdgeInsets" minX="42" minY="-20" maxX="8" maxY="0.0"/>
                                 <state key="normal" title="Turn off all" image="light_off">
@@ -502,11 +542,11 @@
             </objects>
             <point key="canvasLocation" x="264.5" y="979.5"/>
         </scene>
-        <!--Keys-->
+        <!--Room-->
         <scene sceneID="u1b-QQ-WKY">
             <objects>
                 <navigationController storyboardIdentifier="QUHotelRoomsViewControllerNCID" automaticallyAdjustsScrollViewInsets="NO" id="sGo-yw-bP3" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Keys" image="key170" id="x4p-wn-VBa"/>
+                    <tabBarItem key="tabBarItem" title="Room" image="key170" id="x4p-wn-VBa"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="g4g-jv-UlD">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -514,7 +554,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="3CR-bp-6OZ" kind="relationship" relationship="rootViewController" id="YXB-lL-Tua"/>
+                        <segue destination="DfB-Qd-1f8" kind="relationship" relationship="rootViewController" id="SKQ-fI-POi"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OSv-5g-ca0" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -560,14 +600,14 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="159"/>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6p6-Ds-RFD">
-                                            <rect key="frame" x="8" y="135" width="49" height="24"/>
-                                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="20"/>
+                                            <rect key="frame" x="8" y="127" width="61" height="24"/>
+                                            <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="20"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="€" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s3J-Je-GVm">
-                                            <rect key="frame" x="354" y="135" width="13" height="24"/>
-                                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
+                                            <rect key="frame" x="353" y="127" width="14" height="24"/>
+                                            <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="17"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -578,7 +618,7 @@
                                         <constraint firstItem="m16-18-fzd" firstAttribute="leading" secondItem="3ZG-27-lon" secondAttribute="leadingMargin" constant="-8" id="EfC-q1-Qb1"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="m16-18-fzd" secondAttribute="bottom" constant="-8" id="LhG-QP-x1P"/>
                                         <constraint firstItem="s3J-Je-GVm" firstAttribute="height" secondItem="6p6-Ds-RFD" secondAttribute="height" id="P9h-1F-zyG"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="6p6-Ds-RFD" secondAttribute="bottom" constant="-8" id="Qd2-FO-ChA"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="6p6-Ds-RFD" secondAttribute="bottom" id="Qd2-FO-ChA"/>
                                         <constraint firstItem="m16-18-fzd" firstAttribute="top" secondItem="3ZG-27-lon" secondAttribute="topMargin" constant="-8" id="XN8-YQ-84J"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="m16-18-fzd" secondAttribute="trailing" constant="-8" id="s2A-Am-GmI"/>
                                         <constraint firstItem="s3J-Je-GVm" firstAttribute="centerY" secondItem="6p6-Ds-RFD" secondAttribute="centerY" id="vZa-6G-eTF"/>
@@ -678,13 +718,13 @@
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vYf-KM-Y6R">
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="20"/>
+                                            <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="20"/>
                                             <color key="textColor" red="0.1094088852" green="0.12628661099999999" blue="0.13827742639999999" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="a0Y-Zr-eb5">
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="16"/>
                                             <color key="textColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -728,7 +768,7 @@
             <objects>
                 <tableViewController storyboardIdentifier="QUHotelRoomsViewControllerID" id="3CR-bp-6OZ" customClass="QULocksTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="160" sectionHeaderHeight="22" sectionFooterHeight="22" id="L2L-EL-Un1">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="tintColor" red="0.1450980392" green="0.16862745100000001" blue="0.1843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -736,12 +776,12 @@
                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <label key="tableFooterView" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="XgI-mw-xAr">
-                            <rect key="frame" x="0.0" y="246" width="375" height="372"/>
+                            <rect key="frame" x="0.0" y="182" width="320" height="372"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <string key="text">You don't have any keys yet. Please ask at the reception
 to get your personal key.</string>
-                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-Light" family="Apple SD Gothic Neo" pointSize="30"/>
+                            <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="27"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <prototypes>
@@ -751,25 +791,25 @@ to get your personal key.</string>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Room No. " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z3U-cW-erH">
-                                            <rect key="frame" x="8" y="8" width="359" height="36"/>
-                                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="30"/>
+                                            <rect key="frame" x="8" y="8" width="304" height="36"/>
+                                            <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="30"/>
                                             <color key="textColor" red="0.14509803921568629" green="0.16862745098039217" blue="0.18431372549019609" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="hzv-Vc-zhf">
-                                            <rect key="frame" x="169" y="117" width="37" height="37"/>
+                                            <rect key="frame" x="142" y="117" width="37" height="37"/>
                                             <color key="color" red="0.1450980392" green="0.16862745100000001" blue="0.1843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </activityIndicatorView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lock Description" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EBj-6u-4Pk">
-                                            <rect key="frame" x="8" y="52" width="359" height="21"/>
-                                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
+                                            <rect key="frame" x="8" y="52" width="304" height="21"/>
+                                            <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="17"/>
                                             <color key="textColor" red="0.14509803921568629" green="0.16862745098039217" blue="0.18431372549019609" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="yjn-yp-tXE">
-                                            <rect key="frame" x="8" y="81" width="359" height="29"/>
+                                            <rect key="frame" x="8" y="81" width="304" height="29"/>
                                             <segments>
-                                                <segment title="Close"/>
+                                                <segment title="Close R"/>
                                                 <segment title="Open"/>
                                             </segments>
                                             <color key="tintColor" red="0.22745098039215686" green="0.52549019607843139" blue="0.81176470588235294" alpha="1" colorSpace="calibratedRGB"/>
@@ -814,7 +854,7 @@ to get your personal key.</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bWW-XI-FiY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="264.5" y="-560.5"/>
+            <point key="canvasLocation" x="881" y="-649"/>
         </scene>
         <!--Hotel Service Details View Controller-->
         <scene sceneID="4MN-QA-hb3">
@@ -836,7 +876,7 @@ to get your personal key.</string>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Service" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yho-OH-VHN">
                                 <rect key="frame" x="32" y="292" width="173" height="24"/>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="20"/>
                                 <color key="textColor" red="0.10940888524055481" green="0.12628661096096039" blue="0.13827742636203766" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -845,13 +885,13 @@ to get your personal key.</string>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="75" id="cfk-fk-lut"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="20"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="20"/>
                                 <color key="textColor" red="0.10940888524055481" green="0.12628661096096039" blue="0.13827742636203766" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h7y-Qo-xqQ">
                                 <rect key="frame" x="28" y="520" width="264" height="48"/>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="30"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="30"/>
                                 <state key="normal" title="Order">
                                     <color key="titleColor" red="0.22745098173618317" green="0.52549022436141968" blue="0.81176471710205078" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -865,7 +905,7 @@ to get your personal key.</string>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                 <color key="textColor" red="0.1094088852" green="0.12628661099999999" blue="0.13827742639999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nWg-mO-cnE">
@@ -929,13 +969,13 @@ to get your personal key.</string>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zab-gY-T6y">
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="20"/>
+                                            <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="20"/>
                                             <color key="textColor" red="0.2274509804" green="0.52549019610000003" blue="0.81176470590000005" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lw5-u5-Ztt">
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="16"/>
                                             <color key="textColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -982,26 +1022,29 @@ to get your personal key.</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="separatorColor" red="0.1094088852" green="0.12628661099999999" blue="0.13827742639999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="QUComplaintsTableViewCellID" textLabel="A2G-1A-vSD" detailTextLabel="7cP-CJ-SdN" style="IBUITableViewCellStyleValue1" id="KP1-5z-CJc">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="QUComplaintsTableViewCellID" textLabel="A2G-1A-vSD" detailTextLabel="7cP-CJ-SdN" style="IBUITableViewCellStyleValue1" id="KP1-5z-CJc" customClass="QUComplaintTableViewCell">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KP1-5z-CJc" id="wub-u6-SOA">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="A2G-1A-vSD">
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="16"/>
+                                            <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="16"/>
                                             <color key="textColor" red="0.10940888524055481" green="0.12628661096096039" blue="0.13827742636203766" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7cP-CJ-SdN">
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="16"/>
                                             <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -1035,24 +1078,28 @@ to get your personal key.</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9d5-FF-JBq">
-                                <rect key="frame" x="16" y="110" width="343" height="499"/>
+                                <rect key="frame" x="16" y="116" width="343" height="480"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="20"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mBb-Eu-pLU">
-                                <rect key="frame" x="150" y="72" width="77" height="30"/>
+                                <rect key="frame" x="132" y="72" width="112" height="36"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="20"/>
                                 <state key="normal" title="Take Photo">
+                                    <color key="titleColor" red="0.2274509817" green="0.52549022440000004" blue="0.81176471709999998" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="didTouchTakePictureButton:" destination="bbp-vM-Pdb" eventType="touchUpInside" id="cQa-Ep-bej"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Pm-1F-cDw">
-                                <rect key="frame" x="169" y="617" width="36" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Pm-1F-cDw">
+                                <rect key="frame" x="151" y="604" width="64" height="43"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="25"/>
                                 <state key="normal" title="Send">
+                                    <color key="titleColor" red="0.2274509817" green="0.52549022440000004" blue="0.81176471709999998" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>

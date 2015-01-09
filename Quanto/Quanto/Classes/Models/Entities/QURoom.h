@@ -13,9 +13,12 @@
 
 @interface QURoom : NSManagedObject
 
+@property (nonatomic, retain) NSString * descriptionText;
 @property (nonatomic, retain) NSString * number;
 @property (nonatomic, retain) NSNumber * price;
 @property (nonatomic, retain) NSNumber * roomID;
+@property (nonatomic, retain) NSString * pictureURL;
+@property (nonatomic, retain) NSData * pictureData;
 @property (nonatomic, retain) NSSet *locks;
 @property (nonatomic, retain) NSSet *orders;
 @property (nonatomic, retain) NSSet *stays;

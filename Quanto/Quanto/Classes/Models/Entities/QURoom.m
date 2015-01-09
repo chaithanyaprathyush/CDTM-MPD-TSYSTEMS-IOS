@@ -14,9 +14,12 @@
 
 @implementation QURoom
 
+@dynamic descriptionText;
 @dynamic number;
 @dynamic price;
 @dynamic roomID;
+@dynamic pictureURL;
+@dynamic pictureData;
 @dynamic locks;
 @dynamic orders;
 @dynamic stays;

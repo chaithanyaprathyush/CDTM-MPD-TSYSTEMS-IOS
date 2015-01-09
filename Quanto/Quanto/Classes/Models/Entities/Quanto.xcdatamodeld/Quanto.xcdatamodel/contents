@@ -54,7 +54,10 @@
         <relationship name="service" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="QUService" inverseName="orders" inverseEntity="QUService" syncable="YES"/>
     </entity>
     <entity name="QURoom" representedClassName="QURoom" syncable="YES">
+        <attribute name="descriptionText" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="number" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="pictureData" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="pictureURL" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="price" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
         <attribute name="roomID" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
         <relationship name="locks" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="QULock" inverseName="room" inverseEntity="QULock" syncable="YES"/>
@@ -89,14 +92,14 @@
         <relationship name="rooms" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="QURoom" inverseName="stays" inverseEntity="QURoom" syncable="YES"/>
     </entity>
     <elements>
+        <element name="QUComplaint" positionX="-18" positionY="225" width="128" height="163"/>
         <element name="QUGuest" positionX="-9" positionY="108" width="128" height="268"/>
-        <element name="QUKey" positionX="0" positionY="117" width="128" height="148"/>
+        <element name="QUKey" positionX="0" positionY="117" width="128" height="150"/>
         <element name="QULock" positionX="18" positionY="153" width="128" height="148"/>
         <element name="QUOrder" positionX="0" positionY="234" width="128" height="133"/>
-        <element name="QURoom" positionX="-36" positionY="99" width="128" height="133"/>
+        <element name="QURoom" positionX="-36" positionY="99" width="128" height="178"/>
         <element name="QUService" positionX="-18" positionY="216" width="128" height="178"/>
         <element name="QUServiceType" positionX="-9" positionY="225" width="128" height="148"/>
         <element name="QUStay" positionX="-45" positionY="90" width="128" height="118"/>
-        <element name="QUComplaint" positionX="-18" positionY="225" width="128" height="163"/>
     </elements>
 </model>

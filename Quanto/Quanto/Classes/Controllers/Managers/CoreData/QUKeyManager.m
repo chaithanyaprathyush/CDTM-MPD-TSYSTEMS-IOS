@@ -34,7 +34,6 @@ static NSString *QUAPIEndpointMyKeys    = @"keys/my/";
     key.name = JSON[@"name"];
     key.locks = [QULockManager updateOrCreateEntitiesWithJSON:JSON[@"locks"]];
     
-    
 	// userProfile.user = [QUUserManager updateOrCreateEntityWithJSON:JSON[@"user"]];
 
 	/*

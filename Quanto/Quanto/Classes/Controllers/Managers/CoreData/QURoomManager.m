@@ -32,6 +32,11 @@ static NSString *QUAPIEndpointRoom      = @"rooms/:roomID/";
     
     room.number = JSON[@"number"];
     room.price = JSON[@"price"];
+    room.descriptionText = JSON[@"description"];
+
+    if ([JSON hasNonNullStringForKey:@"picture"]) {
+        room.pictureURL = JSON[@"picture"];
+    }
     
     // DLOG(@"Updated User Profile with JSON:%@\n%@", JSON, userProfile);
     DLOG(@"Updated QURoom %@", room.number);

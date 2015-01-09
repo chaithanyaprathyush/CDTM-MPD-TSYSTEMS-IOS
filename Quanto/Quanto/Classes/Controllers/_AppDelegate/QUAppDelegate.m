@@ -11,6 +11,7 @@
 #import "QULoginViewController.h"
 #import <MBFingerTipWindow.h>
 #import "MZFormSheetController.h"
+#import "QUBluetoothManager.h"
 
 @interface QUAppDelegate ()
 
@@ -34,22 +35,48 @@
 {
 	// Style app
 
+    NSString *headingsFontName = @"Montserrat-Regular";
+    NSString *detailsFontName = @"Montserrat-Light";
+    
+    UIColor *defaultTintColor = [UIColor darkerDarkGrayColor];
+    UIColor *defaultBackgroundColor = [UIColor whiteColor];
+    
 	// Navigation Controller
-	[[UINavigationBar appearance] setTintColor:[UIColor darkerDarkGrayColor]];
-	[[UINavigationBar appearance] setBarTintColor:[UIColor whiteColor]];
-	[[UINavigationBar appearance] setTitleTextAttributes:@{NSFontAttributeName:[UIFont fontWithName:@"AppleSDGothicNeo-Regular" size:25.0f],
-														   NSForegroundColorAttributeName:[UIColor darkerDarkGrayColor]}];
+	[[UINavigationBar appearance] setTintColor:defaultTintColor];
+	[[UINavigationBar appearance] setBarTintColor:defaultBackgroundColor];
+	[[UINavigationBar appearance] setTitleTextAttributes:@{NSFontAttributeName:[UIFont fontWithName:headingsFontName size:25.0f],
+														   NSForegroundColorAttributeName:defaultTintColor}];
 
 	// Tab Bar
-	[[UITabBar appearance] setTintColor:[UIColor darkerDarkGrayColor]];
-	[[UITabBar appearance] setBarTintColor:[UIColor whiteColor]];
-	[[UITabBarItem appearance] setTitleTextAttributes:@{NSFontAttributeName:[UIFont fontWithName:@"AppleSDGothicNeo-Light" size:10.0f]}
+	[[UITabBar appearance] setTintColor:[UIColor peterRiverColor]];
+	[[UITabBar appearance] setBarTintColor:defaultBackgroundColor];
+	[[UITabBarItem appearance] setTitleTextAttributes:@{NSFontAttributeName:[UIFont fontWithName:headingsFontName size:10.0f]}
 											 forState:UIControlStateNormal];
+    
+    // Bar Button
+    [[UIBarButtonItem appearance] setTintColor:[UIColor peterRiverColor]];
+    [[UIBarButtonItem appearance] setTitleTextAttributes:@{NSFontAttributeName:[UIFont fontWithName:detailsFontName size:20.0f],
+                                                           NSForegroundColorAttributeName:[UIColor peterRiverColor]}
+                                                forState:UIControlStateNormal];
+    [[UIBarButtonItem appearance] setTitleTextAttributes:@{NSFontAttributeName:[UIFont fontWithName:detailsFontName size:20.0f],
+                                                           NSForegroundColorAttributeName:defaultTintColor}
+                                                forState:UIControlStateSelected];
+    
+    // UISegmentedControl
+    [[UISegmentedControl appearance] setTitleTextAttributes:@{NSFontAttributeName:[UIFont fontWithName:detailsFontName size:15.0f],
+                                                              NSForegroundColorAttributeName:[UIColor peterRiverColor]}
+                                                   forState:UIControlStateNormal];
+    [[UISegmentedControl appearance] setTitleTextAttributes:@{NSFontAttributeName:[UIFont fontWithName:detailsFontName size:15.0f],
+                                                              NSForegroundColorAttributeName:defaultBackgroundColor}
+                                                   forState:UIControlStateSelected];
 
 	// FormSheets
 	[[MZFormSheetController appearance] setCornerRadius:20.0];
 	[[MZFormSheetBackgroundWindow appearance] setBackgroundColor:[UIColor clearColor]];
 	[[MZFormSheetBackgroundWindow appearance] setBackgroundBlurEffect:YES];
+    
+    // Start BlueTooth
+    [QUBluetoothManager sharedManager];
 
 	return YES;
 }
