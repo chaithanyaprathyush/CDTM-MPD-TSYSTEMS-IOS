@@ -11,6 +11,7 @@
 #import "QUComplaintManager.h"
 #import "QULoginViewController.h"
 #import "QUComplaint+QUUtils.h"
+#import "QUComplaintTableViewCell.h"
 
 @interface QUComplaintsTableViewController ()
 
@@ -27,7 +28,7 @@
     [super viewDidLoad];
     
     NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:NSStringFromClass([QUComplaint class])];
-    NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"lastModifiedAt" ascending:YES];
+    NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"lastModifiedAt" ascending:NO];
     fetchRequest.sortDescriptors = @[descriptor];
     
     // Setup fetched results
@@ -38,7 +39,7 @@
     // Pull to refresh
     self.refreshControl = [UIRefreshControl new];
     self.refreshControl.backgroundColor = [UIColor clearColor];
-    self.refreshControl.tintColor = [UIColor peterRiverColor];
+    self.refreshControl.tintColor = [UIColor darkerDarkGrayColor];
     [self.refreshControl addTarget:self
                             action:@selector(reloadEntities)
                   forControlEvents:UIControlEventValueChanged];
@@ -115,20 +116,19 @@
 {
     UITableViewHeaderFooterView *header = (UITableViewHeaderFooterView *)view;
     
-    header.textLabel.font = [UIFont fontWithName:@"AppleSDGothicNeo-Regular" size:20.0f];
-    header.textLabel.textColor = [UIColor peterRiverColor];
+    header.textLabel.font = [UIFont fontWithName:@"Montserrat-Light" size:20.0f];
+    header.textLabel.textColor = [UIColor darkerDarkGrayColor];
     header.textLabel.frame = header.frame;
     header.textLabel.textAlignment = NSTextAlignmentCenter;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"QULockTableViewCellID" forIndexPath:indexPath];
+    QUComplaintTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"QUComplaintTableViewCellID" forIndexPath:indexPath];
     
     QUComplaint *complaint = [self.fetchedResultsController objectAtIndexPath:indexPath];
     
-    cell.textLabel.text = complaint.description;
-    cell.detailTextLabel.text = complaint.status;
+    cell.complaint = complaint;
     
     return cell;
 }

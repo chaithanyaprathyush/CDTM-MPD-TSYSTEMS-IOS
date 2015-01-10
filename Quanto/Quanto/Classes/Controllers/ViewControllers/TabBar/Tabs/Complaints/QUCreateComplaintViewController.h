@@ -8,10 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface QUCreateComplaintViewController : UIViewController
+@interface QUCreateComplaintViewController : UIViewController <UITextFieldDelegate>
 
-@property (weak, nonatomic) IBOutlet UIButton *sendButton;
-@property (weak, nonatomic) IBOutlet UITextView *descriptionTextView;
+@property (weak, nonatomic) IBOutlet UIImageView *pictureImageView;
+@property (weak, nonatomic) IBOutlet UITextField *descriptionTextField;
+@property (weak, nonatomic) IBOutlet UIBarButtonItem *sendButton;
 
 - (IBAction)didTouchCancelButton:(id)sender;
 - (IBAction)didTouchTakePictureButton:(id)sender;

@@ -72,6 +72,8 @@
 {
     MBProgressHUD *progressHUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     progressHUD.labelText = @"Logging in...";
+    progressHUD.labelFont = [UIFont fontWithName:@"Montserrat-Regular" size:30.0f];
+    progressHUD.detailsLabelFont = [UIFont fontWithName:@"Montserrat-Light" size:20.0f];
 
 	[PFAuthenticationManager authenticateWithUsername:self.usernameTextField.text
 											 password:self.passwordTextField.text

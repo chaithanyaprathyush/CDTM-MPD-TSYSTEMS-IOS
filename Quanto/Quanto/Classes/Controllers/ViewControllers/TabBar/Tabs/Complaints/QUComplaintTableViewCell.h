@@ -7,7 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "QUComplaint.h"
 
 @interface QUComplaintTableViewCell : UITableViewCell
+
+@property (nonatomic, retain) QUComplaint *complaint;
 
 @end

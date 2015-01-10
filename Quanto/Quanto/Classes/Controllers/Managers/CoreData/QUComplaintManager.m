@@ -42,6 +42,16 @@ static NSString *QUAPIEndpointComplaint     = @"complaints/:complaintID/";
 		complaint.status = JSON[@"status"];
 		didUpdate = YES;
 	}
+    
+    if (![complaint.pictureURL isEqualToString:JSON[@"picture"]]) {
+        complaint.pictureURL = JSON[@"picture"];
+        didUpdate = YES;
+    }
+    
+    if (![complaint.descriptionText isEqualToString:JSON[@"description"]]) {
+        complaint.descriptionText = JSON[@"description"];
+        didUpdate = YES;
+    }
 
 	if (![complaint.createdAt isEqualToDate:[JSON dateForKey:@"date_created"]]) {
 		complaint.createdAt = [JSON dateForKey:@"date_created"];
@@ -60,7 +70,7 @@ static NSString *QUAPIEndpointComplaint     = @"complaints/:complaintID/";
 	}
 
 	if (didUpdate) {
-		DLOG(@"Updated Complaint with JSON:%@\n%@", JSON, complaint);
+		//DLOG(@"Updated Complaint with JSON:%@\n%@", JSON, complaint);
 		DLOG(@"Did Update QUComplaint %@", complaint.complaintID);
 	}
 
@@ -69,14 +79,16 @@ static NSString *QUAPIEndpointComplaint     = @"complaints/:complaintID/";
 
 #pragma mark - REST-API
 
-+ (void)createComplaintWithPictureData:(NSData *)pictureData descriptionText:(NSString *)descriptionText successHandler:(void (^)(QUComplaint *))successHandler failureHandler:(void (^)(NSError *))failureHandler
++ (void)createComplaintWithPicture:(UIImage *)picture descriptionText:(NSString *)descriptionText successHandler:(void (^)(QUComplaint *))successHandler failureHandler:(void (^)(NSError *))failureHandler
 {
 	NSDictionary *parameters = @{@"description":descriptionText};
 
 	DLOG(@"Create Complaint with parameters: %@", parameters);
 
-	[[PFRESTManager sharedManager].operationManager POST:QUAPIEndpointComplaints parameters:parameters constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-		 [formData appendPartWithFileData:pictureData name:@"picture" fileName:@"picture" mimeType:@"jpeg"];
+	[[PFRESTManager sharedManager].operationManager POST:QUAPIEndpointComplaints
+                                              parameters:parameters
+                               constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+		 [formData appendPartWithFileData:UIImageJPEGRepresentation(picture, 1.0f) name:@"picture" fileName:@"picture.jpg" mimeType:@"image/jpeg"];
 	 } success:^(AFHTTPRequestOperation *operation, id responseObject) {
 		 QUComplaint *complaint = [self updateOrCreateEntityWithJSON:responseObject];
 

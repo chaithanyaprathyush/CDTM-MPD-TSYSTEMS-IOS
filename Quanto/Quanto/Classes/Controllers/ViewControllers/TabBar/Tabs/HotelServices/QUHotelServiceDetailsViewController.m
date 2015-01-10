@@ -24,7 +24,7 @@
 
 	self.descriptionTextTextView.editable = YES;
 	self.descriptionTextTextView.textColor = [UIColor darkerDarkGrayColor];
-	self.descriptionTextTextView.font = [UIFont fontWithName:@"AppleSDGothicNeo-Regular" size:18.0f];
+	self.descriptionTextTextView.font = [UIFont fontWithName:@"Montserrat-Light" size:18.0f];
 	self.descriptionTextTextView.editable = NO;
 }
 
@@ -61,10 +61,12 @@
 {
 	MBProgressHUD *progressHUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
 	progressHUD.labelText = @"Ordering Service ...";
+    progressHUD.labelFont = [UIFont fontWithName:@"Montserrat-Regular" size:30.0f];
+    progressHUD.detailsLabelFont = [UIFont fontWithName:@"Montserrat-Light" size:20.0f];
 
 	[QUOrderManager createOrderForService:self.service successHandler:^(QUOrder *order) {
 		 progressHUD.labelText = @"Success!";
-		 [progressHUD showCheckmarkAndHide:YES afterDelay:2.0f completionHandler:^{
+		 [progressHUD showCheckmarkAndHide:YES afterDelay:1.0f completionHandler:^{
 			  [self mz_dismissFormSheetControllerAnimated:YES completionHandler:^(MZFormSheetController *formSheetController) {
 			   }];
 		  }];

@@ -10,6 +10,20 @@
 
 @implementation QUComplaintTableViewCell
 
+- (void)setComplaint:(QUComplaint *)complaint
+{
+    _complaint = complaint;
+    
+    self.textLabel.text = complaint.descriptionText;
+    self.detailTextLabel.text = complaint.status;
+    
+    if ([complaint.status isEqual:@"Opened"]) {
+        self.detailTextLabel.textColor = [UIColor darkerDarkGrayColor];
+    } else {
+        self.detailTextLabel.textColor = [UIColor emeraldColor];
+    }
+}
+
 - (UIEdgeInsets)layoutMargins
 {
     return UIEdgeInsetsZero;

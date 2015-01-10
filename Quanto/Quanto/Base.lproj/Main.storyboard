@@ -46,8 +46,6 @@
             <string>Montserrat-Regular</string>
             <string>Montserrat-Regular</string>
             <string>Montserrat-Regular</string>
-            <string>Montserrat-Regular</string>
-            <string>Montserrat-Regular</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -63,13 +61,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Drd-m9-0bU">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Drd-m9-0bU">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Room No. ..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0IV-N0-hBy">
-                                <rect key="frame" x="16" y="459" width="343" height="46"/>
+                                <rect key="frame" x="77" y="423" width="222" height="46"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="38"/>
-                                <color key="textColor" red="0.10940888524055481" green="0.12628661096096039" blue="0.13827742636203766" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mIW-f5-HMl">
@@ -81,46 +79,46 @@ Please ask the reception to get one.</string>
                                 <color key="textColor" red="0.10940888524055481" green="0.12628661096096039" blue="0.13827742636203766" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tJI-7d-R1b">
-                                <rect key="frame" x="111" y="564" width="152" height="46"/>
-                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="28"/>
-                                <state key="normal" title="Open Door">
-                                    <color key="titleColor" red="0.2274509817" green="0.52549022440000004" blue="0.81176471709999998" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="didTouchOpenDoorButton:" destination="DfB-Qd-1f8" eventType="touchUpInside" id="BEH-YW-2HZ"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Room Details" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ad2-Uy-84m">
-                                <rect key="frame" x="16" y="513" width="343" height="43"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="43" id="yw4-Cs-TSw"/>
-                                </constraints>
+                                <rect key="frame" x="16" y="477" width="343" height="21"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S3O-6E-36l" customClass="SevenSwitch">
+                                <rect key="frame" x="77" y="528" width="222" height="60"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="suk-Js-33P"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="didTouchOpenLockSwitch:" destination="DfB-Qd-1f8" eventType="valueChanged" id="QZ2-Gb-2C5"/>
+                                </connections>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="0IV-N0-hBy" firstAttribute="leading" secondItem="9Yd-fv-I7N" secondAttribute="leadingMargin" id="7ai-I6-FXb"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Drd-m9-0bU" secondAttribute="trailing" constant="-16" id="4Ol-hk-IUJ"/>
+                            <constraint firstItem="Drd-m9-0bU" firstAttribute="top" secondItem="Rpe-s7-Faw" secondAttribute="bottom" id="71Q-Zx-YPg"/>
+                            <constraint firstItem="rti-zz-7hd" firstAttribute="top" secondItem="S3O-6E-36l" secondAttribute="bottom" constant="30" id="Acf-yn-5hu"/>
+                            <constraint firstItem="S3O-6E-36l" firstAttribute="top" secondItem="ad2-Uy-84m" secondAttribute="bottom" constant="30" id="AiV-Dg-nB1"/>
                             <constraint firstItem="mIW-f5-HMl" firstAttribute="trailing" secondItem="9Yd-fv-I7N" secondAttribute="trailingMargin" id="Esp-X5-sBo"/>
+                            <constraint firstItem="0IV-N0-hBy" firstAttribute="width" secondItem="S3O-6E-36l" secondAttribute="width" id="KUA-Au-bTI"/>
                             <constraint firstAttribute="centerY" secondItem="mIW-f5-HMl" secondAttribute="centerY" id="LYE-Ev-CNn"/>
-                            <constraint firstItem="tJI-7d-R1b" firstAttribute="top" secondItem="ad2-Uy-84m" secondAttribute="bottom" constant="8" id="W11-dm-F2e"/>
+                            <constraint firstAttribute="centerX" secondItem="S3O-6E-36l" secondAttribute="centerX" id="O2c-Hq-ZKX"/>
+                            <constraint firstItem="Drd-m9-0bU" firstAttribute="leading" secondItem="9Yd-fv-I7N" secondAttribute="leadingMargin" constant="-16" id="bJg-U9-bb8"/>
+                            <constraint firstAttribute="centerX" secondItem="0IV-N0-hBy" secondAttribute="centerX" id="bXp-G2-yMy"/>
                             <constraint firstItem="ad2-Uy-84m" firstAttribute="leading" secondItem="9Yd-fv-I7N" secondAttribute="leadingMargin" id="bpI-c9-pv6"/>
                             <constraint firstItem="mIW-f5-HMl" firstAttribute="leading" secondItem="9Yd-fv-I7N" secondAttribute="leadingMargin" id="dxO-S9-C96"/>
-                            <constraint firstItem="rti-zz-7hd" firstAttribute="top" secondItem="tJI-7d-R1b" secondAttribute="bottom" constant="8" id="fKA-e4-ql6"/>
-                            <constraint firstAttribute="centerX" secondItem="tJI-7d-R1b" secondAttribute="centerX" id="flU-eF-Ss3"/>
                             <constraint firstItem="ad2-Uy-84m" firstAttribute="trailing" secondItem="9Yd-fv-I7N" secondAttribute="trailingMargin" id="mi0-Qv-rKZ"/>
                             <constraint firstItem="ad2-Uy-84m" firstAttribute="top" secondItem="0IV-N0-hBy" secondAttribute="bottom" constant="8" id="pXD-ME-xqO"/>
-                            <constraint firstItem="0IV-N0-hBy" firstAttribute="trailing" secondItem="9Yd-fv-I7N" secondAttribute="trailingMargin" id="tbJ-IR-d1v"/>
+                            <constraint firstItem="rti-zz-7hd" firstAttribute="top" secondItem="Drd-m9-0bU" secondAttribute="bottom" id="qUZ-En-0bf"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Your Digital Keys" id="3z9-P0-Uga"/>
                     <connections>
                         <outlet property="noRoomMessageLabel" destination="mIW-f5-HMl" id="z6a-lj-y8n"/>
-                        <outlet property="openDoorButton" destination="tJI-7d-R1b" id="H65-qf-3mk"/>
+                        <outlet property="openLockSwitch" destination="S3O-6E-36l" id="ov6-VZ-D93"/>
                         <outlet property="roomDetailsLabel" destination="ad2-Uy-84m" id="O6c-gM-n2B"/>
                         <outlet property="roomNumberLabel" destination="0IV-N0-hBy" id="T1s-hp-yS7"/>
                         <outlet property="roomPictureImageView" destination="Drd-m9-0bU" id="DCh-af-blj"/>
@@ -152,7 +150,7 @@ Please ask the reception to get one.</string>
                                 <rect key="frame" x="146" y="310" width="83" height="48"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="30"/>
                                 <state key="normal" title="Login">
-                                    <color key="titleColor" red="0.1450980392" green="0.16862745100000001" blue="0.1843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" red="0.2274509817" green="0.52549022440000004" blue="0.81176471709999998" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -160,13 +158,13 @@ Please ask the reception to get one.</string>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J6C-Zj-JDI">
-                                <rect key="frame" x="141" y="486" width="94" height="94"/>
+                                <rect key="frame" x="143" y="491" width="89" height="89"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="J6C-Zj-JDI" secondAttribute="height" multiplier="1:1" id="wKk-n8-2Yg"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="18"/>
-                                <state key="normal" title="-&gt; Register">
-                                    <color key="titleColor" red="0.1450980392" green="0.16862745100000001" blue="0.1843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="-&gt; Sign up">
+                                    <color key="titleColor" red="0.2274509817" green="0.52549022440000004" blue="0.81176471709999998" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -230,10 +228,10 @@ Please ask the reception to get one.</string>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" returnKeyType="next"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8dQ-7i-hNs">
-                                <rect key="frame" x="126" y="310" width="123" height="48"/>
+                                <rect key="frame" x="131" y="310" width="114" height="48"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="30"/>
-                                <state key="normal" title="Register">
-                                    <color key="titleColor" red="0.1450980392" green="0.16862745100000001" blue="0.1843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="Sign up">
+                                    <color key="titleColor" red="0.2274509817" green="0.52549022440000004" blue="0.81176471709999998" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -256,7 +254,7 @@ Please ask the reception to get one.</string>
                                 <rect key="frame" x="153" y="527" width="70" height="34"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="18"/>
                                 <state key="normal" title="-&gt; Login">
-                                    <color key="titleColor" red="0.1450980392" green="0.16862745100000001" blue="0.1843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleColor" red="0.2274509817" green="0.52549022440000004" blue="0.81176471709999998" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -322,8 +320,8 @@ Please ask the reception to get one.</string>
                         <segue destination="sGo-yw-bP3" kind="relationship" relationship="viewControllers" id="Ugi-tE-SiD"/>
                         <segue destination="WNy-E5-Pug" kind="relationship" relationship="viewControllers" id="sG7-Wv-Z9p"/>
                         <segue destination="3Fe-Ci-gnb" kind="relationship" relationship="viewControllers" id="Ont-w1-rD9"/>
-                        <segue destination="c8O-Cd-RsC" kind="relationship" relationship="viewControllers" id="qsf-6k-GQG"/>
                         <segue destination="r7k-3I-RFi" kind="relationship" relationship="viewControllers" id="JJM-hD-2Tc"/>
+                        <segue destination="c8O-Cd-RsC" kind="relationship" relationship="viewControllers" id="qsf-6k-GQG"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ktI-gn-0Wy" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -378,8 +376,16 @@ Please ask the reception to get one.</string>
                                 <color key="textColor" red="0.14509803921568629" green="0.16862745098039217" blue="0.18431372549019609" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hBL-p3-CT8">
+                                <rect key="frame" x="112" y="114" width="150" height="150"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="150" id="6K5-WE-Gar"/>
+                                    <constraint firstAttribute="width" constant="150" id="rIC-rm-oIC"/>
+                                </constraints>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YfT-Ls-14g">
-                                <rect key="frame" x="112" y="94" width="150" height="150"/>
+                                <rect key="frame" x="112" y="114" width="150" height="150"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="150" id="MPW-bA-ni3"/>
                                     <constraint firstAttribute="height" constant="150" id="iQO-VT-Ahj"/>
@@ -398,13 +404,16 @@ Please ask the reception to get one.</string>
                             <constraint firstAttribute="centerX" secondItem="NjY-uB-EVV" secondAttribute="centerX" id="4VJ-sL-ufP"/>
                             <constraint firstItem="D0t-aE-fgs" firstAttribute="leading" secondItem="VwI-qg-yi9" secondAttribute="leadingMargin" id="68x-8e-4ir"/>
                             <constraint firstItem="NjY-uB-EVV" firstAttribute="top" secondItem="D0t-aE-fgs" secondAttribute="bottom" constant="30" id="OEA-At-piN"/>
-                            <constraint firstItem="YfT-Ls-14g" firstAttribute="top" secondItem="X1v-7r-rWB" secondAttribute="bottom" constant="30" id="dbo-EB-yD2"/>
+                            <constraint firstItem="YfT-Ls-14g" firstAttribute="top" secondItem="X1v-7r-rWB" secondAttribute="bottom" constant="50" id="dbo-EB-yD2"/>
                             <constraint firstAttribute="centerX" secondItem="YfT-Ls-14g" secondAttribute="centerX" constant="0.5" id="g25-o0-7ao"/>
+                            <constraint firstAttribute="centerX" secondItem="hBL-p3-CT8" secondAttribute="centerX" constant="0.5" id="ho7-Fg-t6z"/>
                             <constraint firstItem="D0t-aE-fgs" firstAttribute="trailing" secondItem="VwI-qg-yi9" secondAttribute="trailingMargin" id="j5R-nS-BJd"/>
+                            <constraint firstItem="hBL-p3-CT8" firstAttribute="top" secondItem="X1v-7r-rWB" secondAttribute="bottom" constant="50" id="oRY-NP-cMO"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Your Profile" id="bHM-ti-RD3"/>
                     <connections>
+                        <outlet property="avatarImageView" destination="hBL-p3-CT8" id="e1V-0Z-UyJ"/>
                         <outlet property="loginLogoutButton" destination="NjY-uB-EVV" id="F4q-9E-BGO"/>
                         <outlet property="nameLabel" destination="D0t-aE-fgs" id="CJG-WJ-qvp"/>
                     </connections>
@@ -580,7 +589,7 @@ Please ask the reception to get one.</string>
             </objects>
             <point key="canvasLocation" x="-226.5" y="224.5"/>
         </scene>
-        <!--Hotel Services Table View Controller-->
+        <!--Hotel Services-->
         <scene sceneID="54s-GO-HOe">
             <objects>
                 <tableViewController storyboardIdentifier="QUServicesViewControllerID" id="Fh0-Qr-lBs" customClass="QUHotelServicesTableViewController" sceneMemberID="viewController">
@@ -739,25 +748,15 @@ Please ask the reception to get one.</string>
                             <outlet property="delegate" destination="Fh0-Qr-lBs" id="IoX-Uk-1s8"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="U3i-xs-skk">
-                        <nil key="title"/>
+                    <navigationItem key="navigationItem" title="Hotel Services" id="U3i-xs-skk">
                         <barButtonItem key="backBarButtonItem" title="Services" id="cAK-Rj-ouJ"/>
-                        <segmentedControl key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="0" id="cyI-aU-aZn">
-                            <rect key="frame" x="101" y="6" width="173" height="32"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <segments>
-                                <segment title="Services"/>
-                                <segment title="Your Orders"/>
-                            </segments>
-                            <color key="tintColor" red="0.1094088852" green="0.12628661099999999" blue="0.13827742639999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <barButtonItem key="rightBarButtonItem" title="Orders" id="4NO-Eh-I3H">
+                            <color key="tintColor" red="0.2274509817" green="0.52549022440000004" blue="0.81176471709999998" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <action selector="didTouchServicesOrdersSegmentedControl:" destination="Fh0-Qr-lBs" eventType="valueChanged" id="RNZ-6c-meU"/>
+                                <segue destination="ZXk-7l-9DL" kind="push" id="jto-CL-nLB"/>
                             </connections>
-                        </segmentedControl>
+                        </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <outlet property="servicesOrdersSegmentedControl" destination="cyI-aU-aZn" id="DdD-g2-cSl"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0ak-ht-zX5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -950,14 +949,14 @@ to get your personal key.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V05-ha-UOZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="730" y="134"/>
+            <point key="canvasLocation" x="707" y="633"/>
         </scene>
         <!--Your Orders-->
         <scene sceneID="Mb3-55-Beo">
             <objects>
                 <tableViewController storyboardIdentifier="QUServiceOrdersViewControllerID" id="ZXk-7l-9DL" customClass="QUOrdersTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="P4B-Gb-eNi">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
@@ -970,7 +969,7 @@ to get your personal key.</string>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zab-gY-T6y">
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="20"/>
-                                            <color key="textColor" red="0.2274509804" green="0.52549019610000003" blue="0.81176470590000005" alpha="1" colorSpace="calibratedRGB"/>
+                                            <color key="textColor" red="0.1094088852" green="0.12628661099999999" blue="0.13827742639999999" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lw5-u5-Ztt">
@@ -993,7 +992,7 @@ to get your personal key.</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LQh-rH-So8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="757" y="806"/>
+            <point key="canvasLocation" x="840.5" y="224.5"/>
         </scene>
         <!--Account-->
         <scene sceneID="pef-zR-QRh">
@@ -1018,14 +1017,14 @@ to get your personal key.</string>
         <scene sceneID="5Pi-9d-tHa">
             <objects>
                 <tableViewController id="VeZ-HV-1kh" customClass="QUComplaintsTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="veI-gg-P3D">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="30" sectionFooterHeight="22" id="veI-gg-P3D">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="separatorColor" red="0.1094088852" green="0.12628661099999999" blue="0.13827742639999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="separatorColor" red="0.1094088852" green="0.12628661099999999" blue="0.13827742639999999" alpha="0.5" colorSpace="calibratedRGB"/>
                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="QUComplaintsTableViewCellID" textLabel="A2G-1A-vSD" detailTextLabel="7cP-CJ-SdN" style="IBUITableViewCellStyleValue1" id="KP1-5z-CJc" customClass="QUComplaintTableViewCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="QUComplaintTableViewCellID" textLabel="A2G-1A-vSD" detailTextLabel="7cP-CJ-SdN" style="IBUITableViewCellStyleValue1" id="KP1-5z-CJc" customClass="QUComplaintTableViewCell">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KP1-5z-CJc" id="wub-u6-SOA">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -1044,7 +1043,7 @@ to get your personal key.</string>
                                         </label>
                                     </subviews>
                                 </tableViewCellContentView>
-                                <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -1077,17 +1076,10 @@ to get your personal key.</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9d5-FF-JBq">
-                                <rect key="frame" x="16" y="116" width="343" height="480"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="20"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mBb-Eu-pLU">
-                                <rect key="frame" x="132" y="72" width="112" height="36"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mBb-Eu-pLU">
+                                <rect key="frame" x="121" y="72" width="135" height="36"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="20"/>
-                                <state key="normal" title="Take Photo">
+                                <state key="normal" title="Retake Photo">
                                     <color key="titleColor" red="0.2274509817" green="0.52549022440000004" blue="0.81176471709999998" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -1095,40 +1087,50 @@ to get your personal key.</string>
                                     <action selector="didTouchTakePictureButton:" destination="bbp-vM-Pdb" eventType="touchUpInside" id="cQa-Ep-bej"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Pm-1F-cDw">
-                                <rect key="frame" x="151" y="604" width="64" height="43"/>
-                                <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="25"/>
-                                <state key="normal" title="Send">
-                                    <color key="titleColor" red="0.2274509817" green="0.52549022440000004" blue="0.81176471709999998" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Describe your complaint" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9oA-mr-3PL">
+                                <rect key="frame" x="16" y="116" width="343" height="30"/>
+                                <color key="textColor" red="0.10940888524055481" green="0.12628661096096039" blue="0.13827742636203766" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                 <connections>
-                                    <action selector="didTouchSendButton:" destination="bbp-vM-Pdb" eventType="touchUpInside" id="0ie-Rj-AdP"/>
+                                    <outlet property="delegate" destination="bbp-vM-Pdb" id="tXg-7V-jCX"/>
                                 </connections>
-                            </button>
+                            </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="K7z-fb-mcH">
+                                <rect key="frame" x="16" y="154" width="343" height="497"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="5Pm-1F-cDw" firstAttribute="top" secondItem="9d5-FF-JBq" secondAttribute="bottom" constant="8" id="5sf-xr-DFo"/>
-                            <constraint firstItem="9d5-FF-JBq" firstAttribute="top" secondItem="mBb-Eu-pLU" secondAttribute="bottom" constant="8" id="H3Y-z6-Vo9"/>
-                            <constraint firstAttribute="centerX" secondItem="5Pm-1F-cDw" secondAttribute="centerX" constant="5" id="KFg-KK-YQH"/>
+                            <constraint firstItem="9oA-mr-3PL" firstAttribute="trailing" secondItem="tgz-D6-dvP" secondAttribute="trailingMargin" id="9yq-bG-tei"/>
+                            <constraint firstItem="K7z-fb-mcH" firstAttribute="trailing" secondItem="tgz-D6-dvP" secondAttribute="trailingMargin" id="BIv-Y9-WeZ"/>
                             <constraint firstItem="mBb-Eu-pLU" firstAttribute="top" secondItem="pMG-et-FSG" secondAttribute="bottom" constant="8" id="LWC-3t-zTX"/>
-                            <constraint firstAttribute="centerX" secondItem="mBb-Eu-pLU" secondAttribute="centerX" constant="-0.5" id="NNg-9e-uiN"/>
-                            <constraint firstItem="9d5-FF-JBq" firstAttribute="trailing" secondItem="tgz-D6-dvP" secondAttribute="trailingMargin" id="Wz7-6X-QAq"/>
-                            <constraint firstItem="9d5-FF-JBq" firstAttribute="leading" secondItem="tgz-D6-dvP" secondAttribute="leadingMargin" id="t40-qr-TTE"/>
-                            <constraint firstItem="Kdc-vd-n7J" firstAttribute="top" secondItem="5Pm-1F-cDw" secondAttribute="bottom" constant="20" id="tO3-i7-yD4"/>
+                            <constraint firstItem="Kdc-vd-n7J" firstAttribute="top" secondItem="K7z-fb-mcH" secondAttribute="bottom" constant="16" id="N8Z-zg-gJy"/>
+                            <constraint firstAttribute="centerX" secondItem="mBb-Eu-pLU" secondAttribute="centerX" id="NNg-9e-uiN"/>
+                            <constraint firstItem="9oA-mr-3PL" firstAttribute="leading" secondItem="tgz-D6-dvP" secondAttribute="leadingMargin" id="Phc-BP-W5K"/>
+                            <constraint firstItem="K7z-fb-mcH" firstAttribute="top" secondItem="9oA-mr-3PL" secondAttribute="bottom" constant="8" id="SDN-rL-r7w"/>
+                            <constraint firstAttribute="centerX" secondItem="K7z-fb-mcH" secondAttribute="centerX" constant="0.5" id="Zwf-K2-Zf8"/>
+                            <constraint firstItem="K7z-fb-mcH" firstAttribute="leading" secondItem="tgz-D6-dvP" secondAttribute="leadingMargin" id="qWT-Yv-skG"/>
+                            <constraint firstItem="9oA-mr-3PL" firstAttribute="top" secondItem="mBb-Eu-pLU" secondAttribute="bottom" constant="8" id="vyw-zv-HZB"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Complaint" id="V6d-TY-7WQ">
-                        <barButtonItem key="rightBarButtonItem" systemItem="cancel" id="7bh-F5-LgC">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="7bh-F5-LgC">
                             <connections>
                                 <action selector="didTouchCancelButton:" destination="bbp-vM-Pdb" id="me9-13-x4v"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Send" id="74W-Z4-DZI">
+                            <color key="tintColor" red="0.2274509817" green="0.52549022440000004" blue="0.81176471709999998" alpha="1" colorSpace="calibratedRGB"/>
+                            <connections>
+                                <action selector="didTouchSendButton:" destination="bbp-vM-Pdb" id="IDg-Nc-dvh"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="descriptionTextView" destination="9d5-FF-JBq" id="z1C-mv-IDx"/>
-                        <outlet property="sendButton" destination="5Pm-1F-cDw" id="oiL-Ma-hDx"/>
+                        <outlet property="descriptionTextField" destination="9oA-mr-3PL" id="Ns2-N4-uFL"/>
+                        <outlet property="pictureImageView" destination="K7z-fb-mcH" id="BQG-XY-Z7Q"/>
+                        <outlet property="sendButton" destination="74W-Z4-DZI" id="Za3-Ds-sFz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dwS-Jp-oEN" userLabel="First Responder" sceneMemberID="firstResponder"/>

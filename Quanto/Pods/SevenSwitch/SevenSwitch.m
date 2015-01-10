@@ -112,7 +112,7 @@
     background.backgroundColor = [UIColor clearColor];
     background.layer.cornerRadius = self.frame.size.height * 0.5;
     background.layer.borderColor = self.borderColor.CGColor;
-    background.layer.borderWidth = 1.0;
+    background.layer.borderWidth = 1.45;
     background.userInteractionEnabled = NO;
 	background.clipsToBounds = YES;
     [self addSubview:background];

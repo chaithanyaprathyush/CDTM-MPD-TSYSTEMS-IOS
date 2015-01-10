@@ -45,7 +45,7 @@ static NSString *QUAPIEndpointLockClose = @"locks/:lockID/close/";
 		didUpdate = YES;
 	}
 
-	if (![lock.name isEqualToString:JSON[@"name"]]) {
+	if (![lock.name isEqualToString:JSON[@"status"]]) {
 		lock.status = JSON[@"status"];
 		didUpdate = YES;
 	}

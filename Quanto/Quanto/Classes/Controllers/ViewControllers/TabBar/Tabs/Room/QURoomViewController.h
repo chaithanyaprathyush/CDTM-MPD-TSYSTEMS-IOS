@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <SevenSwitch/SevenSwitch.h>
+#import "DVSwitch.h"
 
 @interface QURoomViewController : UIViewController
 
@@ -14,8 +16,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *noRoomMessageLabel;
 @property (weak, nonatomic) IBOutlet UILabel *roomNumberLabel;
 @property (weak, nonatomic) IBOutlet UILabel *roomDetailsLabel;
-@property (weak, nonatomic) IBOutlet UIButton *openDoorButton;
+@property (weak, nonatomic) IBOutlet SevenSwitch *openLockSwitch;
+@property (weak, nonatomic) IBOutlet UIView *dvSwitchPlaceholder;
+@property (nonatomic, retain) DVSwitch *dvSwitch;
 
-- (IBAction)didTouchOpenDoorButton:(id)sender;
+- (IBAction)didTouchOpenLockSwitch:(id)sender;
 
 @end

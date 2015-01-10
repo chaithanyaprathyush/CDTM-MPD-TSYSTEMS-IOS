@@ -98,7 +98,7 @@
 {
 	UITableViewHeaderFooterView *header = (UITableViewHeaderFooterView *)view;
 
-	header.textLabel.font = [UIFont fontWithName:@"AppleSDGothicNeo-Regular" size:20.0f];
+	header.textLabel.font = [UIFont fontWithName:@"Montserrat-Light" size:20.0f];
 	header.textLabel.textColor = [UIColor darkerDarkGrayColor];
 	header.textLabel.frame = header.frame;
 	header.textLabel.textAlignment = NSTextAlignmentCenter;

@@ -11,7 +11,7 @@
 
 @interface QUComplaintManager : PFEntityManager
 
-+ (void)createComplaintWithPictureData:(NSData *)pictureData descriptionText:(NSString *)descriptionText successHandler:(void (^)(QUComplaint *complaint))successHandler failureHandler:(void (^)(NSError *error))failureHandler;
++ (void)createComplaintWithPicture:(UIImage *)picture descriptionText:(NSString *)descriptionText successHandler:(void (^)(QUComplaint *complaint))successHandler failureHandler:(void (^)(NSError *error))failureHandler;
 
 + (void)synchronizeComplaintWithComplaintID:(NSNumber *)complaintID successHandler:(void (^)(QUComplaint *complaint))successHandler failureHandler:(void (^)(NSError *error))failureHandler;
 + (void)synchronizeAllMyComplaintsWithSuccessHandler:(void (^)(NSSet *complaints))successHandler failureHandler:(void (^)(NSError *error))failureHandler;

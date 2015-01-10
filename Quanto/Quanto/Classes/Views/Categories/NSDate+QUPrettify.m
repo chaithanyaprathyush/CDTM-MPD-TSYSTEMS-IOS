@@ -13,6 +13,7 @@
 - (NSString *)asEEEddMMMYYYY
 {
     NSDateFormatter *dateFormatter = [NSDateFormatter new];
+    [dateFormatter setTimeZone:[NSTimeZone timeZoneWithAbbreviation:@"CET"]];
     dateFormatter.dateFormat = @"EEE, dd. MMM YYYY";
     
     return [dateFormatter stringFromDate:self];
@@ -20,7 +21,11 @@
 
 - (NSString *)asHHMM
 {
-    return [NSDateFormatter localizedStringFromDate:self dateStyle:NSDateFormatterNoStyle timeStyle:NSDateFormatterShortStyle];
+    NSDateFormatter *dateFormatter = [NSDateFormatter new];
+    [dateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:60*60*2]];
+    dateFormatter.dateFormat = @"HH:mm";
+    
+    return [dateFormatter stringFromDate:self];
 }
 
 @end

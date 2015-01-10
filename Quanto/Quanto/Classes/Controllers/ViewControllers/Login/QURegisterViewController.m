@@ -76,6 +76,8 @@
 		MBProgressHUD *progressHUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
 		progressHUD.mode = MBProgressHUDModeAnnularDeterminate;
 		progressHUD.labelText = @"Registering you...";
+        progressHUD.labelFont = [UIFont fontWithName:@"Montserrat-Regular" size:30.0f];
+        progressHUD.detailsLabelFont = [UIFont fontWithName:@"Montserrat-Light" size:20.0f];
 
 		[QUGuestManager createGuestWithUsername:self.usernameTextField.text
 									   password:self.passwordTextField.text

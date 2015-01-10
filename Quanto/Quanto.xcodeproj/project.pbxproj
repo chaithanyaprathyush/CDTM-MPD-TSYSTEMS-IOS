@@ -62,7 +62,9 @@
 		FFB355DD1A5704E7007A29D1 /* QUAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB355DC1A5704E7007A29D1 /* QUAccountViewController.m */; };
 		FFCBB6B41A6091C000A2CB8F /* QURoom.m in Sources */ = {isa = PBXBuildFile; fileRef = FFCBB6B31A6091C000A2CB8F /* QURoom.m */; };
 		FFCBB6B71A60921F00A2CB8F /* QURoom+QUUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = FFCBB6B61A60921F00A2CB8F /* QURoom+QUUtils.m */; };
-		FFE5D6241A601EBA004EDEA0 /* UIFont+IBCustomFonts.m in Sources */ = {isa = PBXBuildFile; fileRef = FFE5D6231A601EBA004EDEA0 /* UIFont+IBCustomFonts.m */; };
+		FFCBB6BB1A609C0D00A2CB8F /* DVSwitch.m in Sources */ = {isa = PBXBuildFile; fileRef = FFCBB6BA1A609C0D00A2CB8F /* DVSwitch.m */; };
+		FFCBB6BE1A60A6A900A2CB8F /* QULock+QUUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = FFCBB6BD1A60A6A900A2CB8F /* QULock+QUUtils.m */; };
+		FFCBB6C01A60B88B00A2CB8F /* UIFont+IBCustomFonts.m in Sources */ = {isa = PBXBuildFile; fileRef = FFCBB6BF1A60B88B00A2CB8F /* UIFont+IBCustomFonts.m */; };
 		FFE5D62C1A601F91004EDEA0 /* Montserrat-Black.otf in Resources */ = {isa = PBXBuildFile; fileRef = FFE5D6261A601F91004EDEA0 /* Montserrat-Black.otf */; };
 		FFE5D62D1A601F91004EDEA0 /* Montserrat-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = FFE5D6271A601F91004EDEA0 /* Montserrat-Bold.otf */; };
 		FFE5D62E1A601F91004EDEA0 /* Montserrat-Hairline.otf in Resources */ = {isa = PBXBuildFile; fileRef = FFE5D6281A601F91004EDEA0 /* Montserrat-Hairline.otf */; };
@@ -195,7 +197,11 @@
 		FFCBB6B31A6091C000A2CB8F /* QURoom.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QURoom.m; sourceTree = "<group>"; };
 		FFCBB6B51A60921F00A2CB8F /* QURoom+QUUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "QURoom+QUUtils.h"; sourceTree = "<group>"; };
 		FFCBB6B61A60921F00A2CB8F /* QURoom+QUUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "QURoom+QUUtils.m"; sourceTree = "<group>"; };
-		FFE5D6231A601EBA004EDEA0 /* UIFont+IBCustomFonts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+IBCustomFonts.m"; sourceTree = "<group>"; };
+		FFCBB6B91A609C0D00A2CB8F /* DVSwitch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DVSwitch.h; sourceTree = "<group>"; };
+		FFCBB6BA1A609C0D00A2CB8F /* DVSwitch.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DVSwitch.m; sourceTree = "<group>"; };
+		FFCBB6BC1A60A6A900A2CB8F /* QULock+QUUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "QULock+QUUtils.h"; sourceTree = "<group>"; };
+		FFCBB6BD1A60A6A900A2CB8F /* QULock+QUUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "QULock+QUUtils.m"; sourceTree = "<group>"; };
+		FFCBB6BF1A60B88B00A2CB8F /* UIFont+IBCustomFonts.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+IBCustomFonts.m"; sourceTree = "<group>"; };
 		FFE5D6261A601F91004EDEA0 /* Montserrat-Black.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Black.otf"; sourceTree = "<group>"; };
 		FFE5D6271A601F91004EDEA0 /* Montserrat-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Bold.otf"; sourceTree = "<group>"; };
 		FFE5D6281A601F91004EDEA0 /* Montserrat-Hairline.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Montserrat-Hairline.otf"; sourceTree = "<group>"; };
@@ -455,6 +461,8 @@
 				FF4810801A5FECAB00DFCA77 /* QUComplaint+QUUtils.m */,
 				FFCBB6B51A60921F00A2CB8F /* QURoom+QUUtils.h */,
 				FFCBB6B61A60921F00A2CB8F /* QURoom+QUUtils.m */,
+				FFCBB6BC1A60A6A900A2CB8F /* QULock+QUUtils.h */,
+				FFCBB6BD1A60A6A900A2CB8F /* QULock+QUUtils.m */,
 			);
 			path = Categories;
 			sourceTree = "<group>";
@@ -490,6 +498,7 @@
 			children = (
 				FFE5D6221A601EAA004EDEA0 /* CustomFonts */,
 				FF39594C1A51C74600972A1E /* Categories */,
+				FFCBB6B81A609C0D00A2CB8F /* DVSwitch */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -606,10 +615,19 @@
 			path = RoomControl;
 			sourceTree = "<group>";
 		};
+		FFCBB6B81A609C0D00A2CB8F /* DVSwitch */ = {
+			isa = PBXGroup;
+			children = (
+				FFCBB6B91A609C0D00A2CB8F /* DVSwitch.h */,
+				FFCBB6BA1A609C0D00A2CB8F /* DVSwitch.m */,
+			);
+			path = DVSwitch;
+			sourceTree = "<group>";
+		};
 		FFE5D6221A601EAA004EDEA0 /* CustomFonts */ = {
 			isa = PBXGroup;
 			children = (
-				FFE5D6231A601EBA004EDEA0 /* UIFont+IBCustomFonts.m */,
+				FFCBB6BF1A60B88B00A2CB8F /* UIFont+IBCustomFonts.m */,
 				FFE5D6251A601F91004EDEA0 /* Montserrat */,
 			);
 			path = CustomFonts;
@@ -642,10 +660,10 @@
 			children = (
 				FFFEB5B31A5F2FE0002B53D0 /* QUComplaintsTableViewController.h */,
 				FFFEB5B41A5F2FE0002B53D0 /* QUComplaintsTableViewController.m */,
-				FF4810821A5FFF7500DFCA77 /* QUCreateComplaintViewController.h */,
-				FF4810831A5FFF7500DFCA77 /* QUCreateComplaintViewController.m */,
 				FFE5D6321A602A73004EDEA0 /* QUComplaintTableViewCell.h */,
 				FFE5D6331A602A73004EDEA0 /* QUComplaintTableViewCell.m */,
+				FF4810821A5FFF7500DFCA77 /* QUCreateComplaintViewController.h */,
+				FF4810831A5FFF7500DFCA77 /* QUCreateComplaintViewController.m */,
 			);
 			path = Complaints;
 			sourceTree = "<group>";
@@ -800,14 +818,16 @@
 				FF39595C1A51C74600972A1E /* UIView+QURound.m in Sources */,
 				FF4EA8A61A5AED770074B4E8 /* QULocksTableViewController.m in Sources */,
 				FF4EA8711A5906C20074B4E8 /* QUServiceTypeManager.m in Sources */,
-				FFE5D6241A601EBA004EDEA0 /* UIFont+IBCustomFonts.m in Sources */,
+				FFCBB6BB1A609C0D00A2CB8F /* DVSwitch.m in Sources */,
 				FFE5D6341A602A73004EDEA0 /* QUComplaintTableViewCell.m in Sources */,
 				FFB355981A55F591007A29D1 /* QURoomManager.m in Sources */,
+				FFCBB6BE1A60A6A900A2CB8F /* QULock+QUUtils.m in Sources */,
 				FF4EA87F1A59CC810074B4E8 /* QUService+QUUtils.m in Sources */,
 				FF4EA8961A5AC8C90074B4E8 /* PFFetchedResultsControllerCViewController.m in Sources */,
 				FF3959561A51C74600972A1E /* PFAuthenticationManager.m in Sources */,
 				FFB355DD1A5704E7007A29D1 /* QUAccountViewController.m in Sources */,
 				FF4EA8511A584E3F0074B4E8 /* QURoomControlViewController.m in Sources */,
+				FFCBB6C01A60B88B00A2CB8F /* UIFont+IBCustomFonts.m in Sources */,
 				FF4810811A5FECAB00DFCA77 /* QUComplaint+QUUtils.m in Sources */,
 				FF39595B1A51C74600972A1E /* NSDate+QUPrettify.m in Sources */,
 				FF4EA87C1A59C98F0074B4E8 /* QUHotelServiceTableViewCell.m in Sources */,

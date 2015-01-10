@@ -178,7 +178,7 @@
 {
 	UITableViewHeaderFooterView *header = (UITableViewHeaderFooterView *)view;
 
-	header.textLabel.font = [UIFont fontWithName:@"AppleSDGothicNeo-Regular" size:20.0f];
+	header.textLabel.font = [UIFont fontWithName:@"Montserrat-Light" size:20.0f];
 	header.textLabel.textColor = [UIColor darkerDarkGrayColor];
 	header.textLabel.frame = header.frame;
 	header.textLabel.textAlignment = NSTextAlignmentCenter;
@@ -272,6 +272,8 @@
         QUOrder *order = [self.fetchedResultsController objectAtIndexPath:indexPath];
         
         MBProgressHUD *progressHUD = [MBProgressHUD showHUDAddedTo:self.tableView animated:YES];
+        progressHUD.labelFont = [UIFont fontWithName:@"Montserrat-Regular" size:30.0f];
+        progressHUD.detailsLabelFont = [UIFont fontWithName:@"Montserrat-Light" size:20.0f];
         
         //progressHUD.labelColor = [UIColor darkerDarkGrayColor];
         //progressHUD.detailsLabelColor = [UIColor darkerDarkGrayColor];
