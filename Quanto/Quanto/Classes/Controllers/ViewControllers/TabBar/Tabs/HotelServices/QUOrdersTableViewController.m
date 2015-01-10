@@ -2,21 +2,19 @@
 //  QUOrdersTableViewController.m
 //  Quanto
 //
-//  Created by Pascal Fritzen on 05.01.15.
+//  Created by Pascal Fritzen on 10.01.15.
 //  Copyright (c) 2015 Pascal Fritzen. All rights reserved.
 //
 
 #import "QUOrdersTableViewController.h"
-#import "QUOrder.h"
-#import "PFCoreDataManager.h"
-#import "QUGuestManager.h"
+#import "QUOrder+QUUtils.h"
 #import "QUOrderManager.h"
 #import "QUOrderTableViewCell.h"
-#import "QUOrder+QUUtils.h"
+#import "MBProgressHUD+QUUtils.h"
 
 @interface QUOrdersTableViewController ()
 
-@property (nonatomic, retain) NSTimer *reloadOrdersTimer;
+@property (nonatomic, retain) NSTimer *reloadEntitiesTimer;
 
 @end
 
@@ -26,119 +24,111 @@
 
 - (void)viewDidLoad
 {
-	[super viewDidLoad];
-
-	NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:NSStringFromClass([QUOrder class])];
-	NSSortDescriptor *descriptor = [NSSortDescriptor sortDescriptorWithKey:@"status" ascending:NO];
-	fetchRequest.sortDescriptors = @[descriptor];
-
-	// Setup fetched results
-	self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest
-																		managedObjectContext:[PFCoreDataManager sharedManager].managedObjectContext
-																		  sectionNameKeyPath:@"status"
-																				   cacheName:nil];
-	// Pull to refresh
-	self.refreshControl = [UIRefreshControl new];
-	self.refreshControl.backgroundColor = [UIColor clearColor];
-	self.refreshControl.tintColor = [UIColor darkerDarkGrayColor];
-	[self.refreshControl addTarget:self
-							action:@selector(reloadOrders)
-				  forControlEvents:UIControlEventValueChanged];
+    [super viewDidLoad];
     
-    [self performSelector:@selector(reloadOrders) withObject:nil afterDelay:0.0f];
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
+    [super createFetchedResultsControllerWithClass:[QUOrder class]
+                                     descriptorKey:@"lastModifiedAt"
+                                         ascending:NO
+                                sectionNameKeyPath:@"lastModifiedAsString"];
     
-    self.reloadOrdersTimer = [NSTimer scheduledTimerWithTimeInterval:5.0f target:self selector:@selector(reloadOrders) userInfo:nil repeats:YES];
-}
-
-- (void)viewWillDisappear:(BOOL)animated
-{
-    [super viewWillDisappear:animated];
+    [super enablePullToRefresh];
     
-    [self.reloadOrdersTimer invalidate];
-    self.reloadOrdersTimer = nil;
+    super.reloadEntitiesInterval = 10.0f;
 }
 
 - (void)didReceiveMemoryWarning
 {
-	[super didReceiveMemoryWarning];
+    [super didReceiveMemoryWarning];
 }
 
-#pragma mark - Reload Orders
+#pragma mark - Reload Entities
 
-- (void)reloadOrders
+- (void)reloadEntities
 {
-    if ([QUGuestManager isCurrentGuestLoggedIn]) {
-        [QUOrderManager synchronizeAllMyOrdersWithSuccessHandler:^(NSSet *orders) {
-            [self.refreshControl endRefreshing];
-        } failureHandler:^(NSError *error) {
-            [self.refreshControl endRefreshing];
-        }];
-    }
+    [QUOrderManager synchronizeAllMyOrdersWithSuccessHandler:^(NSSet *orders) {
+        [self.refreshControl endRefreshing];
+    } failureHandler:^(NSError *error) {
+        [self.refreshControl endRefreshing];
+    }];
 }
 
 #pragma mark - <UITableViewDataSource>
 
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-	return 30.0f;
-}
-
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     QUOrder *order = [self.fetchedResultsController objectAtIndexPath:[NSIndexPath indexPathForItem:0 inSection:section]];
-    return [order statusAsString];
+    return [order lastModifiedAsString];
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section
 {
-	UITableViewHeaderFooterView *header = (UITableViewHeaderFooterView *)view;
-
-	header.textLabel.font = [UIFont fontWithName:@"Montserrat-Light" size:20.0f];
-	header.textLabel.textColor = [UIColor darkerDarkGrayColor];
-	header.textLabel.frame = header.frame;
-	header.textLabel.textAlignment = NSTextAlignmentCenter;
+    UITableViewHeaderFooterView *header = (UITableViewHeaderFooterView *)view;
+    
+    header.textLabel.font = [UIFont fontWithName:@"Montserrat-Light" size:20.0f];
+    header.textLabel.textColor = [UIColor darkerDarkGrayColor];
+    header.textLabel.frame = header.frame;
+    header.textLabel.textAlignment = NSTextAlignmentCenter;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	QUOrderTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"QUOrderTableViewCellID" forIndexPath:indexPath];
-
-	cell.order = [self.fetchedResultsController objectAtIndexPath:indexPath];
-
-	return cell;
+    QUOrderTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"QUOrderTableViewCellID" forIndexPath:indexPath];
+    
+    cell.order = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    
+    return cell;
 }
 
 #pragma mark - <UITableViewDelegate>
-/*
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	QUHotelServiceDetailsViewController *hotelServiceDetailsViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"QUHotelServiceDetailsViewControllerID"];
+    return YES;
+}
 
-	MZFormSheetController *formSheet = [[MZFormSheetController alloc] initWithViewController:hotelServiceDetailsViewController];
-	formSheet.shouldDismissOnBackgroundViewTap = YES;
-	formSheet.transitionStyle = MZFormSheetTransitionStyleSlideFromBottom;
-	formSheet.cornerRadius = 8.0f;
-	formSheet.portraitTopInset = 50.0f;
+- (NSArray *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewRowAction *cancelButton = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault
+                                                                            title:@"Cancel"
+                                                                          handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
+                                                                              QUOrder *order = [self.fetchedResultsController objectAtIndexPath:indexPath];
+                                                                              
+                                                                              MBProgressHUD *progressHUD = [MBProgressHUD showHUDAddedTo:self.tableView animated:YES];
+                                                                              progressHUD.labelFont = [UIFont fontWithName:@"Montserrat-Regular" size:30.0f];
+                                                                              progressHUD.detailsLabelFont = [UIFont fontWithName:@"Montserrat-Light" size:20.0f];
+                                                                              
+                                                                              // progressHUD.labelColor = [UIColor darkerDarkGrayColor];
+                                                                              // progressHUD.detailsLabelColor = [UIColor darkerDarkGrayColor];
+                                                                              
+                                                                              if ([order.status intValue] != QUOrderStatusOrdered) {
+                                                                                  progressHUD.labelText = @"Not allowed";
+                                                                                  progressHUD.detailsLabelText = @"Sorry for your inconvenience but you already received the service.";
+                                                                                  [progressHUD showCross];
+                                                                                  [progressHUD hide:YES afterDelay:5.0f];
+                                                                              } else {
+                                                                                  progressHUD.detailsLabelText = @"Cancelling order...";
+                                                                                  
+                                                                                  [QUOrderManager deleteOrderWithOrderID:order.orderID successHandler:^{
+                                                                                      progressHUD.labelText = @"Done!";
+                                                                                      progressHUD.detailsLabelText = @"";
+                                                                                      [progressHUD showCheckmark];
+                                                                                      [progressHUD hide:YES afterDelay:0.5f];
+                                                                                  } failureHandler:^(NSError *error) {
+                                                                                      [progressHUD showCross];
+                                                                                      progressHUD.detailsLabelText = [error localizedDescription];
+                                                                                      [progressHUD hide:YES afterDelay:3.0f];
+                                                                                  }];
+                                                                              }
+                                                                          }];
+    
+    cancelButton.backgroundColor = [UIColor peterRiverColor];
+    
+    return @[cancelButton];
+}
 
-	CGRect screenRect = [[UIScreen mainScreen] bounds];
-	CGFloat screenWidth = screenRect.size.width;
-	CGFloat screenHeight = screenRect.size.height;
-	formSheet.presentedFormSheetSize = CGSizeMake(screenWidth*0.8f, screenHeight*0.8f);
-	formSheet.willPresentCompletionHandler = ^(UIViewController *presentedFSViewController) {
-		presentedFSViewController.view.autoresizingMask = presentedFSViewController.view.autoresizingMask | UIViewAutoresizingFlexibleWidth;
-		hotelServiceDetailsViewController.service = [self serviceForIndexPath:indexPath];
-	};
-
-	[formSheet presentAnimated:YES completionHandler:^(UIViewController *presentedFSViewController) {
-	 }];
-}*/
-
-#pragma mark - IBActions
-
+- (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return @"Cancel";
+}
 
 @end

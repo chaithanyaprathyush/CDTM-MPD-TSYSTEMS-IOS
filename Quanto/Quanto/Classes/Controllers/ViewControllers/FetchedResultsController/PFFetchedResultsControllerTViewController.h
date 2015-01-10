@@ -11,8 +11,14 @@
 
 @interface PFFetchedResultsControllerTViewController : UITableViewController <NSFetchedResultsControllerDelegate>
 
-// The controller (this class fetches nothing if this is not set).
 @property (strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
+@property (nonatomic) float reloadEntitiesInterval;
+
+// YOU NEED TO IMPLEMENT THIS METHOD OR OTHERWISE AN EXCEPTION WILL BE RAISED!
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath;
+
+// YOU NEED TO IMPLEMENT THIS METHOD OR OTHERWISE AN EXCEPTION WILL BE RAISED!
+- (void)reloadEntities;
 
 // Causes the fetchedResultsController to refetch the data.
 // You almost certainly never need to call this.
@@ -22,7 +28,13 @@
 // This will also automatically be called if you change the fetchedResultsController @property.
 - (void)performFetch;
 
-// YOU NEED TO IMPLEMENT THIS METHOD OR OTHERWISE AN EXCEPTION WILL BE RAISED!
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath;
+- (void)createFetchedResultsControllerWithClass:(Class)clazz descriptorKey:(NSString *)descriptorKey ascending:(BOOL)ascending sectionNameKeyPath:(NSString *)sectionNameKeyPath;
+- (void)createFetchedResultsControllerWithClass:(Class)clazz descriptorKeys:(NSArray *)descriptorKeys ascending:(NSArray *)ascending sectionNameKeyPath:(NSString *)sectionNameKeyPath;
+
+- (void)enablePullToRefresh;
+- (void)disablePullToRefresh;
+
+- (void)scheduleReloadEntitiesWithTimeInterval:(float)timeInterval reloadNow:(BOOL)reloadNow;
+- (void)resetReloadEntitiesTimer;
 
 @end

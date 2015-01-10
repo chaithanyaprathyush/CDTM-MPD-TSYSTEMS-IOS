@@ -7,7 +7,7 @@
 //
 
 #import "QUOrderTableViewCell.h"
-#import "QUService+QUUtils.h"
+#import "QUService.h"
 #import "QUOrder+QUUtils.h"
 #import "NSDate+QUPrettify.h"
 
@@ -17,7 +17,7 @@
 {
     _order = order;
     
-    self.textLabel.text = [NSString stringWithFormat:@"%@ (%@)", order.service.name, order.statusAsString];
+    self.textLabel.text = [NSString stringWithFormat:@"%@ (%@)", order.service.name, [order statusAsString]];
     self.detailTextLabel.text = [[order lastModifiedAt] asHHMM];
 }
 

@@ -40,7 +40,7 @@
 	self.fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest
 																		managedObjectContext:[PFCoreDataManager sharedManager].managedObjectContext
 																		  sectionNameKeyPath:nil
-																				   cacheName:nil];
+                                                                                   cacheName:nil];
 	// Pull to refresh
 	self.refreshControl = [UIRefreshControl new];
 	self.refreshControl.backgroundColor = [UIColor clearColor];

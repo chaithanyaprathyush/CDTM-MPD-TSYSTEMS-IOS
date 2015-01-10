@@ -10,8 +10,4 @@
 
 @interface QUHotelServicesTableViewController : PFFetchedResultsControllerTViewController
 
-@property (weak, nonatomic) IBOutlet UISegmentedControl *servicesOrdersSegmentedControl;
-
-- (IBAction)didTouchServicesOrdersSegmentedControl:(id)sender;
-
 @end

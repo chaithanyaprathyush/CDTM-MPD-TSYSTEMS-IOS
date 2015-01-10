@@ -51,7 +51,7 @@
 		[self presentViewController:self.imagePickerController animated:NO completion:nil];
 	} else {
 #if TARGET_IPHONE_SIMULATOR
-		// [self fakeImage];
+        self.pictureImageView.image = [UIImage imageNamed:@"room_01"];
 #else
 		UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error"
 														message:@"No camera available!"
@@ -129,16 +129,18 @@
         [progressHUD showCheckmark];
         progressHUD.detailsLabelText = @"Success! We will take care of your complaint very soon.";
         
-        [progressHUD hide:YES afterDelay:3.0f completionHandler:^{
-            [self dismiss];
+        [progressHUD hide:YES afterDelay:10.0f completionHandler:^{
+            [self dismiss]; 
         }];
     } failureHandler:^(NSError *error) {
         NSLog(@"Fail!");
         
         [progressHUD showCross];
         progressHUD.detailsLabelText = @"Failed to send complaint!";
+        //[progressHUD showCheckmark];
+        //progressHUD.detailsLabelText = @"Success! We will take care of your complaint very soon.";
         
-        [progressHUD hide:YES afterDelay:3.0f completionHandler:^{
+        [progressHUD hide:YES afterDelay:10.0f completionHandler:^{
             [self dismiss];
         }];
     }];

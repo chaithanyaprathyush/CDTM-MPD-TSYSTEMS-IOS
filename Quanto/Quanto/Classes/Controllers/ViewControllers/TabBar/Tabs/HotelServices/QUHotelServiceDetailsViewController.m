@@ -12,11 +12,9 @@
 #import "MBProgressHUD+QUUtils.h"
 #import "QUOrderManager.h"
 
-@interface QUHotelServiceDetailsViewController ()
-
-@end
-
 @implementation QUHotelServiceDetailsViewController
+
+#pragma mark - UIViewController
 
 - (void)viewDidLoad
 {
@@ -28,11 +26,7 @@
 	self.descriptionTextTextView.editable = NO;
 }
 
-- (void)didReceiveMemoryWarning
-{
-	[super didReceiveMemoryWarning];
-	// Dispose of any resources that can be recreated.
-}
+#pragma mark - Service
 
 - (void)setService:(QUService *)service
 {
@@ -53,8 +47,7 @@
 
 - (void)didTouchCancelButton:(id)sender
 {
-    [self mz_dismissFormSheetControllerAnimated:YES completionHandler:^(MZFormSheetController *formSheetController) {
-    }];
+    [self dismiss];
 }
 
 - (IBAction)didTouchOrderButton:(id)sender
@@ -67,8 +60,7 @@
 	[QUOrderManager createOrderForService:self.service successHandler:^(QUOrder *order) {
 		 progressHUD.labelText = @"Success!";
 		 [progressHUD showCheckmarkAndHide:YES afterDelay:1.0f completionHandler:^{
-			  [self mz_dismissFormSheetControllerAnimated:YES completionHandler:^(MZFormSheetController *formSheetController) {
-			   }];
+             [self dismiss];
 		  }];
 	 } failureHandler:^(NSError *error) {
 		 progressHUD.labelText = @"Error";
@@ -76,6 +68,12 @@
              
          }];
 	 }];
+}
+
+- (void)dismiss
+{
+    [self mz_dismissFormSheetControllerAnimated:YES completionHandler:^(MZFormSheetController *formSheetController) {
+    }];
 }
 
 @end

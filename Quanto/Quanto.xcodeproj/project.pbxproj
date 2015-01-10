@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		25EBBA21DFFF917FF1705C62 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E0651DD78BBC685CC987F13 /* libPods.a */; };
+		FF1BCDC11A60E5A800A51ABA /* QUOrdersTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF1BCDC01A60E5A800A51ABA /* QUOrdersTableViewController.m */; };
 		FF3959081A51C46400972A1E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FF3959071A51C46400972A1E /* main.m */; };
 		FF3959111A51C46400972A1E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF39590F1A51C46400972A1E /* Main.storyboard */; };
 		FF3959161A51C46400972A1E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF3959141A51C46400972A1E /* LaunchScreen.xib */; };
@@ -47,7 +48,6 @@
 		FF4EA8841A59F87F0074B4E8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FF4EA8831A59F87F0074B4E8 /* QuartzCore.framework */; };
 		FF4EA8871A5A11D60074B4E8 /* QUHotelServiceDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4EA8861A5A11D60074B4E8 /* QUHotelServiceDetailsViewController.m */; };
 		FF4EA88D1A5AC5CE0074B4E8 /* MBProgressHUD+QUUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4EA88C1A5AC5CE0074B4E8 /* MBProgressHUD+QUUtils.m */; };
-		FF4EA8901A5AC7B90074B4E8 /* QUOrdersTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4EA88F1A5AC7B90074B4E8 /* QUOrdersTableViewController.m */; };
 		FF4EA8961A5AC8C90074B4E8 /* PFFetchedResultsControllerCViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4EA8931A5AC8C90074B4E8 /* PFFetchedResultsControllerCViewController.m */; };
 		FF4EA8971A5AC8C90074B4E8 /* PFFetchedResultsControllerTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4EA8951A5AC8C90074B4E8 /* PFFetchedResultsControllerTViewController.m */; };
 		FF4EA89A1A5ACAF60074B4E8 /* QUOrderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4EA8991A5ACAF60074B4E8 /* QUOrderTableViewCell.m */; };
@@ -73,6 +73,7 @@
 		FFE5D6311A601F91004EDEA0 /* SIL Open Font License.txt in Resources */ = {isa = PBXBuildFile; fileRef = FFE5D62B1A601F91004EDEA0 /* SIL Open Font License.txt */; };
 		FFE5D6341A602A73004EDEA0 /* QUComplaintTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FFE5D6331A602A73004EDEA0 /* QUComplaintTableViewCell.m */; };
 		FFE5D63B1A605A5B004EDEA0 /* QURoomViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFE5D63A1A605A5B004EDEA0 /* QURoomViewController.m */; };
+		FFE7D5C61A613CF3009005FD /* QURoomControlTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFE7D5C51A613CF3009005FD /* QURoomControlTableViewController.m */; };
 		FFEF77581A51CAA600D2405B /* Quanto.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FFEF77561A51CAA600D2405B /* Quanto.xcdatamodeld */; };
 		FFEF77C51A5229FB00D2405B /* QULockManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FFEF77C41A5229FB00D2405B /* QULockManager.m */; };
 		FFEF77DD1A5237A800D2405B /* QUGuestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FFEF77DC1A5237A800D2405B /* QUGuestManager.m */; };
@@ -93,6 +94,8 @@
 		9E0651DD78BBC685CC987F13 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF04A1243563F212EB63632B /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		ECE3866CA808167C666B1627 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
+		FF1BCDBF1A60E5A800A51ABA /* QUOrdersTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUOrdersTableViewController.h; sourceTree = "<group>"; };
+		FF1BCDC01A60E5A800A51ABA /* QUOrdersTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUOrdersTableViewController.m; sourceTree = "<group>"; };
 		FF3959021A51C46400972A1E /* Quanto.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quanto.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FF3959061A51C46400972A1E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FF3959071A51C46400972A1E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -168,8 +171,6 @@
 		FF4EA8861A5A11D60074B4E8 /* QUHotelServiceDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUHotelServiceDetailsViewController.m; sourceTree = "<group>"; };
 		FF4EA88B1A5AC5CE0074B4E8 /* MBProgressHUD+QUUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MBProgressHUD+QUUtils.h"; sourceTree = "<group>"; };
 		FF4EA88C1A5AC5CE0074B4E8 /* MBProgressHUD+QUUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MBProgressHUD+QUUtils.m"; sourceTree = "<group>"; };
-		FF4EA88E1A5AC7B90074B4E8 /* QUOrdersTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUOrdersTableViewController.h; sourceTree = "<group>"; };
-		FF4EA88F1A5AC7B90074B4E8 /* QUOrdersTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUOrdersTableViewController.m; sourceTree = "<group>"; };
 		FF4EA8921A5AC8C90074B4E8 /* PFFetchedResultsControllerCViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFFetchedResultsControllerCViewController.h; sourceTree = "<group>"; };
 		FF4EA8931A5AC8C90074B4E8 /* PFFetchedResultsControllerCViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PFFetchedResultsControllerCViewController.m; sourceTree = "<group>"; };
 		FF4EA8941A5AC8C90074B4E8 /* PFFetchedResultsControllerTViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PFFetchedResultsControllerTViewController.h; sourceTree = "<group>"; };
@@ -212,6 +213,8 @@
 		FFE5D6331A602A73004EDEA0 /* QUComplaintTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUComplaintTableViewCell.m; sourceTree = "<group>"; };
 		FFE5D6391A605A5B004EDEA0 /* QURoomViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QURoomViewController.h; sourceTree = "<group>"; };
 		FFE5D63A1A605A5B004EDEA0 /* QURoomViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QURoomViewController.m; sourceTree = "<group>"; };
+		FFE7D5C41A613CF3009005FD /* QURoomControlTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QURoomControlTableViewController.h; sourceTree = "<group>"; };
+		FFE7D5C51A613CF3009005FD /* QURoomControlTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QURoomControlTableViewController.m; sourceTree = "<group>"; };
 		FFEF77571A51CAA600D2405B /* Quanto.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Quanto.xcdatamodel; sourceTree = "<group>"; };
 		FFEF77C21A52266000D2405B /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		FFEF77C31A5229FB00D2405B /* QULockManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QULockManager.h; sourceTree = "<group>"; };
@@ -521,17 +524,12 @@
 		FF48107D1A5FEB2F00DFCA77 /* _deprecated */ = {
 			isa = PBXGroup;
 			children = (
+				FF4EA8A41A5AED770074B4E8 /* QULocksTableViewController.h */,
+				FF4EA8A51A5AED770074B4E8 /* QULocksTableViewController.m */,
+				FF4EA8A71A5AEE110074B4E8 /* QULockTableViewCell.h */,
+				FF4EA8A81A5AEE110074B4E8 /* QULockTableViewCell.m */,
 				FFB355A11A55FC24007A29D1 /* QUKeysViewController.h */,
 				FFB355A21A55FC24007A29D1 /* QUKeysViewController.m */,
-			);
-			name = _deprecated;
-			sourceTree = "<group>";
-		};
-		FF48107E1A5FEB4600DFCA77 /* _deprecated */ = {
-			isa = PBXGroup;
-			children = (
-				FF4EA88E1A5AC7B90074B4E8 /* QUOrdersTableViewController.h */,
-				FF4EA88F1A5AC7B90074B4E8 /* QUOrdersTableViewController.m */,
 			);
 			name = _deprecated;
 			sourceTree = "<group>";
@@ -581,13 +579,14 @@
 		FFB3559F1A55FC24007A29D1 /* HotelServices */ = {
 			isa = PBXGroup;
 			children = (
-				FF48107E1A5FEB4600DFCA77 /* _deprecated */,
 				FF4EA8541A58F8630074B4E8 /* QUHotelServicesTableViewController.h */,
 				FF4EA8551A58F8630074B4E8 /* QUHotelServicesTableViewController.m */,
 				FF4EA87A1A59C98F0074B4E8 /* QUHotelServiceTableViewCell.h */,
 				FF4EA87B1A59C98F0074B4E8 /* QUHotelServiceTableViewCell.m */,
 				FF4EA8851A5A11D60074B4E8 /* QUHotelServiceDetailsViewController.h */,
 				FF4EA8861A5A11D60074B4E8 /* QUHotelServiceDetailsViewController.m */,
+				FF1BCDBF1A60E5A800A51ABA /* QUOrdersTableViewController.h */,
+				FF1BCDC01A60E5A800A51ABA /* QUOrdersTableViewController.m */,
 				FF4EA8981A5ACAF60074B4E8 /* QUOrderTableViewCell.h */,
 				FF4EA8991A5ACAF60074B4E8 /* QUOrderTableViewCell.m */,
 			);
@@ -598,10 +597,6 @@
 			isa = PBXGroup;
 			children = (
 				FF48107D1A5FEB2F00DFCA77 /* _deprecated */,
-				FF4EA8A41A5AED770074B4E8 /* QULocksTableViewController.h */,
-				FF4EA8A51A5AED770074B4E8 /* QULocksTableViewController.m */,
-				FF4EA8A71A5AEE110074B4E8 /* QULockTableViewCell.h */,
-				FF4EA8A81A5AEE110074B4E8 /* QULockTableViewCell.m */,
 			);
 			path = Keys;
 			sourceTree = "<group>";
@@ -611,6 +606,8 @@
 			children = (
 				FF4EA84F1A584E3F0074B4E8 /* QURoomControlViewController.h */,
 				FF4EA8501A584E3F0074B4E8 /* QURoomControlViewController.m */,
+				FFE7D5C41A613CF3009005FD /* QURoomControlTableViewController.h */,
+				FFE7D5C51A613CF3009005FD /* QURoomControlTableViewController.m */,
 			);
 			path = RoomControl;
 			sourceTree = "<group>";
@@ -832,7 +829,6 @@
 				FF39595B1A51C74600972A1E /* NSDate+QUPrettify.m in Sources */,
 				FF4EA87C1A59C98F0074B4E8 /* QUHotelServiceTableViewCell.m in Sources */,
 				FF4EA88D1A5AC5CE0074B4E8 /* MBProgressHUD+QUUtils.m in Sources */,
-				FF4EA8901A5AC7B90074B4E8 /* QUOrdersTableViewController.m in Sources */,
 				FFB355A41A55FC24007A29D1 /* QUKeysViewController.m in Sources */,
 				FF4810671A5FE93A00DFCA77 /* QUGuest.m in Sources */,
 				FFCBB6B41A6091C000A2CB8F /* QURoom.m in Sources */,
@@ -853,8 +849,10 @@
 				FF4EA84E1A57777C0074B4E8 /* QUGuest+QUUtils.m in Sources */,
 				FFEF77C51A5229FB00D2405B /* QULockManager.m in Sources */,
 				FF4EA8561A58F8630074B4E8 /* QUHotelServicesTableViewController.m in Sources */,
+				FFE7D5C61A613CF3009005FD /* QURoomControlTableViewController.m in Sources */,
 				FFFEB5B51A5F2FE0002B53D0 /* QUComplaintsTableViewController.m in Sources */,
 				FFB355831A55C095007A29D1 /* QUKeyManager.m in Sources */,
+				FF1BCDC11A60E5A800A51ABA /* QUOrdersTableViewController.m in Sources */,
 				FF48106D1A5FE93A00DFCA77 /* QUService.m in Sources */,
 				FFB3557C1A55B074007A29D1 /* UIColor+QUCorporateDesign.m in Sources */,
 				FF4EA89D1A5ADAEA0074B4E8 /* QUOrder+QUUtils.m in Sources */,
@@ -988,6 +986,7 @@
 			baseConfigurationReference = ECE3866CA808167C666B1627 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PREFIX_HEADER = Quanto/PrefixHeader.pch;
 				INFOPLIST_FILE = Quanto/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1000,6 +999,7 @@
 			baseConfigurationReference = BF04A1243563F212EB63632B /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				GCC_PREFIX_HEADER = Quanto/PrefixHeader.pch;
 				INFOPLIST_FILE = Quanto/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
