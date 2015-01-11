@@ -14,6 +14,7 @@
 + (QUGuestManager *)sharedManager;
 
 + (QUGuest *)currentGuest;
+
 @property(strong, nonatomic) QUGuest *currentGuest;
 
 #pragma mark - CoreData & REST-API

@@ -17,8 +17,9 @@
 {
     _order = order;
     
-    self.textLabel.text = [NSString stringWithFormat:@"%@ (%@)", order.service.name, [order statusAsString]];
-    self.detailTextLabel.text = [[order lastModifiedAt] asHHMM];
+    self.serviceNameLabel.text = order.service.name;
+    self.timeLabel.text = [[order lastModifiedAt] asHHMM];
+    self.statusLabel.text = [order statusAsString];
 }
 
 - (UIEdgeInsets)layoutMargins

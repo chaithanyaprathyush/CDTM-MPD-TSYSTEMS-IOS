@@ -79,7 +79,7 @@ static NSString *QUAPIEndpointLockClose = @"locks/:lockID/close/";
 
 #pragma mark - REST-API
 
-+ (void)openLock:(QULock *)lock withCompletionHandler:(void (^)(NSError *, QULock *))completionHandler
++ (void)openLock:(QULock *)lock withSuccessHandler:(void (^)(QULock *))successHandler failureHandler:(void (^)(NSError *))failureHandler
 {
 	NSString *endpoint = [QUAPIEndpointLockOpen stringByReplacingOccurrencesOfString:@":lockID" withString:[lock.lockID stringValue]];
 
@@ -87,23 +87,23 @@ static NSString *QUAPIEndpointLockClose = @"locks/:lockID/close/";
 											  parameters:nil
 												 success:^(AFHTTPRequestOperation *operation, id responseObject) {
 		 QULock *lock = [self updateOrCreateEntityWithJSON:responseObject];
-		 completionHandler(nil, lock);
+		 successHandler(lock);
 	 } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-		 completionHandler(error, nil);
+		 failureHandler(error);
 	 }];
 }
 
-+ (void)closeLock:(QULock *)lock withCompletionHandler:(void (^)(NSError *, QULock *))completionHandler
++ (void)closeLock:(QULock *)lock withSuccessHandler:(void (^)(QULock *))successHandler failureHandler:(void (^)(NSError *))failureHandler
 {
 	NSString *endpoint = [QUAPIEndpointLockClose stringByReplacingOccurrencesOfString:@":lockID" withString:[lock.lockID stringValue]];
-
+    
 	[[PFRESTManager sharedManager].operationManager POST:endpoint
 											  parameters:nil
 												 success:^(AFHTTPRequestOperation *operation, id responseObject) {
 		 QULock *lock = [self updateOrCreateEntityWithJSON:responseObject];
-		 completionHandler(nil, lock);
+		 successHandler(lock);
 	 } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-		 completionHandler(error, nil);
+		 failureHandler(error);
 	 }];
 }
 

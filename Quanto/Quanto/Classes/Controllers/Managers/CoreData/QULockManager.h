@@ -14,7 +14,7 @@
 + (void)synchronizeLockWithLockID:(NSNumber *)lockID successHandler:(void (^)(QULock *lock))successHandler failureHandler:(void (^)(NSError *error))failureHandler;
 + (void)synchronizeAllLocksWithSuccessHandler:(void (^)(NSSet *locks))successHandler failureHandler:(void (^)(NSError *error))failureHandler;
 
-+ (void)openLock:(QULock *)lock withCompletionHandler:(void (^)(NSError *error, QULock *lock))completionHandler;
-+ (void)closeLock:(QULock *)lock withCompletionHandler:(void (^)(NSError *error, QULock *lock))completionHandler;
++ (void)openLock:(QULock *)lock withSuccessHandler:(void (^)(QULock *lock))successHandler failureHandler:(void (^)(NSError *error))failureHandler;;
++ (void)closeLock:(QULock *)lock withSuccessHandler:(void (^)(QULock *lock))successHandler failureHandler:(void (^)(NSError *error))failureHandler;;
 
 @end

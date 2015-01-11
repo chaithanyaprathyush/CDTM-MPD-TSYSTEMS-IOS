@@ -12,6 +12,4 @@
 
 + (QUBluetoothManager *)sharedManager;
 
-//+ (void)didChangeAuthenticationToken:(NSString *)authenticationToken;
-
 @end

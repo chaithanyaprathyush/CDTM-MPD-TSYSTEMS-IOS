@@ -60,20 +60,6 @@
 	self.openLockSwitch.onLabel.text = @"Unlocking...";
 	[self.openLockSwitch.onLabel setTextColor:[UIColor whiteColor]];
 	self.openLockSwitch.onLabel.font = [UIFont fontWithName:@"Montserrat-Light" size:15.0f];
-
-	/*
-	   self.dvSwitch = [[DVSwitch alloc] initWithStringsArray:@[@"Lock", @"Unlock"]];
-	   self.dvSwitch.frame = self.dvSwitchPlaceholder.frame;
-	   [self.dvSwitch setPressedHandler:^(NSUInteger index) {
-	    DLOG(@"Pressed!");
-	   }];
-	   [self.view addSubview:self.dvSwitch];*/
-    
-    CAGradientLayer *gradientLayer = [CAGradientLayer layer];
-    gradientLayer.frame = self.view.frame;
-    gradientLayer.colors = @[(id)[UIColor clearColor].CGColor, (id)[UIColor darkerDarkGrayColor].CGColor];
-    gradientLayer.locations = @[@0.0, @1.0];
-    //[self.roomPictureImageView.layer insertSublayer:gradientLayer atIndex:0];
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -133,12 +119,12 @@
 
 		self.roomNumberLabel.text = [NSString stringWithFormat:@"Room No. %i", [lock.room.number intValue]];
 		self.roomDetailsLabel.text = lock.room.descriptionText;
-        
-        if ([lock isOpen]) {
-            [self.openLockSwitch setOn:[lock isOpen] animated:NO];
-            self.openLockSwitch.onLabel.text = @"Unlocked!";
-            self.openLockSwitch.onTintColor = [UIColor emeraldColor];
-        }
+
+		if ([lock isOpen]) {
+			[self.openLockSwitch setOn:[lock isOpen] animated:NO];
+			self.openLockSwitch.onLabel.text = @"Unlocked!";
+			self.openLockSwitch.onTintColor = [UIColor emeraldColor];
+		}
 
 		[lock.room downloadPictureWithSuccessHandler:^{
 			 self.roomPictureImageView.image = [UIImage imageWithData:lock.room.pictureData];
@@ -150,13 +136,17 @@
 
 - (void)closeLockAfterDelay:(float)delay
 {
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delay * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        [self.openLockSwitch setOn:NO animated:YES];
-        [QULockManager closeLock:[self.fetchedLocks firstObject] withCompletionHandler:^(NSError *error, QULock *lock) {
-        }];
-        self.openLockSwitch.onLabel.text = @"Unlocking ...";
-        self.openLockSwitch.onTintColor = [UIColor peterRiverColor];
-    });
+	dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delay * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+		[self.openLockSwitch setOn:NO animated:YES];
+		[QULockManager closeLock:[self.fetchedLocks firstObject] withSuccessHandler:^(QULock *lock) {
+
+		 } failureHandler:^(NSError *error) {
+
+		 }];
+
+		self.openLockSwitch.onLabel.text = @"Unlocking ...";
+		self.openLockSwitch.onTintColor = [UIColor peterRiverColor];
+	});
 }
 
 #pragma mark - IBActions
@@ -164,24 +154,22 @@
 - (IBAction)didTouchOpenLockSwitch:(id)sender
 {
 	if (self.openLockSwitch.isOn) {
-        [QULockManager openLock:[self.fetchedLocks firstObject] withCompletionHandler:^(NSError *error, QULock *lock) {
-            if (error) {
-                DLOG(@"ERROR: %@", error);
-                self.openLockSwitch.onLabel.text = @"Error...";
-                [self closeLockAfterDelay:3.0f];
-            } else {
-                self.openLockSwitch.onLabel.text = @"Unlocked!";
-                self.openLockSwitch.onTintColor = [UIColor emeraldColor];
-                
-                [self closeLockAfterDelay:5.0f];
-            }
-        }];
-	} else {
-        self.openLockSwitch.onLabel.text = @"Unlocking ...";
-        self.openLockSwitch.onTintColor = [UIColor peterRiverColor];
+		[QULockManager openLock:[self.fetchedLocks firstObject] withSuccessHandler:^(QULock *lock) {
+			 self.openLockSwitch.onLabel.text = @"Unlocked!";
+			 self.openLockSwitch.onTintColor = [UIColor emeraldColor];
 
-        [QULockManager closeLock:[self.fetchedLocks firstObject] withCompletionHandler:^(NSError *error, QULock *lock) {
-        }];
+			 [self closeLockAfterDelay:5.0f];
+		 } failureHandler:^(NSError *error) {
+			 self.openLockSwitch.onLabel.text = @"Error...";
+			 [self closeLockAfterDelay:3.0f];
+		 }];
+	} else {
+		self.openLockSwitch.onLabel.text = @"Unlocking ...";
+		self.openLockSwitch.onTintColor = [UIColor peterRiverColor];
+
+		[QULockManager closeLock:[self.fetchedLocks firstObject] withSuccessHandler:^(QULock *lock) {
+		 } failureHandler:^(NSError *error) {
+		 }];
 	}
 }
 

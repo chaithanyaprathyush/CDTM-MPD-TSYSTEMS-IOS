@@ -33,21 +33,21 @@
 
 	switch (self.lockStateSegmentedControl.selectedSegmentIndex) {
 	case 0: {
-		[QULockManager closeLock:self.lock withCompletionHandler:^(NSError *error, QULock *lock) {
-			 if (error) {
+		[QULockManager closeLock:self.lock withSuccessHandler:^(QULock *lock) {
+            [self.lockingActivitiyIndicator stopAnimating];
+
+        } failureHandler:^(NSError *error) {
 				 self.lockStateSegmentedControl.selectedSegmentIndex = 1;
-			 }
 
 			 [self.lockingActivitiyIndicator stopAnimating];
 		 }];
 		break;
 	}
 	case 1: {
-		[QULockManager openLock:self.lock withCompletionHandler:^(NSError *error, QULock *lock) {
-			 if (error) {
-				 DLOG(@"ERROR: %@", error);
-				 self.lockStateSegmentedControl.selectedSegmentIndex = 0;
-			 }
+		[QULockManager openLock:self.lock withSuccessHandler:^(QULock *lock) {
+            
+        } failureHandler:^(NSError *error) {
+                self.lockStateSegmentedControl.selectedSegmentIndex = 0;
 
 			 [self.lockingActivitiyIndicator stopAnimating];
 		 }];

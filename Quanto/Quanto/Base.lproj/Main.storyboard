@@ -50,11 +50,10 @@
             <string>Montserrat-Regular</string>
             <string>Montserrat-Regular</string>
             <string>Montserrat-Regular</string>
-            <string>Montserrat-Regular</string>
         </mutableArray>
     </customFonts>
     <scenes>
-        <!--Your Digital Keys-->
+        <!--Your Digital Key-->
         <scene sceneID="JFS-RE-yIT">
             <objects>
                 <viewController id="DfB-Qd-1f8" customClass="QURoomViewController" sceneMemberID="viewController">
@@ -69,8 +68,8 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Drd-m9-0bU">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Room No. ..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0IV-N0-hBy">
-                                <rect key="frame" x="77" y="423" width="222" height="46"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Room No. 118" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0IV-N0-hBy">
+                                <rect key="frame" x="63" y="423" width="250" height="46"/>
                                 <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="38"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
@@ -91,9 +90,10 @@ Please ask the reception to get one.</string>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S3O-6E-36l" customClass="SevenSwitch">
-                                <rect key="frame" x="77" y="528" width="222" height="60"/>
+                                <rect key="frame" x="63" y="528" width="250" height="60"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="SpQ-PX-cVz"/>
                                     <constraint firstAttribute="height" constant="60" id="suk-Js-33P"/>
                                 </constraints>
                                 <connections>
@@ -108,7 +108,6 @@ Please ask the reception to get one.</string>
                             <constraint firstItem="rti-zz-7hd" firstAttribute="top" secondItem="S3O-6E-36l" secondAttribute="bottom" constant="30" id="Acf-yn-5hu"/>
                             <constraint firstItem="S3O-6E-36l" firstAttribute="top" secondItem="ad2-Uy-84m" secondAttribute="bottom" constant="30" id="AiV-Dg-nB1"/>
                             <constraint firstItem="mIW-f5-HMl" firstAttribute="trailing" secondItem="9Yd-fv-I7N" secondAttribute="trailingMargin" id="Esp-X5-sBo"/>
-                            <constraint firstItem="0IV-N0-hBy" firstAttribute="width" secondItem="S3O-6E-36l" secondAttribute="width" id="KUA-Au-bTI"/>
                             <constraint firstAttribute="centerY" secondItem="mIW-f5-HMl" secondAttribute="centerY" id="LYE-Ev-CNn"/>
                             <constraint firstAttribute="centerX" secondItem="S3O-6E-36l" secondAttribute="centerX" id="O2c-Hq-ZKX"/>
                             <constraint firstItem="Drd-m9-0bU" firstAttribute="leading" secondItem="9Yd-fv-I7N" secondAttribute="leadingMargin" constant="-16" id="bJg-U9-bb8"/>
@@ -120,7 +119,7 @@ Please ask the reception to get one.</string>
                             <constraint firstItem="rti-zz-7hd" firstAttribute="top" secondItem="Drd-m9-0bU" secondAttribute="bottom" id="qUZ-En-0bf"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Your Digital Keys" id="3z9-P0-Uga"/>
+                    <navigationItem key="navigationItem" title="Your Digital Key" id="3z9-P0-Uga"/>
                     <connections>
                         <outlet property="noRoomMessageLabel" destination="mIW-f5-HMl" id="z6a-lj-y8n"/>
                         <outlet property="openLockSwitch" destination="S3O-6E-36l" id="ov6-VZ-D93"/>
@@ -554,7 +553,7 @@ Please ask the reception to get one.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V04-iy-ZDn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="732" y="947"/>
+            <point key="canvasLocation" x="1280" y="1068"/>
         </scene>
         <!--Control Your Room-->
         <scene sceneID="cLF-Pi-Vsh">
@@ -565,7 +564,7 @@ Please ask the reception to get one.</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="separatorColor" red="0.1094088852" green="0.12628661099999999" blue="0.13827742639999999" alpha="0.5" colorSpace="calibratedRGB"/>
-                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <sections>
                             <tableViewSection id="ivn-Bp-uVP">
                                 <cells>
@@ -797,107 +796,6 @@ Please ask the reception to get one.</string>
                                     <outlet property="priceLabel" destination="s3J-Je-GVm" id="7ig-s7-nd2"/>
                                 </connections>
                             </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="0.0" reuseIdentifier="QUHotelServiceDetailsTableViewCellID" rowHeight="160" id="cVQ-VR-gWB" customClass="QUHotelServiceDetailsTableViewCell">
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="cVQ-VR-gWB" id="yhu-ZE-9JG">
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ctu-Ee-1Ep">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="159"/>
-                                        </imageView>
-                                        <imageView userInteractionEnabled="NO" alpha="0.0" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="k1L-sq-yEM">
-                                            <rect key="frame" x="0.0" y="1" width="375" height="159"/>
-                                            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                        </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IW3-3j-mtc">
-                                            <rect key="frame" x="8" y="8" width="359" height="24"/>
-                                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="20"/>
-                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="€" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gkj-3N-Vw3">
-                                            <rect key="frame" x="354" y="123" width="13" height="36"/>
-                                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="17"/>
-                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YbE-XX-qle">
-                                            <rect key="frame" x="8" y="123" width="49" height="36"/>
-                                            <color key="backgroundColor" red="0.10057441145181656" green="0.10317060351371765" blue="0.10895000398159027" alpha="0.20000000000000001" colorSpace="calibratedRGB"/>
-                                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="20"/>
-                                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <state key="normal" title="Order">
-                                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                            </state>
-                                            <connections>
-                                                <action selector="didTouchOrderButton:" destination="cVQ-VR-gWB" eventType="touchUpInside" id="6Rs-eb-xZS"/>
-                                            </connections>
-                                        </button>
-                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="scaleToFill" editable="NO" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Pi-kJ-bmQ">
-                                            <rect key="frame" x="4" y="40" width="359" height="75"/>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                            <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <fontDescription key="fontDescription" name="AppleSDGothicNeo-Regular" family="Apple SD Gothic Neo" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                        </textView>
-                                    </subviews>
-                                    <constraints>
-                                        <constraint firstItem="IW3-3j-mtc" firstAttribute="top" secondItem="yhu-ZE-9JG" secondAttribute="topMargin" id="5wY-RY-WvR"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="Gkj-3N-Vw3" secondAttribute="bottom" constant="-8" id="6J7-zp-C0Q"/>
-                                        <constraint firstItem="Ctu-Ee-1Ep" firstAttribute="leading" secondItem="yhu-ZE-9JG" secondAttribute="leadingMargin" constant="-8" id="D2c-kk-YMJ"/>
-                                        <constraint firstItem="YbE-XX-qle" firstAttribute="leading" secondItem="yhu-ZE-9JG" secondAttribute="leadingMargin" id="Fyj-gY-d2x"/>
-                                        <constraint firstItem="Gkj-3N-Vw3" firstAttribute="trailing" secondItem="yhu-ZE-9JG" secondAttribute="trailingMargin" id="KTI-cH-EQ5"/>
-                                        <constraint firstItem="YbE-XX-qle" firstAttribute="top" secondItem="5Pi-kJ-bmQ" secondAttribute="bottom" constant="8" id="MEc-f1-n32"/>
-                                        <constraint firstItem="k1L-sq-yEM" firstAttribute="top" secondItem="yhu-ZE-9JG" secondAttribute="topMargin" constant="-7" id="QR0-h7-p0n"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="Ctu-Ee-1Ep" secondAttribute="trailing" constant="-8" id="SQM-Je-UzE"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="YbE-XX-qle" secondAttribute="bottom" constant="-8" id="dpm-el-1S5"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="k1L-sq-yEM" secondAttribute="trailing" constant="-8" id="e2a-yE-ejo"/>
-                                        <constraint firstItem="5Pi-kJ-bmQ" firstAttribute="trailing" secondItem="yhu-ZE-9JG" secondAttribute="trailingMargin" constant="-4" id="e8N-7n-6Sh"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="Ctu-Ee-1Ep" secondAttribute="bottom" constant="-8" id="gaB-dS-3HG"/>
-                                        <constraint firstItem="5Pi-kJ-bmQ" firstAttribute="top" secondItem="IW3-3j-mtc" secondAttribute="bottom" constant="8" id="rax-40-eEJ"/>
-                                        <constraint firstItem="5Pi-kJ-bmQ" firstAttribute="leading" secondItem="yhu-ZE-9JG" secondAttribute="leadingMargin" constant="-4" id="rg9-FT-Nyx"/>
-                                        <constraint firstItem="k1L-sq-yEM" firstAttribute="leading" secondItem="yhu-ZE-9JG" secondAttribute="leadingMargin" constant="-8" id="ssm-8U-h9n"/>
-                                        <constraint firstItem="IW3-3j-mtc" firstAttribute="trailing" secondItem="yhu-ZE-9JG" secondAttribute="trailingMargin" id="t3T-Jq-ueo"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="k1L-sq-yEM" secondAttribute="bottom" constant="-9" id="uKr-Vy-bWE"/>
-                                        <constraint firstItem="Gkj-3N-Vw3" firstAttribute="height" secondItem="YbE-XX-qle" secondAttribute="height" id="v5m-MF-Dt0"/>
-                                        <constraint firstItem="Ctu-Ee-1Ep" firstAttribute="top" secondItem="yhu-ZE-9JG" secondAttribute="topMargin" constant="-8" id="yDn-1W-VKK"/>
-                                        <constraint firstItem="IW3-3j-mtc" firstAttribute="leading" secondItem="yhu-ZE-9JG" secondAttribute="leadingMargin" id="yvI-yW-2oK"/>
-                                    </constraints>
-                                </tableViewCellContentView>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <connections>
-                                    <outlet property="descriptionTextTextView" destination="5Pi-kJ-bmQ" id="SU2-Ns-jdb"/>
-                                    <outlet property="nameLabel" destination="IW3-3j-mtc" id="B5g-Zy-2VG"/>
-                                    <outlet property="orderButton" destination="YbE-XX-qle" id="9L0-Hu-xrZ"/>
-                                    <outlet property="pictureImageView" destination="Ctu-Ee-1Ep" id="JJd-9g-TEU"/>
-                                    <outlet property="priceLabel" destination="Gkj-3N-Vw3" id="oQ5-aL-xJE"/>
-                                </connections>
-                            </tableViewCell>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="QUOrderTableViewCellID" textLabel="vYf-KM-Y6R" detailTextLabel="a0Y-Zr-eb5" rowHeight="60" style="IBUITableViewCellStyleValue1" id="kR2-8z-isr" customClass="QUOrderTableViewCell">
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kR2-8z-isr" id="EJk-3M-vxe">
-                                    <autoresizingMask key="autoresizingMask"/>
-                                    <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vYf-KM-Y6R">
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="20"/>
-                                            <color key="textColor" red="0.1094088852" green="0.12628661099999999" blue="0.13827742639999999" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="a0Y-Zr-eb5">
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="16"/>
-                                            <color key="textColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                    </subviews>
-                                    <color key="tintColor" red="0.2274509804" green="0.52549019610000003" blue="0.81176470590000005" alpha="1" colorSpace="calibratedRGB"/>
-                                </tableViewCellContentView>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </tableViewCell>
                         </prototypes>
                         <connections>
                             <outlet property="dataSource" destination="Fh0-Qr-lBs" id="8Yy-NY-ale"/>
@@ -1105,38 +1003,63 @@ to get your personal key.</string>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V05-ha-UOZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="831" y="509"/>
+            <point key="canvasLocation" x="813" y="930"/>
         </scene>
         <!--Your Orders-->
         <scene sceneID="Mb3-55-Beo">
             <objects>
                 <tableViewController storyboardIdentifier="QUServiceOrdersViewControllerID" id="ZXk-7l-9DL" customClass="QUOrdersTableViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="44" sectionHeaderHeight="30" sectionFooterHeight="22" id="P4B-Gb-eNi">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="60" sectionHeaderHeight="30" sectionFooterHeight="22" id="P4B-Gb-eNi">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <inset key="separatorInset" minX="15" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="QUOrderTableViewCellID" textLabel="zab-gY-T6y" detailTextLabel="lw5-u5-Ztt" style="IBUITableViewCellStyleValue1" id="XmQ-Fg-mI7" customClass="QUOrderTableViewCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="QUOrderTableViewCellID" id="XmQ-Fg-mI7" customClass="QUOrderTableViewCell">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="XmQ-Fg-mI7" id="7ll-pJ-nWY">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="zab-gY-T6y">
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="20"/>
-                                            <color key="textColor" red="0.1094088852" green="0.12628661099999999" blue="0.13827742639999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rqj-8v-uZq">
+                                            <rect key="frame" x="280" y="8" width="87" height="21"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="87" id="8Ut-hF-NhO"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="17"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lw5-u5-Ztt">
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="16"/>
-                                            <color key="textColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yoo-JD-8Ej">
+                                            <rect key="frame" x="8" y="37" width="359" height="15"/>
+                                            <fontDescription key="fontDescription" name="Montserrat-Light" family="Montserrat" pointSize="12"/>
+                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Service Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jfU-v3-X4t">
+                                            <rect key="frame" x="8" y="8" width="264" height="21"/>
+                                            <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="17"/>
+                                            <color key="textColor" red="0.10940888524055481" green="0.12628661096096039" blue="0.13827742636203766" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="yoo-JD-8Ej" firstAttribute="bottom" secondItem="7ll-pJ-nWY" secondAttribute="bottomMargin" id="8Dy-XE-jz9"/>
+                                        <constraint firstItem="Rqj-8v-uZq" firstAttribute="trailing" secondItem="7ll-pJ-nWY" secondAttribute="trailingMargin" id="Ek8-h9-flU"/>
+                                        <constraint firstItem="yoo-JD-8Ej" firstAttribute="top" secondItem="jfU-v3-X4t" secondAttribute="bottom" constant="8" id="KiT-m3-b1H"/>
+                                        <constraint firstItem="jfU-v3-X4t" firstAttribute="leading" secondItem="7ll-pJ-nWY" secondAttribute="leadingMargin" id="M0d-BP-nY5"/>
+                                        <constraint firstItem="Rqj-8v-uZq" firstAttribute="leading" secondItem="jfU-v3-X4t" secondAttribute="trailing" constant="8" id="NLy-r1-lZ6"/>
+                                        <constraint firstItem="yoo-JD-8Ej" firstAttribute="leading" secondItem="7ll-pJ-nWY" secondAttribute="leadingMargin" id="SUI-je-OMX"/>
+                                        <constraint firstItem="yoo-JD-8Ej" firstAttribute="trailing" secondItem="7ll-pJ-nWY" secondAttribute="trailingMargin" id="fDf-T4-Vyn"/>
+                                        <constraint firstItem="jfU-v3-X4t" firstAttribute="top" secondItem="7ll-pJ-nWY" secondAttribute="topMargin" id="jAB-kv-EaW"/>
+                                        <constraint firstItem="Rqj-8v-uZq" firstAttribute="top" secondItem="7ll-pJ-nWY" secondAttribute="topMargin" id="mtc-9j-Rn2"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="serviceNameLabel" destination="jfU-v3-X4t" id="FHq-1S-mdd"/>
+                                    <outlet property="statusLabel" destination="yoo-JD-8Ej" id="xwn-AC-Zwj"/>
+                                    <outlet property="timeLabel" destination="Rqj-8v-uZq" id="Ag1-0d-Ino"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -1177,7 +1100,7 @@ to get your personal key.</string>
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="separatorColor" red="0.1094088852" green="0.12628661099999999" blue="0.13827742639999999" alpha="0.5" colorSpace="calibratedRGB"/>
+                        <color key="separatorColor" red="0.1094088852" green="0.12628661099999999" blue="0.13827742639999999" alpha="0.25" colorSpace="calibratedRGB"/>
                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="QUComplaintTableViewCellID" textLabel="A2G-1A-vSD" detailTextLabel="7cP-CJ-SdN" style="IBUITableViewCellStyleValue1" id="KP1-5z-CJc" customClass="QUComplaintTableViewCell">

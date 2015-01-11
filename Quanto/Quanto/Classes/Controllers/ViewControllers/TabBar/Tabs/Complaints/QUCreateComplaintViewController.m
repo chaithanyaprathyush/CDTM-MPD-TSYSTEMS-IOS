@@ -127,7 +127,7 @@
         NSLog(@"Succes!!");
         
         [progressHUD showCheckmark];
-        progressHUD.detailsLabelText = @"Success! We will take care of your complaint very soon.";
+        progressHUD.detailsLabelText = @"Success! We will take care of your complaint soon.";
         
         [progressHUD hide:YES afterDelay:10.0f completionHandler:^{
             [self dismiss]; 

@@ -55,10 +55,10 @@
     
     // Bar Button
     [[UIBarButtonItem appearance] setTintColor:[UIColor peterRiverColor]];
-    [[UIBarButtonItem appearance] setTitleTextAttributes:@{NSFontAttributeName:[UIFont fontWithName:detailsFontName size:20.0f],
+    [[UIBarButtonItem appearance] setTitleTextAttributes:@{NSFontAttributeName:[UIFont fontWithName:detailsFontName size:15.0f],
                                                            NSForegroundColorAttributeName:[UIColor peterRiverColor]}
                                                 forState:UIControlStateNormal];
-    [[UIBarButtonItem appearance] setTitleTextAttributes:@{NSFontAttributeName:[UIFont fontWithName:detailsFontName size:20.0f],
+    [[UIBarButtonItem appearance] setTitleTextAttributes:@{NSFontAttributeName:[UIFont fontWithName:detailsFontName size:15.0f],
                                                            NSForegroundColorAttributeName:defaultTintColor}
                                                 forState:UIControlStateSelected];
     

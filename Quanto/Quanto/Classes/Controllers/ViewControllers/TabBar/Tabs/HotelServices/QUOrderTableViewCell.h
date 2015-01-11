@@ -12,5 +12,8 @@
 @interface QUOrderTableViewCell : UITableViewCell
 
 @property (nonatomic, retain) QUOrder *order;
+@property (weak, nonatomic) IBOutlet UILabel *serviceNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *statusLabel;
+@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 
 @end

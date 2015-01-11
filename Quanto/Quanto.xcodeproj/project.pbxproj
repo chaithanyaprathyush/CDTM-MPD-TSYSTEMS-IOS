@@ -52,12 +52,10 @@
 		FF4EA8971A5AC8C90074B4E8 /* PFFetchedResultsControllerTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4EA8951A5AC8C90074B4E8 /* PFFetchedResultsControllerTViewController.m */; };
 		FF4EA89A1A5ACAF60074B4E8 /* QUOrderTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4EA8991A5ACAF60074B4E8 /* QUOrderTableViewCell.m */; };
 		FF4EA89D1A5ADAEA0074B4E8 /* QUOrder+QUUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4EA89C1A5ADAEA0074B4E8 /* QUOrder+QUUtils.m */; };
-		FF4EA8A61A5AED770074B4E8 /* QULocksTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4EA8A51A5AED770074B4E8 /* QULocksTableViewController.m */; };
-		FF4EA8A91A5AEE110074B4E8 /* QULockTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FF4EA8A81A5AEE110074B4E8 /* QULockTableViewCell.m */; };
+		FF96D8301A61EC9B0063C1BD /* UIView+QUGradient.m in Sources */ = {isa = PBXBuildFile; fileRef = FF96D82F1A61EC9B0063C1BD /* UIView+QUGradient.m */; };
 		FFB3557C1A55B074007A29D1 /* UIColor+QUCorporateDesign.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB3557B1A55B074007A29D1 /* UIColor+QUCorporateDesign.m */; };
 		FFB355831A55C095007A29D1 /* QUKeyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB355821A55C095007A29D1 /* QUKeyManager.m */; };
 		FFB355981A55F591007A29D1 /* QURoomManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB355971A55F591007A29D1 /* QURoomManager.m */; };
-		FFB355A41A55FC24007A29D1 /* QUKeysViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB355A21A55FC24007A29D1 /* QUKeysViewController.m */; };
 		FFB355A61A56514C007A29D1 /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FFB355A51A56514C007A29D1 /* CoreBluetooth.framework */; };
 		FFB355DD1A5704E7007A29D1 /* QUAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB355DC1A5704E7007A29D1 /* QUAccountViewController.m */; };
 		FFCBB6B41A6091C000A2CB8F /* QURoom.m in Sources */ = {isa = PBXBuildFile; fileRef = FFCBB6B31A6091C000A2CB8F /* QURoom.m */; };
@@ -179,18 +177,14 @@
 		FF4EA8991A5ACAF60074B4E8 /* QUOrderTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUOrderTableViewCell.m; sourceTree = "<group>"; };
 		FF4EA89B1A5ADAEA0074B4E8 /* QUOrder+QUUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "QUOrder+QUUtils.h"; sourceTree = "<group>"; };
 		FF4EA89C1A5ADAEA0074B4E8 /* QUOrder+QUUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "QUOrder+QUUtils.m"; sourceTree = "<group>"; };
-		FF4EA8A41A5AED770074B4E8 /* QULocksTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QULocksTableViewController.h; sourceTree = "<group>"; };
-		FF4EA8A51A5AED770074B4E8 /* QULocksTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QULocksTableViewController.m; sourceTree = "<group>"; };
-		FF4EA8A71A5AEE110074B4E8 /* QULockTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QULockTableViewCell.h; sourceTree = "<group>"; };
-		FF4EA8A81A5AEE110074B4E8 /* QULockTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QULockTableViewCell.m; sourceTree = "<group>"; };
+		FF96D82E1A61EC9B0063C1BD /* UIView+QUGradient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+QUGradient.h"; sourceTree = "<group>"; };
+		FF96D82F1A61EC9B0063C1BD /* UIView+QUGradient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+QUGradient.m"; sourceTree = "<group>"; };
 		FFB3557A1A55B074007A29D1 /* UIColor+QUCorporateDesign.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+QUCorporateDesign.h"; sourceTree = "<group>"; };
 		FFB3557B1A55B074007A29D1 /* UIColor+QUCorporateDesign.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+QUCorporateDesign.m"; sourceTree = "<group>"; };
 		FFB355811A55C095007A29D1 /* QUKeyManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUKeyManager.h; sourceTree = "<group>"; };
 		FFB355821A55C095007A29D1 /* QUKeyManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUKeyManager.m; sourceTree = "<group>"; };
 		FFB355961A55F591007A29D1 /* QURoomManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QURoomManager.h; sourceTree = "<group>"; };
 		FFB355971A55F591007A29D1 /* QURoomManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QURoomManager.m; sourceTree = "<group>"; };
-		FFB355A11A55FC24007A29D1 /* QUKeysViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUKeysViewController.h; sourceTree = "<group>"; };
-		FFB355A21A55FC24007A29D1 /* QUKeysViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUKeysViewController.m; sourceTree = "<group>"; };
 		FFB355A51A56514C007A29D1 /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		FFB355DB1A5704E6007A29D1 /* QUAccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUAccountViewController.h; sourceTree = "<group>"; };
 		FFB355DC1A5704E7007A29D1 /* QUAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUAccountViewController.m; sourceTree = "<group>"; };
@@ -517,21 +511,10 @@
 				FFB3557B1A55B074007A29D1 /* UIColor+QUCorporateDesign.m */,
 				FF4EA88B1A5AC5CE0074B4E8 /* MBProgressHUD+QUUtils.h */,
 				FF4EA88C1A5AC5CE0074B4E8 /* MBProgressHUD+QUUtils.m */,
+				FF96D82E1A61EC9B0063C1BD /* UIView+QUGradient.h */,
+				FF96D82F1A61EC9B0063C1BD /* UIView+QUGradient.m */,
 			);
 			path = Categories;
-			sourceTree = "<group>";
-		};
-		FF48107D1A5FEB2F00DFCA77 /* _deprecated */ = {
-			isa = PBXGroup;
-			children = (
-				FF4EA8A41A5AED770074B4E8 /* QULocksTableViewController.h */,
-				FF4EA8A51A5AED770074B4E8 /* QULocksTableViewController.m */,
-				FF4EA8A71A5AEE110074B4E8 /* QULockTableViewCell.h */,
-				FF4EA8A81A5AEE110074B4E8 /* QULockTableViewCell.m */,
-				FFB355A11A55FC24007A29D1 /* QUKeysViewController.h */,
-				FFB355A21A55FC24007A29D1 /* QUKeysViewController.m */,
-			);
-			name = _deprecated;
 			sourceTree = "<group>";
 		};
 		FF4EA8481A5745120074B4E8 /* BlueTooth */ = {
@@ -558,10 +541,9 @@
 			isa = PBXGroup;
 			children = (
 				FFE5D6381A605A5B004EDEA0 /* Room */,
-				FFFEB5B21A5F2FBF002B53D0 /* Complaints */,
-				FFB355A01A55FC24007A29D1 /* Keys */,
 				FFB3559F1A55FC24007A29D1 /* HotelServices */,
 				FFB355A31A55FC24007A29D1 /* RoomControl */,
+				FFFEB5B21A5F2FBF002B53D0 /* Complaints */,
 				FFB3559E1A55FC24007A29D1 /* Account */,
 			);
 			path = Tabs;
@@ -591,14 +573,6 @@
 				FF4EA8991A5ACAF60074B4E8 /* QUOrderTableViewCell.m */,
 			);
 			path = HotelServices;
-			sourceTree = "<group>";
-		};
-		FFB355A01A55FC24007A29D1 /* Keys */ = {
-			isa = PBXGroup;
-			children = (
-				FF48107D1A5FEB2F00DFCA77 /* _deprecated */,
-			);
-			path = Keys;
 			sourceTree = "<group>";
 		};
 		FFB355A31A55FC24007A29D1 /* RoomControl */ = {
@@ -813,7 +787,6 @@
 				FF3959511A51C74600972A1E /* QUAppDelegate.m in Sources */,
 				FFEF77DD1A5237A800D2405B /* QUGuestManager.m in Sources */,
 				FF39595C1A51C74600972A1E /* UIView+QURound.m in Sources */,
-				FF4EA8A61A5AED770074B4E8 /* QULocksTableViewController.m in Sources */,
 				FF4EA8711A5906C20074B4E8 /* QUServiceTypeManager.m in Sources */,
 				FFCBB6BB1A609C0D00A2CB8F /* DVSwitch.m in Sources */,
 				FFE5D6341A602A73004EDEA0 /* QUComplaintTableViewCell.m in Sources */,
@@ -829,7 +802,6 @@
 				FF39595B1A51C74600972A1E /* NSDate+QUPrettify.m in Sources */,
 				FF4EA87C1A59C98F0074B4E8 /* QUHotelServiceTableViewCell.m in Sources */,
 				FF4EA88D1A5AC5CE0074B4E8 /* MBProgressHUD+QUUtils.m in Sources */,
-				FFB355A41A55FC24007A29D1 /* QUKeysViewController.m in Sources */,
 				FF4810671A5FE93A00DFCA77 /* QUGuest.m in Sources */,
 				FFCBB6B41A6091C000A2CB8F /* QURoom.m in Sources */,
 				FF3959571A51C74600972A1E /* PFRESTManager.m in Sources */,
@@ -838,7 +810,6 @@
 				FF4EA8791A596CDE0074B4E8 /* QUOrderManager.m in Sources */,
 				FF4810641A5FE93A00DFCA77 /* QULock.m in Sources */,
 				FF4810761A5FE93A00DFCA77 /* QUStay.m in Sources */,
-				FF4EA8A91A5AEE110074B4E8 /* QULockTableViewCell.m in Sources */,
 				FF4810841A5FFF7500DFCA77 /* QUCreateComplaintViewController.m in Sources */,
 				FF3959581A51C74600972A1E /* QULoginViewController.m in Sources */,
 				FF48107C1A5FE9E300DFCA77 /* QUComplaint.m in Sources */,
@@ -856,6 +827,7 @@
 				FF48106D1A5FE93A00DFCA77 /* QUService.m in Sources */,
 				FFB3557C1A55B074007A29D1 /* UIColor+QUCorporateDesign.m in Sources */,
 				FF4EA89D1A5ADAEA0074B4E8 /* QUOrder+QUUtils.m in Sources */,
+				FF96D8301A61EC9B0063C1BD /* UIView+QUGradient.m in Sources */,
 				FF39595A1A51C74600972A1E /* PFCoreDataManager.m in Sources */,
 				FF3959551A51C74600972A1E /* NSDictionary+PFUtils.m in Sources */,
 				FF4EA89A1A5ACAF60074B4E8 /* QUOrderTableViewCell.m in Sources */,
