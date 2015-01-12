@@ -7,6 +7,7 @@
 //
 
 #import "QURoomManager.h"
+#import "QUStayManager.h"
 
 // REST API Endpoints
 static NSString *QUAPIEndpointRooms     = @"rooms/";
@@ -37,6 +38,8 @@ static NSString *QUAPIEndpointRoom      = @"rooms/:roomID/";
     if ([JSON hasNonNullStringForKey:@"picture"]) {
         room.pictureURL = JSON[@"picture"];
     }
+    
+    room.stays = [QUStayManager updateOrCreateEntitiesWithJSON:JSON[@"stays"]];
     
     // DLOG(@"Updated User Profile with JSON:%@\n%@", JSON, userProfile);
     DLOG(@"Updated QURoom %@", room.number);
