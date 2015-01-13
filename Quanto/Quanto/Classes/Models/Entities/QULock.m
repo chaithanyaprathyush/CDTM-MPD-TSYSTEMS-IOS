@@ -16,7 +16,6 @@
 @dynamic locationLat;
 @dynamic locationLon;
 @dynamic lockID;
-@dynamic name;
 @dynamic status;
 @dynamic keys;
 @dynamic room;

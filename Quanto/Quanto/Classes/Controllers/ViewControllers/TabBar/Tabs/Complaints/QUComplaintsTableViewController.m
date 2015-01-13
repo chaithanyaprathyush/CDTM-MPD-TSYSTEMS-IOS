@@ -14,12 +14,6 @@
 #import "QUComplaintTableViewCell.h"
 #import "MBProgressHUD+QUUtils.h"
 
-@interface QUComplaintsTableViewController ()
-
-@property (nonatomic, retain) NSTimer *reloadEntitiesTimer;
-
-@end
-
 @implementation QUComplaintsTableViewController
 
 #pragma mark - UIViewController
@@ -63,13 +57,6 @@
 }
 
 #pragma mark - <UITableViewDataSource>
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-	NSInteger numberOfRowsInSection = [super tableView:tableView numberOfRowsInSection:section];
-
-	return numberOfRowsInSection;
-}
 
 - (void)tableView:(UITableView *)tableView willDisplayHeaderView:(UIView *)view forSection:(NSInteger)section
 {

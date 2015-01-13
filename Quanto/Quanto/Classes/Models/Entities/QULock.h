@@ -16,7 +16,6 @@
 @property (nonatomic, retain) NSNumber * locationLat;
 @property (nonatomic, retain) NSNumber * locationLon;
 @property (nonatomic, retain) NSNumber * lockID;
-@property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSString * status;
 @property (nonatomic, retain) NSSet *keys;
 @property (nonatomic, retain) QURoom *room;

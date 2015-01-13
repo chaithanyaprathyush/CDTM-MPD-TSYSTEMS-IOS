@@ -49,12 +49,14 @@ static PFAuthenticationType authenticationType = PFAuthenticationTypeToken;
 			 failureHandler(error);
 		 }];
 	} else if (authenticationType == PFAuthenticationTypeToken) {
-		if ([self storedAuthenticationToken]) {
+        // TODO: IN ORDER TO USE THIS, IT MUST BE TESTED WHETHER THE TOKEN IS STILL VALID !!
+        
+		//if ([self storedAuthenticationToken]) {
 
-			[self setAuthenticationHeaderWithAuthentictationToken:[self storedAuthenticationToken]];
+		//	[self setAuthenticationHeaderWithAuthentictationToken:[self storedAuthenticationToken]];
 
-			successHandler();
-		} else {
+		//	successHandler();
+		//} else {
 			// 1. Make POST Request to Authentication endpoint to obtain Token
 			[[PFRESTManager sharedManager].operationManager POST:QUAPIEndpointAuthenticationTokens
 													  parameters:@{@"username":username, @"password":password}
@@ -77,7 +79,7 @@ static PFAuthenticationType authenticationType = PFAuthenticationTypeToken;
 
 				 failureHandler(error);
 			 }];
-		}
+		//}
 	}
 }
 

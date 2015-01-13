@@ -50,6 +50,7 @@
             <string>Montserrat-Regular</string>
             <string>Montserrat-Regular</string>
             <string>Montserrat-Regular</string>
+            <string>Montserrat-Regular</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -344,7 +345,7 @@ Please ask the reception to get one.</string>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="WJu-PI-5R3" kind="relationship" relationship="rootViewController" id="FBT-fl-ac7"/>
+                        <segue destination="FhF-0V-UXo" kind="relationship" relationship="rootViewController" id="oGW-6K-xdm"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GPP-Gh-SgO" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -556,11 +557,65 @@ Please ask the reception to get one.</string>
             <point key="canvasLocation" x="1280" y="1068"/>
         </scene>
         <!--Control Your Room-->
+        <scene sceneID="9ED-6F-gFK">
+            <objects>
+                <tableViewController id="FhF-0V-UXo" customClass="QURoomControlTableViewController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="80" sectionHeaderHeight="22" sectionFooterHeight="22" id="h7C-Os-UpA">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="separatorColor" red="0.1094088852" green="0.12628661099999999" blue="0.13827742639999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="QUQiviconSmartHomeDeviceTableViewCellID" id="5Ha-My-gOg" customClass="QUQiviconSmartHomeDeviceTableViewCell">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5Ha-My-gOg" id="5Dl-FE-NLA">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bedroom Lights" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3dc-av-jHk">
+                                            <rect key="frame" x="24" y="27" width="159" height="24"/>
+                                            <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="20"/>
+                                            <color key="textColor" red="0.10940888524055481" green="0.12628661096096039" blue="0.13827742636203766" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lamp_off" highlightedImage="lamp_on_white" translatesAutoresizingMaskIntoConstraints="NO" id="uFy-mW-hch">
+                                            <rect key="frame" x="304" y="8" width="63" height="63"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="uFy-mW-hch" secondAttribute="height" multiplier="1:1" id="qZG-Tg-gxt"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="uFy-mW-hch" firstAttribute="trailing" secondItem="5Dl-FE-NLA" secondAttribute="trailingMargin" id="EE4-F1-al5"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="uFy-mW-hch" secondAttribute="bottom" id="cqA-yl-P16"/>
+                                        <constraint firstItem="3dc-av-jHk" firstAttribute="leading" secondItem="5Dl-FE-NLA" secondAttribute="leadingMargin" constant="16" id="dCk-6N-NGq"/>
+                                        <constraint firstAttribute="centerY" secondItem="3dc-av-jHk" secondAttribute="centerY" constant="0.5" id="hYT-nf-iaj"/>
+                                        <constraint firstItem="uFy-mW-hch" firstAttribute="top" secondItem="5Dl-FE-NLA" secondAttribute="topMargin" id="hrM-Nd-iJK"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="nameLabel" destination="3dc-av-jHk" id="6KB-Y3-oP7"/>
+                                    <outlet property="statusImageView" destination="uFy-mW-hch" id="1Yp-LB-XRK"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="FhF-0V-UXo" id="VZe-UJ-otH"/>
+                            <outlet property="delegate" destination="FhF-0V-UXo" id="E8b-35-DfG"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Control Your Room" id="gdr-HF-2rQ"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h6j-jE-ah7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="238.5" y="979.5"/>
+        </scene>
+        <!--Control Your Room-->
         <scene sceneID="cLF-Pi-Vsh">
             <objects>
                 <tableViewController id="WJu-PI-5R3" customClass="QURoomControlTableViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" allowsMultipleSelection="YES" rowHeight="80" sectionHeaderHeight="22" sectionFooterHeight="22" id="YaU-gN-O47">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <color key="separatorColor" red="0.1094088852" green="0.12628661099999999" blue="0.13827742639999999" alpha="0.5" colorSpace="calibratedRGB"/>
@@ -704,7 +759,7 @@ Please ask the reception to get one.</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ltq-al-4hO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="264.5" y="971.5"/>
+            <point key="canvasLocation" x="547" y="988"/>
         </scene>
         <!--Room-->
         <scene sceneID="u1b-QQ-WKY">

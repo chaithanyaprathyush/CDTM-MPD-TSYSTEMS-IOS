@@ -40,41 +40,37 @@ static NSString *QUAPIEndpointLockClose = @"locks/:lockID/close/";
 	QULock *lock = entity;
 	BOOL didUpdate = NO;
 
-	if (![lock.name isEqualToString:JSON[@"name"]]) {
-		lock.name = JSON[@"name"];
-		didUpdate = YES;
-	}
-
-	if (![lock.name isEqualToString:JSON[@"status"]]) {
+	if (![lock.status isEqualToString:JSON[@"status"]]) {
 		lock.status = JSON[@"status"];
 		didUpdate = YES;
 	}
-    
-    if (![lock.locationLat isEqualToNumber:JSON[@"location_lat"]]) {
-		lock.locationLat = JSON[@"location_lat"];
-		didUpdate = YES;
-	}
-    
-    if (![lock.locationLon isEqualToNumber:JSON[@"location_lon"]]) {
-		lock.locationLon = JSON[@"location_lon"];
+
+	/*
+	   if (![lock.locationLat isEqualToNumber:JSON[@"location_lat"]]) {
+	    lock.locationLat = JSON[@"location_lat"];
+	    didUpdate = YES;
+	   }
+
+	   if (![lock.locationLon isEqualToNumber:JSON[@"location_lon"]]) {
+	    lock.locationLon = JSON[@"location_lon"];
+	    didUpdate = YES;
+	   }*/
+
+	//    lock.keys = [QUKeyManager fetchOrCreateEntitiesWithEntityIDs:JSON[@"keys"]];
+
+	QURoom *room = [QURoomManager updateOrCreateEntityWithJSON:JSON[@"room"]];
+	if (lock.room != room) {
+		lock.room = room;
 		didUpdate = YES;
 	}
 
-    //    lock.keys = [QUKeyManager fetchOrCreateEntitiesWithEntityIDs:JSON[@"keys"]];
-    
-	QURoom *room = [QURoomManager updateOrCreateEntityWithJSON:JSON[@"room"]];
-    if (lock.room != room) {
-        lock.room = room;
-		didUpdate = YES;
-	}
-    
 	// DLOG(@"Updated User Profile with JSON:%@\n%@", JSON, userProfile);
-    
-    if (didUpdate) {
-        DLOG(@"Updated QULock %@", lock.name);
-    }
-    
-    return didUpdate;
+
+	if (didUpdate) {
+		DLOG(@"Updated QULock %@", lock.lockID);
+	}
+
+	return didUpdate;
 }
 
 #pragma mark - REST-API
@@ -83,12 +79,16 @@ static NSString *QUAPIEndpointLockClose = @"locks/:lockID/close/";
 {
 	NSString *endpoint = [QUAPIEndpointLockOpen stringByReplacingOccurrencesOfString:@":lockID" withString:[lock.lockID stringValue]];
 
+	DLOG(@"Open Lock %@", endpoint);
+
 	[[PFRESTManager sharedManager].operationManager POST:endpoint
 											  parameters:nil
 												 success:^(AFHTTPRequestOperation *operation, id responseObject) {
+		 DLOG(@"Success!");
 		 QULock *lock = [self updateOrCreateEntityWithJSON:responseObject];
 		 successHandler(lock);
 	 } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+		 DLOG(@"Failure: %@", error);
 		 failureHandler(error);
 	 }];
 }
@@ -96,13 +96,17 @@ static NSString *QUAPIEndpointLockClose = @"locks/:lockID/close/";
 + (void)closeLock:(QULock *)lock withSuccessHandler:(void (^)(QULock *))successHandler failureHandler:(void (^)(NSError *))failureHandler
 {
 	NSString *endpoint = [QUAPIEndpointLockClose stringByReplacingOccurrencesOfString:@":lockID" withString:[lock.lockID stringValue]];
-    
+
+	DLOG(@"Close Lock %@", endpoint);
+
 	[[PFRESTManager sharedManager].operationManager POST:endpoint
 											  parameters:nil
 												 success:^(AFHTTPRequestOperation *operation, id responseObject) {
+		 DLOG(@"Success!");
 		 QULock *lock = [self updateOrCreateEntityWithJSON:responseObject];
 		 successHandler(lock);
 	 } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+		 DLOG(@"Failure: %@", error);
 		 failureHandler(error);
 	 }];
 }

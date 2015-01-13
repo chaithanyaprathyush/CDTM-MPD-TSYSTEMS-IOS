@@ -109,11 +109,17 @@
 
 	self.fetchedLocks = [[PFCoreDataManager sharedManager].managedObjectContext executeFetchRequest:self.locksFetchRequest error:&error];
 
-	if (self.fetchedLocks == nil) {
+	if (self.fetchedLocks == nil || self.fetchedLocks.count == 0) {
 		// Error Handling
 		self.noRoomMessageLabel.hidden = NO;
-	} else {
+        self.openLockSwitch.hidden = YES;
+        self.roomNumberLabel.hidden = YES;
+        self.roomDetailsLabel.hidden = YES;
+    } else {
 		self.noRoomMessageLabel.hidden = YES;
+        self.openLockSwitch.hidden = NO;
+        self.roomNumberLabel.hidden = NO;
+        self.roomDetailsLabel.hidden = NO;
 
 		QULock *lock = [self.fetchedLocks firstObject];
 
@@ -124,7 +130,9 @@
 			[self.openLockSwitch setOn:[lock isOpen] animated:NO];
 			self.openLockSwitch.onLabel.text = @"Unlocked!";
 			self.openLockSwitch.onTintColor = [UIColor emeraldColor];
-		}
+        } else {
+            [self.openLockSwitch setOn:NO animated:YES];
+        }
 
 		[lock.room downloadPictureWithSuccessHandler:^{
 			 self.roomPictureImageView.image = [UIImage imageWithData:lock.room.pictureData];
@@ -157,11 +165,13 @@
 		[QULockManager openLock:[self.fetchedLocks firstObject] withSuccessHandler:^(QULock *lock) {
 			 self.openLockSwitch.onLabel.text = @"Unlocked!";
 			 self.openLockSwitch.onTintColor = [UIColor emeraldColor];
-
-			 [self closeLockAfterDelay:5.0f];
 		 } failureHandler:^(NSError *error) {
 			 self.openLockSwitch.onLabel.text = @"Error...";
-			 [self closeLockAfterDelay:3.0f];
+             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.0f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+                 [self.openLockSwitch setOn:NO animated:YES];
+                 self.openLockSwitch.onLabel.text = @"Unlocking ...";
+                 self.openLockSwitch.onTintColor = [UIColor peterRiverColor];
+             });
 		 }];
 	} else {
 		self.openLockSwitch.onLabel.text = @"Unlocking ...";

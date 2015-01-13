@@ -2,74 +2,80 @@
 //  QURoomControlTableViewController.m
 //  Quanto
 //
-//  Created by Pascal Fritzen on 10.01.15.
+//  Created by Pascal Fritzen on 12.01.15.
 //  Copyright (c) 2015 Pascal Fritzen. All rights reserved.
 //
 
 #import "QURoomControlTableViewController.h"
+#import "QUQiviconSmartHomeDeviceManager.h"
+#import "QUQiviconSmartHomeDeviceTableViewCell.h"
 
 @implementation QURoomControlTableViewController
 
-- (IBAction)didTouchBedroomLightsButton:(id)sender
+#pragma mark - UIViewController
+
+- (void)viewDidLoad
 {
-    UIButton *button = sender;
-    
-    button.selected = !button.selected;
-    
-    UILabel *label = nil;
-    int row = 0;
-    if (button == self.bedroomLightsButton) {
-        label = self.bedroomLightsLabel;
-        row = 0;
-    } else if (button == self.bathroomLightsButton) {
-        label = self.bathroomLightsLabel;
-        row = 1;
-    } else if (button == self.livingRoomLightsButton) {
-        label = self.livingRoomLightsLabel;
-        row = 2;
-    } else if (button == self.musicLightsButton) {
-        label = self.musicLightsLabel;
-        row = 3;
-    }
-    
-    label.textColor = button.selected ? [UIColor whiteColor] : [UIColor darkerDarkGrayColor];
-    
-    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:row inSection:0]];
-    cell.contentView.backgroundColor = button.selected ? [UIColor peterRiverColor] : [UIColor whiteColor];
+	[super viewDidLoad];
+
+	[super createFetchedResultsControllerWithClass:[QUQiviconSmartHomeDevice class]
+									 descriptorKey:@"type"
+										 ascending:NO
+								sectionNameKeyPath:nil];
+
+	[self enablePullToRefresh];
+
+	super.reloadEntitiesInterval = 30.0f;
 }
+
+- (void)didReceiveMemoryWarning
+{
+	[super didReceiveMemoryWarning];
+}
+
+#pragma mark - Reload Entities
+
+- (void)reloadEntities
+{
+	[QUQiviconSmartHomeDeviceManager synchronizeAllMyQiviconSmartHomeDevicesWithSuccessHandler:^(NSSet *qiviconSmartHomeDevices) {
+		 [self.refreshControl endRefreshing];
+	 } failureHandler:^(NSError *error) {
+		 [self.refreshControl endRefreshing];
+	 }];
+}
+
+#pragma mark - <UITableViewDataSource>
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+	QUQiviconSmartHomeDeviceTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"QUQiviconSmartHomeDeviceTableViewCellID" forIndexPath:indexPath];
+
+	QUQiviconSmartHomeDevice *qiviconSmartHomeDevice = [self.fetchedResultsController objectAtIndexPath:indexPath];
+
+	cell.qiviconSmartHomeDevice = qiviconSmartHomeDevice;
+
+	return cell;
+}
+
+#pragma mark - <UITableViewDelegate>
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row >= 4) {
-        return;
-    }
-    
-    UILabel *label = @[self.bedroomLightsLabel, self.bathroomLightsLabel, self.livingRoomLightsLabel, self.musicLightsLabel][indexPath.row];
-    
-    UIButton *button = @[self.bedroomLightsButton, self.bathroomLightsButton, self.livingRoomLightsButton, self.musicLightsButton][indexPath.row];
+	QUQiviconSmartHomeDevice *qiviconSmartHomeDevice = [self.fetchedResultsController objectAtIndexPath:indexPath];
 
-    button.selected = !button.selected;
-        label.textColor = button.selected ? [UIColor whiteColor] : [UIColor darkerDarkGrayColor];
-    
-    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
-    cell.contentView.backgroundColor = button.selected ? [UIColor peterRiverColor] : [UIColor whiteColor];
-}
-
-- (void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (indexPath.row >= 4) {
-        return;
-    }
-    
-    UILabel *label = @[self.bedroomLightsLabel, self.bathroomLightsLabel, self.livingRoomLightsLabel, self.musicLightsLabel][indexPath.row];
-    
-    UIButton *button = @[self.bedroomLightsButton, self.bathroomLightsButton, self.livingRoomLightsButton, self.musicLightsButton][indexPath.row];
-    
-    button.selected = NO;
-    label.textColor = [UIColor darkerDarkGrayColor];
-
-    UITableViewCell *cell = [self.tableView cellForRowAtIndexPath:indexPath];
-    cell.contentView.backgroundColor = button.selected ? [UIColor peterRiverColor] : [UIColor whiteColor];
+	if ([qiviconSmartHomeDevice.state isEqualToString:@"0"]) {
+		[QUQiviconSmartHomeDeviceManager turnOnQiviconSmartHomeDeviceWithQiviconSmartHomeDeviceID:qiviconSmartHomeDevice.qiviconSmartHomeDeviceID
+																				   successHandler:^(QUQiviconSmartHomeDevice *qiviconSmartHomeDevice) {
+		 } failureHandler:^(NSError *error) {
+			 DLOG(@"Error!");
+		 }];
+	} else {
+        [QUQiviconSmartHomeDeviceManager turnOffQiviconSmartHomeDeviceWithQiviconSmartHomeDeviceID:qiviconSmartHomeDevice.qiviconSmartHomeDeviceID
+																					successHandler:^(QUQiviconSmartHomeDevice *qiviconSmartHomeDevice) {
+		 } failureHandler:^(NSError *error) {
+			 DLOG(@"Error!");
+		 }];
+	}
 }
 
 @end
