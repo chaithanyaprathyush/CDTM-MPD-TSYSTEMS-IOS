@@ -18,5 +18,6 @@
 
 + (void)turnOffQiviconSmartHomeDeviceWithQiviconSmartHomeDeviceID:(NSNumber *)qiviconSmartHomeDeviceID successHandler:(void (^)(QUQiviconSmartHomeDevice *qiviconSmartHomeDevice))successHandler failureHandler:(void (^)(NSError *error))failureHandler;
 
++ (void)setStateForQiviconSmartHomeDeviceWithQiviconSmartHomeDeviceID:(NSNumber *)qiviconSmartHomeDeviceID state:(NSString *)state successHandler:(void (^)(QUQiviconSmartHomeDevice *qiviconSmartHomeDevice))successHandler failureHandler:(void (^)(NSError *error))failureHandler;
 
 @end

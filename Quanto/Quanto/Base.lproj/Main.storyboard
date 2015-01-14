@@ -51,6 +51,8 @@
             <string>Montserrat-Regular</string>
             <string>Montserrat-Regular</string>
             <string>Montserrat-Regular</string>
+            <string>Montserrat-Regular</string>
+            <string>Montserrat-Regular</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -337,7 +339,7 @@ Please ask the reception to get one.</string>
         <scene sceneID="l1m-MT-7dn">
             <objects>
                 <navigationController storyboardIdentifier="QURoomControlViewControllerNCID" automaticallyAdjustsScrollViewInsets="NO" id="3Fe-Ci-gnb" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Room Control" image="games37" id="53V-1G-Oe4"/>
+                    <tabBarItem key="tabBarItem" title="Room Control" image="room_control" id="53V-1G-Oe4"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="uz5-VN-2ne">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -567,7 +569,7 @@ Please ask the reception to get one.</string>
                         <color key="separatorColor" red="0.1094088852" green="0.12628661099999999" blue="0.13827742639999999" alpha="1" colorSpace="calibratedRGB"/>
                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="QUQiviconSmartHomeDeviceTableViewCellID" id="5Ha-My-gOg" customClass="QUQiviconSmartHomeDeviceTableViewCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="QUQiviconSmartHomeDeviceLightTableViewCellID" id="5Ha-My-gOg" customClass="QUQiviconSmartHomeDeviceLightTableViewCell">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5Ha-My-gOg" id="5Dl-FE-NLA">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -579,14 +581,14 @@ Please ask the reception to get one.</string>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lamp_off" highlightedImage="lamp_on_white" translatesAutoresizingMaskIntoConstraints="NO" id="uFy-mW-hch">
-                                            <rect key="frame" x="304" y="8" width="63" height="63"/>
+                                            <rect key="frame" x="289" y="8" width="63" height="63"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" secondItem="uFy-mW-hch" secondAttribute="height" multiplier="1:1" id="qZG-Tg-gxt"/>
                                             </constraints>
                                         </imageView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="uFy-mW-hch" firstAttribute="trailing" secondItem="5Dl-FE-NLA" secondAttribute="trailingMargin" id="EE4-F1-al5"/>
+                                        <constraint firstItem="uFy-mW-hch" firstAttribute="trailing" secondItem="5Dl-FE-NLA" secondAttribute="trailingMargin" constant="-15" id="EE4-F1-al5"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="uFy-mW-hch" secondAttribute="bottom" id="cqA-yl-P16"/>
                                         <constraint firstItem="3dc-av-jHk" firstAttribute="leading" secondItem="5Dl-FE-NLA" secondAttribute="leadingMargin" constant="16" id="dCk-6N-NGq"/>
                                         <constraint firstAttribute="centerY" secondItem="3dc-av-jHk" secondAttribute="centerY" constant="0.5" id="hYT-nf-iaj"/>
@@ -594,8 +596,70 @@ Please ask the reception to get one.</string>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="nameLabel" destination="3dc-av-jHk" id="6KB-Y3-oP7"/>
+                                    <outlet property="nameLabel" destination="3dc-av-jHk" id="9EN-ZP-xWg"/>
                                     <outlet property="statusImageView" destination="uFy-mW-hch" id="1Yp-LB-XRK"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="QUQiviconSmartHomeDeviceTemperatureTableViewCellID" id="gVU-xM-jbG" customClass="QUQiviconSmartHomeDeviceTemperatureTableViewCell">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gVU-xM-jbG" id="4f8-iE-n6p">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Temperature" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IL2-zZ-g0r">
+                                            <rect key="frame" x="24" y="27" width="129" height="24"/>
+                                            <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="20"/>
+                                            <color key="textColor" red="0.1094088852" green="0.12628661099999999" blue="0.13827742639999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="22" maximumValue="50" stepValue="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="SPl-vH-wj1">
+                                            <rect key="frame" x="273" y="25" width="94" height="29"/>
+                                            <color key="tintColor" red="0.22745098173618317" green="0.52549022436141968" blue="0.81176471710205078" alpha="1" colorSpace="calibratedRGB"/>
+                                            <connections>
+                                                <action selector="didChangeTemperatureStepperValue:" destination="gVU-xM-jbG" eventType="valueChanged" id="ySn-pa-bvJ"/>
+                                            </connections>
+                                        </stepper>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="IL2-zZ-g0r" firstAttribute="leading" secondItem="4f8-iE-n6p" secondAttribute="leadingMargin" constant="16" id="8Ge-XM-GWj"/>
+                                        <constraint firstAttribute="centerY" secondItem="IL2-zZ-g0r" secondAttribute="centerY" constant="0.5" id="CSA-Uy-xKc"/>
+                                        <constraint firstItem="SPl-vH-wj1" firstAttribute="trailing" secondItem="4f8-iE-n6p" secondAttribute="trailingMargin" id="Frw-qY-iOe"/>
+                                        <constraint firstAttribute="centerY" secondItem="SPl-vH-wj1" secondAttribute="centerY" id="Ywz-NU-60x"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="nameLabel" destination="IL2-zZ-g0r" id="aAd-es-uwd"/>
+                                    <outlet property="temperatureStepper" destination="SPl-vH-wj1" id="PX2-QR-ABV"/>
+                                </connections>
+                            </tableViewCell>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="QUQiviconSmartHomeDeviceMusicTableViewCellID" id="Eei-Kj-mTj" customClass="QUQiviconSmartHomeDeviceMusicTableViewCell">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Eei-Kj-mTj" id="Piz-X4-iCn">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Music" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PQ1-HV-qfd">
+                                            <rect key="frame" x="24" y="27" width="58" height="24"/>
+                                            <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="20"/>
+                                            <color key="textColor" red="0.1094088852" green="0.12628661099999999" blue="0.13827742639999999" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="music_off" highlightedImage="music_on_white" translatesAutoresizingMaskIntoConstraints="NO" id="rmM-K1-YCm">
+                                            <rect key="frame" x="289" y="8" width="63" height="63"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" secondItem="rmM-K1-YCm" secondAttribute="height" multiplier="1:1" id="5yu-Hh-2gR"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstAttribute="centerY" secondItem="PQ1-HV-qfd" secondAttribute="centerY" constant="0.5" id="Q1F-DP-OZ1"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="rmM-K1-YCm" secondAttribute="bottom" id="Q3O-he-WgZ"/>
+                                        <constraint firstItem="rmM-K1-YCm" firstAttribute="top" secondItem="Piz-X4-iCn" secondAttribute="topMargin" id="fI1-Ph-ifP"/>
+                                        <constraint firstItem="PQ1-HV-qfd" firstAttribute="leading" secondItem="Piz-X4-iCn" secondAttribute="leadingMargin" constant="16" id="qbD-6H-XAc"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="rmM-K1-YCm" secondAttribute="trailing" constant="15" id="xMH-R0-zgO"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="nameLabel" destination="PQ1-HV-qfd" id="kzn-WW-ILy"/>
+                                    <outlet property="statusImageView" destination="rmM-K1-YCm" id="ZlO-ul-tb9"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -759,13 +823,13 @@ Please ask the reception to get one.</string>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ltq-al-4hO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="547" y="988"/>
+            <point key="canvasLocation" x="642" y="988"/>
         </scene>
         <!--Room-->
         <scene sceneID="u1b-QQ-WKY">
             <objects>
                 <navigationController storyboardIdentifier="QUHotelRoomsViewControllerNCID" automaticallyAdjustsScrollViewInsets="NO" id="sGo-yw-bP3" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Room" image="key170" id="x4p-wn-VBa"/>
+                    <tabBarItem key="tabBarItem" title="Room" image="room" id="x4p-wn-VBa"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="g4g-jv-UlD">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -784,7 +848,7 @@ Please ask the reception to get one.</string>
         <scene sceneID="tTX-Vr-deD">
             <objects>
                 <navigationController storyboardIdentifier="QUServicesViewControllerNCID" automaticallyAdjustsScrollViewInsets="NO" id="WNy-E5-Pug" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Services" image="like76" id="vWg-2y-BDn"/>
+                    <tabBarItem key="tabBarItem" title="Services" image="service_management" id="vWg-2y-BDn"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="6ta-j7-6Gy">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1132,7 +1196,7 @@ to get your personal key.</string>
         <scene sceneID="pef-zR-QRh">
             <objects>
                 <navigationController storyboardIdentifier="QUAccountViewControllerNCID" automaticallyAdjustsScrollViewInsets="NO" id="c8O-Cd-RsC" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Account" image="configuration20" id="J2U-sj-BRB"/>
+                    <tabBarItem key="tabBarItem" title="Account" image="account" id="J2U-sj-BRB"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="tPZ-An-OqL">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -1275,7 +1339,7 @@ to get your personal key.</string>
         <scene sceneID="Aat-ch-5oD">
             <objects>
                 <navigationController id="r7k-3I-RFi" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Complaints" image="checkmark" id="THI-6T-kLv"/>
+                    <tabBarItem key="tabBarItem" title="Complaints" image="complaint_management" id="THI-6T-kLv"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="zgC-PQ-F5v">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1308,19 +1372,19 @@ to get your personal key.</string>
         </scene>
     </scenes>
     <resources>
-        <image name="checkmark" width="37" height="37"/>
+        <image name="account" width="32" height="32"/>
         <image name="closeButton" width="16" height="16"/>
-        <image name="configuration20" width="32" height="32"/>
-        <image name="games37" width="32" height="32"/>
+        <image name="complaint_management" width="32" height="32"/>
         <image name="heating_on" width="75" height="67"/>
-        <image name="key170" width="32" height="32"/>
         <image name="lamp_off" width="600" height="600"/>
         <image name="lamp_on_white" width="600" height="600"/>
         <image name="light_off" width="75" height="113"/>
         <image name="light_on" width="75" height="113"/>
-        <image name="like76" width="32" height="32"/>
         <image name="music_off" width="600" height="600"/>
         <image name="music_on_white" width="600" height="600"/>
+        <image name="room" width="32" height="32"/>
+        <image name="room_control" width="32" height="32"/>
+        <image name="service_management" width="32" height="32"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

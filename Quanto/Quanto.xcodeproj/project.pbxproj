@@ -57,7 +57,10 @@
 		FF9F3FBE1A646E5300A632EC /* QUQiviconSmartHomeDevice.m in Sources */ = {isa = PBXBuildFile; fileRef = FF9F3FBD1A646E5300A632EC /* QUQiviconSmartHomeDevice.m */; };
 		FF9F3FC11A646E6800A632EC /* QUQiviconSmartHomeDeviceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FF9F3FC01A646E6800A632EC /* QUQiviconSmartHomeDeviceManager.m */; };
 		FF9F3FC41A6470F700A632EC /* QURoomControlTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FF9F3FC31A6470F700A632EC /* QURoomControlTableViewController.m */; };
-		FF9F3FC71A6471F400A632EC /* QUQiviconSmartHomeDeviceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FF9F3FC61A6471F400A632EC /* QUQiviconSmartHomeDeviceTableViewCell.m */; };
+		FF9F3FC71A6471F400A632EC /* QUQiviconSmartHomeDeviceLightTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FF9F3FC61A6471F400A632EC /* QUQiviconSmartHomeDeviceLightTableViewCell.m */; };
+		FFB2D0E91A656D4800497814 /* QUQiviconSmartHomeDeviceMusicTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB2D0E61A656D4800497814 /* QUQiviconSmartHomeDeviceMusicTableViewCell.m */; };
+		FFB2D0EA1A656D4800497814 /* QUQiviconSmartHomeDeviceTemperatureTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB2D0E81A656D4800497814 /* QUQiviconSmartHomeDeviceTemperatureTableViewCell.m */; };
+		FFB2D0ED1A656E5300497814 /* QUQiviconSmartHomeDeviceTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB2D0EC1A656E5300497814 /* QUQiviconSmartHomeDeviceTableViewCell.m */; };
 		FFB3557C1A55B074007A29D1 /* UIColor+QUCorporateDesign.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB3557B1A55B074007A29D1 /* UIColor+QUCorporateDesign.m */; };
 		FFB355831A55C095007A29D1 /* QUKeyManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB355821A55C095007A29D1 /* QUKeyManager.m */; };
 		FFB355981A55F591007A29D1 /* QURoomManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FFB355971A55F591007A29D1 /* QURoomManager.m */; };
@@ -191,8 +194,14 @@
 		FF9F3FC01A646E6800A632EC /* QUQiviconSmartHomeDeviceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUQiviconSmartHomeDeviceManager.m; sourceTree = "<group>"; };
 		FF9F3FC21A6470F700A632EC /* QURoomControlTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QURoomControlTableViewController.h; sourceTree = "<group>"; };
 		FF9F3FC31A6470F700A632EC /* QURoomControlTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QURoomControlTableViewController.m; sourceTree = "<group>"; };
-		FF9F3FC51A6471F400A632EC /* QUQiviconSmartHomeDeviceTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUQiviconSmartHomeDeviceTableViewCell.h; sourceTree = "<group>"; };
-		FF9F3FC61A6471F400A632EC /* QUQiviconSmartHomeDeviceTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUQiviconSmartHomeDeviceTableViewCell.m; sourceTree = "<group>"; };
+		FF9F3FC51A6471F400A632EC /* QUQiviconSmartHomeDeviceLightTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUQiviconSmartHomeDeviceLightTableViewCell.h; sourceTree = "<group>"; };
+		FF9F3FC61A6471F400A632EC /* QUQiviconSmartHomeDeviceLightTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUQiviconSmartHomeDeviceLightTableViewCell.m; sourceTree = "<group>"; };
+		FFB2D0E51A656D4800497814 /* QUQiviconSmartHomeDeviceMusicTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUQiviconSmartHomeDeviceMusicTableViewCell.h; sourceTree = "<group>"; };
+		FFB2D0E61A656D4800497814 /* QUQiviconSmartHomeDeviceMusicTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUQiviconSmartHomeDeviceMusicTableViewCell.m; sourceTree = "<group>"; };
+		FFB2D0E71A656D4800497814 /* QUQiviconSmartHomeDeviceTemperatureTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUQiviconSmartHomeDeviceTemperatureTableViewCell.h; sourceTree = "<group>"; };
+		FFB2D0E81A656D4800497814 /* QUQiviconSmartHomeDeviceTemperatureTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUQiviconSmartHomeDeviceTemperatureTableViewCell.m; sourceTree = "<group>"; };
+		FFB2D0EB1A656E5300497814 /* QUQiviconSmartHomeDeviceTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUQiviconSmartHomeDeviceTableViewCell.h; sourceTree = "<group>"; };
+		FFB2D0EC1A656E5300497814 /* QUQiviconSmartHomeDeviceTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QUQiviconSmartHomeDeviceTableViewCell.m; sourceTree = "<group>"; };
 		FFB3557A1A55B074007A29D1 /* UIColor+QUCorporateDesign.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+QUCorporateDesign.h"; sourceTree = "<group>"; };
 		FFB3557B1A55B074007A29D1 /* UIColor+QUCorporateDesign.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+QUCorporateDesign.m"; sourceTree = "<group>"; };
 		FFB355811A55C095007A29D1 /* QUKeyManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QUKeyManager.h; sourceTree = "<group>"; };
@@ -600,8 +609,14 @@
 				FF4EA8501A584E3F0074B4E8 /* QURoomControlViewController.m */,
 				FF9F3FC21A6470F700A632EC /* QURoomControlTableViewController.h */,
 				FF9F3FC31A6470F700A632EC /* QURoomControlTableViewController.m */,
-				FF9F3FC51A6471F400A632EC /* QUQiviconSmartHomeDeviceTableViewCell.h */,
-				FF9F3FC61A6471F400A632EC /* QUQiviconSmartHomeDeviceTableViewCell.m */,
+				FFB2D0EB1A656E5300497814 /* QUQiviconSmartHomeDeviceTableViewCell.h */,
+				FFB2D0EC1A656E5300497814 /* QUQiviconSmartHomeDeviceTableViewCell.m */,
+				FF9F3FC51A6471F400A632EC /* QUQiviconSmartHomeDeviceLightTableViewCell.h */,
+				FF9F3FC61A6471F400A632EC /* QUQiviconSmartHomeDeviceLightTableViewCell.m */,
+				FFB2D0E51A656D4800497814 /* QUQiviconSmartHomeDeviceMusicTableViewCell.h */,
+				FFB2D0E61A656D4800497814 /* QUQiviconSmartHomeDeviceMusicTableViewCell.m */,
+				FFB2D0E71A656D4800497814 /* QUQiviconSmartHomeDeviceTemperatureTableViewCell.h */,
+				FFB2D0E81A656D4800497814 /* QUQiviconSmartHomeDeviceTemperatureTableViewCell.m */,
 			);
 			path = RoomControl;
 			sourceTree = "<group>";
@@ -815,6 +830,7 @@
 				FF4EA87F1A59CC810074B4E8 /* QUService+QUUtils.m in Sources */,
 				FF4EA8961A5AC8C90074B4E8 /* PFFetchedResultsControllerCViewController.m in Sources */,
 				FF3959561A51C74600972A1E /* PFAuthenticationManager.m in Sources */,
+				FFB2D0ED1A656E5300497814 /* QUQiviconSmartHomeDeviceTableViewCell.m in Sources */,
 				FFB355DD1A5704E7007A29D1 /* QUAccountViewController.m in Sources */,
 				FF4EA8511A584E3F0074B4E8 /* QURoomControlViewController.m in Sources */,
 				FFCBB6C01A60B88B00A2CB8F /* UIFont+IBCustomFonts.m in Sources */,
@@ -837,7 +853,7 @@
 				FF48107C1A5FE9E300DFCA77 /* QUComplaint.m in Sources */,
 				FF3959591A51C74600972A1E /* QURegisterViewController.m in Sources */,
 				FF4EA8871A5A11D60074B4E8 /* QUHotelServiceDetailsViewController.m in Sources */,
-				FF9F3FC71A6471F400A632EC /* QUQiviconSmartHomeDeviceTableViewCell.m in Sources */,
+				FF9F3FC71A6471F400A632EC /* QUQiviconSmartHomeDeviceLightTableViewCell.m in Sources */,
 				FFE5D63B1A605A5B004EDEA0 /* QURoomViewController.m in Sources */,
 				FF4EA8971A5AC8C90074B4E8 /* PFFetchedResultsControllerTViewController.m in Sources */,
 				FF4EA84E1A57777C0074B4E8 /* QUGuest+QUUtils.m in Sources */,
@@ -855,7 +871,9 @@
 				FF3959551A51C74600972A1E /* NSDictionary+PFUtils.m in Sources */,
 				FF4EA89A1A5ACAF60074B4E8 /* QUOrderTableViewCell.m in Sources */,
 				FF4EA8741A59239A0074B4E8 /* QUServiceManager.m in Sources */,
+				FFB2D0E91A656D4800497814 /* QUQiviconSmartHomeDeviceMusicTableViewCell.m in Sources */,
 				FF3959081A51C46400972A1E /* main.m in Sources */,
+				FFB2D0EA1A656D4800497814 /* QUQiviconSmartHomeDeviceTemperatureTableViewCell.m in Sources */,
 				FF48105E1A5FE8C800DFCA77 /* QUComplaintManager.m in Sources */,
 				FFEF77581A51CAA600D2405B /* Quanto.xcdatamodeld in Sources */,
 				FF4810731A5FE93A00DFCA77 /* QUServiceType.m in Sources */,

@@ -20,13 +20,8 @@
 
 - (void)updateUI
 {
-	self.nameLabel.text = self.qiviconSmartHomeDevice.name;
-
-    BOOL isOn = [self.qiviconSmartHomeDevice.state isEqualToString:@"1"];
-	
-    self.contentView.backgroundColor = isOn ?[UIColor peterRiverColor] :[UIColor whiteColor];
-	self.nameLabel.textColor = isOn ?[UIColor whiteColor] :[UIColor darkerDarkGrayColor];
-	self.statusImageView.highlighted = isOn;
+    // to be overridden by sub-classes
+    [self doesNotRecognizeSelector:_cmd];
 }
 
 - (UIEdgeInsets)layoutMargins

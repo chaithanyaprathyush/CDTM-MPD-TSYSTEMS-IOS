@@ -14,6 +14,7 @@ static NSString *QUAPIEndpointQiviconSmartHomeDevicesMy         = @"qivicon-smar
 static NSString *QUAPIEndpointQiviconSmartHomeDevice            = @"qivicon-smart-home-devices/:qiviconSmartHomeDeviceID/";
 static NSString *QUAPIEndpointQiviconSmartHomeDeviceTurnOn      = @"qivicon-smart-home-devices/:qiviconSmartHomeDeviceID/turn_on/";
 static NSString *QUAPIEndpointQiviconSmartHomeDeviceTurnOff     = @"qivicon-smart-home-devices/:qiviconSmartHomeDeviceID/turn_off/";
+static NSString *QUAPIEndpointQiviconSmartHomeDeviceSetState    = @"qivicon-smart-home-devices/:qiviconSmartHomeDeviceID/set_state/";
 
 @implementation QUQiviconSmartHomeDeviceManager
 
@@ -38,17 +39,17 @@ static NSString *QUAPIEndpointQiviconSmartHomeDeviceTurnOff     = @"qivicon-smar
 	}
 	qiviconSmartHomeDevice.status = JSON[@"status"];
 	qiviconSmartHomeDevice.uid = JSON[@"uid"];
-    
-    if ([JSON hasNonNullStringForKey:@"state"]) {
-        qiviconSmartHomeDevice.state = JSON[@"state"];
-    } else {
-        qiviconSmartHomeDevice.state = @"0";
-    }
-    
+
+	if ([JSON hasNonNullStringForKey:@"state"]) {
+		qiviconSmartHomeDevice.state = JSON[@"state"];
+	} else {
+		qiviconSmartHomeDevice.state = @"0";
+	}
+
 	qiviconSmartHomeDevice.type = JSON[@"type"];
 
-	DLOG(@"Updated QiviconSmartHomeDevice with JSON:%@\n%@", JSON, qiviconSmartHomeDevice);
-	// DLOG(@"Did Update QUQiviconSmartHomeDevice %@", qiviconSmartHomeDevice.qiviconSmartHomeDeviceID);
+	//DLOG(@"Updated QiviconSmartHomeDevice with JSON:%@\n%@", JSON, qiviconSmartHomeDevice);
+	DLOG(@"Did Update QUQiviconSmartHomeDevice %@", qiviconSmartHomeDevice.qiviconSmartHomeDeviceID);
 }
 
 #pragma mark - REST-API
@@ -91,6 +92,25 @@ static NSString *QUAPIEndpointQiviconSmartHomeDeviceTurnOff     = @"qivicon-smar
 
 	[[PFRESTManager sharedManager].operationManager POST:endpoint
 											  parameters:nil
+												 success:^(AFHTTPRequestOperation *operation, id responseObject) {
+		 QUQiviconSmartHomeDevice *qiviconSmartHomeDevice = [self updateOrCreateEntityWithJSON:responseObject];
+
+		 DLOG(@"Success!");
+		 successHandler(qiviconSmartHomeDevice);
+	 } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+		 DLOG(@"Failure: %@", error);
+		 failureHandler(error);
+	 }];
+}
+
++ (void)setStateForQiviconSmartHomeDeviceWithQiviconSmartHomeDeviceID:(NSNumber *)qiviconSmartHomeDeviceID state:(NSString *)state successHandler:(void (^)(QUQiviconSmartHomeDevice *))successHandler failureHandler:(void (^)(NSError *))failureHandler
+{
+	DLOG(@"Set state %@ for %@", state, [qiviconSmartHomeDeviceID stringValue]);
+
+	NSString *endpoint = [QUAPIEndpointQiviconSmartHomeDeviceSetState stringByReplacingOccurrencesOfString:@":qiviconSmartHomeDeviceID" withString:[qiviconSmartHomeDeviceID stringValue]];
+
+	[[PFRESTManager sharedManager].operationManager POST:endpoint
+                                              parameters:@{@"state":state}
 												 success:^(AFHTTPRequestOperation *operation, id responseObject) {
 		 QUQiviconSmartHomeDevice *qiviconSmartHomeDevice = [self updateOrCreateEntityWithJSON:responseObject];
 

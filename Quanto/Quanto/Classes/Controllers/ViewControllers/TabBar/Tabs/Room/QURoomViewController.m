@@ -38,8 +38,6 @@
 	self.locksFetchRequest.sortDescriptors = @[descriptor];
 
 	[self fetchLocks];
-
-	[self performSelector:@selector(reloadLocks) withObject:nil afterDelay:0.0f];
 }
 
 - (void)viewDidLayoutSubviews
@@ -66,7 +64,8 @@
 {
 	[super viewWillAppear:animated];
 
-	self.reloadLocksTimer = [NSTimer scheduledTimerWithTimeInterval:5.0f target:self selector:@selector(reloadLocks) userInfo:nil repeats:YES];
+    [self performSelector:@selector(reloadLocks) withObject:nil afterDelay:0.0f];
+	self.reloadLocksTimer = [NSTimer scheduledTimerWithTimeInterval:20.0f target:self selector:@selector(reloadLocks) userInfo:nil repeats:YES];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
@@ -112,14 +111,14 @@
 	if (self.fetchedLocks == nil || self.fetchedLocks.count == 0) {
 		// Error Handling
 		self.noRoomMessageLabel.hidden = NO;
-        self.openLockSwitch.hidden = YES;
-        self.roomNumberLabel.hidden = YES;
-        self.roomDetailsLabel.hidden = YES;
-    } else {
+		self.openLockSwitch.hidden = YES;
+		self.roomNumberLabel.hidden = YES;
+		self.roomDetailsLabel.hidden = YES;
+	} else {
 		self.noRoomMessageLabel.hidden = YES;
-        self.openLockSwitch.hidden = NO;
-        self.roomNumberLabel.hidden = NO;
-        self.roomDetailsLabel.hidden = NO;
+		self.openLockSwitch.hidden = NO;
+		self.roomNumberLabel.hidden = NO;
+		self.roomDetailsLabel.hidden = NO;
 
 		QULock *lock = [self.fetchedLocks firstObject];
 
@@ -130,9 +129,9 @@
 			[self.openLockSwitch setOn:[lock isOpen] animated:NO];
 			self.openLockSwitch.onLabel.text = @"Unlocked!";
 			self.openLockSwitch.onTintColor = [UIColor emeraldColor];
-        } else {
-            [self.openLockSwitch setOn:NO animated:YES];
-        }
+		} else {
+			[self.openLockSwitch setOn:NO animated:YES];
+		}
 
 		[lock.room downloadPictureWithSuccessHandler:^{
 			 self.roomPictureImageView.image = [UIImage imageWithData:lock.room.pictureData];
@@ -163,15 +162,19 @@
 {
 	if (self.openLockSwitch.isOn) {
 		[QULockManager openLock:[self.fetchedLocks firstObject] withSuccessHandler:^(QULock *lock) {
+			 [self fetchedLocks];
 			 self.openLockSwitch.onLabel.text = @"Unlocked!";
 			 self.openLockSwitch.onTintColor = [UIColor emeraldColor];
+			 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(7.0f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+				[self reloadLocks];
+			});
 		 } failureHandler:^(NSError *error) {
 			 self.openLockSwitch.onLabel.text = @"Error...";
-             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.0f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                 [self.openLockSwitch setOn:NO animated:YES];
-                 self.openLockSwitch.onLabel.text = @"Unlocking ...";
-                 self.openLockSwitch.onTintColor = [UIColor peterRiverColor];
-             });
+			 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.0f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+				[self.openLockSwitch setOn:NO animated:YES];
+				self.openLockSwitch.onLabel.text = @"Unlocking ...";
+				self.openLockSwitch.onTintColor = [UIColor peterRiverColor];
+			});
 		 }];
 	} else {
 		self.openLockSwitch.onLabel.text = @"Unlocking ...";

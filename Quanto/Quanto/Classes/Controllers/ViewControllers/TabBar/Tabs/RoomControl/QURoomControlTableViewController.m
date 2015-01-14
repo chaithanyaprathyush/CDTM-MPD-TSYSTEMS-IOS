@@ -9,6 +9,9 @@
 #import "QURoomControlTableViewController.h"
 #import "QUQiviconSmartHomeDeviceManager.h"
 #import "QUQiviconSmartHomeDeviceTableViewCell.h"
+#import "QUQiviconSmartHomeDeviceLightTableViewCell.h"
+#import "QUQiviconSmartHomeDeviceMusicTableViewCell.h"
+#import "QUQiviconSmartHomeDeviceTemperatureTableViewCell.h"
 
 @implementation QURoomControlTableViewController
 
@@ -48,9 +51,21 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	QUQiviconSmartHomeDeviceTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"QUQiviconSmartHomeDeviceTableViewCellID" forIndexPath:indexPath];
-
 	QUQiviconSmartHomeDevice *qiviconSmartHomeDevice = [self.fetchedResultsController objectAtIndexPath:indexPath];
+
+	NSString *cellIdentifier = nil;
+
+	if ([qiviconSmartHomeDevice.type isEqualToString:@"OnOffSocket"] || [qiviconSmartHomeDevice.type isEqualToString:@"OnOffMeter"]) {
+		cellIdentifier = @"QUQiviconSmartHomeDeviceLightTableViewCellID";
+	} else if ([qiviconSmartHomeDevice.type isEqualToString:@"Thermostat"] || [qiviconSmartHomeDevice.type isEqualToString:@"CombinedSensor"]) {
+		cellIdentifier = @"QUQiviconSmartHomeDeviceTemperatureTableViewCellID";
+	} else if ([qiviconSmartHomeDevice.type isEqualToString:@"DimmableSocket"]) {
+		cellIdentifier = @"QUQiviconSmartHomeDeviceMusicTableViewCellID";
+	} else {
+		cellIdentifier = @"QUQiviconSmartHomeDeviceLightTableViewCellID";
+	}
+
+	QUQiviconSmartHomeDeviceTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier forIndexPath:indexPath];
 
 	cell.qiviconSmartHomeDevice = qiviconSmartHomeDevice;
 
@@ -63,18 +78,20 @@
 {
 	QUQiviconSmartHomeDevice *qiviconSmartHomeDevice = [self.fetchedResultsController objectAtIndexPath:indexPath];
 
-	if ([qiviconSmartHomeDevice.state isEqualToString:@"0"]) {
-		[QUQiviconSmartHomeDeviceManager turnOnQiviconSmartHomeDeviceWithQiviconSmartHomeDeviceID:qiviconSmartHomeDevice.qiviconSmartHomeDeviceID
-																				   successHandler:^(QUQiviconSmartHomeDevice *qiviconSmartHomeDevice) {
-		 } failureHandler:^(NSError *error) {
-			 DLOG(@"Error!");
-		 }];
-	} else {
-        [QUQiviconSmartHomeDeviceManager turnOffQiviconSmartHomeDeviceWithQiviconSmartHomeDeviceID:qiviconSmartHomeDevice.qiviconSmartHomeDeviceID
-																					successHandler:^(QUQiviconSmartHomeDevice *qiviconSmartHomeDevice) {
-		 } failureHandler:^(NSError *error) {
-			 DLOG(@"Error!");
-		 }];
+	if ([qiviconSmartHomeDevice.type isEqualToString:@"OnOffSocket"] || [qiviconSmartHomeDevice.type isEqualToString:@"OnOffMeter"]) {
+		if ([qiviconSmartHomeDevice.state isEqualToString:@"0"]) {
+			[QUQiviconSmartHomeDeviceManager turnOnQiviconSmartHomeDeviceWithQiviconSmartHomeDeviceID:qiviconSmartHomeDevice.qiviconSmartHomeDeviceID
+																					   successHandler:^(QUQiviconSmartHomeDevice *qiviconSmartHomeDevice) {
+			 } failureHandler:^(NSError *error) {
+				 DLOG(@"Error!");
+			 }];
+		} else {
+			[QUQiviconSmartHomeDeviceManager turnOffQiviconSmartHomeDeviceWithQiviconSmartHomeDeviceID:qiviconSmartHomeDevice.qiviconSmartHomeDeviceID
+																						successHandler:^(QUQiviconSmartHomeDevice *qiviconSmartHomeDevice) {
+			 } failureHandler:^(NSError *error) {
+				 DLOG(@"Error!");
+			 }];
+		}
 	}
 }
 

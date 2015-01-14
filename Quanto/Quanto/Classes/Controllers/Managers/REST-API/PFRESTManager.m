@@ -11,7 +11,7 @@
 #if TARGET_IPHONE_SIMULATOR
 static NSString *HOST_AND_PORT = YES ? @"http://127.0.0.1:8000" : @"http://cdtmmpd.de";
 #else
-static NSString *HOST_AND_PORT = YES ? @"http://192.168.178.30:8000" : @"http://cdtmmpd.de";
+static NSString *HOST_AND_PORT = YES ? @"http://192.168.178.30:8000" : @"http://cdtmmpd.de";  //  //10.183.19.24
 #endif
 
 @implementation PFRESTManager
@@ -25,15 +25,15 @@ static NSString *HOST_AND_PORT = YES ? @"http://192.168.178.30:8000" : @"http://
 	static dispatch_once_t onceToken;
 
 	dispatch_once(&onceToken, ^{
-					  sharedManager = [PFRESTManager new];
-				  });
+		sharedManager = [PFRESTManager new];
+	});
 
 	return sharedManager;
 }
 
 + (NSString *)hostAndPortURLAsString
 {
-    return HOST_AND_PORT;
+	return HOST_AND_PORT;
 }
 
 - (instancetype)init
@@ -44,8 +44,8 @@ static NSString *HOST_AND_PORT = YES ? @"http://192.168.178.30:8000" : @"http://
 
 		self.operationManager = [[AFHTTPRequestOperationManager alloc] initWithBaseURL:baseURL];
 		self.operationManager.requestSerializer = [AFJSONRequestSerializer serializer];
-        
-        DLOG(@"Initialized PFRESTManager with base URL '%@'", baseURL);
+
+		DLOG(@"Initialized PFRESTManager with base URL '%@'", baseURL);
 	}
 
 	return self;
