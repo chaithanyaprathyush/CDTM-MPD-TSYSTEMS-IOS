@@ -21,9 +21,9 @@
     [super viewDidLoad];
     
     [super createFetchedResultsControllerWithClass:[QUService class]
-                                     descriptorKeys:@[@"serviceType.name", @"price"]
+                                     descriptorKeys:@[@"serviceType.serviceTypeID", @"price"]
                                          ascending:@[@YES, @NO]
-                                sectionNameKeyPath:@"serviceType.name"];
+                                sectionNameKeyPath:@"serviceType.serviceTypeID"];
     
     [super enablePullToRefresh];
     

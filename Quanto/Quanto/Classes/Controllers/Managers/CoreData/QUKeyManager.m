@@ -41,8 +41,8 @@ static NSString *QUAPIEndpointMyKeys    = @"keys/my/";
 	    userProfile.avatarURL = JSON[@"image"];
 	   }*/
 
-	//DLOG(@"Updated QUKey with JSON:%@\n%@", JSON, key);
-	DLOG(@"Updated QUKey %@", key.name);
+	DLOG(@"Updated QUKey with JSON:%@\n%@", JSON, key);
+	//DLOG(@"Updated QUKey %@", key.name);
 }
 
 #pragma mark - REST-API

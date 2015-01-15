@@ -52,7 +52,7 @@
 	[super viewDidLoad];
 
 	self.usernameTextField.text = [PFAuthenticationManager storedUsername] ? : @"pascalfritzen";
-	self.passwordTextField.text = [PFAuthenticationManager storedPassword] ? : @"changeme";
+	self.passwordTextField.text = [PFAuthenticationManager storedPassword] ? : @"pascalfritzen";
 
 	// dismiss keyboard on empty space presses
 	UIGestureRecognizer *tapper = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(closeKeyboard:)];
