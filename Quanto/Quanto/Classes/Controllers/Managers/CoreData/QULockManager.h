@@ -11,6 +11,8 @@
 
 @interface QULockManager : PFEntityManager
 
++ (QULockManager *)sharedManager;
+
 + (void)synchronizeLockWithLockID:(NSNumber *)lockID successHandler:(void (^)(QULock *lock))successHandler failureHandler:(void (^)(NSError *error))failureHandler;
 + (void)synchronizeAllLocksWithSuccessHandler:(void (^)(NSSet *locks))successHandler failureHandler:(void (^)(NSError *error))failureHandler;
 

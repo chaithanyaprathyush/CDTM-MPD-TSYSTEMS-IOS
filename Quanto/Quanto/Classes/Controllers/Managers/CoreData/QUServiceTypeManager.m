@@ -15,34 +15,64 @@ static NSString *QUAPIEndpointServiceType      = @"service-types/:serviceTypeID/
 
 @implementation QUServiceTypeManager
 
-#pragma mark - CoreData
+#pragma mark - Singleton
 
-+ (Class)entityClass
++ (QUServiceTypeManager *)sharedManager
 {
-	return [QUServiceType class];
+	static QUServiceTypeManager *sharedManager = nil;
+
+	static dispatch_once_t onceToken;
+
+	dispatch_once(&onceToken, ^{
+		sharedManager = [QUServiceTypeManager new];
+	});
+
+	return sharedManager;
 }
 
-+ (NSString *)entityIDKey
+- (instancetype)init
 {
-	return @"serviceTypeID";
+	self = [super init];
+	if (self) {
+		self.entityClass = [QUServiceType class];
+
+		self.entityLocalIDKey = @"serviceTypeID";
+	}
+	return self;
 }
 
-+ (void)updateEntity:(id)entity withJSON:(NSDictionary *)JSON
+- (BOOL)updateEntity:(id)entity withJSON:(NSDictionary *)JSON
 {
+	BOOL didUpdateAtLeastOneValue = NO;
+
 	QUServiceType *serviceType = entity;
 
-	serviceType.name = JSON[@"name"];
-	serviceType.descriptionText = JSON[@"description"];
-
-	if ([JSON hasNonNullStringForKey:@"article_id"]) {
-		serviceType.pictureURL = JSON[@"picture"];
+	if ([JSON hasNonNullStringForKey:@"name"]) {
+		serviceType.name = JSON[@"name"];
+		didUpdateAtLeastOneValue = YES;
 	}
 
-	serviceType.enabled = JSON[@"enabled"];
-	serviceType.services = [QUServiceManager updateOrCreateEntitiesWithJSON:JSON[@"services"]];
+	if ([JSON hasNonNullStringForKey:@"description"]) {
+		serviceType.descriptionText = JSON[@"description"];
+		didUpdateAtLeastOneValue = YES;
+	}
 
-	// DLOG(@"Updated User Profile with JSON:%@\n%@", JSON, userProfile);
-	DLOG(@"Updated QUServiceType %@", serviceType.name);
+	if ([JSON hasNonNullStringForKey:@"picture"]) {
+		serviceType.pictureURL = JSON[@"picture"];
+		didUpdateAtLeastOneValue = YES;
+	}
+
+	if (JSON[@"enabled"]) {
+		serviceType.enabled = JSON[@"enabled"];
+		didUpdateAtLeastOneValue = YES;
+	}
+
+	if (JSON[@"services"]) {
+		serviceType.services = [[QUServiceManager sharedManager] updateOrCreateEntitiesWithJSON:JSON[@"services"]];
+		didUpdateAtLeastOneValue = YES;
+	}
+
+	return didUpdateAtLeastOneValue;
 }
 
 #pragma mark - REST-API
@@ -50,12 +80,12 @@ static NSString *QUAPIEndpointServiceType      = @"service-types/:serviceTypeID/
 + (void)synchronizeServiceTypeWithServiceTypeID:(NSNumber *)serviceTypeID successHandler:(void (^)(QUServiceType *))successHandler failureHandler:(void (^)(NSError *))failureHandler
 {
 	NSString *endpoint = [QUAPIEndpointServiceType stringByReplacingOccurrencesOfString:@":serviceTypeID" withString:[serviceTypeID stringValue]];
-	[super fetchSingleRemoteEntityAtEndpoint:endpoint successHandler:successHandler failureHandler:failureHandler];
+	[[self sharedManager] fetchSingleRemoteEntityAtEndpoint:endpoint successHandler:successHandler failureHandler:failureHandler];
 }
 
 + (void)synchronizeAllServiceTypesWithSuccessHandler:(void (^)(NSSet *))successHandler failureHandler:(void (^)(NSError *))failureHandler
 {
-	[super fetchAllRemoteEntitiesAtEndpoint:QUAPIEndpointServiceTypes successHandler:successHandler failureHandler:failureHandler];
+	[[self sharedManager] fetchAllRemoteEntitiesAtEndpoint:QUAPIEndpointServiceTypes successHandler:successHandler failureHandler:failureHandler];
 }
 
 @end

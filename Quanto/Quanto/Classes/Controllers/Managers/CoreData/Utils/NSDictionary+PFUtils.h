@@ -13,5 +13,6 @@
 - (NSDate *)dateForKey:(NSString *)key;
 
 - (BOOL)hasNonNullStringForKey:(NSString *)key;
+- (BOOL)hasNonNullDateForKey:(NSString *)key;
 
 @end

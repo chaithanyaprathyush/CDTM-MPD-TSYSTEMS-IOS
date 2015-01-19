@@ -32,18 +32,88 @@ static NSString *QUAPIEndpointGuestMe   = @"guests/my/";
 	return sharedManager;
 }
 
+- (instancetype)init
+{
+	self = [super init];
+	if (self) {
+		self.entityClass = [QUGuest class];
+
+		self.entityLocalIDKey = @"guestID";
+	}
+	return self;
+}
+
+- (BOOL)updateEntity:(id)entity withJSON:(NSDictionary *)JSON
+{
+	BOOL didUpdateAtLeastOneValue = NO;
+
+	QUGuest *guest = entity;
+
+	if ([JSON hasNonNullStringForKey:@"avatar"]) {
+		guest.avatarURL = JSON[@"avatar"];
+		didUpdateAtLeastOneValue = YES;
+	}
+
+	if ([JSON hasNonNullStringForKey:@"email"]) {
+		guest.email = JSON[@"email"];
+		didUpdateAtLeastOneValue = YES;
+	}
+
+	if ([JSON hasNonNullStringForKey:@"fax"]) {
+		guest.fax = JSON[@"fax"];
+		didUpdateAtLeastOneValue = YES;
+	}
+
+	if ([JSON hasNonNullStringForKey:@"first_name"]) {
+		guest.firstName = JSON[@"first_name"];
+		didUpdateAtLeastOneValue = YES;
+	}
+
+	if ([JSON hasNonNullStringForKey:@"last_name"]) {
+		guest.lastName = JSON[@"last_name"];
+		didUpdateAtLeastOneValue = YES;
+	}
+
+	if ([JSON hasNonNullStringForKey:@"customer_level"]) {
+		guest.level = JSON[@"customer_level"];
+		didUpdateAtLeastOneValue = YES;
+	}
+
+	if ([JSON hasNonNullStringForKey:@"mobile"]) {
+		guest.mobile = JSON[@"mobile"];
+		didUpdateAtLeastOneValue = YES;
+	}
+
+	if ([JSON hasNonNullStringForKey:@"phone"]) {
+		guest.phone = JSON[@"phone"];
+		didUpdateAtLeastOneValue = YES;
+	}
+
+	if ([JSON hasNonNullStringForKey:@"salutation"]) {
+		guest.salutation = JSON[@"salutation"];
+		didUpdateAtLeastOneValue = YES;
+	}
+
+	if ([JSON hasNonNullStringForKey:@"username"]) {
+		guest.username = JSON[@"username"];
+		didUpdateAtLeastOneValue = YES;
+	}
+
+	return didUpdateAtLeastOneValue;
+}
+
 #pragma mark - Utils
 
 + (QUGuest *)currentGuest
 {
-    return [self sharedManager].currentGuest;
+	return [self sharedManager].currentGuest;
 }
 
 - (void)setCurrentGuest:(QUGuest *)currentGuest
 {
-    if (currentGuest) {
-        _currentGuest = currentGuest;
-    }
+	if (currentGuest) {
+		_currentGuest = currentGuest;
+	}
 }
 
 + (BOOL)isCurrentGuestLoggedIn
@@ -54,42 +124,6 @@ static NSString *QUAPIEndpointGuestMe   = @"guests/my/";
 + (void)logOutCurrentGuest
 {
 	[QUGuestManager sharedManager].currentGuest = nil;
-}
-
-#pragma mark - CoreData
-
-+ (Class)entityClass
-{
-	return [QUGuest class];
-}
-
-+ (NSString *)entityIDKey
-{
-	return @"guestID";
-}
-
-+ (void)updateEntity:(id)entity withJSON:(NSDictionary *)JSON
-{
-	QUGuest *guest = entity;
-    
-    if ([JSON hasNonNullStringForKey:@"avatar"]) {
-        guest.avatarURL = JSON[@"avatar"];
-    }
-    
-	guest.email = JSON[@"email"];
-	guest.fax = JSON[@"fax"];
-	guest.firstName = JSON[@"first_name"];
-	guest.lastName = JSON[@"last_name"];
-	guest.level = JSON[@"customer_level"];
-	// keys
-	guest.mobile = JSON[@"mobile"];
-	guest.phone = JSON[@"phone"];
-	guest.salutation = JSON[@"salutation"];
-	// stays
-	guest.username = JSON[@"username"];
-
-	// DLOG(@"Updated QUGuest with JSON:%@\n%@", JSON, guest);
-	DLOG(@"Updated QUGuest %@", guest.username);
 }
 
 #pragma mark - REST-API
@@ -112,7 +146,7 @@ static NSString *QUAPIEndpointGuestMe   = @"guests/my/";
 		 [[PFRESTManager sharedManager].operationManager POST:QUAPIEndpointGuests
 												   parameters:parameters
 													  success:^(AFHTTPRequestOperation *operation, id responseObject) {
-			  QUGuest *guest = [self updateOrCreateEntityWithJSON:responseObject];
+			  QUGuest *guest = [[self sharedManager] updateOrCreateEntityWithJSON:responseObject];
 			  DLOG(@"Successfully created new guest: %@", guest);
 			  successHandler(guest);
 		  } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
@@ -124,8 +158,8 @@ static NSString *QUAPIEndpointGuestMe   = @"guests/my/";
 
 + (void)synchronizeGuestWithSuccessHandler:(void (^)(QUGuest *))successHandler failureHandler:(void (^)(NSError *))failureHandler
 {
-	[super fetchSingleRemoteEntityAtEndpoint:QUAPIEndpointGuestMe
-							  successHandler:^(id fetchedRemoteEntity) {
+	[[self sharedManager] fetchSingleRemoteEntityAtEndpoint:QUAPIEndpointGuestMe
+											 successHandler:^(id fetchedRemoteEntity) {
 		 [self sharedManager].currentGuest = fetchedRemoteEntity;
 		 successHandler(fetchedRemoteEntity);
 	 } failureHandler:failureHandler];
@@ -134,7 +168,7 @@ static NSString *QUAPIEndpointGuestMe   = @"guests/my/";
 + (void)synchronizeGuestWithGuestID:(NSNumber *)guestID successHandler:(void (^)(QUGuest *))successHandler failureHandler:(void (^)(NSError *))failureHandler
 {
 	NSString *endpoint = [QUAPIEndpointGuest stringByReplacingOccurrencesOfString:@":guestID" withString:[guestID stringValue]];
-	[super fetchSingleRemoteEntityAtEndpoint:endpoint successHandler:successHandler failureHandler:failureHandler];
+	[[self sharedManager] fetchSingleRemoteEntityAtEndpoint:endpoint successHandler:successHandler failureHandler:failureHandler];
 }
 
 @end

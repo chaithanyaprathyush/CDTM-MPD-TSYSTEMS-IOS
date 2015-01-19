@@ -11,6 +11,8 @@
 
 @interface QUComplaintManager : PFEntityManager
 
++ (QUComplaintManager *)sharedManager;
+
 + (void)createComplaintWithPicture:(UIImage *)picture descriptionText:(NSString *)descriptionText successHandler:(void (^)(QUComplaint *complaint))successHandler failureHandler:(void (^)(NSError *error))failureHandler;
 
 + (void)synchronizeComplaintWithComplaintID:(NSNumber *)complaintID successHandler:(void (^)(QUComplaint *complaint))successHandler failureHandler:(void (^)(NSError *error))failureHandler;

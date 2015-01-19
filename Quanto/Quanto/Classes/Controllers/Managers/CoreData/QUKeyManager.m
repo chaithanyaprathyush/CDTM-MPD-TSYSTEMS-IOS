@@ -15,70 +15,85 @@ static NSString *QUAPIEndpointMyKeys    = @"keys/my/";
 
 @implementation QUKeyManager
 
-#pragma mark - CoreData
+#pragma mark - Singleton
 
-+ (Class)entityClass
++ (QUKeyManager *)sharedManager
 {
-	return [QUKey class];
+	static QUKeyManager *sharedManager = nil;
+
+	static dispatch_once_t onceToken;
+
+	dispatch_once(&onceToken, ^{
+		sharedManager = [QUKeyManager new];
+	});
+
+	return sharedManager;
 }
 
-+ (NSString *)entityIDKey
+- (instancetype)init
 {
-	return @"keyID";
+	self = [super init];
+	if (self) {
+		self.entityClass = [QUKey class];
+
+		self.entityLocalIDKey = @"keyID";
+	}
+	return self;
 }
 
-+ (void)updateEntity:(id)entity withJSON:(NSDictionary *)JSON
+- (BOOL)updateEntity:(id)entity withJSON:(NSDictionary *)JSON
 {
-	QUKey *key = entity;
-
-    key.name = JSON[@"name"];
-    key.locks = [QULockManager updateOrCreateEntitiesWithJSON:JSON[@"locks"]];
+    BOOL didUpdateAtLeastOneValue = NO;
     
-	// userProfile.user = [QUUserManager updateOrCreateEntityWithJSON:JSON[@"user"]];
+    QUKey *key = entity;
+    
+    if ([JSON hasNonNullStringForKey:@"name"]) {
+        key.name = JSON[@"name"];
+        didUpdateAtLeastOneValue = YES;
+    }
 
-	/*
-	   if (JSON[@"image"] != (id)[NSNull null]) {
-	    userProfile.avatarURL = JSON[@"image"];
-	   }*/
+	if (JSON[@"locks"]) {
+		key.locks = [[QULockManager sharedManager] updateOrCreateEntitiesWithJSON:JSON[@"locks"]];
+		didUpdateAtLeastOneValue = YES;
+	}
 
-	//DLOG(@"Updated QUKey with JSON:%@\n%@", JSON, key);
-	DLOG(@"Updated QUKey %@", key.name);
+	return didUpdateAtLeastOneValue;
 }
 
 #pragma mark - REST-API
 
 + (void)synchronizeAllMyKeysWithSuccessHandler:(void (^)(NSSet *))successHandler failureHandler:(void (^)(NSError *))failureHandler
 {
-    // first, get all current keys in order to determine later, which keys were erased (or guest has no access to anymore)
-    NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:NSStringFromClass([QUKey class])];
-    fetchRequest.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"keyID" ascending:NO]];
-    
-    NSError *error = nil;
-    NSMutableArray *allKeysBeforeFetching = [[[PFCoreDataManager sharedManager].managedObjectContext executeFetchRequest:fetchRequest error:&error] mutableCopy];
+	// first, get all current keys in order to determine later, which keys were erased (or guest has no access to anymore)
+	NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:NSStringFromClass([QUKey class])];
+	fetchRequest.sortDescriptors = @[[NSSortDescriptor sortDescriptorWithKey:@"keyID" ascending:NO]];
 
-    if (allKeysBeforeFetching == nil) {
-        failureHandler(error);
-    } else {
-        [super fetchAllRemoteEntitiesAtEndpoint:QUAPIEndpointMyKeys successHandler:^(NSSet *fetchedRemoteEntities) {
-            // Remove keys that weren't sent but were there before --> key not valid any longer / guest lost key privileges
-            [allKeysBeforeFetching removeObjectsInArray:[fetchedRemoteEntities allObjects]];
+	NSError *error = nil;
+	NSMutableArray *allKeysBeforeFetching = [[[PFCoreDataManager sharedManager].managedObjectContext executeFetchRequest:fetchRequest error:&error] mutableCopy];
 
-            if (allKeysBeforeFetching.count >= 1) {
-                for (QUKey *key in allKeysBeforeFetching) {
-                    [[PFCoreDataManager sharedManager].managedObjectContext deleteObject:key];
-                }
-                [[PFCoreDataManager sharedManager] save];
-            }
-            
-            successHandler(fetchedRemoteEntities);
-        } failureHandler:failureHandler];
-    }
+	if (allKeysBeforeFetching == nil) {
+		failureHandler(error);
+	} else {
+		[[self sharedManager] fetchAllRemoteEntitiesAtEndpoint:QUAPIEndpointMyKeys successHandler:^(NSSet *fetchedRemoteEntities) {
+		     // Remove keys that weren't sent but were there before --> key not valid any longer / guest lost key privileges
+			 [allKeysBeforeFetching removeObjectsInArray:[fetchedRemoteEntities allObjects]];
+
+			 if (allKeysBeforeFetching.count >= 1) {
+				 for (QUKey *key in allKeysBeforeFetching) {
+					 [[PFCoreDataManager sharedManager].managedObjectContext deleteObject:key];
+				 }
+				 [[PFCoreDataManager sharedManager] save];
+			 }
+
+			 successHandler(fetchedRemoteEntities);
+		 } failureHandler:failureHandler];
+	}
 }
 
 + (void)synchronizeKeyWithKeyID:(NSNumber *)keyID successHandler:(void (^)(QUKey *))successHandler failureHandler:(void (^)(NSError *))failureHandler
 {
 	NSString *endpoint = [QUAPIEndpointKey stringByReplacingOccurrencesOfString:@":keyID" withString:[keyID stringValue]];
-	[super fetchSingleRemoteEntityAtEndpoint:endpoint successHandler:successHandler failureHandler:failureHandler];
+	[[self sharedManager] fetchSingleRemoteEntityAtEndpoint:endpoint successHandler:successHandler failureHandler:failureHandler];
 }
 
 @end

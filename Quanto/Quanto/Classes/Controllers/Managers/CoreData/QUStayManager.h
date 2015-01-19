@@ -11,6 +11,8 @@
 
 @interface QUStayManager : PFEntityManager
 
++ (QUStayManager *)sharedManager;
+
 + (void)synchronizeStayWithStayID:(NSNumber *)stayID successHandler:(void (^)(QUStay *stay))successHandler failureHandler:(void (^)(NSError *error))failureHandler;
 + (void)synchronizeAllMyStaysWithSuccessHandler:(void (^)(NSSet *stays))successHandler failureHandler:(void (^)(NSError *error))failureHandler;
 

@@ -16,7 +16,7 @@
 @property (nonatomic, retain) NSDate * createdAt;
 @property (nonatomic, retain) NSDate * lastModifiedAt;
 @property (nonatomic, retain) NSNumber * orderID;
-@property (nonatomic, retain) NSNumber * status;
+@property (nonatomic, retain) NSString * status;
 @property (nonatomic, retain) QURoom *room;
 @property (nonatomic, retain) QUService *service;
 

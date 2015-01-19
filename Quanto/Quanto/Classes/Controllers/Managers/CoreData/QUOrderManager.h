@@ -11,6 +11,8 @@
 
 @interface QUOrderManager : PFEntityManager
 
++ (QUOrderManager *)sharedManager;
+
 + (void)createOrderForService:(QUService *)service successHandler:(void (^)(QUOrder *order))successHandler failureHandler:(void (^)(NSError *error))failureHandler;
 
 + (void)synchronizeOrderWithOrderID:(NSNumber *)orderID successHandler:(void (^)(QUOrder *order))successHandler failureHandler:(void (^)(NSError *error))failureHandler;

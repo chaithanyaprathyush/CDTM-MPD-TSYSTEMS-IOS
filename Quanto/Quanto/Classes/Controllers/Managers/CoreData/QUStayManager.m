@@ -16,28 +16,54 @@ static NSString *QUAPIEndpointStay     = @"stays/:stayID/";
 
 @implementation QUStayManager
 
-#pragma mark - CoreData
+#pragma mark - Singleton
 
-+ (Class)entityClass
++ (QUStayManager *)sharedManager
 {
-	return [QUStay class];
+    static QUStayManager *sharedManager = nil;
+    
+    static dispatch_once_t onceToken;
+    
+    dispatch_once(&onceToken, ^{
+        sharedManager = [QUStayManager new];
+    });
+    
+    return sharedManager;
 }
 
-+ (NSString *)entityIDKey
+- (instancetype)init
 {
-	return @"stayID";
+    self = [super init];
+    if (self) {
+        self.entityClass = [QUStay class];
+        
+        self.entityLocalIDKey = @"stayID";
+    }
+    return self;
 }
 
-+ (void)updateEntity:(id)entity withJSON:(NSDictionary *)JSON
+- (BOOL)updateEntity:(id)entity withJSON:(NSDictionary *)JSON
 {
-	QUStay *stay = entity;
-
-	stay.fromDate = [JSON dateForKey:@"date_from"];
-	stay.toDate = [JSON dateForKey:@"date_to"];
-	stay.guests = [QUGuestManager fetchOrCreateEntitiesWithEntityIDs:JSON[@"guests"]];
-
-	// DLOG(@"Updated Stay with JSON:%@\n%@", JSON, stay);
-	DLOG(@"Did Update QUStay %@", stay.stayID);
+    BOOL didUpdateAtLeastOneValue = NO;
+    
+    QUStay *stay = entity;
+    
+    if ([JSON hasNonNullDateForKey:@"date_from"]) {
+        stay.fromDate = [JSON dateForKey:@"date_from"];
+        didUpdateAtLeastOneValue = YES;
+    }
+    
+    if ([JSON hasNonNullDateForKey:@"date_to"]) {
+        stay.toDate = [JSON dateForKey:@"date_to"];
+        didUpdateAtLeastOneValue = YES;
+    }
+    
+    if (JSON[@"guests"]) {
+        stay.guests = [[QUGuestManager sharedManager] fetchOrCreateEntitiesWithEntityIDs:JSON[@"guests"]];
+        didUpdateAtLeastOneValue = YES;
+    }
+    
+    return didUpdateAtLeastOneValue;
 }
 
 #pragma mark - REST-API
@@ -45,12 +71,12 @@ static NSString *QUAPIEndpointStay     = @"stays/:stayID/";
 + (void)synchronizeStayWithStayID:(NSNumber *)stayID successHandler:(void (^)(QUStay *))successHandler failureHandler:(void (^)(NSError *))failureHandler
 {
 	NSString *endpoint = [QUAPIEndpointStay stringByReplacingOccurrencesOfString:@":stayID" withString:[stayID stringValue]];
-	[super fetchSingleRemoteEntityAtEndpoint:endpoint successHandler:successHandler failureHandler:failureHandler];
+    [[self sharedManager] fetchSingleRemoteEntityAtEndpoint:endpoint successHandler:successHandler failureHandler:failureHandler];
 }
 
 + (void)synchronizeAllMyStaysWithSuccessHandler:(void (^)(NSSet *))successHandler failureHandler:(void (^)(NSError *))failureHandler
 {
-	[super fetchAllRemoteEntitiesAtEndpoint:QUAPIEndpointMyStays successHandler:successHandler failureHandler:failureHandler];
+	[[self sharedManager] fetchAllRemoteEntitiesAtEndpoint:QUAPIEndpointMyStays successHandler:successHandler failureHandler:failureHandler];
 }
 
 @end

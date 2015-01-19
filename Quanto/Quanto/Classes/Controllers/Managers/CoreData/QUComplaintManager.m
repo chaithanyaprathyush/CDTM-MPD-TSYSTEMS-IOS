@@ -16,65 +16,69 @@ static NSString *QUAPIEndpointComplaint     = @"complaints/:complaintID/";
 
 @implementation QUComplaintManager
 
-#pragma mark - CoreData
+#pragma mark - Singleton
 
-+ (Class)entityClass
++ (QUComplaintManager *)sharedManager
 {
-	return [QUComplaint class];
+	static QUComplaintManager *sharedManager = nil;
+
+	static dispatch_once_t onceToken;
+
+	dispatch_once(&onceToken, ^{
+		sharedManager = [QUComplaintManager new];
+	});
+
+	return sharedManager;
 }
 
-+ (NSString *)entityIDKey
+- (instancetype)init
 {
-	return @"complaintID";
+	self = [super init];
+	if (self) {
+		self.entityClass = [QUComplaint class];
+
+		self.entityLocalIDKey = @"complaintID";
+	}
+	return self;
 }
 
-+ (BOOL)shouldInvokeSimpleUpdate
+- (BOOL)updateEntity:(id)entity withJSON:(NSDictionary *)JSON
 {
-	return NO;
-}
+	BOOL didUpdateAtLeastOneValue = NO;
 
-+ (BOOL)checkToUpdateEntity:(id)entity withJSON:(NSDictionary *)JSON
-{
 	QUComplaint *complaint = entity;
-	BOOL didUpdate = NO;
 
-	if (![complaint.status isEqualToString:JSON[@"status"]]) {
+	if ([JSON hasNonNullStringForKey:@"status"]) {
 		complaint.status = JSON[@"status"];
-		didUpdate = YES;
+		didUpdateAtLeastOneValue = YES;
 	}
-    
-    if (![complaint.pictureURL isEqualToString:JSON[@"picture"]]) {
-        complaint.pictureURL = JSON[@"picture"];
-        didUpdate = YES;
-    }
-    
-    if (![complaint.descriptionText isEqualToString:JSON[@"description"]]) {
-        complaint.descriptionText = JSON[@"description"];
-        didUpdate = YES;
-    }
 
-	if (![complaint.createdAt isEqualToDate:[JSON dateForKey:@"date_created"]]) {
+	if ([JSON hasNonNullStringForKey:@"picture"]) {
+		complaint.pictureURL = JSON[@"picture"];
+		didUpdateAtLeastOneValue = YES;
+	}
+
+	if ([JSON hasNonNullStringForKey:@"description"]) {
+		complaint.descriptionText = JSON[@"description"];
+		didUpdateAtLeastOneValue = YES;
+	}
+
+	if ([JSON hasNonNullDateForKey:@"date_created"]) {
 		complaint.createdAt = [JSON dateForKey:@"date_created"];
-		didUpdate = YES;
+		didUpdateAtLeastOneValue = YES;
 	}
 
-	if (![complaint.lastModifiedAt isEqualToDate:[JSON dateForKey:@"last_modified"]]) {
+	if ([JSON hasNonNullDateForKey:@"last_modified"]) {
 		complaint.lastModifiedAt = [JSON dateForKey:@"last_modified"];
-		didUpdate = YES;
+		didUpdateAtLeastOneValue = YES;
 	}
 
-	QUGuest *guest = [QUGuestManager fetchOrCreateEntityWithEntityID:JSON[@"guest"]];
-	if (complaint.guest != guest) {
-		complaint.guest = guest;
-		didUpdate = YES;
+	if (JSON[@"guest"]) {
+		complaint.guest = [[QUGuestManager sharedManager] fetchOrCreateEntityWithEntityID:JSON[@"guest"]];
+		didUpdateAtLeastOneValue = YES;
 	}
 
-	if (didUpdate) {
-		//DLOG(@"Updated Complaint with JSON:%@\n%@", JSON, complaint);
-		DLOG(@"Did Update QUComplaint %@", complaint.complaintID);
-	}
-
-	return didUpdate;
+	return didUpdateAtLeastOneValue;
 }
 
 #pragma mark - REST-API
@@ -85,16 +89,12 @@ static NSString *QUAPIEndpointComplaint     = @"complaints/:complaintID/";
 
 	DLOG(@"Create Complaint with parameters: %@", parameters);
 
-    /*dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-        successHandler(nil);
-    });*/
-    
 	[[PFRESTManager sharedManager].operationManager POST:QUAPIEndpointComplaints
-                                              parameters:parameters
-                               constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+											  parameters:parameters
+							   constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
 		 [formData appendPartWithFileData:UIImageJPEGRepresentation(picture, 1.0f) name:@"picture" fileName:@"picture.jpg" mimeType:@"image/jpeg"];
 	 } success:^(AFHTTPRequestOperation *operation, id responseObject) {
-		 QUComplaint *complaint = [self updateOrCreateEntityWithJSON:responseObject];
+		 QUComplaint *complaint = [[self sharedManager] updateOrCreateEntityWithJSON:responseObject];
 
 		 DLOG(@"Success!");
 		 successHandler(complaint);
@@ -107,12 +107,12 @@ static NSString *QUAPIEndpointComplaint     = @"complaints/:complaintID/";
 + (void)synchronizeComplaintWithComplaintID:(NSNumber *)complaintID successHandler:(void (^)(QUComplaint *))successHandler failureHandler:(void (^)(NSError *))failureHandler
 {
 	NSString *endpoint = [QUAPIEndpointComplaint stringByReplacingOccurrencesOfString:@":complaintID" withString:[complaintID stringValue]];
-	[super fetchSingleRemoteEntityAtEndpoint:endpoint successHandler:successHandler failureHandler:failureHandler];
+	[[self sharedManager] fetchSingleRemoteEntityAtEndpoint:endpoint successHandler:successHandler failureHandler:failureHandler];
 }
 
 + (void)synchronizeAllMyComplaintsWithSuccessHandler:(void (^)(NSSet *))successHandler failureHandler:(void (^)(NSError *))failureHandler
 {
-	[super fetchAllRemoteEntitiesAtEndpoint:QUAPIEndpointMyComplaints successHandler:successHandler failureHandler:failureHandler];
+	[[self sharedManager] fetchAllRemoteEntitiesAtEndpoint:QUAPIEndpointMyComplaints successHandler:successHandler failureHandler:failureHandler];
 }
 
 + (void)deleteComplaintWithComplaintID:(NSNumber *)complaintID successHandler:(void (^)(void))successHandler failureHandler:(void (^)(NSError *))failureHandler
@@ -124,7 +124,7 @@ static NSString *QUAPIEndpointComplaint     = @"complaints/:complaintID/";
 	[[PFRESTManager sharedManager].operationManager DELETE:endpoint
 												parameters:nil
 												   success:^(AFHTTPRequestOperation *operation, id responseObject) {
-		 [[PFCoreDataManager sharedManager].managedObjectContext deleteObject:[self fetchOrCreateEntityWithEntityID:complaintID]];
+		 [[PFCoreDataManager sharedManager].managedObjectContext deleteObject:[[self sharedManager] fetchOrCreateEntityWithEntityID:complaintID]];
 		 [[PFCoreDataManager sharedManager] save];
 
 		 DLOG(@"Success!");

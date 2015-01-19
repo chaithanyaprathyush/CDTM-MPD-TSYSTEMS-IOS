@@ -11,6 +11,8 @@
 
 @interface QUKeyManager : PFEntityManager
 
++ (QUKeyManager *)sharedManager;
+
 + (void)synchronizeKeyWithKeyID:(NSNumber *)keyID successHandler:(void (^)(QUKey *key))successHandler failureHandler:(void (^)(NSError *error))failureHandler;
 + (void)synchronizeAllMyKeysWithSuccessHandler:(void (^)(NSSet *keys))successHandler failureHandler:(void (^)(NSError *error))failureHandler;
 

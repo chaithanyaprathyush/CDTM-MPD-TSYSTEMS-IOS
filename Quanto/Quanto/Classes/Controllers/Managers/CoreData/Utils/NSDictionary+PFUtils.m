@@ -30,4 +30,9 @@ static NSDateFormatter *dateFormatter = nil;
     return [self valueForKey:key] != (id)[NSNull null] && [self valueForKey:key];
 }
 
+- (BOOL)hasNonNullDateForKey:(NSString *)key
+{
+    return [self valueForKey:key] != (id)[NSNull null] && [self valueForKey:key];
+}
+
 @end

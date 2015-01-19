@@ -18,61 +18,64 @@ static NSString *QUAPIEndpointOrder     = @"orders/:orderID/";
 
 @implementation QUOrderManager
 
-#pragma mark - CoreData
+#pragma mark - Singleton
 
-+ (Class)entityClass
++ (QUOrderManager *)sharedManager
 {
-	return [QUOrder class];
+	static QUOrderManager *sharedManager = nil;
+
+	static dispatch_once_t onceToken;
+
+	dispatch_once(&onceToken, ^{
+		sharedManager = [QUOrderManager new];
+	});
+
+	return sharedManager;
 }
 
-+ (NSString *)entityIDKey
+- (instancetype)init
 {
-	return @"orderID";
+	self = [super init];
+	if (self) {
+		self.entityClass = [QUOrder class];
+
+		self.entityLocalIDKey = @"orderID";
+	}
+	return self;
 }
 
-+ (BOOL)shouldInvokeSimpleUpdate
+- (BOOL)updateEntity:(id)entity withJSON:(NSDictionary *)JSON
 {
-	return NO;
-}
+	BOOL didUpdateAtLeastOneValue = NO;
 
-+ (BOOL)checkToUpdateEntity:(id)entity withJSON:(NSDictionary *)JSON
-{
 	QUOrder *order = entity;
-	BOOL didUpdate = NO;
 
-	if (![[[order statusAsString] uppercaseString] isEqualToString:JSON[@"status"]]) {
-		order.status = [NSNumber numberWithInt:[QUOrder statusAsInt:JSON[@"status"]]];
-		didUpdate = YES;
+	if ([JSON hasNonNullStringForKey:@"status"]) {
+		order.status = JSON[@"status"];
+		didUpdateAtLeastOneValue = YES;
 	}
 
-	if (![order.createdAt isEqualToDate:[JSON dateForKey:@"date_created"]]) {
+	if ([JSON hasNonNullDateForKey:@"date_created"]) {
 		order.createdAt = [JSON dateForKey:@"date_created"];
-		didUpdate = YES;
+		didUpdateAtLeastOneValue = YES;
 	}
 
-	if (![order.lastModifiedAt isEqualToDate:[JSON dateForKey:@"last_modified"]]) {
+	if ([JSON hasNonNullDateForKey:@"last_modified"]) {
 		order.lastModifiedAt = [JSON dateForKey:@"last_modified"];
-		didUpdate = YES;
+		didUpdateAtLeastOneValue = YES;
 	}
 
-	QURoom *room = [QURoomManager fetchOrCreateEntityWithEntityID:JSON[@"room"]];
-	if (order.room != room) {
-		order.room = room;
-		didUpdate = YES;
+	if (JSON[@"room"]) {
+		order.room = [[QURoomManager sharedManager] fetchOrCreateEntityWithEntityID:JSON[@"room"]];
+		didUpdateAtLeastOneValue = YES;
 	}
 
-	QUService *service = [QUServiceManager fetchOrCreateEntityWithEntityID:JSON[@"service"]];
-	if (order.service != service) {
-		order.service = service;
-		didUpdate = YES;
+	if (JSON[@"service"]) {
+		order.service = [[QUServiceManager sharedManager] fetchOrCreateEntityWithEntityID:JSON[@"service"]];
+		didUpdateAtLeastOneValue = YES;
 	}
 
-	// DLOG(@"Updated User Profile with JSON:%@\n%@", JSON, userProfile);
-	if (didUpdate) {
-		DLOG(@"Did Update QUOrder %@", order.orderID);
-	}
-
-	return didUpdate;
+	return didUpdateAtLeastOneValue;
 }
 
 #pragma mark - REST-API
@@ -86,7 +89,7 @@ static NSString *QUAPIEndpointOrder     = @"orders/:orderID/";
 	[[PFRESTManager sharedManager].operationManager POST:QUAPIEndpointOrders
 											  parameters:parameters
 												 success:^(AFHTTPRequestOperation *operation, id responseObject) {
-		 QUOrder *order = [self updateOrCreateEntityWithJSON:responseObject];
+		 QUOrder *order = [[self sharedManager] updateOrCreateEntityWithJSON:responseObject];
 
 		 DLOG(@"Success!");
 		 successHandler(order);
@@ -99,12 +102,12 @@ static NSString *QUAPIEndpointOrder     = @"orders/:orderID/";
 + (void)synchronizeOrderWithOrderID:(NSNumber *)orderID successHandler:(void (^)(QUOrder *))successHandler failureHandler:(void (^)(NSError *))failureHandler
 {
 	NSString *endpoint = [QUAPIEndpointOrder stringByReplacingOccurrencesOfString:@":orderID" withString:[orderID stringValue]];
-	[super fetchSingleRemoteEntityAtEndpoint:endpoint successHandler:successHandler failureHandler:failureHandler];
+	[[self sharedManager] fetchSingleRemoteEntityAtEndpoint:endpoint successHandler:successHandler failureHandler:failureHandler];
 }
 
 + (void)synchronizeAllMyOrdersWithSuccessHandler:(void (^)(NSSet *))successHandler failureHandler:(void (^)(NSError *))failureHandler
 {
-	[super fetchAllRemoteEntitiesAtEndpoint:QUAPIEndpointMyOrders successHandler:successHandler failureHandler:failureHandler];
+	[[self sharedManager] fetchAllRemoteEntitiesAtEndpoint:QUAPIEndpointMyOrders successHandler:successHandler failureHandler:failureHandler];
 }
 
 + (void)deleteOrderWithOrderID:(NSNumber *)orderID successHandler:(void (^)(void))successHandler failureHandler:(void (^)(NSError *))failureHandler
@@ -116,7 +119,7 @@ static NSString *QUAPIEndpointOrder     = @"orders/:orderID/";
 	[[PFRESTManager sharedManager].operationManager DELETE:endpoint
 												parameters:nil
 												   success:^(AFHTTPRequestOperation *operation, id responseObject) {
-		 [[PFCoreDataManager sharedManager].managedObjectContext deleteObject:[self fetchOrCreateEntityWithEntityID:orderID]];
+		 [[PFCoreDataManager sharedManager].managedObjectContext deleteObject:[[self sharedManager] fetchOrCreateEntityWithEntityID:orderID]];
 		 [[PFCoreDataManager sharedManager] save];
 
 		 DLOG(@"Success!");

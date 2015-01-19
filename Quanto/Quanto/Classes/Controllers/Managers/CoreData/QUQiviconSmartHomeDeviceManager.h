@@ -11,6 +11,8 @@
 
 @interface QUQiviconSmartHomeDeviceManager : PFEntityManager
 
++ (QUQiviconSmartHomeDeviceManager *)sharedManager;
+
 + (void)synchronizeQiviconSmartHomeDeviceWithQiviconSmartHomeDeviceID:(NSNumber *)qiviconSmartHomeDeviceID successHandler:(void (^)(QUQiviconSmartHomeDevice *qiviconSmartHomeDevice))successHandler failureHandler:(void (^)(NSError *error))failureHandler;
 + (void)synchronizeAllMyQiviconSmartHomeDevicesWithSuccessHandler:(void (^)(NSSet *qiviconSmartHomeDevices))successHandler failureHandler:(void (^)(NSError *error))failureHandler;
 

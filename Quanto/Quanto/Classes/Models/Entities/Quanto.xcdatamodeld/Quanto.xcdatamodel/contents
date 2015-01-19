@@ -48,7 +48,7 @@
         <attribute name="createdAt" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="lastModifiedAt" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="orderID" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
-        <attribute name="status" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="status" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="room" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="QURoom" inverseName="orders" inverseEntity="QURoom" syncable="YES"/>
         <relationship name="service" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="QUService" inverseName="orders" inverseEntity="QUService" syncable="YES"/>
     </entity>
@@ -103,11 +103,11 @@
         <element name="QUGuest" positionX="-9" positionY="108" width="128" height="268"/>
         <element name="QUKey" positionX="0" positionY="117" width="128" height="150"/>
         <element name="QULock" positionX="18" positionY="153" width="128" height="135"/>
-        <element name="QUOrder" positionX="0" positionY="234" width="128" height="133"/>
+        <element name="QUOrder" positionX="0" positionY="234" width="128" height="135"/>
+        <element name="QUQiviconSmartHomeDevice" positionX="-18" positionY="225" width="128" height="135"/>
         <element name="QURoom" positionX="-36" positionY="99" width="128" height="178"/>
         <element name="QUService" positionX="-18" positionY="216" width="128" height="178"/>
         <element name="QUServiceType" positionX="-9" positionY="225" width="128" height="148"/>
         <element name="QUStay" positionX="-45" positionY="90" width="128" height="118"/>
-        <element name="QUQiviconSmartHomeDevice" positionX="-18" positionY="225" width="128" height="135"/>
     </elements>
 </model>

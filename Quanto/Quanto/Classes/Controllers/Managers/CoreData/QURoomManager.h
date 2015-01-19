@@ -11,6 +11,8 @@
 
 @interface QURoomManager : PFEntityManager
 
++ (QURoomManager *)sharedManager;
+
 + (void)synchronizeRoomWithRoomID:(NSNumber *)roomID successHandler:(void (^)(QURoom *room))successHandler failureHandler:(void (^)(NSError *error))failureHandler;
 + (void)synchronizeAllRoomsWithSuccessHandler:(void (^)(NSSet *rooms))successHandler failureHandler:(void (^)(NSError *error))failureHandler;
 

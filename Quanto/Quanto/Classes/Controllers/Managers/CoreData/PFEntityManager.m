@@ -10,58 +10,42 @@
 
 @implementation PFEntityManager
 
-#pragma mark - Methods to be overridden by subclasses
-
-+ (NSString *)entityIDKey
+- (instancetype)init
 {
-	[self doesNotRecognizeSelector:_cmd];
-	return nil;
+	self = [super init];
+	if (self) {
+		self.entityRemoteIDKey = @"id";
+	}
+	return self;
 }
 
-+ (NSString *)remoteEntityIDKey
+- (void)setEntityClass:(Class)entityClass
 {
-	return @"id";
-}
-
-+ (Class)entityClass
-{
-	[self doesNotRecognizeSelector:_cmd];
-	return nil;
-}
-
-+ (NSString *)entityName
-{
-	return NSStringFromClass([self entityClass]);
+	_entityClass = entityClass;
+	self.entityName = NSStringFromClass(entityClass);
 }
 
 #pragma mark - Local database operations
+#pragma mark CREATE
 
-+ (id)fetchOrCreateEntityWithEntityID:(NSNumber *)entityID
+- (id)createEntityWithEntityID:(NSNumber *)entityID
 {
-	id fetchedEntity = [self fetchEntityWithEntityID:entityID];
+	id entity = [NSEntityDescription insertNewObjectForEntityForName:self.entityName
+											  inManagedObjectContext:[PFCoreDataManager sharedManager].managedObjectContext];
 
-	if (!fetchedEntity) {
-		fetchedEntity = [self createEntityWithEntityID:entityID];
-	}
+	[entity setValue:entityID forKey:self.entityLocalIDKey];
 
-	return fetchedEntity;
+	[[PFCoreDataManager sharedManager] save];
+
+	return entity;
 }
 
-+ (NSSet *)fetchOrCreateEntitiesWithEntityIDs:(NSArray *)entityIDs
+#pragma mark FETCH
+
+- (id)fetchEntityWithEntityID:(NSNumber *)entityID
 {
-	NSMutableSet *fetchedOrCreatedEntities = [NSMutableSet setWithCapacity:entityIDs.count];
-
-	for (NSNumber *entityID in entityIDs) {
-		[fetchedOrCreatedEntities addObject:[self fetchOrCreateEntityWithEntityID:entityID]];
-	}
-
-	return fetchedOrCreatedEntities;
-}
-
-+ (id)fetchEntityWithEntityID:(NSNumber *)entityID
-{
-	NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:[self entityName]];
-	fetchRequest.predicate = [NSPredicate predicateWithFormat:@"%K = %i", [self entityIDKey], [entityID longLongValue]];
+	NSFetchRequest *fetchRequest = [NSFetchRequest fetchRequestWithEntityName:self.entityName];
+	fetchRequest.predicate = [NSPredicate predicateWithFormat:@"%K = %i", self.entityLocalIDKey, [entityID longLongValue]];
 	fetchRequest.sortDescriptors = @[];
 
 	NSError *error = nil;
@@ -74,54 +58,56 @@
 	return fetchedObjects.count >= 1 ? fetchedObjects.firstObject : nil;
 }
 
-+ (id)createEntityWithEntityID:(NSNumber *)entityID
-{
-	id entity = [NSEntityDescription insertNewObjectForEntityForName:[self entityName]
-											  inManagedObjectContext:[PFCoreDataManager sharedManager].managedObjectContext];
+#pragma mark UPDATE
 
-	[entity setValue:entityID forKey:[self entityIDKey]];
-
-	[[PFCoreDataManager sharedManager] save];
-
-	return entity;
-}
-
-+ (id)updateOrCreateEntityWithJSON:(NSDictionary *)JSON
-{
-	NSNumber *entityID = [JSON valueForKeyPath:[self remoteEntityIDKey]];
-
-	id entity = [self fetchOrCreateEntityWithEntityID:entityID];
-
-	if ([self shouldInvokeSimpleUpdate]) {
-		[self updateEntity:entity withJSON:(NSDictionary *)JSON];
-		[[PFCoreDataManager sharedManager] save];
-	} else {
-		BOOL didUpdateEntity = [self checkToUpdateEntity:entity withJSON:JSON];
-		if (didUpdateEntity) {
-			[[PFCoreDataManager sharedManager] save];
-		}
-	}
-
-	return entity;
-}
-
-+ (BOOL)shouldInvokeSimpleUpdate
-{
-	return YES;
-}
-
-+ (void)updateEntity:(id)entity withJSON:(NSDictionary *)JSON
-{
-	[self doesNotRecognizeSelector:_cmd];
-}
-
-+ (BOOL)checkToUpdateEntity:(id)entity withJSON:(NSDictionary *)JSON
+- (BOOL)updateEntity:(id)entity withJSON:(NSDictionary *)JSON
 {
 	[self doesNotRecognizeSelector:_cmd];
 	return NO;
 }
 
-+ (NSSet *)updateOrCreateEntitiesWithJSON:(id)JSON
+#pragma mark FETCH or CREATE
+
+- (id)fetchOrCreateEntityWithEntityID:(NSNumber *)entityID
+{
+	id fetchedEntity = [self fetchEntityWithEntityID:entityID];
+
+	if (!fetchedEntity) {
+		fetchedEntity = [self createEntityWithEntityID:entityID];
+	}
+
+	return fetchedEntity;
+}
+
+- (NSSet *)fetchOrCreateEntitiesWithEntityIDs:(NSArray *)entityIDs
+{
+	NSMutableSet *fetchedOrCreatedEntities = [NSMutableSet setWithCapacity:entityIDs.count];
+
+	for (NSNumber *entityID in entityIDs) {
+		[fetchedOrCreatedEntities addObject:[self fetchOrCreateEntityWithEntityID:entityID]];
+	}
+
+	return fetchedOrCreatedEntities;
+}
+
+#pragma mark UPDATE or CREATE
+
+- (id)updateOrCreateEntityWithJSON:(NSDictionary *)JSON
+{
+	NSNumber *entityID = [JSON valueForKeyPath:self.entityRemoteIDKey];
+
+	id entity = [self fetchOrCreateEntityWithEntityID:entityID];
+
+	BOOL didUpdateAtLeastOneValue = [self updateEntity:entity withJSON:(NSDictionary *)JSON];
+
+	if (didUpdateAtLeastOneValue) {
+		[[PFCoreDataManager sharedManager] save];
+	}
+
+	return entity;
+}
+
+- (NSSet *)updateOrCreateEntitiesWithJSON:(id)JSON
 {
 	NSMutableSet *entities = [NSMutableSet set];
 
@@ -138,12 +124,12 @@
 
 #pragma mark - Fetching Remote Entities
 
-+ (void)fetchSingleRemoteEntityAtEndpoint:(NSString *)endpoint successHandler:(void (^)(id fetchedRemoteEntity))successHandler failureHandler:(void (^)(NSError *))failureHandler
+- (void)fetchSingleRemoteEntityAtEndpoint:(NSString *)endpoint successHandler:(void (^)(id fetchedRemoteEntity))successHandler failureHandler:(void (^)(NSError *))failureHandler
 {
 	[self fetchSingleRemoteEntityAtEndpoint:endpoint withParameters:nil successHandler:successHandler failureHandler:failureHandler];
 }
 
-+ (void)fetchSingleRemoteEntityAtEndpoint:(NSString *)endpoint withParameters:(NSDictionary *)parameters successHandler:(void (^)(id fetchedRemoteEntity))successHandler failureHandler:(void (^)(NSError *))failureHandler
+- (void)fetchSingleRemoteEntityAtEndpoint:(NSString *)endpoint withParameters:(NSDictionary *)parameters successHandler:(void (^)(id fetchedRemoteEntity))successHandler failureHandler:(void (^)(NSError *))failureHandler
 {
 	[[PFRESTManager sharedManager].operationManager GET:endpoint
 											 parameters:parameters
@@ -158,12 +144,12 @@
 	 }];
 }
 
-+ (void)fetchAllRemoteEntitiesAtEndpoint:(NSString *)endpoint successHandler:(void (^)(NSSet *fetchedRemoteEntities))successHandler failureHandler:(void (^)(NSError *))failureHandler
+- (void)fetchAllRemoteEntitiesAtEndpoint:(NSString *)endpoint successHandler:(void (^)(NSSet *fetchedRemoteEntities))successHandler failureHandler:(void (^)(NSError *))failureHandler
 {
 	[self fetchAllRemoteEntitiesAtEndpoint:endpoint withParameters:nil successHandler:successHandler failureHandler:failureHandler];
 }
 
-+ (void)fetchAllRemoteEntitiesAtEndpoint:(NSString *)endpoint withParameters:(NSDictionary *)parameters successHandler:(void (^)(NSSet *fetchedRemoteEntities))successHandler failureHandler:(void (^)(NSError *))failureHandler
+- (void)fetchAllRemoteEntitiesAtEndpoint:(NSString *)endpoint withParameters:(NSDictionary *)parameters successHandler:(void (^)(NSSet *fetchedRemoteEntities))successHandler failureHandler:(void (^)(NSError *))failureHandler
 {
 	DLOG(@"Endpoint '%@'", endpoint);
 

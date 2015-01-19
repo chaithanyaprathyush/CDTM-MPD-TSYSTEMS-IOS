@@ -14,47 +14,77 @@ static NSString *QUAPIEndpointService   = @"services/:serviceID/";
 
 @implementation QUServiceManager
 
-#pragma mark - CoreData
+#pragma mark - Singleton
 
-+ (Class)entityClass
++ (QUServiceManager *)sharedManager
 {
-    return [QUService class];
+	static QUServiceManager *sharedManager = nil;
+
+	static dispatch_once_t onceToken;
+
+	dispatch_once(&onceToken, ^{
+		sharedManager = [QUServiceManager new];
+	});
+
+	return sharedManager;
 }
 
-+ (NSString *)entityIDKey
+- (instancetype)init
 {
-    return @"serviceID";
+	self = [super init];
+	if (self) {
+		self.entityClass = [QUService class];
+
+		self.entityLocalIDKey = @"serviceID";
+	}
+	return self;
 }
 
-+ (void)updateEntity:(id)entity withJSON:(NSDictionary *)JSON
+- (BOOL)updateEntity:(id)entity withJSON:(NSDictionary *)JSON
 {
-    QUService *service = entity;
-    
-    service.name = JSON[@"name"];
-    service.descriptionText = JSON[@"description"];
-    
-    if ([JSON hasNonNullStringForKey:@"picture"]) {
-        service.pictureURL = JSON[@"picture"];
-    }
+	BOOL didUpdateAtLeastOneValue = NO;
 
-    service.enabled = JSON[@"enabled"];
-    service.price = JSON[@"price"];
-    
-    // DLOG(@"Updated User Profile with JSON:%@\n%@", JSON, userProfile);
-    DLOG(@"Updated QUService %@", service.name);
+	QUService *service = entity;
+
+	if ([JSON hasNonNullStringForKey:@"name"]) {
+		service.name = JSON[@"name"];
+		didUpdateAtLeastOneValue = YES;
+	}
+
+	if ([JSON hasNonNullStringForKey:@"description"]) {
+		service.descriptionText = JSON[@"description"];
+		didUpdateAtLeastOneValue = YES;
+	}
+
+	if ([JSON hasNonNullStringForKey:@"picture"]) {
+		service.pictureURL = JSON[@"picture"];
+		didUpdateAtLeastOneValue = YES;
+	}
+
+	if (JSON[@"enabled"]) {
+		service.enabled = JSON[@"enabled"];
+		didUpdateAtLeastOneValue = YES;
+	}
+
+	if (JSON[@"price"]) {
+		service.price = JSON[@"price"];
+		didUpdateAtLeastOneValue = YES;
+	}
+
+	return didUpdateAtLeastOneValue;
 }
 
 #pragma mark - REST-API
 
 + (void)synchronizeServiceWithServiceID:(NSNumber *)serviceID successHandler:(void (^)(QUService *))successHandler failureHandler:(void (^)(NSError *))failureHandler
 {
-    NSString *endpoint = [QUAPIEndpointService stringByReplacingOccurrencesOfString:@":serviceID" withString:[serviceID stringValue]];
-    [super fetchSingleRemoteEntityAtEndpoint:endpoint successHandler:successHandler failureHandler:failureHandler];
+	NSString *endpoint = [QUAPIEndpointService stringByReplacingOccurrencesOfString:@":serviceID" withString:[serviceID stringValue]];
+	[[self sharedManager] fetchSingleRemoteEntityAtEndpoint:endpoint successHandler:successHandler failureHandler:failureHandler];
 }
 
 + (void)synchronizeAllServicesWithSuccessHandler:(void (^)(NSSet *))successHandler failureHandler:(void (^)(NSError *))failureHandler
 {
-    [super fetchAllRemoteEntitiesAtEndpoint:QUAPIEndpointServices successHandler:successHandler failureHandler:failureHandler];
+	[[self sharedManager] fetchAllRemoteEntitiesAtEndpoint:QUAPIEndpointServices successHandler:successHandler failureHandler:failureHandler];
 }
 
 @end

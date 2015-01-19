@@ -18,59 +18,55 @@ static NSString *QUAPIEndpointLockClose = @"locks/:lockID/close/";
 
 @implementation QULockManager
 
-#pragma mark - CoreData
+#pragma mark - Singleton
 
-+ (Class)entityClass
++ (QULockManager *)sharedManager
 {
-	return [QULock class];
+	static QULockManager *sharedManager = nil;
+
+	static dispatch_once_t onceToken;
+
+	dispatch_once(&onceToken, ^{
+		sharedManager = [QULockManager new];
+	});
+
+	return sharedManager;
 }
 
-+ (NSString *)entityIDKey
+- (instancetype)init
 {
-	return @"lockID";
+	self = [super init];
+	if (self) {
+		self.entityClass = [QULock class];
+
+		self.entityLocalIDKey = @"lockID";
+	}
+	return self;
 }
 
-+ (BOOL)shouldInvokeSimpleUpdate
+- (BOOL)updateEntity:(id)entity withJSON:(NSDictionary *)JSON
 {
-	return NO;
-}
+	BOOL didUpdateAtLeastOneValue = NO;
 
-+ (BOOL)checkToUpdateEntity:(id)entity withJSON:(NSDictionary *)JSON
-{
 	QULock *lock = entity;
-	BOOL didUpdate = NO;
 
-	if (![lock.status isEqualToString:JSON[@"status"]]) {
+	if ([JSON hasNonNullStringForKey:@"status"]) {
 		lock.status = JSON[@"status"];
-		didUpdate = YES;
+		didUpdateAtLeastOneValue = YES;
 	}
 
-	/*
-	   if (![lock.locationLat isEqualToNumber:JSON[@"location_lat"]]) {
-	    lock.locationLat = JSON[@"location_lat"];
-	    didUpdate = YES;
-	   }
+	if (JSON[@"room"]) {
+		QURoom *room = [[QURoomManager sharedManager] updateOrCreateEntityWithJSON:JSON[@"room"]];
 
-	   if (![lock.locationLon isEqualToNumber:JSON[@"location_lon"]]) {
-	    lock.locationLon = JSON[@"location_lon"];
-	    didUpdate = YES;
-	   }*/
-
-	//    lock.keys = [QUKeyManager fetchOrCreateEntitiesWithEntityIDs:JSON[@"keys"]];
-
-	QURoom *room = [QURoomManager updateOrCreateEntityWithJSON:JSON[@"room"]];
-	if (lock.room != room) {
-		lock.room = room;
-		didUpdate = YES;
+		if (lock.room != room) {
+			lock.room = room;
+			didUpdateAtLeastOneValue = YES;
+		}
 	}
+    
+    // DLOG(@"Update lock %@ with JSON %@", lock, JSON);
 
-	// DLOG(@"Updated User Profile with JSON:%@\n%@", JSON, userProfile);
-
-	if (didUpdate) {
-		DLOG(@"Updated QULock %@", lock.lockID);
-	}
-
-	return didUpdate;
+	return didUpdateAtLeastOneValue;
 }
 
 #pragma mark - REST-API
@@ -85,7 +81,7 @@ static NSString *QUAPIEndpointLockClose = @"locks/:lockID/close/";
 											  parameters:nil
 												 success:^(AFHTTPRequestOperation *operation, id responseObject) {
 		 DLOG(@"Success!");
-		 QULock *lock = [self updateOrCreateEntityWithJSON:responseObject];
+		 QULock *lock = [[self sharedManager] updateOrCreateEntityWithJSON:responseObject];
 		 successHandler(lock);
 	 } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
 		 DLOG(@"Failure: %@", error);
@@ -103,7 +99,7 @@ static NSString *QUAPIEndpointLockClose = @"locks/:lockID/close/";
 											  parameters:nil
 												 success:^(AFHTTPRequestOperation *operation, id responseObject) {
 		 DLOG(@"Success!");
-		 QULock *lock = [self updateOrCreateEntityWithJSON:responseObject];
+		 QULock *lock = [[self sharedManager] updateOrCreateEntityWithJSON:responseObject];
 		 successHandler(lock);
 	 } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
 		 DLOG(@"Failure: %@", error);
@@ -114,12 +110,12 @@ static NSString *QUAPIEndpointLockClose = @"locks/:lockID/close/";
 + (void)synchronizeLockWithLockID:(NSNumber *)lockID successHandler:(void (^)(QULock *))successHandler failureHandler:(void (^)(NSError *))failureHandler
 {
 	NSString *endpoint = [QUAPIEndpointLock stringByReplacingOccurrencesOfString:@":lockID" withString:[lockID stringValue]];
-	[super fetchSingleRemoteEntityAtEndpoint:endpoint successHandler:successHandler failureHandler:failureHandler];
+	[[self sharedManager] fetchSingleRemoteEntityAtEndpoint:endpoint successHandler:successHandler failureHandler:failureHandler];
 }
 
 + (void)synchronizeAllLocksWithSuccessHandler:(void (^)(NSSet *))successHandler failureHandler:(void (^)(NSError *))failureHandler
 {
-	[super fetchAllRemoteEntitiesAtEndpoint:QUAPIEndpointLocks successHandler:successHandler failureHandler:failureHandler];
+	[[self sharedManager] fetchAllRemoteEntitiesAtEndpoint:QUAPIEndpointLocks successHandler:successHandler failureHandler:failureHandler];
 }
 
 @end

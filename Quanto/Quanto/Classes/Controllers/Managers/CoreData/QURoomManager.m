@@ -15,47 +15,77 @@ static NSString *QUAPIEndpointRoom      = @"rooms/:roomID/";
 
 @implementation QURoomManager
 
-#pragma mark - CoreData
+#pragma mark - Singleton
 
-+ (Class)entityClass
++ (QURoomManager *)sharedManager
 {
-    return [QURoom class];
+	static QURoomManager *sharedManager = nil;
+
+	static dispatch_once_t onceToken;
+
+	dispatch_once(&onceToken, ^{
+		sharedManager = [QURoomManager new];
+	});
+
+	return sharedManager;
 }
 
-+ (NSString *)entityIDKey
+- (instancetype)init
 {
-    return @"roomID";
+	self = [super init];
+	if (self) {
+		self.entityClass = [QURoom class];
+
+		self.entityLocalIDKey = @"roomID";
+	}
+	return self;
 }
 
-+ (void)updateEntity:(id)entity withJSON:(NSDictionary *)JSON
+- (BOOL)updateEntity:(id)entity withJSON:(NSDictionary *)JSON
 {
-    QURoom *room = entity;
-    
-    room.number = JSON[@"number"];
-    room.price = JSON[@"price"];
-    room.descriptionText = JSON[@"description"];
+	BOOL didUpdateAtLeastOneValue = NO;
 
-    if ([JSON hasNonNullStringForKey:@"picture"]) {
-        room.pictureURL = JSON[@"picture"];
-    }
-    
-    room.stays = [QUStayManager updateOrCreateEntitiesWithJSON:JSON[@"stays"]];
-    
-    // DLOG(@"Updated User Profile with JSON:%@\n%@", JSON, userProfile);
-    DLOG(@"Updated QURoom %@", room.number);
+	QURoom *room = entity;
+
+	if (JSON[@"number"]) {
+		room.number = JSON[@"number"];
+		didUpdateAtLeastOneValue = YES;
+	}
+
+	if (JSON[@"price"]) {
+		room.price = JSON[@"price"];
+		didUpdateAtLeastOneValue = YES;
+	}
+
+	if ([JSON hasNonNullStringForKey:@"description"]) {
+		room.descriptionText = JSON[@"description"];
+		didUpdateAtLeastOneValue = YES;
+	}
+
+	if ([JSON hasNonNullStringForKey:@"picture"]) {
+		room.pictureURL = JSON[@"picture"];
+		didUpdateAtLeastOneValue = YES;
+	}
+
+	if (JSON[@"stays"]) {
+		room.stays = [[QUStayManager sharedManager] updateOrCreateEntitiesWithJSON:JSON[@"stays"]];
+		didUpdateAtLeastOneValue = YES;
+	}
+
+	return didUpdateAtLeastOneValue;
 }
 
 #pragma mark - REST-API
 
 + (void)synchronizeRoomWithRoomID:(NSNumber *)roomID successHandler:(void (^)(QURoom *))successHandler failureHandler:(void (^)(NSError *))failureHandler
 {
-    NSString *endpoint = [QUAPIEndpointRoom stringByReplacingOccurrencesOfString:@":roomID" withString:[roomID stringValue]];
-    [super fetchSingleRemoteEntityAtEndpoint:endpoint successHandler:successHandler failureHandler:failureHandler];
+	NSString *endpoint = [QUAPIEndpointRoom stringByReplacingOccurrencesOfString:@":roomID" withString:[roomID stringValue]];
+	[[self sharedManager] fetchSingleRemoteEntityAtEndpoint:endpoint successHandler:successHandler failureHandler:failureHandler];
 }
 
 + (void)synchronizeAllRoomsWithSuccessHandler:(void (^)(NSSet *))successHandler failureHandler:(void (^)(NSError *))failureHandler
 {
-    [super fetchAllRemoteEntitiesAtEndpoint:QUAPIEndpointRooms successHandler:successHandler failureHandler:failureHandler];
+	[[self sharedManager] fetchAllRemoteEntitiesAtEndpoint:QUAPIEndpointRooms successHandler:successHandler failureHandler:failureHandler];
 }
 
 @end

@@ -11,6 +11,8 @@
 
 @interface QUServiceTypeManager : PFEntityManager
 
++ (QUServiceTypeManager *)sharedManager;
+
 + (void)synchronizeServiceTypeWithServiceTypeID:(NSNumber *)serviceTypeID successHandler:(void (^)(QUServiceType *serviceType))successHandler failureHandler:(void (^)(NSError *error))failureHandler;
 + (void)synchronizeAllServiceTypesWithSuccessHandler:(void (^)(NSSet *serviceTypes))successHandler failureHandler:(void (^)(NSError *error))failureHandler;
 
